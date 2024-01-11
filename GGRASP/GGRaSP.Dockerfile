@@ -24,4 +24,6 @@ RUN unzip GGRaSP-master.zip && rm -rd GGRaSP-master.zip
 # Install MASH, it works, just type mash in the CL
 RUN apt-get install -y mash -f
 
+COPY README.md /README.md
+
 
