@@ -1,5 +1,6 @@
 FROM --platform=linux/amd64 debian:rc-buggy
-LABEL maintainer="Daniella Matute <dmatute@jcvi.org>"
+LABEL maintainer="Daniella Matute <dmatute@jcvi.org>" dockerfile-date-updated="Jan 11 2024" tool="Panoct" description="Pan-genome ortholog clustering tool (PanOCT) is a tool for pan-genomic analysis of closely related prokaryotic species or strains. PanOCT uses conserved gene neighborhood information to separate recently diverged paralogs into orthologous clusters where homology-only clustering methods cannot."
+
 
 RUN apt-get update && \
     apt-get install -y perl cpanminus && \
