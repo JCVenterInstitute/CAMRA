@@ -6,4 +6,5 @@ LABEL maintainer="Daniella Matute <dmatute@jcvi.org>" \
 
 RUN apt-get update 
 RUN apt-get install -y wget cpanminus
-RUN sh -c "$(wget -q https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh -O -)" && export PATH=${HOME}/edirect:${PATH}
+RUN sh -c "$(wget -q https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh -O -)" 
+ENV PATH="/root/edirect:${PATH}"
