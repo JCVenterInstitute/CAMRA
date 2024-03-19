@@ -214,7 +214,8 @@ task run_merqury {
         #Preparing meryl dbs
         meryl k=$best_k count output read1.meryl ~{read1}
         meryl k=$best_k count output read2.meryl ~{read2}
-        meryl union-sum output ~{sample_name}.meryl read*.meryl
+        #meryl union-sum output ~{sample_name}.meryl read*.meryl # there is a problem with this line in terra wdl. 
+        meryl union-sum output ~{sample_name}.meryl read1.meryl read2.meryl # maybe if i do this  it will work, test it out locally first 
         #Using Merqury
         mkdir merqury_output && cd merqury_output
         merqury.sh ../~{sample_name}.meryl ~{assembly} ~{sample_name} && echo "MERQURY DONE"
@@ -222,7 +223,7 @@ task run_merqury {
         qv_line=$(tail -n 3 ~{sample_name}.qv | head -n 1)
         qv_number=$(echo "$qv_line" | awk '{print $4}')
         echo $qv_number
-        comp_line=$(tail -n 3 ~{sample_name}.qv | head -n 1)
+        comp_line=$(tail -n 4 ~{sample_name}.completeness.stats | head -n 1)
         comp_number=$(echo "$comp_line" | awk '{print $4}')
         echo $comp_number
 
