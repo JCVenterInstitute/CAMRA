@@ -32,7 +32,6 @@ workflow assembly_qc {
 
     call run_entrez_direct {
         input:
-            sample_name = sample_name, 
             mashoutput = run_MASH.mash_output
     }
 
@@ -63,6 +62,10 @@ workflow assembly_qc {
         String checkm_completness = run_checkM.checkm_completness
         String checkm_contamination = run_checkM.checkm_contamination
         String checkm_heterogeneity = run_checkM.checkm_heterogeneity
+        String merqury_qv = run_merqury.merqury_qv
+        String merqury_comp = run_merqury.merqury_qv
+        File merqury_qv_file = run_merqury.merqury_qv_file
+        File merqury_completness_file = run_merqury.merqury_completness_file
     }
 
 
@@ -100,7 +103,6 @@ task run_MASH {
 
 task run_entrez_direct{
     input {
-        String sample_name
         File mashoutput 
     }
     runtime {
@@ -174,11 +176,11 @@ task run_checkM {
             checkm taxonomy_wf domain "Bacteria" -t 4 -x fasta assembly_dir  ~{sample_name} > checkm_quality_assessment.txt
         fi
         checkm_line=$(tail -n 3 "checkm_quality_assessment.txt" | head -n 1)
-        read -r cm_ID cm_MarkerLineage cm1 cm2 cm3 cm4 cm5 cm6 cm7 cm8 cm9 cm_Completness cm_Contamination cm_Heterogeneity <<< $checkm_line
-        echo "markler lineage $cm_MarkerLineage"
-        echo "completness $cm_Completness"
-        echo "contamination $cm_Contamination"
-        echo "hetero $cm_Heterogeneity"
+        read -r cm_ID cm_MarkerLineage cm1 cm2 cm3 cm4 cm5 cm6 cm7 cm8 cm9 cm10 cm_Completness cm_Contamination cm_Heterogeneity <<< $checkm_line
+        echo "$cm_MarkerLineage"
+        echo "$cm_Completness"
+        echo "$cm_Contamination"
+        echo "$cm_Heterogeneity"
     >>>
     output {
         File checkm_output = "checkm_quality_assessment.txt"
@@ -228,8 +230,9 @@ task run_merqury {
     output {
         Array[String] stdout_values = read_lines(stdout()) 
         String merqury_qv = stdout_values[11]
+        String merqury_comp = stdout_values[12]
         File merqury_qv_file = "merqury_output/~{sample_name}.qv"
-        File merqury_completness_file = "merqury_output/~{sample_name}.completness.stats"
+        File merqury_completness_file = "merqury_output/~{sample_name}.completeness.stats"
     }
 }
 
