@@ -1,8 +1,8 @@
 {
-  "assembly_qc.quast_txt": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/nanopore/Hybrid_ASM_3_4_6_CCI102/details/Hybrid102_quast_report.txt",
-  "assembly_qc.read1": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Raw_Reads/CCI102_S22_R1_001.fastq.gz",
-  "assembly_qc.assembly": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/nanopore/Hybrid_ASM_3_4_6_CCI102/Hybrid102_contigs.fasta.gz",
-  "assembly_qc.sample_name": "Hybrid-3-4-6-102",
-  "assembly_qc.read2": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Raw_Reads/CCI102_S22_R2_001.fastq.gz"
+  "assembly_qc.assembly_size": "5710092",
+  "assembly_qc.read1": "/Users/dmatute/Bioinformatics/Raw_Reads/Sample1_R1.fastq.gz",
+  "assembly_qc.assembly": "/Users/dmatute/Bioinformatics/Assembly/Sample1_contigs.fasta.gz",
+  "assembly_qc.sample_name": "Sample1",
+  "assembly_qc.read2": "/Users/dmatute/Bioinformatics/Raw_Reads/Sample1_R2.fastq.gz"
 }
 

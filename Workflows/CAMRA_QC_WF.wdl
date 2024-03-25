@@ -9,11 +9,10 @@ workflow assembly_qc {
 
     parameter_meta {
         sample_name     :   "Name of sample isolate"
-        read1           :   "raw read 1"
-        read2           :   "raw read 2"
-        assembly        :   "assembly"
-        quast_txt       :   "OPTIONAL, If the assembly was ran in BVBRC a quast_report.txt was generated and can be placed in here."
-        mash_reference  :   "Mash database of sketches"
+        read1           :   "raw read 1 fastq.gz or fastq file"
+        read2           :   "raw read 2 fastq.gz or fastq file"
+        assembly        :   "assembly ins fasta or fasta.gz format"
+        asm_size        :   "assembly size"
     }
 
     input{
@@ -21,7 +20,7 @@ workflow assembly_qc {
         File read1
         File read2
         File assembly
-        File? quast_txt
+        String assembly_size
     }
 
     call run_MASH {
@@ -46,7 +45,7 @@ workflow assembly_qc {
         input:
             assembly = assembly,
             sample_name = sample_name,
-            quast_txt = quast_txt,
+            asm_size = assembly_size,
             read1 = read1,
             read2 = read2
     }
@@ -59,13 +58,13 @@ workflow assembly_qc {
         String mash_taxaid = run_entrez_direct.mash_taxaid
         File checkm_output = run_checkM.checkm_output
         String checkm_markerlineage = run_checkM.checkm_markerlineage
-        String checkm_completness = run_checkM.checkm_completness
+        String checkm_completeness = run_checkM.checkm_completeness
         String checkm_contamination = run_checkM.checkm_contamination
         String checkm_heterogeneity = run_checkM.checkm_heterogeneity
         String merqury_qv = run_merqury.merqury_qv
-        String merqury_comp = run_merqury.merqury_qv
+        String merqury_comp = run_merqury.merqury_comp
         File merqury_qv_file = run_merqury.merqury_qv_file
-        File merqury_completness_file = run_merqury.merqury_completness_file
+        File merqury_completeness_file = run_merqury.merqury_completeness_file
     }
 
 
@@ -82,8 +81,6 @@ task run_MASH {
     }
 
     command <<<
-        #this line saves the help text into a file to make sure the wdl runs and enters this command block
-        mash sketch -h > help_output.txt
         #make sample dir and enter it
         mkdir ~{sample_name} && cd ~{sample_name}
         #Make a mash sketch of the assembly so that the mash can run faster
@@ -168,7 +165,13 @@ task run_checkM {
     command <<<
         export TMPDIR=/tmp
         mkdir assembly_dir
-        gunzip -c ~{assembly} > assembly_dir/~{sample_name}.fasta
+        
+        if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz ]]; then 
+            gunzip -c ~{assembly} > assembly_dir/~{sample_name}.fasta 
+        elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa ]]; then
+            mv ~{assembly} assembly_dir/~{sample_name}.fasta
+        fi
+
         export TMPDIR=/tmp
         if [[ -n "~{mash_genus}" ]]; then
             checkm taxonomy_wf genus ~{mash_genus} -t 4 -x fasta assembly_dir ~{sample_name} > checkm_quality_assessment.txt
@@ -176,9 +179,9 @@ task run_checkM {
             checkm taxonomy_wf domain "Bacteria" -t 4 -x fasta assembly_dir  ~{sample_name} > checkm_quality_assessment.txt
         fi
         checkm_line=$(tail -n 3 "checkm_quality_assessment.txt" | head -n 1)
-        read -r cm_ID cm_MarkerLineage cm1 cm2 cm3 cm4 cm5 cm6 cm7 cm8 cm9 cm10 cm_Completness cm_Contamination cm_Heterogeneity <<< $checkm_line
+        read -r cm_ID cm_MarkerLineage cm1 cm2 cm3 cm4 cm5 cm6 cm7 cm8 cm9 cm10 cm_Completeness cm_Contamination cm_Heterogeneity <<< $checkm_line
         echo "$cm_MarkerLineage"
-        echo "$cm_Completness"
+        echo "$cm_Completeness"
         echo "$cm_Contamination"
         echo "$cm_Heterogeneity"
     >>>
@@ -186,7 +189,7 @@ task run_checkM {
         File checkm_output = "checkm_quality_assessment.txt"
         Array[String] stdout_values = read_lines(stdout()) 
         String checkm_markerlineage = stdout_values[0]
-        String checkm_completness = stdout_values[1]
+        String checkm_completeness = stdout_values[1]
         String checkm_contamination = stdout_values[2]
         String checkm_heterogeneity = stdout_values[3]
     }
@@ -200,22 +203,24 @@ task run_merqury {
         File read1
         File read2
         String sample_name
-        File? quast_txt
+        String asm_size
     }
     runtime{
         docker: 'miramastoras/merqury:latest'
+        memory: "4G" #increasing memmory worked
     }
     command <<<
         # finding genome size and best kmer size
-        total_length_line=$(grep "Total length   " ~{quast_txt}) 
-        total_length=$(echo "$total_length_line" | awk '$0=$NF') 
+
+        total_length=~{asm_size} 
         best_k=$(best_k.sh $total_length) 
         best_k=$(echo "$best_k" | tail -n 1) 
         #Preparing meryl dbs
         meryl k=$best_k count output read1.meryl ~{read1}
         meryl k=$best_k count output read2.meryl ~{read2}
-        #meryl union-sum output ~{sample_name}.meryl read*.meryl # there is a problem with this line in terra wdl. 
-        meryl union-sum output ~{sample_name}.meryl read1.meryl read2.meryl # maybe if i do this  it will work, test it out locally first 
+
+        meryl union-sum output ~{sample_name}.meryl read1.meryl read2.meryl 
+
         #Using Merqury
         mkdir merqury_output && cd merqury_output
         merqury.sh ../~{sample_name}.meryl ~{assembly} ~{sample_name} && echo "MERQURY DONE"
@@ -223,8 +228,8 @@ task run_merqury {
         qv_line=$(tail -n 3 ~{sample_name}.qv | head -n 1)
         qv_number=$(echo "$qv_line" | awk '{print $4}')
         echo $qv_number
-        comp_line=$(tail -n 4 ~{sample_name}.completeness.stats | head -n 1)
-        comp_number=$(echo "$comp_line" | awk '{print $4}')
+        comp_line=$(tail -n 6 ~{sample_name}.completeness.stats | head -n 1)
+        comp_number=$(echo "$comp_line" | awk '{print $5}')
         echo $comp_number
 
         >>>
@@ -233,7 +238,7 @@ task run_merqury {
         String merqury_qv = stdout_values[11]
         String merqury_comp = stdout_values[12]
         File merqury_qv_file = "merqury_output/~{sample_name}.qv"
-        File merqury_completness_file = "merqury_output/~{sample_name}.completeness.stats"
+        File merqury_completeness_file = "merqury_output/~{sample_name}.completeness.stats"
     }
 }
 
