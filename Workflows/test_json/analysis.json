@@ -1,0 +1,7 @@
+{
+  "assembly_analysis.sample_name": "CCI100",
+  "assembly_analysis.assembly": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Assembly/CCI100_S20/CCI100_S20_contigs.fasta",
+  "assembly_analysis.organism": "Klebsiella_pneumoniae",
+  "assembly_analysis.docker": "staphb/ncbi-amrfinderplus:3.12.8-2024-01-31.1"
+}
+
