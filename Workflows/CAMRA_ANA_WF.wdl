@@ -1,5 +1,5 @@
 version 1.0
-workflow assembly_qc {
+workflow assembly_analysis   {
     meta {
         author: "Daniella Matute"
         email: "dmatute@jcvi.org"
@@ -15,7 +15,17 @@ workflow assembly_qc {
         # File read2
         File assembly
         String organism 
-        String? dockerversion_AMRfinder
+        String docker
+    }
+
+    call run_AMRfinderPlus {
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+            organism = organism,
+            docker = docker  
+
+
     }
 }
 # plasmid finder or rgi or ariba or resfinder or virulence finder or abricate, fargene, deep arg
@@ -25,7 +35,7 @@ task run_AMRfinderPlus {
         File assembly
         String sample_name
         String organism
-        String docker = "staphb/ncbi-amrfinderplus:3.12.8"
+        String docker
 
     }
     runtime{
@@ -98,40 +108,26 @@ task run_AMRfinderPlus {
 
         echo "amrfinder_organism is set to:" ${amrfinder_organism}
 
-
-    '''Available --organism options: Acinetobacter_baumannii, Burkholderia_cepacia, Burkholderia_pseudomallei, Campylobacter, 
-    Citrobacter_freundii, Clostridioides_difficile, Enterobacter_asburiae, Enterobacter_cloacae, Enterococcus_faecalis, 
-    Enterococcus_faecium, Escherichia, Klebsiella_oxytoca, Klebsiella_pneumoniae, Neisseria_gonorrhoeae, Neisseria_meningitidis, 
-    Pseudomonas_aeruginosa, Salmonella, Serratia_marcescens, Staphylococcus_aureus, Staphylococcus_pseudintermedius, 
-    Streptococcus_agalactiae, Streptococcus_pneumoniae, Streptococcus_pyogenes, Vibrio_cholerae, Vibrio_parahaemolyticus, Vibrio_vulnificus'''
         # if amrfinder_organism variable is set, use --organism flag, otherwise do not use --organism flag
-    if [[ -v amrfinder_organism ]] ; then
-      # always use --plus flag, others may be left out if param is optional and not supplied 
-      amrfinder --plus \
-        --organism ${amrfinder_organism} \
-        ~{'--name ' + samplename} \
-        ~{'--nucleotide ' + assembly} \
-        ~{'-o ' + samplename + '_amrfinder_all.tsv'} \
-        ~{'--threads ' + cpu} \
-        ~{'--coverage_min ' + mincov} \
-        ~{'--ident_min ' + minid}
-    else 
-      echo "Either the organism (~{organism}) is not recognized by NCBI-AMRFinderPlus or the user did not supply an organism as input."
-      echo "Skipping the use of amrfinder --organism optional parameter."
-      # always use --plus flag, others may be left out if param is optional and not supplied 
-      amrfinder --plus \
-        ~{'--name ' + samplename} \
-        ~{'--nucleotide ' + assembly} \
-        ~{'-o ' + samplename + '_amrfinder_all.tsv'} \
-        ~{'--threads ' + cpu} \
-        ~{'--coverage_min ' + mincov} \
-        ~{'--ident_min ' + minid}
-    fi
+        if [[ -v amrfinder_organism ]] ; then
+        # always use --plus flag, others may be left out if param is optional and not supplied 
+            amrfinder --plus \
+                --organism ${amrfinder_organism} \
+                ~{'--name ' + sample_name} \
+                ~{'--nucleotide ' + assembly} \
+                ~{'-o ' + sample_name + '_amrfinder_all.tsv'} 
+        else 
+            echo "Either the organism (~{organism}) is not recognized by NCBI-AMRFinderPlus or the user did not supply an organism as input."
+            echo "Skipping the use of amrfinder --organism optional parameter."
+            # always use --plus flag, others may be left out if param is optional and not supplied 
+            amrfinder --plus \
+                ~{'--name ' + sample_name} \
+                ~{'--nucleotide ' + assembly} \
+                ~{'-o ' + sample_name + '_amrfinder_all.tsv'} 
+            fi
     >>>
     output{
-
     }
-
 }
 
 # #planton, 
