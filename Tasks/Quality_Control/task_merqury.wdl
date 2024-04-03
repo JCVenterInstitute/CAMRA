@@ -7,12 +7,14 @@ task run_merqury {
         File read2
         String sample_name
         String asm_size
+        #TODO add option to change docker version
     }
     runtime{
         docker: 'miramastoras/merqury:latest'
         memory: "4G" #increasing memmory worked
     }
     command <<<
+        #TODO add versioning
         # finding genome size and best kmer size
 
         total_length=~{asm_size} 
