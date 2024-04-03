@@ -1,15 +1,17 @@
 version 1.0
-
+#TODO perhaps combine the entrez with the mash
 task run_MASH {
     input {
         String sample_name
         File assembly
+        #TODO add option to change docker version
     }
     runtime{
         docker: 'staphb/mash:2.3'
     }
 
     command <<<
+        #TODO add versioning
         #make sample dir and enter it
         mkdir ~{sample_name} && cd ~{sample_name}
         #Make a mash sketch of the assembly so that the mash can run faster

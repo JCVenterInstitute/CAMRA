@@ -5,6 +5,7 @@ task run_checkM {
         String sample_name
         String mash_genus
         File assembly
+        #TODO add option to change docker version
     }
     runtime{
         docker: 'danylmb/checkm:latest'
@@ -12,6 +13,7 @@ task run_checkM {
     command <<<
         export TMPDIR=/tmp
         mkdir assembly_dir
+        #TODO add versioning
         
         if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz ]]; then 
             gunzip -c ~{assembly} > assembly_dir/~{sample_name}.fasta 

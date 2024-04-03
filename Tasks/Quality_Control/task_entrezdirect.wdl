@@ -3,11 +3,13 @@ version 1.0
 task run_entrez_direct{
     input {
         File mashoutput 
+         #TODO add option to change docker version
     }
     runtime {
         docker: 'danylmb/entrez-direct:latest'
     }
     command <<<
+        #TODO add versioning
         line=$(head -n 1 ~{mashoutput})
         taxa_id=$(echo "$line" | cut -d'-' -f3)
         scientific_name=$(efetch -db taxonomy -id "$taxa_id" -format xml | xtract -pattern Taxon -element ScientificName)
