@@ -4,6 +4,13 @@ version 1.0
 # plasmid finder or rgi or ariba or resfinder or virulence finder or abricate, fargene, deep arg
 #ncbi-amrfinderplus, abricate, staramr, 
 task run_AMRfinderPlus {
+
+    meta {
+    description: "AMRFinderPlus - Identify AMR genes and point mutations, and virulence and stress resistance genes in assembled bacterial nucleotide and protein sequence."
+    gitrepository: "https://github.com/ncbi/amr"
+    docker:"https://hub.docker.com/r/staphb/ncbi-amrfinderplus"
+    cite: "Feldgarden M, Brover V, Gonzalez-Escalona N, Frye JG, Haendiges J, Haft DH, Hoffmann M, Pettengill JB, Prasad AB, Tillman GE, Tyson GH, Klimke W. AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. Sci Rep. 2021 Jun 16;11(1):12728. doi: 10.1038/s41598-021-91456-0. PMID: 34135355; PMCID: PMC8208984."
+    } 
     input {
         File assembly
         String sample_name
@@ -23,7 +30,7 @@ task run_AMRfinderPlus {
         
         #TODO fix organism mapping
         # these are the organisms avaliable for Database version: 2024-01-31.1 when you run 'amrfinder -l' these might need to be manually updated is the data base version is increased
-        case "$organism" in
+        case "~{organism}" in
             *"Acinetobacter"*"baumannii"*)
                 amrfinder_organism="Acinetobacter_baumannii";;
             *"Burkholderia"*"cepacia"*)
