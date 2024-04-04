@@ -19,6 +19,7 @@ workflow assembly_analysis   {
         # File read2
         File assembly
         String organism 
+        #Q? where should I put in the docker image i want to default used if an option is not provided?
         String amrfinder_docker
     }
 
