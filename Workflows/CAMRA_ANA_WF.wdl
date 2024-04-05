@@ -1,6 +1,7 @@
 version 1.0
 
 import "../Tasks/Analysis/AMR_finder.wdl" as amrfinder
+import "../Tasks/Analysis/MLST.wdl" as mlst
 
 
 workflow assembly_analysis   {
@@ -30,4 +31,5 @@ workflow assembly_analysis   {
             organism = organism,
             docker = amrfinder_docker 
     }
+    call mlst.get_MLST_db{}
 }

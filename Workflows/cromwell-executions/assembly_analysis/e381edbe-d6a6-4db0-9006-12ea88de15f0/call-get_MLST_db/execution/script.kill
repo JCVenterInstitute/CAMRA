@@ -1,0 +1,2 @@
+#!/bin/bash
+docker kill `cat /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/docker_cid`
