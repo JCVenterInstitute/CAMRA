@@ -1,0 +1,18 @@
+Unable to find image 'staphb/ncbi-amrfinderplus@sha256:45863da98b042fffc17b91d8a42bb7094509c154409da7747b6ba509bca7cdc2' locally
+docker.io/staphb/ncbi-amrfinderplus@sha256:45863da98b042fffc17b91d8a42bb7094509c154409da7747b6ba509bca7cdc2: Pulling from staphb/ncbi-amrfinderplus
+docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
+See 'docker run --help'.
+cat: /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/83601398-978e-41c6-9f7b-ecc84e75db73/call-run_AMRfinderPlus/execution/docker_cid: No such file or directory
+"docker wait" requires at least 1 argument.
+See 'docker wait --help'.
+
+Usage:  docker wait CONTAINER [CONTAINER...]
+
+Block until one or more containers stop, then print their exit codes
+cat: /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/83601398-978e-41c6-9f7b-ecc84e75db73/call-run_AMRfinderPlus/execution/docker_cid: No such file or directory
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cd /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution
+tmpDir=$(mkdir -p "/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/tmp.10da6a21" && echo "/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/tmp.10da6a21")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution
+
+)
+oute381edbe="${tmpDir}/out.$$" erre381edbe="${tmpDir}/err.$$"
+mkfifo "$oute381edbe" "$erre381edbe"
+trap 'rm "$oute381edbe" "$erre381edbe"' EXIT
+touch '/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/stdout' '/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/stderr'
+tee '/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/stdout' < "$oute381edbe" &
+tee '/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/stderr' < "$erre381edbe" >&2 &
+(
+cd /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution
+
+
+# Update the database. expect db of ~100M
+/mlst-2.23.0/scripts/mlst-download_pub_mlst -d pubmlst | bash
+db_name="pubmlst-$(date "+%d%m%Y").tar.gz"
+tar -czvf "$db_name" -C pubmlst .
+)  > "$oute381edbe" 2> "$erre381edbe"
+echo $? > /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution
+sync
+
+
+)
+mv /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/rc.tmp /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/rc

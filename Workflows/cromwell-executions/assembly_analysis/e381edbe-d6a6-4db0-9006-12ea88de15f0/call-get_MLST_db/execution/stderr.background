@@ -1,0 +1,176 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+This is mlst-download_pub_mlst
+Found curl - /usr/bin/curl
+Found parallel - /usr/bin/parallel
+Making dir: /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/pubmlst
+Downloading: http://pubmlst.org/data/dbases.xml
+Fetch failed! HTTP response: 599 [Internal Exception] at /mlst-2.23.0/scripts/mlst-download_pub_mlst line 77.
+Got: /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/pubmlst/dbases.xml
+Loaded XML 151040 bytes
+1 scheme: achromobacter version 1
+2 scheme: abaumannii version 1
+3 scheme: abaumannii version 2
+4 scheme: aeromonas version 1
+5 scheme: aactinomycetemcomitans version 1
+6 scheme: aphagocytophilum version 1
+7 scheme: arcobacter version 1
+8 scheme: afumigatus version 1
+9 scheme: bcereus version 1
+10 scheme: blicheniformis version 14
+11 scheme: bsubtilis version 1
+12 scheme: bfragilis version 1
+13 scheme: bbacilliformis version 1
+14 scheme: bhenselae version 1
+15 scheme: bwashoensis version 1
+16 scheme: bordetella version 3
+17 scheme: borrelia version 1
+18 scheme: brachyspira version 5
+19 scheme: brachyspira version 2
+20 scheme: brachyspira version 3
+21 scheme: brachyspira version 4
+22 scheme: brachyspira version 1
+23 scheme: brucella version 1
+24 scheme: bcc version 1
+25 scheme: bpseudomallei version 1
+26 scheme: campylobacter_nonjejuni version 5
+27 scheme: campylobacter_nonjejuni version 9
+28 scheme: campylobacter_nonjejuni version 1
+29 scheme: campylobacter_nonjejuni version 6
+30 scheme: campylobacter_nonjejuni version 2
+31 scheme: campylobacter version 1
+32 scheme: campylobacter_nonjejuni version 7
+33 scheme: campylobacter_nonjejuni version 3
+34 scheme: campylobacter_nonjejuni version 8
+35 scheme: campylobacter_nonjejuni version 4
+36 scheme: calbicans version 1
+37 scheme: cglabrata version 1
+38 scheme: ckrusei version 1
+39 scheme: ctropicalis version 1
+40 scheme: liberibacter version 1
+41 scheme: cmaltaromaticum version 1
+42 scheme: chlamydiales version 1
+43 scheme: cfreundii version 1
+44 scheme: csinensis version 1
+45 scheme: cdifficile version 1
+46 scheme: cbotulinum version 1
+47 scheme: cperfringens version 1
+48 scheme: csepticum version 1
+49 scheme: diphtheria version 3
+50 scheme: cronobacter version 1
+51 scheme: pacnes version 3
+52 scheme: dnodosus version 1
+53 scheme: edwardsiella version 1
+54 scheme: ecloacae version 1
+55 scheme: efaecalis version 1
+56 scheme: efaecium version 1
+57 scheme: ecoli_achtman version 4
+58 scheme: ecoli version 1
+59 scheme: fpsychrophilum version 1
+60 scheme: gallibacterium version 1
+61 scheme: geotrichum version 1
+62 scheme: hparasuis version 1
+63 scheme: hinfluenzae version 1
+64 scheme: hcinaedi version 1
+65 scheme: helicobacter version 1
+66 scheme: hsuis version 1
+67 scheme: kingella version 1
+68 scheme: kaerogenes version 1
+69 scheme: koxytoca version 1
+70 scheme: klebsiella version 1
+71 scheme: kseptempunctata version 1
+72 scheme: lsalivarius version 1
+73 scheme: llactis_phage version 1
+74 scheme: leptospira version 1
+75 scheme: leptospira version 2
+76 scheme: leptospira version 3
+77 scheme: listeria version 2
+78 scheme: mcanis version 1
+79 scheme: mcaseolyticus version 1
+80 scheme: msciuri version 1
+81 scheme: mhaemolytica version 1
+82 scheme: mplutonius version 1
+83 scheme: mcatarrhalis_achtman version 6
+84 scheme: mycobacteria version 2
+85 scheme: mabscessus version 1
+86 scheme: magalactiae version 1
+87 scheme: manserisalpingitidis version 1
+88 scheme: mbovis version 2
+89 scheme: mflocculare version 1
+90 scheme: mgallisepticum version 1
+91 scheme: mgallisepticum version 2
+92 scheme: mhominis version 3
+93 scheme: mhyopneumoniae version 1
+94 scheme: mhyorhinis version 1
+95 scheme: miowae version 1
+96 scheme: mpneumoniae version 1
+97 scheme: msynoviae version 1
+98 scheme: neisseria version 1
+99 scheme: otsutsugamushi version 1
+100 scheme: orhinotracheale version 1
+101 scheme: plarvae version 1
+102 scheme: pmultocida version 2
+103 scheme: pmultocida version 1
+104 scheme: ppentosaceus version 1
+105 scheme: pdamselae version 1
+106 scheme: psalmonis version 1
+107 scheme: pgingivalis version 1
+108 scheme: paeruginosa version 1
+109 scheme: pfluorescens version 1
+110 scheme: pputida version 1
+111 scheme: rhodococcus version 1
+112 scheme: ranatipestifer version 1
+113 scheme: senterica_achtman version 2
+114 scheme: sparasitica version 1
+115 scheme: shewanella version 1
+116 scheme: sinorhizobium version 1
+117 scheme: saureus version 1
+118 scheme: schromogenes version 1
+119 scheme: sepidermidis version 1
+120 scheme: shaemolyticus version 1
+121 scheme: shominis version 1
+122 scheme: staphlugdunensis version 1
+123 scheme: spseudintermedius version 1
+124 scheme: smaltophilia version 1
+125 scheme: sagalactiae version 1
+126 scheme: sbsec version 1
+127 scheme: scanis version 1
+128 scheme: sdysgalactiae version 1
+129 scheme: sgallolyticus version 1
+130 scheme: oralstrep version 1
+131 scheme: spneumoniae version 1
+132 scheme: spyogenes version 1
+133 scheme: ssuis version 1
+134 scheme: streptothermophilus version 1
+135 scheme: sthermophilus version 1
+136 scheme: suberis version 1
+137 scheme: szooepidemicus version 1
+138 scheme: streptomyces version 1
+139 scheme: taylorella version 1
+140 scheme: tenacibaculum version 1
+141 scheme: tpallidum version 1
+142 scheme: tvaginalis version 1
+143 scheme: ureaplasma version 1
+144 scheme: vcholerae version 1
+145 scheme: vcholerae version 2
+146 scheme: vparahaemolyticus version 1
+147 scheme: vibrio version 1
+148 scheme: vtapetis version 1
+149 scheme: vvulnificus version 1
+150 scheme: wolbachia version 1
+151 scheme: xfastidiosa version 1
+152 scheme: ypseudotuberculosis_achtman version 3
+153 scheme: yruckeri version 1
+Deleting schemes specified by -x
+Ignoring: afumigatus
+WARNING: Can't ignore non-existent scheme: blastocystis
+Ignoring: calbicans
+Ignoring: cglabrata
+Ignoring: ckrusei
+Ignoring: csinensis
+Ignoring: ctropicalis
+Ignoring: kseptempunctata
+Ignoring: sparasitica
+Ignoring: tvaginalis
+Collated 144 schemes
+Writing download commands: /cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-get_MLST_db/execution/pubmlst/dbases.sh
+Downloading 1 files at a time...
