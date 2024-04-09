@@ -1,8 +1,5 @@
 version 1.0
 
-# TODO do you want to add the following tools? 
-# plasmid finder or rgi or ariba or resfinder or virulence finder or abricate, fargene, deep arg
-#ncbi-amrfinderplus, abricate, staramr, 
 task run_AMRfinderPlus {
 
     meta {
@@ -15,11 +12,9 @@ task run_AMRfinderPlus {
         File assembly
         String sample_name
         String organism
-        String docker
-
     }
     runtime{
-        docker: docker
+        docker: "staphb/ncbi-amrfinderplus:3.12.8-2024-01-31.1"
     }
 
     command <<<
@@ -28,8 +23,9 @@ task run_AMRfinderPlus {
         amrfinder --version |tee AMRFINDER_VERSION
         amrfinder --database_version 2>/dev/null | grep "Database version" | sed 's|Database version: ||' | tee AMRFINDER_DB_VERSION
         
-        #TODO fix organism mapping
-        # these are the organisms avaliable for Database version: 2024-01-31.1 when you run 'amrfinder -l' these might need to be manually updated is the data base version is increased
+        # When you run 'amrfinder -l' you get a list of the available organisms. Here, the sample's organism is aligned to its match within the database if available. 
+            # The list was created with the databse wersion 2024-01-31.1 on April 2nd 2024. 
+            # The list will be updated in subsequent versions of this wdl. Users are welcome to update it as well.  
         case "~{organism}" in
             *"Acinetobacter"*"baumannii"*)
                 amrfinder_organism="Acinetobacter_baumannii";;
@@ -84,23 +80,24 @@ task run_AMRfinderPlus {
             *"Vibrio"*"vulnificus"*)
                 amrfinder_organism="Vibrio_vulnificus";;
             *)
-                echo "Either Gambit predicted taxon is not supported by NCBI-AMRFinderPlus or the user did not supply an organism as input."
-                echo "Skipping the use of amrfinder --organism optional parameter.";;
+                echo "amrfinder_organism is not mapped.";;
         esac
 
         echo "amrfinder_organism is set to:" ${amrfinder_organism}
-        #TODO Add plus flag
+
+
         # if amrfinder_organism variable is set, use --organism flag, otherwise do not use --organism flag
         if [[ -v amrfinder_organism ]] ; then
-        # always use --plus flag, others may be left out if param is optional and not supplied 
+            echo "Running AMRFinder+ WITH amrfinder_organism."
+            # always use --plus flag, others may be left out if param is optional and not supplied 
             amrfinder --plus \
                 --organism ${amrfinder_organism} \
                 ~{'--name ' + sample_name} \
                 ~{'--nucleotide ' + assembly} \
                 ~{'-o ' + sample_name + '_amrfinder_all.tsv'} 
+
         else 
-            echo "Either the organism (~{organism}) is not recognized by NCBI-AMRFinderPlus or the user did not supply an organism as input."
-            echo "Skipping the use of amrfinder --organism optional parameter."
+            echo "Running AMRFinder+ WITHOUT amrfinder_organism."
             # always use --plus flag, others may be left out if param is optional and not supplied 
             amrfinder --plus \
                 ~{'--name ' + sample_name} \
