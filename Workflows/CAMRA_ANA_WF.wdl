@@ -12,24 +12,27 @@ workflow assembly_analysis   {
     }
 
     parameter_meta {
-        description: "Analysis of genomes"
+        description: "Analysis of genome, AMR focused."
     }
     input {
         String sample_name
-        # File read1
-        # File read2
         File assembly
         String organism 
-        #Q? where should I put in the docker image i want to default used if an option is not provided?
-        String amrfinder_docker
+        File pubmlst_DB
     }
 
     call amrfinder.run_AMRfinderPlus {
         input:
             assembly = assembly,
             sample_name = sample_name,
-            organism = organism,
-            docker = amrfinder_docker 
+            organism = organism
     }
-    call mlst.get_MLST_db{}
+    call mlst.run_MLST{
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+            organism = organism,
+            pubmlst_DB = pubmlst_DB
+    }
+    
 }
