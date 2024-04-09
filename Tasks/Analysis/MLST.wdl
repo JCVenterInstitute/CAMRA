@@ -13,6 +13,7 @@ task run_MLST {
         File assembly
         String sample_name
         String organism
+        File pubmlst_DB
         String? docker = 'staphb/mlst:2.23.0-2024-01'
         String? scheme
         Float? minid
@@ -69,19 +70,19 @@ task get_MLST_db{
     } 
 
 
-    input {
-        String docker = 'staphb/mlst:2.23.0-2024-01'
-    }
-    runtime{
-        docker: docker
-    }
-    command <<<
-        # Update the database. expect db of ~100M
-        /mlst-2.23.0/scripts/mlst-download_pub_mlst -d pubmlst | bash
-        db_name="pubmlst-$(date "+%d%m%Y").tar.gz"
-        tar -czvf "$db_name" -C pubmlst . 
-    >>>
-    output{
-        File pubmlst_db = "$db_name"
-    }
+    # input {
+    #     String docker = 'staphb/mlst:2.23.0-2024-01'
+    # }
+    # runtime{
+    #     docker: docker
+    # }
+    # command <<<
+    #     # Update the database. expect db of ~100M
+    #     /mlst-2.23.0/scripts/mlst-download_pub_mlst -d pubmlst | bash
+    #     db_name="pubmlst-$(date "+%d%m%Y").tar.gz"
+    #     tar -czvf "$db_name" -C pubmlst . 
+    # >>>
+    # output{
+    #     File pubmlst_db = "$db_name"
+    # }
 }
