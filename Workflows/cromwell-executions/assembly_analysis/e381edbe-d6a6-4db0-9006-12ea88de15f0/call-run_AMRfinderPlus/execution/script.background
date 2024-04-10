@@ -1,3 +1,0 @@
-#!/bin/bash
-'/bin/bash' '/Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-run_AMRfinderPlus/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/e381edbe-d6a6-4db0-9006-12ea88de15f0/call-run_AMRfinderPlus/execution/rc &
-echo $!
