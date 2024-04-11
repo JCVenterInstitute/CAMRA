@@ -1,6 +1,6 @@
 version 1.0
 
-#import "../Tasks/Analysis/AMR_finder.wdl" as amrfinder
+import "../Tasks/Analysis/AMR_finder.wdl" as amrfinder
 import "../Tasks/Analysis/MLST.wdl" as mlst
 
 
@@ -18,33 +18,26 @@ workflow assembly_analysis   {
         String sample_name
         File assembly
         String organism 
-        File? pubmlst_DB
+        # File? pubmlst_DB
     }
 
-    # call amrfinder.run_AMRfinderPlus {
-    #     input:
-    #         assembly = assembly,
-    #         sample_name = sample_name,
-    #         organism = organism
-    # }
-    
-    if(defined(pubmlst_DB)){
-        call mlst.run_MLST as MLST_w_pubmlst_DB{
-            input:
-                assembly = assembly,
-                sample_name = sample_name,
-                pubmlst_DB = pubmlst_DB
-        }
-    
+    call amrfinder.run_AMRfinderPlus {
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+            organism = organism
     }
+    
 
-    if(! defined(pubmlst_DB)){
-        call mlst.run_MLST as MLST_wo_pubmlsy_DB{
-            input:
-                assembly = assembly,
-                sample_name = sample_name,
-        }
+    call mlst.run_MLST {
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+            #pubmlst_DB = pubmlst_DB
     }
+    
+
+
     
     
 }
