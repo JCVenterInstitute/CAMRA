@@ -20,8 +20,8 @@ task run_AMRfinderPlus {
     command <<<
 
         date | tee date
-        amrfinder --version |tee AMRFINDER_VERSION
-        amrfinder --database_version 2>/dev/null | grep "Database version" | sed 's|Database version: ||' | tee AMRFINDER_DB_VERSION
+        amrfinder --version |tee VERSION
+        amrfinder --database_version 2>/dev/null | grep "Database version" | sed 's|Database version: ||' | tee DB_VERSION
         
         # When you run 'amrfinder -l' you get a list of the available organisms. Here, the sample's organism is aligned to its match within the database if available. 
             # The list was created with the databse wersion 2024-01-31.1 on April 2nd 2024. 
@@ -104,7 +104,13 @@ task run_AMRfinderPlus {
                 ~{'--nucleotide ' + assembly} \
                 ~{'-o ' + sample_name + '_amrfinder_all.tsv'} 
             fi
+
+        #TODO what analysis can I do here? Should I even do extra analysis? 
     >>>
     output{
+        File AMRfinder_tsv_output = "~{sample_name}_amrfinder_all.tsv"
+        String AMRFinder_version = read_string("VERSION")
+        String AMRFinder_db_version = read_string("DB_VERSION")
+        String AMRfinder_date = read_string("DATE")
     }
 }
