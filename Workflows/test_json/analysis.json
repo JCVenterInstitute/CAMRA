@@ -1,0 +1,8 @@
+{
+  "assembly_analysis.get_MLST_db.docker": "staphb/mlst:2.23.0-2024-01",
+  "assembly_analysis.amrfinder_docker": "staphb/ncbi-amrfinderplus:3.12.8-2024-01-31.1_2",
+  "assembly_analysis.organism": "Klebsiella pneumoniae",
+  "assembly_analysis.sample_name": "CCI102",
+  "assembly_analysis.assembly": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Assembly/CCI102_S22/CCI102_S22_contigs.fasta"
+}
+
