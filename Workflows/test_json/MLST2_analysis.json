@@ -1,7 +1,6 @@
 {
   "assembly_analysis.organism": "String",
   "assembly_analysis.sample_name": "CCI102",
-  "assembly_analysis.assembly": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Assembly/CCI102_S22/CCI102_S22_contigs.fasta",
-  "assembly_analysis.pubmlst_DB": "File? (optional)"  
+  "assembly_analysis.assembly": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Assembly/CCI102_S22/CCI102_S22_contigs.fasta"
 }
 
