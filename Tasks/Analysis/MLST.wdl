@@ -30,6 +30,8 @@ task run_MLST {
         ~{assembly} \
         >> ~{sample_name}_ts_mlst.tsv 
 
+        #TODO Decide if i want to ad an updated pubmlst database. the bwllow code suppor that f
+
         # #if the pubmlst_DB is not set then use the docker's pubmlst
         # if [[ -z "~pubmlst_DB" ]]; then
         #     echo "Pubmlst was NOT input."
