@@ -15,7 +15,6 @@ task run_PlasmidFinder {
         File assembly
         String sample_name
         File database #could be optional. 
-        #File pubmlst_DB
     }
     command <<<
         # plasmid finder version is from the docker container
