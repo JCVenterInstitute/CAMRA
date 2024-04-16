@@ -2,6 +2,7 @@ version 1.0
 
 import "../Tasks/Analysis/AMR_finder.wdl" as amrfinder
 import "../Tasks/Analysis/MLST.wdl" as mlst
+import "../Tasks/Analysis/plasmidfinder.wdl" as plasmidfinder
 
 
 workflow assembly_analysis   {
@@ -19,6 +20,7 @@ workflow assembly_analysis   {
         File assembly
         String organism 
         # File? pubmlst_DB
+        File plasmidfinder_DB
     }
 
     call amrfinder.run_AMRfinderPlus {
@@ -32,8 +34,15 @@ workflow assembly_analysis   {
     call mlst.run_MLST {
         input:
             assembly = assembly,
-            sample_name = sample_name,
+            sample_name = sample_name
             #pubmlst_DB = pubmlst_DB
+    }
+
+    call plasmidfinder.run_PlasmidFinder {
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+            database = plasmidfinder_DB 
     }
     
 
