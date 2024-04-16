@@ -41,17 +41,17 @@ task run_PlasmidFinder {
             mv ~{assembly} "plasmidfinder_db"
         if
 
-        mkdir plasmidfinder_results
-        plasmidfinder.py -i assembly.fasta -o plasmidfinder_results -p plasmidfinder_db
+        mkdir "~{sample_name}_plasmidfinder_results"
+        plasmidfinder.py -i assembly.fasta -o "~{sample_name}_plasmidfinder_results" -p plasmidfinder_db
 
-        cat plasmidfinder_results/data.json | jq ".plasmidfinder.results" | tee PLASMIDFINDER_RESULTS.json
-        grep -o -i 'hit_id' plasmidfinder_results/data.json | wc -l | tee HIT_QUANTITY
+        cat "~{sample_name}_plasmidfinder_results"/data.json | jq ".plasmidfinder.results" | tee PLASMIDFINDER_RESULTS.json
+        grep -o -i 'hit_id' "~{sample_name}_plasmidfinder_results"/data.json | wc -l | tee HIT_QUANTITY
 
 
     >>>
 
     output {
-        File plasmidfinder_json_output = "plasmidfinder_results/data.json"
+        File plasmidfinder_json_output = "~{sample_name}_plasmidfinder_results/data.json"
         File plasmidfinder_results = "PLASMIDFINDER_RESULTS.json"
         String plasmidfinder_qtyhits = read_string("HIT_QUANTITY")
         String plasmidfinder_date = read_string("DATE")
