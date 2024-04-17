@@ -22,13 +22,15 @@ task run_MLST {
 
         echo $(mlst --version 2>&1) | sed 's/mlst //' | tee VERSION
         date | tee DATE
+        echo "this is the assembly info $(ls -l ~{assembly})"
 
-        echo "Running MLST"
+        echo "Running MLST" && \
         mlst \
         --novel \
         ~{sample_name}_novel_mlst.fasta \
         ~{assembly} \
-        >> ~{sample_name}_ts_mlst.tsv 
+        >> ~{sample_name}_ts_mlst.tsv  && cd \
+        echo "MLST done"
 
         #TODO Decide if i want to ad an updated pubmlst database. the bwllow code suppor that f
 
