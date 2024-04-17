@@ -8,17 +8,19 @@ task run_PlasmidFinder {
     } 
 
     runtime{
-        docker: 'staphb/plasmidfinder:2.1.6_2024-03-07'
+        docker: 'staphb/plasmidfinder:2.1.6'
     }
 
     input {
         File assembly
         String sample_name
-        File database #could be optional. 
+        File database 
+        #these people have a db as a string! 
+        #String database # https://github.com/theiagen/public_health_bacterial_genomics/blob/77265020e141ded2f3a5e2af7fe55afd13167abc/tasks/gene_typing/task_plasmidfinder.wdl#L30
     }
     command <<<
         # plasmid finder version is from the docker container
-        echo "2.1.6_2024-03-07" | tee VERSION 
+        echo "2.1.6" | tee VERSION 
 
         # plasmid finder database 
         echo "$(basename ~{database})" | tee DB_VERSION
@@ -26,36 +28,42 @@ task run_PlasmidFinder {
 
         #Checking if assembly is zipped
         if [[ "~{assembly}" == *.gz ]]; then
+            echo "We need to unzip the assembly."
             # Uncompress the file
-            gunzip -c "~{assembly}" > "assembly.fasta"
+            gunzip -c ~{assembly} > assembly.fasta && echo "    > unzip completed"
         else 
-            mv ~{assembly} "assembly.fasta"
-        if
+            echo "We do not need to unzip."
+            mv ~{assembly} assembly.fasta && echo "    > mv successful"
+        fi
 
         #Checking if database is zipped
         if [[ "~{database}" == *.gz ]]; then
             # Uncompress the database
-            gunzip -c "~{database}" > "plasmidfinder_db"
+            echo "We need to unzip the database."
+            gunzip -c ~{database} > plasmidfinder_db && echo "    > unzip completed"
         else 
-            mv ~{assembly} "plasmidfinder_db"
-        if
+            echo "We do not need to unzip."
+            mv ~{database} plasmidfinder_db && echo "    > mv successful"
+        fi
 
-        mkdir "~{sample_name}_plasmidfinder_results"
-        plasmidfinder.py -i assembly.fasta -o "~{sample_name}_plasmidfinder_results" -p plasmidfinder_db
+        #echo "making directory" && mkdir "~{sample_name}_plasmidfinder_results" && echo "directyory made"
+        #echo "running plasmid finder" && plasmidfinder.py -i assembly.fasta -p plasmidfinder_db && echo "    > plasmidfiner good"
+        echo "running plasmid finder" && plasmidfinder.py -i assembly.fasta  && echo "    > plasmidfiner good" #this works
 
-        cat "~{sample_name}_plasmidfinder_results"/data.json | jq ".plasmidfinder.results" | tee PLASMIDFINDER_RESULTS.json
-        grep -o -i 'hit_id' "~{sample_name}_plasmidfinder_results"/data.json | wc -l | tee HIT_QUANTITY
-
+        #cat data.json | jq ".plasmidfinder.results" | tee PLASMIDFINDER_RESULTS.json
+        #grep '"plasmidfinder.results"' data.json | tee PLASMIDFINDER_RESULTS.json
+        grep -o -i 'hit_id' data.json | wc -l | tee HIT_QUANTITY
+        rm -rd plasmidfinder_db
+        rm assembly.fasta
 
     >>>
 
     output {
-        File plasmidfinder_json_output = "~{sample_name}_plasmidfinder_results/data.json"
-        File plasmidfinder_results = "PLASMIDFINDER_RESULTS.json"
-        String plasmidfinder_qtyhits = read_string("HIT_QUANTITY")
+        File plasmidfinder_json_output = "data.json"
+        String plasmidfinder_qty_hits = read_string("HIT_QUANTITY")
         String plasmidfinder_date = read_string("DATE")
         String plasmidfinder_version = read_string("VERSION")
-        String plasmidfinder_dbversion = read_string("DB_VERSION")
+        String plasmidfinder_db_version = read_string("DB_VERSION")
     }
 
 }
