@@ -21,6 +21,7 @@ workflow assembly_analysis   {
         String organism 
         # File? pubmlst_DB
         File plasmidfinder_DB
+        #String plasmidfinder_DB
     }
 
     call amrfinder.run_AMRfinderPlus {
