@@ -3,6 +3,7 @@ version 1.0
 import "../Tasks/Analysis/AMR_finder.wdl" as amrfinder
 import "../Tasks/Analysis/MLST.wdl" as mlst
 import "../Tasks/Analysis/plasmidfinder.wdl" as plasmidfinder
+import "../Tasks/Analysis/Abricate.wdl" as abricate
 
 
 workflow assembly_analysis   {
@@ -45,8 +46,12 @@ workflow assembly_analysis   {
             sample_name = sample_name,
             database = plasmidfinder_DB 
     }
-    
 
+    call abricate.run_Abricate{
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+    }
 
     
     
