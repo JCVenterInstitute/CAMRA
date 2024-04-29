@@ -36,7 +36,7 @@ task run_Abricate {
         # Function to run abricate for a specific database and save the hits
         run_abricate() {
             local db="$1"
-            local output_file="${db}_~{sample_name}_abricate_hits.tsv"
+            local output_file="abricate_~{sample_name}_${db}_hits.tsv"
             abricate --threads 4 --db "$db" ~{assembly} > "$output_file"
 
             # Parse out gene names into list of strings, comma-separated, final comma at end removed by sed
@@ -59,11 +59,11 @@ task run_Abricate {
         >>>
 
     output{
-        File abricate_ncbiDB_tsv_output = "ncbi_~{sample_name}_abricate_hits.tsv"
-        File abricate_cardDB_tsv_output = "card_~{sample_name}_abricate_hits.tsv"
-        File abricate_resfinderDB_tsv_output = "resfinder_~{sample_name}_abricate_hits.tsv"
-        File abricate_vfdb_tsv_output = "vfdb_~{sample_name}_abricate_hits.tsv"
-        File abricate_argannotBD_tsv_output = "argannot_~{sample_name}_abricate_hits.tsv"
+        File abricate_ncbiDB_tsv_output = "abricate_~{sample_name}_ncbi_hits.tsv"
+        File abricate_cardDB_tsv_output = "abricate_~{sample_name}_card_hits.tsv"
+        File abricate_resfinderDB_tsv_output = "abricate_~{sample_name}_resfinder_hits.tsv"
+        File abricate_vfdb_tsv_output = "abricate_~{sample_name}_vfdb_hits.tsv"
+        File abricate_argannotBD_tsv_output = "abricate_~{sample_name}_argannot_hits.tsv"
 
         String abricate_ncbiDB_genes = read_string("ABRICATE_GENES_NCBI")
         String abricate_cardDB_genes = read_string("ABRICATE_GENES_CARD")
