@@ -102,13 +102,13 @@ task run_AMRfinderPlus {
             amrfinder --plus \
                 ~{'--name ' + sample_name} \
                 ~{'--nucleotide ' + assembly} \
-                ~{'-o ' + sample_name + '_amrfinder_all.tsv'} 
+                ~{'-o ' + "amrfinderplus_" + sample_name + '_all.tsv'} 
             fi
 
         #TODO what analysis can I do here? Should I even do extra analysis? 
     >>>
     output{
-        File AMRfinder_tsv_output = "~{sample_name}_amrfinder_all.tsv"
+        File AMRfinder_tsv_output = "amrfinderplus_~{sample_name}_all.tsv"
         String AMRFinder_version = read_string("VERSION")
         String AMRFinder_db_version = read_string("DB_VERSION")
         String AMRfinder_date = read_string("DATE")
