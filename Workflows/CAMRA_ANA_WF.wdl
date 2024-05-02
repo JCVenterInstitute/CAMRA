@@ -23,15 +23,16 @@ workflow assembly_analysis   {
         String organism 
         # File? pubmlst_DB
         File plasmidfinder_DB
+        Array[File] AMR_files
         #String plasmidfinder_DB
     }
 
-    call amrfinder.run_AMRfinderPlus {
-        input:
-            assembly = assembly,
-            sample_name = sample_name,
-            organism = organism
-    }
+    # call amrfinder.run_AMRfinderPlus {
+    #     input:
+    #         assembly = assembly,
+    #         sample_name = sample_name,
+    #         organism = organism
+    # }
     
 
     # call mlst.run_MLST {
@@ -48,16 +49,17 @@ workflow assembly_analysis   {
     #         database = plasmidfinder_DB 
     # }
 
-    call abricate.run_Abricate{
-        input:
-            assembly = assembly,
-            sample_name = sample_name,
-    }
+    # call abricate.run_Abricate{
+    #     input:
+    #         assembly = assembly,
+    #         sample_name = sample_name,
+    # }
 
     call hamronize.run_Hamronize{
         input:
             sample_name = sample_name,
-            AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output, run_Abricate.abricate_cardDB_tsv_output, run_AMRfinderPlus.AMRfinder_tsv_output ]
+            AMR_files = AMR_files
+            #AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output, run_Abricate.abricate_cardDB_tsv_output, run_AMRfinderPlus.AMRfinder_tsv_output ]
     }
 
     
