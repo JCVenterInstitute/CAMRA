@@ -12,12 +12,31 @@ task run_Hamronize {
         String sample_name
     }
     runtime{
-        docker: 'finlaymaguire/hamronization:1.0.0'
+        docker: 'danylmb/hamronize:v1.1.4'
     }
 
     command <<<
-        hamronize --help
-        echo ~{sep=", "AMR_files} && echo "it worked"
+        mkdir hAMRonization
+
+        for amr_file in ~{sep=" " AMR_files}; do
+            amr_name=$(basename "$amr_file")
+            program="${amr_name%%_*}"
+            if [[ $program == "abricate" ]]; then
+                hamronize $program --format tsv --output hAMRonization/"H-$amr_name" --analysis_software_version 1.0.1 --reference_database_version 1.0.0  $amr_file
+            fi
+            if [[ $program == "amrfinderplus" ]]; then
+                hamronize $program --format tsv --output hAMRonization/"H-$amr_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $amr_file $amr_file
+            fi
+
+            hamronize summarize -o hamronize_output.tsv -t tsv hAMRonization/*
+        done
+
+
+        
+
+
+
+
 
         >>>
 
