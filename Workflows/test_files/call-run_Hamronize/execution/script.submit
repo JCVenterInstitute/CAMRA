@@ -1,0 +1,20 @@
+#!/bin/bash
+# make sure there is no preexisting Docker CID file
+rm -f /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/docker_cid
+# run as in the original configuration without --rm flag (will remove later)
+docker run \
+  --cidfile /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/docker_cid \
+  -i \
+   \
+  --entrypoint /bin/bash \
+  -v /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize:/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize:delegated \
+  danylmb/hamronize@sha256:623bc621acc581a06f8002670db8b8acf77500d99609d92588b816671570bd86 /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/script
+
+# get the return code (working even if the container was detached)
+rc=$(docker wait `cat /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/docker_cid`)
+
+# remove the container after waiting
+docker rm `cat /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/docker_cid`
+
+# return exit code
+exit $rc

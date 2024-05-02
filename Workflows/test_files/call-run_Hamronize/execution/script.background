@@ -1,0 +1,3 @@
+#!/bin/bash
+'/bin/bash' '/Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/rc &
+echo $!

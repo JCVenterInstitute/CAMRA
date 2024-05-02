@@ -1,0 +1,51 @@
+#!/bin/bash
+
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution
+tmpDir=$(mkdir -p "/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/tmp.04602a86" && echo "/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/tmp.04602a86")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution
+
+)
+outbea381fa="${tmpDir}/out.$$" errbea381fa="${tmpDir}/err.$$"
+mkfifo "$outbea381fa" "$errbea381fa"
+trap 'rm "$outbea381fa" "$errbea381fa"' EXIT
+touch '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/stdout' '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/stderr'
+tee '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/stdout' < "$outbea381fa" &
+tee '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/stderr' < "$errbea381fa" >&2 &
+(
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution
+
+
+mkdir hAMRonization
+
+for amr_file in /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/inputs/208081197/abricate_CCI86_S6_ncbi_hits.tsv /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/inputs/208081197/abricate_CCI86_S6_card_hits.tsv /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/inputs/1886134994/amrfinderplus_CCI86_S6_all.tsv; do
+    echo $amr_file
+    amr_name=$(basename "$amr_file")
+    program="${amr_name%%_*}"
+    echo "$amr_name $program"
+
+    if [[ $program == "abricate" ]]; then
+        hamronize $program --format tsv --output hAMRonization/"$amr_name" --analysis_software_version 0.0.0 --reference_database_version 1.0.0  $amr_file
+    fi
+    if [[ $program == "amrfinderplus" ]]; then
+        hamronize $program --format tsv --output hAMRonization/"$amr_name" --analysis_software_version 0.0.0 --reference_database_version 1.0.0 --input_file_name $amr_file $amr_file
+    fi
+done
+)  > "$outbea381fa" 2> "$errbea381fa"
+echo $? > /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution
+sync
+
+
+)
+mv /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/rc.tmp /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Hamronize/execution/rc

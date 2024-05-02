@@ -1,0 +1,73 @@
+#!/bin/bash
+
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution
+tmpDir=$(mkdir -p "/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/tmp.54d0190a" && echo "/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/tmp.54d0190a")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution
+
+)
+outbea381fa="${tmpDir}/out.$$" errbea381fa="${tmpDir}/err.$$"
+mkfifo "$outbea381fa" "$errbea381fa"
+trap 'rm "$outbea381fa" "$errbea381fa"' EXIT
+touch '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/stdout' '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/stderr'
+tee '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/stdout' < "$outbea381fa" &
+tee '/cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/stderr' < "$errbea381fa" >&2 &
+(
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution
+
+
+date | tee DATE
+echo $(abricate --version 2>&1) | sed 's/abricate //' | tee VERSION
+
+#Updating the databases
+abricate-get_db --db ncbi --force
+abricate-get_db --db card --force
+abricate-get_db --db resfinder --force
+#abricate-get_db --db megares --force #can not update
+abricate-get_db --db vfdb --force
+abricate-get_db --db argannot --force
+
+echo $(abricate --list) | tee DB_VERSION
+grep -w -f <(echo -e "ncbi\ncard\nresfinder\nvfdb\nargannot") DB_VERSION > DB_VERSION
+
+# Function to run abricate for a specific database and save the hits
+run_abricate() {
+    local db="$1"
+    local output_file="abricate_CCI86_S6_${db}_hits.tsv"
+    abricate --threads 4 --db "$db" /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/inputs/1756935227/CCI86_S6_contigs.fasta.gz > "$output_file"
+
+    # Parse out gene names into list of strings, comma-separated, final comma at end removed by sed
+    local genes=$(awk -F '\t' '{ print $6 }' "$output_file" | tail -n+2 | tr '\n' ',' | sed 's/.$//')
+
+    # If variable for list of genes is EMPTY, write string saying it is empty
+    if [ -z "$genes" ]; then
+        genes="No genes detected by ABRicate $db db"
+    fi
+
+    # Output genes to file
+    echo "$genes" > "ABRICATE_GENES_${db^^}"
+}
+
+# Run abricate for each database
+databases=("ncbi" "card" "resfinder" "vfdb" "argannot")
+for db in "${databases[@]}"; do
+    run_abricate "$db"
+done
+)  > "$outbea381fa" 2> "$errbea381fa"
+echo $? > /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution
+sync
+
+
+)
+mv /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/rc.tmp /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_Abricate/execution/rc
