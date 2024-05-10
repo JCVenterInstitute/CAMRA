@@ -17,7 +17,6 @@ task run_Hamronize {
 
     command <<<
         mkdir hAMRonization
-
         for amr_file in ~{sep=" " AMR_files}; do
             amr_name=$(basename "$amr_file")
             program="${amr_name%%_*}"
@@ -27,21 +26,13 @@ task run_Hamronize {
             if [[ $program == "amrfinderplus" ]]; then
                 hamronize $program --format tsv --output hAMRonization/"H-$amr_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $amr_file $amr_file
             fi
-
-            hamronize summarize -o hamronize_output.tsv -t tsv hAMRonization/*
         done
-
-
-        
-
-
-
-
+        hamronize summarize -o hamronize_OUTPUT.tsv -t tsv hAMRonization/*
 
         >>>
 
     output{
-
+        File hAMRonization_output = "hamronize_OUTPUT.tsv"
     }
 
 }
