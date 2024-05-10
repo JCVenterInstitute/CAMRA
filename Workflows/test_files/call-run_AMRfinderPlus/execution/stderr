@@ -1,9 +1,0 @@
-Running: amrfinder --plus --organism Klebsiella_pneumoniae --name CCI86_S6 --nucleotide /cromwell-executions/assembly_analysis/bea381fa-11be-4ae3-8b8e-ec36673d8145/call-run_AMRfinderPlus/inputs/1756935227/CCI86_S6_contigs.fasta.gz -o amrfinderplus_CCI86_S6_all.tsv
-Software directory: '/amrfinder/'
-Software version: 3.12.8
-Database directory: '/amrfinder/data/2024-01-31.1'
-Database version: 2024-01-31.1
-AMRFinder translated nucleotide and mutation search
-Running tblastn
-Making report
-AMRFinder took 15 seconds to complete
