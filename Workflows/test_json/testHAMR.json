@@ -1,6 +1,6 @@
 {
   "assembly_analysis.AMR_files": [
-    "/Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/test_files/call-run_AMRfinderPlus/execution/amrfinderplus_CCI86_S6_all.tsv",
+    "/Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/test_files/call-run_AMRfinderPlus/execution/amrfinderplus_CCI86_S6_all.txt",
     "/Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/test_files/call-run_Abricate/execution/abricate_CCI86_S6_argannot_hits.tsv",
     "/Users/dmatute/Documents/CAMRA/Scripts/Terra_Tool_Creation/GitHub/CAMRA/Workflows/test_files/call-run_Abricate/execution/abricate_CCI86_S6_ncbi_hits.tsv  "
   ],
