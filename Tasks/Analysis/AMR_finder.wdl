@@ -92,23 +92,21 @@ task run_AMRfinderPlus {
             # always use --plus flag, others may be left out if param is optional and not supplied 
             amrfinder --plus \
                 --organism ${amrfinder_organism} \
-                ~{'--name ' + sample_name} \
                 ~{'--nucleotide ' + assembly} \
-                ~{'-o ' + sample_name + '_amrfinder_all.tsv'} 
+                >  amrfinderplus_OUTPUT.txt
 
         else 
             echo "Running AMRFinder+ WITHOUT amrfinder_organism."
             # always use --plus flag, others may be left out if param is optional and not supplied 
             amrfinder --plus \
-                ~{'--name ' + sample_name} \
                 ~{'--nucleotide ' + assembly} \
-                ~{'-o ' + "amrfinderplus_" + sample_name + '_all.tsv'} 
+                >  amrfinderplus_OUTPUT.txt
             fi
 
         #TODO what analysis can I do here? Should I even do extra analysis? 
     >>>
     output{
-        File AMRfinder_tsv_output = "amrfinderplus_~{sample_name}_all.tsv"
+        File AMRfinder_txt_output = "amrfinderplus_OUTPUT.txt"
         String AMRFinder_version = read_string("VERSION")
         String AMRFinder_db_version = read_string("DB_VERSION")
         String AMRfinder_date = read_string("DATE")
