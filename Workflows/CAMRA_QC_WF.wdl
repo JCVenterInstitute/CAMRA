@@ -1,9 +1,10 @@
 version 1.0
 
-import "../Tasks/Quality_Control/task_checkm.wdl" as checkm 
-import "../Tasks/Quality_Control/task_mash.wdl" as mash 
-import "../Tasks/Quality_Control/task_entrezdirect.wdl" as entrezdirect
-import "../Tasks/Quality_Control/task_merqury.wdl" as merqury 
+import "../Tasks/task_checkm.wdl" as checkm 
+import "../Tasks/task_mash.wdl" as mash 
+import "../Tasks/task_entrezdirect.wdl" as entrezdirect
+import "../Tasks/task_merqury.wdl" as merqury 
+import "../Tasks/MLST.wdl" as mlst
 #TODO add quast and busco and or other qc tools
 
 workflow assembly_qc {
@@ -34,6 +35,12 @@ workflow assembly_qc {
         input:
             sample_name = sample_name, 
             assembly = assembly
+    }
+    
+    call mlst.run_MLST {
+        input:
+            assembly = assembly,
+            sample_name = sample_name
     }
 
     call entrezdirect.run_entrez_direct {
