@@ -6,7 +6,7 @@ import "../Tasks/hARMonization.wdl" as hamronize
 import "../Tasks/ResFinder.wdl" as resfinder
 
 
-workflow assembly_analysis   {
+workflow amr_analysis   {
     meta {
         author: "Daniella Matute"
         email: "dmatute@jcvi.org"
