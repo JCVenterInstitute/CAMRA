@@ -70,17 +70,23 @@ workflow assembly_qc {
         String mash_species = run_entrez_direct.mash_species
         String mash_subspecies = run_entrez_direct.mash_subspecies
         String mash_taxaid = run_entrez_direct.mash_taxaid
+
         File checkm_output = run_checkM.checkm_output
         String checkm_markerlineage = run_checkM.checkm_markerlineage
         String checkm_completeness = run_checkM.checkm_completeness
         String checkm_contamination = run_checkM.checkm_contamination
         String checkm_heterogeneity = run_checkM.checkm_heterogeneity
+
         String merqury_qv = run_merqury.merqury_qv
         String merqury_comp = run_merqury.merqury_comp
         File merqury_qv_file = run_merqury.merqury_qv_file
         File merqury_completeness_file = run_merqury.merqury_completeness_file
+
+        String mlst_scheme = run_MLST.tsMLST_scheme 
+        String mlst_seqtype = run_MLST.tsMLST_seqtype 
+        String mlst_alleles = run_MLST.tsMLST_alleles
+
     }
 
 
 }
-
