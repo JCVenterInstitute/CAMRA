@@ -1,10 +1,9 @@
 version 1.0
 
-import "../Tasks/Analysis/AMR_finder.wdl" as amrfinder
-import "../Tasks/Analysis/MLST.wdl" as mlst
-import "../Tasks/Analysis/plasmidfinder.wdl" as plasmidfinder
-import "../Tasks/Analysis/Abricate.wdl" as abricate
-import "../Tasks/Analysis/hARMonization.wdl" as hamronize
+import "../Tasks/AMR_finder.wdl" as amrfinder
+import "../Tasks/Abricate.wdl" as abricate
+import "../Tasks/hARMonization.wdl" as hamronize
+import "../Tasks/ResFinder.wdl" as resfinder
 
 
 workflow assembly_analysis   {
@@ -34,21 +33,6 @@ workflow assembly_analysis   {
             organism = organism
     }
     
-
-    call mlst.run_MLST {
-        input:
-            assembly = assembly,
-            sample_name = sample_name
-            #pubmlst_DB = pubmlst_DB
-    }
-
-    call plasmidfinder.run_PlasmidFinder {
-        input:
-            assembly = assembly,
-            sample_name = sample_name,
-            database = plasmidfinder_DB 
-    }
-
     call abricate.run_Abricate{
         input:
             assembly = assembly,
@@ -61,7 +45,14 @@ workflow assembly_analysis   {
             #AMR_files = AMR_files
             AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output, run_Abricate.abricate_cardDB_tsv_output,run_Abricate.abricate_resfinderDB_tsv_output, run_Abricate.abricate_vfdb_tsv_output, run_Abricate.abricate_argannotBD_tsv_output, run_AMRfinderPlus.AMRfinder_txt_output ]
     }
-
+    
+    call refinder.run_ResFinder{
+        input:
+            File assembly # Input fasta file
+            String samplename
+            String organism
+        
+    }
     
     
 }
