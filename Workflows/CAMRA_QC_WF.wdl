@@ -27,7 +27,7 @@ workflow assembly_qc {
         File read1
         File read2
         File assembly
-        #TODO assembly size should be optional, if it is not provided then it should be calculated another way
+        #TODO assembly size should be optional, if it is not provided then it should be calculated another way, like by a quast or busco analysis, does checkm produce it??
         String assembly_size 
     }
 
@@ -65,6 +65,7 @@ workflow assembly_qc {
     }
 
     output{
+        
         String mash_ani = run_entrez_direct.mash_ani
         String mash_genus = run_entrez_direct.mash_genus
         String mash_species = run_entrez_direct.mash_species
