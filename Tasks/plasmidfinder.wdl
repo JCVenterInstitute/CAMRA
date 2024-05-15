@@ -48,18 +48,23 @@ task run_PlasmidFinder {
 
         #echo "making directory" && mkdir "~{sample_name}_plasmidfinder_results" && echo "directyory made"
         #echo "running plasmid finder" && plasmidfinder.py -i assembly.fasta -p plasmidfinder_db && echo "    > plasmidfiner good"
-        echo "running plasmid finder" && plasmidfinder.py -i assembly.fasta  && echo "    > plasmidfiner good" #this works
+        mkdir plasmidfinder_output
+        echo "running plasmid finder" && plasmidfinder.py -i assembly.fasta -x -o plasmidfinder_output && echo "    > plasmidfiner good" #this works
 
         #cat data.json | jq ".plasmidfinder.results" | tee PLASMIDFINDER_RESULTS.json
         #grep '"plasmidfinder.results"' data.json | tee PLASMIDFINDER_RESULTS.json
-        grep -o -i 'hit_id' data.json | wc -l | tee HIT_QUANTITY
+        grep -o -i 'hit_id' plasmidfinder_output/data.json | wc -l | tee HIT_QUANTITY
+        tail -n +2 plasmidfinder_output/results_tab.tsv | cut -f2 | tr '\n' ', ' | tee PLASMID_LIST
         rm -rd plasmidfinder_db
         rm assembly.fasta
 
     >>>
 
     output {
-        File plasmidfinder_json_output = "data.json"
+
+        File plasmidfinder_tsv_output = "plasmidfinder_output/results_tab.tsv"
+        File plasmidfinder_seq_output = "plasmidfinder_output/Hit_in_genome_seq.fsa"
+        String plasmidfinder_plasmids_list = read_string("PLASMID_LIST")
         String plasmidfinder_qty_hits = read_string("HIT_QUANTITY")
         String plasmidfinder_date = read_string("DATE")
         String plasmidfinder_version = read_string("VERSION")
