@@ -1,0 +1,9 @@
+{
+  "amr_analysis.read1": "File",
+  "amr_analysis.assembly": "File",
+  "amr_analysis.read2": "File",
+  "amr_analysis.run_ResFinder.min_cov": "Float? (optional, default = 0.6)",
+  "amr_analysis.run_ResFinder.threshold": "Float? (optional, default = 0.9)",
+  "amr_analysis.run_ResFinder.organism": "String? (optional)"
+}
+
