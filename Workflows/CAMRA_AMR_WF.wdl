@@ -17,13 +17,15 @@ workflow amr_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        String sample_name
         File assembly
+        File read1
+        File read2
+        String sample_name
         String organism 
         # File? pubmlst_DB
         File plasmidfinder_DB
-        #Array[File] AMR_files
-        #String plasmidfinder_DB
+        Array[File] AMR_files
+        String plasmidfinder_DB
     }
 
     call amrfinder.run_AMRfinderPlus {
@@ -46,11 +48,11 @@ workflow amr_analysis   {
             AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output, run_Abricate.abricate_cardDB_tsv_output,run_Abricate.abricate_resfinderDB_tsv_output, run_Abricate.abricate_vfdb_tsv_output, run_Abricate.abricate_argannotBD_tsv_output, run_AMRfinderPlus.AMRfinder_txt_output ]
     }
     
-    call refinder.run_ResFinder{
+    call resfinder.run_ResFinder{
         input:
-            File assembly # Input fasta file
-            String samplename
-            String organism
+            assembly = assembly,
+            read1 = read1,
+            read2 = read2
         
     }
     
