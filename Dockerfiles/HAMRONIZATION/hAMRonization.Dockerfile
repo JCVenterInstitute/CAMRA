@@ -8,11 +8,12 @@ LABEL description="This repo contains the hAMRonization module and CLI parser to
 
 
 RUN apt update 
-RUN apt install -y git python3 python3-pip
+RUN apt install -y git python3 python3-pip wget 
 RUN rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED
-RUN pip install hAMRonization
-# python3-pandas pipx
-# RUN pipx ensurepath && pipx install hAMRonization 
-# ENV PATH="$PATH:/root/.local/share/pipx/venvs/hamronization/bin"
+#Install hAMRonization
+RUN wget https://github.com/DanyMatute/hAMRonization/archive/refs/tags/v1.1.5.tar.gz && \ 
+pip install v1.1.5.tar.gz
+
+
 
 WORKDIR /data
