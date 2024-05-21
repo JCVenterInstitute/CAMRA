@@ -22,10 +22,7 @@ workflow amr_analysis   {
         File read2
         String sample_name
         String organism 
-        # File? pubmlst_DB
-        File plasmidfinder_DB
-        Array[File] AMR_files
-        String plasmidfinder_DB
+
     }
 
     call amrfinder.run_AMRfinderPlus {
@@ -40,14 +37,6 @@ workflow amr_analysis   {
             assembly = assembly,
             sample_name = sample_name,
     }
-
-    call hamronize.run_Hamronize{
-        input:
-            sample_name = sample_name,
-            #AMR_files = AMR_files
-            AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output, run_Abricate.abricate_cardDB_tsv_output,run_Abricate.abricate_resfinderDB_tsv_output, run_Abricate.abricate_vfdb_tsv_output, run_Abricate.abricate_argannotBD_tsv_output, run_AMRfinderPlus.AMRfinder_txt_output ]
-    }
-    
     call resfinder.run_ResFinder{
         input:
             assembly = assembly,
@@ -55,6 +44,22 @@ workflow amr_analysis   {
             read2 = read2
         
     }
+    call hamronize.run_Hamronize{
+        input:
+
+            AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output,
+            run_Abricate.abricate_cardDB_tsv_output, 
+            run_Abricate.abricate_resfinderDB_tsv_output, 
+            run_Abricate.abricate_argannotBD_tsv_output, 
+            run_AMRfinderPlus.amrfinder_amr_output,
+            run_ResFinder.resfider_asm_output,
+            run_ResFinder.resfinder_read_output ],
+
+            VIR_files = [run_Abricate.abricate_vfdb_tsv_output, 
+            run_AMRfinderPlus.amrfinder_virulence_output]
+    }
+    
+
     
     
 }
