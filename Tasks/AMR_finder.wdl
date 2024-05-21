@@ -93,22 +93,34 @@ task run_AMRfinderPlus {
             amrfinder --plus \
                 --organism ${amrfinder_organism} \
                 ~{'--nucleotide ' + assembly} \
-                >  amrfinderplus_OUTPUT.txt
+                >  amrfinderplus_output_all.txt
 
         else 
             echo "Running AMRFinder+ WITHOUT amrfinder_organism."
             # always use --plus flag, others may be left out if param is optional and not supplied 
             amrfinder --plus \
                 ~{'--nucleotide ' + assembly} \
-                >  amrfinderplus_OUTPUT.txt
+                >  amrfinderplus_output_all.txt
             fi
+
+        # Element Type possibilities: AMR, STRESS, and VIRULENCE 
+        # create headers for 3 output files; tee to 3 files and redirect STDOUT to dev null so it doesn't print to log file
+        head -n 1 amrfinderplus_output_all.txt | tee amrfinderplus_stress.tsv amrfinderplus_virulence.tsv amrfinderplus_amr.tsv >/dev/null
+        # looks for all rows with STRESS, AMR, or VIRULENCE and append to TSVs
+        grep -F 'STRESS' amrfinderplus_output_all.txt >> amrfinderplus_stress.tsv || true
+        grep -F 'VIRULENCE' amrfinderplus_output_all.txt >> amrfinderplus_virulence.tsv || true
+        # || true is so that the final grep exits with code 0, preventing failures
+        grep -F 'AMR' amrfinderplus_output_all.txt >> amrfinderplus_amr.tsv || true
 
         #TODO what analysis can I do here? Should I even do extra analysis? 
     >>>
     output{
-        File AMRfinder_txt_output = "amrfinderplus_OUTPUT.txt"
-        String AMRFinder_version = read_string("VERSION")
-        String AMRFinder_db_version = read_string("DB_VERSION")
-        String AMRfinder_date = read_string("DATE")
+        File amrfinder_all_output = "amrfinderplus_output_all.txt"
+        File amrfinder_stress_output = "amrfinderplus_stress.tsv"
+        File amrfinder_virulence_output = "amrfinderplus_virulence.tsv"
+        File amrfinder_amr_output = "amrfinderplus_amr.tsv"
+        String amrinder_version = read_string("VERSION")
+        String amrfinder_db_version = read_string("DB_VERSION")
+        String amrfinder_date = read_string("DATE")
     }
 }
