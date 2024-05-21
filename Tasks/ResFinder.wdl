@@ -119,6 +119,9 @@ task run_ResFinder {
 
         rm assembly.fasta read1.fastq read2.fastq
 
+        mv assembly_output/ResFinder_results_tab.txt assembly_output/resfinder_asm_results_tab.txt
+        mv read_output/ResFinder_results_tab.txt read_output/resfinder_read_results_tab.txt
+
         >>>
     output {
         String resfinder_asm_arg = read_string("ASSEMBLY_GENES")
@@ -126,8 +129,8 @@ task run_ResFinder {
         String resfinder_version = read_string("RESFINDER_VERSION")
         String resfinder_kma_version = read_string("KMA_VERSION")
         String resfinder_db_version = read_string("DB_VERSION")
-        File resfider_asm_output = "assembly_output/ResFinder_results_tab.txt"
-        File resfinder_read_output = "read_output/ResFinder_results_tab.txt"
+        File resfider_asm_output = "assembly_output/resfinder_asm_results_tab.txt"
+        File resfinder_read_output = "read_output/resfinder_read_results_tab.txt"
         File resfinder_asm_hits = "assembly_output/ResFinder_Hit_in_genome_seq.fsa"
         File resfinder_read_hits = "read_output/ResFinder_Hit_in_genome_seq.fsa"
         File resfinder_asm_argseq = "assembly_output/ResFinder_Resistance_gene_seq.fsa"
