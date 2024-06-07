@@ -111,8 +111,6 @@ task run_AMRfinderPlus {
         grep -F 'VIRULENCE' amrfinderplus_output_all.txt >> amrfinderplus_virulence.tsv || true
         # || true is so that the final grep exits with code 0, preventing failures
         grep -F 'AMR' amrfinderplus_output_all.txt >> amrfinderplus_amr.tsv || true
-
-        #TODO what analysis can I do here? Should I even do extra analysis? 
     >>>
     output{
         File amrfinder_all_output = "amrfinderplus_output_all.txt"
