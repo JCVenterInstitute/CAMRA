@@ -42,7 +42,8 @@ workflow amr_analysis   {
         input:
             assembly = assembly,
             read1 = read1,
-            read2 = read2
+            read2 = read2,
+            organism = organism
         
     }
     call hamronize.run_Hamronize{
@@ -62,7 +63,7 @@ workflow amr_analysis   {
     
     call amrharmonizer.run_AMR_harmonizer {
         input:
-        hamronize_amr_output = run_Hamronize.hamronize_amr_output.tsv
+        hamronize_amr_output = run_Hamronize.hAMRonization_amr_output
     }
 
     
