@@ -4,6 +4,7 @@ import "../Tasks/AMR_finder.wdl" as amrfinder
 import "../Tasks/Abricate.wdl" as abricate
 import "../Tasks/hARMonization.wdl" as hamronize
 import "../Tasks/ResFinder.wdl" as resfinder
+import "../Tasks/AMR_harmonization.wdl" as amrharmonizer
 
 
 workflow amr_analysis   {
@@ -59,6 +60,10 @@ workflow amr_analysis   {
             run_AMRfinderPlus.amrfinder_virulence_output]
     }
     
+    call amrharmonizer.run_AMR_harmonizer {
+        input:
+        hamronize_amr_output = run_Hamronize.hamronize_amr_output.tsv
+    }
 
     
     
