@@ -53,7 +53,7 @@ workflow amr_analysis   {
             run_Abricate.abricate_argannotBD_tsv_output, 
             run_AMRfinderPlus.amrfinder_amr_output,
             run_ResFinder.resfider_asm_output,
-            run_ResFinder.resfinder_read_output ],
+            run_ResFinder.resfinder_read_output],
 
             VIR_files = [run_Abricate.abricate_vfdb_tsv_output, 
             run_AMRfinderPlus.amrfinder_virulence_output]
