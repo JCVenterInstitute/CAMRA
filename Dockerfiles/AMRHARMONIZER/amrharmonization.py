@@ -76,8 +76,8 @@ def concise_gene_location(data, row_collect, cutoff_from, cutoff_to):
         other_gene_symb_all = [v[0] for v in value]
         other_gene_symb_in = [v[0] for v in value if cutoff_from <= v[3] <= cutoff_to]
 
-        avg_score_in = sum(score_in) / len(score_in) if score_in else None
-        avg_score_all = sum(score_all) / len(score_all) if score_all else None
+        avg_score_in = round(sum(score_in) / len(score_in),2) if score_in else None
+        avg_score_all = round(sum(score_all) / len(score_all),2) if score_all else None
 
         count_in = len(score_in)
         
