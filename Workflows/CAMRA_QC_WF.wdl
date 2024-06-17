@@ -5,6 +5,7 @@ import "../Tasks/task_mash.wdl" as mash
 import "../Tasks/task_entrezdirect.wdl" as entrezdirect
 import "../Tasks/task_merqury.wdl" as merqury 
 import "../Tasks/MLST.wdl" as mlst
+import "../Tasks/task_quast.wdl" as quast
 #TODO add quast and busco and or other qc tools
 
 workflow assembly_qc {
@@ -27,8 +28,10 @@ workflow assembly_qc {
         File read1
         File read2
         File assembly
-        #TODO assembly size should be optional, if it is not provided then it should be calculated another way, like by a quast or busco analysis, does checkm produce it??
+        # TODO assembly size should be optional, if it is not provided then it should be calculated another way, 
+        # like by a quast or busco analysis, does checkm produce it??
         String assembly_size 
+        Int? min_contigs
     }
 
     call mash.run_MASH {
@@ -64,8 +67,21 @@ workflow assembly_qc {
             read2 = read2
     }
 
+    call quast.run_Quast {
+        input:
+            assembly = assembly,
+            min_contigs = min_contigs
+    }
+
     output{
         
+        File quast_report = run_Quast.quast_report
+        Int largest_contig_value = run_Quast.quast_contig_largest
+        Int total_length_value = run_Quast.quast_total_length
+        Int n50_value = run_Quast.quast_N50
+        Int n90_value = run_Quast.quast_N90
+        Int l50_value = run_Quast.quast_L50
+        Int l90_value = run_Quast.quast_L90
         String mash_ani = run_entrez_direct.mash_ani
         String mash_genus = run_entrez_direct.mash_genus
         String mash_species = run_entrez_direct.mash_species
