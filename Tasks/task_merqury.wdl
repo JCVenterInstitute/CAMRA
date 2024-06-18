@@ -10,8 +10,9 @@ task run_merqury {
         #TODO add option to change docker version
     }
     runtime{
-        docker: 'miramastoras/merqury:latest'
-        memory: "4G" #increasing memmory worked
+        #docker: 'miramastoras/merqury:latest'
+        docker : 'danylmb/merqury:1.4.1'
+        #memory: "4G" #increasing memmory worked
     }
     command <<<
         #TODO add versioning
