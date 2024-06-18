@@ -1,3 +1,0 @@
-#!/bin/bash
-'/bin/bash' '/Users/dmatute/Documents/CAMRA/Scripts/GitHub/CAMRA/Workflows/cromwell-executions/assembly_qc/78339930-ab3d-4f8d-b9a3-c4f42da3fab6/call-run_fastQC/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /Users/dmatute/Documents/CAMRA/Scripts/GitHub/CAMRA/Workflows/cromwell-executions/assembly_qc/78339930-ab3d-4f8d-b9a3-c4f42da3fab6/call-run_fastQC/execution/rc &
-echo $!
