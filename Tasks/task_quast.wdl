@@ -19,9 +19,8 @@ task run_Quast {
         quast.py -o quast_output ~{if defined(min_contigs) then "--min-contig " + min_contigs else ""} ~{assembly}
         # Extract specific metrics from the TSV report
         awk -F"\t" '/Largest contig/ {print $2}' quast_output/report.tsv > quast_output/largest_contig.txt
-        awk -F'\t' '/^Total length\t/ {print $2}'  quast_output/report.tsv > quast_output/total_length.txt
-        # awk -F"\t" '$1 == "Total length" {print $2}' quast_output/report.tsv | tr -d ' \t\n\r' > total_length.txt        awk -F"\t" '/N50/ {print $2}' quast_output/report.tsv > quast_output/N50.txt
-        awk -F"\t" '/N50/ {print $2}' quast_output/report.tsv > quast_output/N50.txt
+        awk -F'\t' '/^Total length\t/ {print $2}' quast_output/report.tsv > quast_output/total_length.txt
+        awk -F"\t" '/N50/ {print $2}' quast_output/report.tsv  > quast_output/N50.txt
         awk -F"\t" '/N90/ {print $2}' quast_output/report.tsv > quast_output/N90.txt
         awk -F"\t" '/L50/ {print $2}' quast_output/report.tsv > quast_output/L50.txt
         awk -F"\t" '/L90/ {print $2}' quast_output/report.tsv > quast_output/L90.txt
