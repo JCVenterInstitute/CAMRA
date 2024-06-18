@@ -17,7 +17,7 @@ task run_fastQC {
     command <<<
         echo "fastQC started"
         mkdir fastQC_output
-        fastqc -o fastQC_output -f fastq ${read1} ${read2}
+        fastqc -o fastQC_output -j /usr/bin/java -f fastq ~{read1} ~{read2}
         echo "fastQC ended"
     >>>
 
