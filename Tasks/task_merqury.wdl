@@ -7,22 +7,22 @@ task run_merqury {
         File read2
         String sample_name
         String asm_size
-        #TODO add option to change docker version
+        String? memory = "4G" 
     }
+
     runtime{
-        docker: 'miramastoras/merqury:latest'
-        memory: "4G" #increasing memmory worked
+        docker : 'danylmb/merqury:1.4.1'
+        memory: "4G" 
     }
     command <<<
-        #TODO add versioning
-        # finding genome size and best kmer size
+        echo "V1.3" | tee MERQURY_VERSION
 
         total_length=~{asm_size} 
         best_k=$(best_k.sh $total_length) 
         best_k=$(echo "$best_k" | tail -n 1) 
         #Preparing meryl dbs
-        meryl k=$best_k count output read1.meryl ~{read1}
-        meryl k=$best_k count output read2.meryl ~{read2}
+        meryl k=$best_k count ~{'memory=' + memory} threads=1 output read1.meryl ~{read1}
+        meryl k=$best_k count ~{'memory=' + memory} threads=1 output read2.meryl ~{read2}
 
         meryl union-sum output ~{sample_name}.meryl read1.meryl read2.meryl 
 
@@ -39,9 +39,13 @@ task run_merqury {
 
         >>>
     output {
+        String merqury_version = read_string("MERQURY_VERSION")
+
         Array[String] stdout_values = read_lines(stdout()) 
-        String merqury_qv = stdout_values[11]
-        String merqury_comp = stdout_values[12]
+
+        String merqury_qv = stdout_values[12]
+        String merqury_comp = stdout_values[13]
+
         File merqury_qv_file = "merqury_output/~{sample_name}.qv"
         File merqury_completeness_file = "merqury_output/~{sample_name}.completeness.stats"
     }
