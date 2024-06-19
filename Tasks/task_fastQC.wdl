@@ -16,14 +16,15 @@ task run_fastQC {
 
     command <<<
         mkdir fastQC_output
-        # echo $(fastqc --version 2>&1) | sed 's/abricate //' | tee VERSION
+        echo $(fastqc --version) | sed 's/FastQC //' | tee VERSION
 
         # Run FastQC
         fastqc -o fastQC_output -j /usr/bin/java -f fastq ~{read1} ~{read2}
+        fastqc -o fastQC_output -j /usr/bin/java -f fastq ~{read1} ~{read2}
 
         # Define patterns
-        pattern1="*R1_001_fastqc.zip"
-        pattern2="*R2_001_fastqc.zip"
+        pattern1="*R1_001_fastqc*"
+        pattern2="*R2_001_fastqc*"
 
         # Find and unzip the files
         file1=$(find fastQC_output -name "$pattern1" -print -quit)
@@ -41,13 +42,13 @@ task run_fastQC {
             echo "File matching pattern2 not found!"
         fi
 
-        cp fastQC_output/*R1_001_fastqc/fastqc_data.txt fastQC_output/fastqc_R1_data.txt
-        cp fastQC_output/*R1_001_fastqc/fastqc_report.html fastQC_output/fastqc_R1_report.html
-        cp fastQC_output/*R1_001_fastqc/summary.txt fastQC_output/fastqc_R1_summary.txt
+        mv fastQC_output/*R1_001_fastqc/fastqc_data.txt fastQC_output/fastqc_R1_data.txt
+        mv fastQC_output/*R1_001_fastqc/fastqc_report.html fastQC_output/fastqc_R1_report.html
+        mv fastQC_output/*R1_001_fastqc/summary.txt fastQC_output/fastqc_R1_summary.txt
 
-        cp fastQC_output/*R2_001_fastqc/fastqc_data.txt fastQC_output/fastqc_R2_data.txt
-        cp fastQC_output/*R2_001_fastqc/fastqc_report.html fastQC_output/fastqc_R2_report.html
-        cp fastQC_output/*R2_001_fastqc/summary.txt fastQC_output/fastqc_R2_summary.txt
+        mv fastQC_output/*R2_001_fastqc/fastqc_data.txt fastQC_output/fastqc_R2_data.txt
+        mv fastQC_output/*R2_001_fastqc/fastqc_report.html fastQC_output/fastqc_R2_report.html
+        mv fastQC_output/*R2_001_fastqc/summary.txt fastQC_output/fastqc_R2_summary.txt
 
         # Count the occurrences of 'PASS', 'WARN', and 'FAIL' in the R1 summary file
         pass_count_R1=$(grep -o 'PASS' fastQC_output/fastqc_R1_summary.txt | wc -l)
@@ -93,12 +94,12 @@ task run_fastQC {
     >>>
 
     output {
-        File fastQC_R1_data = "fastQC_output/fastqc_R1_data.txt"
-        File fastQC_R2_data = "fastQC_output/fastqc_R2_data.txt"
+        # File fastQC_R1_data = "fastQC_output/fastqc_R1_data.txt"
+        # File fastQC_R2_data = "fastQC_output/fastqc_R2_data.txt"
         File fastQC_R1_html = "fastQC_output/fastqc_R1_report.html"
         File fastQC_R2_html = "fastQC_output/fastqc_R2_report.html"
-        File fastQC_R1_summary = "fastQC_output/fastqc_R1_summary.txt"
-        File fastQC_R2_summary = "fastQC_output/fastqc_R2_summary.txt"
+        # File fastQC_R1_summary = "fastQC_output/fastqc_R1_summary.txt"
+        # File fastQC_R2_summary = "fastQC_output/fastqc_R2_summary.txt"
 
         String fastQC_R1_PassWarnFail = read_string("fastQC_output/result_string_R1.txt")
         String fastQC_R2_PassWarnFail = read_string("fastQC_output/result_string_R2.txt")
@@ -114,7 +115,7 @@ task run_fastQC {
         String fastQC_R2_sequence_length = read_string("fastQC_output/sequence_length_R2.txt")
         String fastQC_R2_gc_content = read_string("fastQC_output/gc_content_R2.txt")
         
-        # String fastQC_version = read_string("VERSION")
+        String fastQC_version = read_string("VERSION")
     }
 }
 
