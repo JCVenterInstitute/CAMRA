@@ -81,14 +81,34 @@ workflow assembly_qc {
     }
 
     output{
-        
+        File fastQC_R1_data = run_fastQC.fastQC_R1_data
+        File fastQC_R2_data = run_fastQC.fastQC_R2_data
+        File fastqc_R1_report = run_fastQC.fastQC_R1_html
+        File fastqc_R2_report = run_fastQC.fastQC_R2_html
+        File fastQC_R1_summary = run_fastQC.fastQC_R1_summary
+        File fastQC_R2_summary = run_fastQC.fastQC_R2_summary
+
+        String fastQC_R1_PassWarnFail = run_fastQC.fastQC_R1_PassWarnFail
+        String fastQC_R2_PassWarnFail = run_fastQC.fastQC_R2_PassWarnFail
+
+        String fastQC_R1_total_sequences = run_fastQC.fastQC_R1_total_sequences
+        String fastQC_R1_total_bases = run_fastQC.fastQC_R1_total_bases
+        String fastQC_R1_poor_quality = run_fastQC.fastQC_R1_poor_quality
+        String fastQC_R1_sequence_length = run_fastQC.fastQC_R1_sequence_length
+        String fastQC_R1_gc_content = run_fastQC.fastQC_R1_gc_content
+        String fastQC_R2_total_sequences = run_fastQC.fastQC_R2_total_sequences
+        String fastQC_R2_total_bases = run_fastQC.fastQC_R2_total_bases
+        String fastQC_R2_poor_quality = run_fastQC.fastQC_R2_poor_quality
+        String fastQC_R2_sequence_length = run_fastQC.fastQC_R2_sequence_length
+        String fastQC_R2_gc_content = run_fastQC.fastQC_R2_gc_content
+    
         # File quast_report = run_Quast.quast_report
-        # Int largest_contig_value = run_Quast.quast_contig_largest
-        # Int total_length_value = run_Quast.quast_total_length
-        # Int n50_value = run_Quast.quast_N50
-        # Int n90_value = run_Quast.quast_N90
-        # Int l50_value = run_Quast.quast_L50
-        # Int l90_value = run_Quast.quast_L90
+        # Int quast_largest_contig_value = run_Quast.quast_contig_largest
+        # Int quast_total_length_value = run_Quast.quast_total_length
+        # Int quast_n50_value = run_Quast.quast_N50
+        # Int quast_n90_value = run_Quast.quast_N90
+        # Int quast_l50_value = run_Quast.quast_L50
+        # Int quast_l90_value = run_Quast.quast_L90
 
         # String mash_ani = run_entrez_direct.mash_ani
         # String mash_genus = run_entrez_direct.mash_genus
