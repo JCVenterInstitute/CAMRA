@@ -82,6 +82,7 @@ workflow assembly_qc {
         String merqury_comp = run_merqury.merqury_comp
         File merqury_qv_file = run_merqury.merqury_qv_file
         File merqury_completeness_file = run_merqury.merqury_completeness_file
+        String merqury_version = run_merqury.merqury_version
 
         String mlst_scheme = run_MLST.tsMLST_scheme 
         String mlst_seqtype = run_MLST.tsMLST_seqtype 
