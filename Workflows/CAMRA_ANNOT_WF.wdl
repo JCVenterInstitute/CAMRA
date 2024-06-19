@@ -19,11 +19,25 @@ workflow annotation_analysis   {
     }
 
     call plasmidfinder.run_PlasmidFinder {
+        #there is also plasflow and plasmidspades
         input:
             assembly = assembly,
             sample_name = sample_name,
             database = plasmidfinder_DB 
     }
+
+    # call pgap, prokka, bakta
+    # call phage finder
+        #other tools that we could use: 
+            # Seeker
+            # VirFinder (23)
+            # DeepVirFinder (25)
+            # PPR-Meta (24)
+            # VirSorter (22)
+            # VIBRANT (37)
+    # FCS
+    # IS elements
+
 
     output {
 
