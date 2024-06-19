@@ -20,7 +20,6 @@ workflow assembly_qc {
         read1           :   "raw read 1 fastq.gz or fastq file"
         read2           :   "raw read 2 fastq.gz or fastq file"
         assembly        :   "assembly ins fasta or fasta.gz format"
-        asm_size        :   "assembly size"
     }
 
     input{
@@ -28,7 +27,6 @@ workflow assembly_qc {
         File read1
         File read2
         File assembly
-        Int? min_contigs
     }
 
     call mash.run_MASH {
