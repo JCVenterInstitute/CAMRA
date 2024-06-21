@@ -25,7 +25,7 @@ workflow annotation_analysis   {
             sample_name = sample_name,
             database = plasmidfinder_DB 
     }
-
+    # BVBRC docker and build task to send assembly and conduct genome analysis & annotation
     # call pgap, prokka, bakta
     # call phage finder
         #other tools that we could use: 
