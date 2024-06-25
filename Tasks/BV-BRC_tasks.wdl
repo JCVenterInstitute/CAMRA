@@ -6,6 +6,7 @@ task run_genome_assembly {
     email: ""
     description: "Task for running the BV-BRC genome assembly tool."
     version: "1.0"
+    dockerhub: "https://hub.docker.com/repository/docker/andrewrlapointe/bvbrc/general"
     }
 
     input {
@@ -16,7 +17,8 @@ task run_genome_assembly {
     }
 
     runtime {
-        docker: 'bvbrc-plus'
+        docker: 'andrewrlapointe/bvbrc'
+
     }
 
     command <<<
