@@ -12,22 +12,23 @@ task run_genome_assembly {
     input {
         File read1
         File read2
+        String sample_name
         String user_name
         String password
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc'
+        docker: 'andrewrlapointe/bvbrc:latest'
 
     }
 
     command <<<
-        login-start.sh user_name password
-    
+        python3 /bin/bvbrc_login.py ~{user_name} ~{password}
+        python3 /bin/genome_asm.py ~{user_name} ~{sample_name} ~{read1} ~{read2}
     >>>
 
     output {
-        String testOut = "This actually works"
+        String testOut = "TODO"
     }
 }
 
