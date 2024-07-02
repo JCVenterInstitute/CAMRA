@@ -6,17 +6,20 @@ workflow assembly_workflow {
     meta {
     author: ""
     email: ""
-    description: "Create genome assemblyu"
+    description: "Create genome assembly"
     version: "1.0"
     }
 
     parameter_meta {
-        # TODO
+        sample_name     :   "Name of sample isolate"
+        read1           :   "raw read 1 fastq.gz or fastq file"
+        read2           :   "raw read 2 fastq.gz or fastq file"
     }
 
     input {
         File read1
         File read2
+        String sample_name
         String BVBRC_user
         String BVBRC_password
     }
@@ -26,6 +29,7 @@ workflow assembly_workflow {
         input:
             read1 = read1,
             read2 = read2,
+            sample_name = sample_name,
             user_name = BVBRC_user,
             password = BVBRC_password,
 
