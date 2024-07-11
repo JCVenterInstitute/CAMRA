@@ -13,7 +13,7 @@ task run_genome_assembly {
         File read1
         File read2
         String sample_name
-        String user_name
+        String username
         String password
     }
 
@@ -23,8 +23,8 @@ task run_genome_assembly {
     }
 
     command <<<
-        python3 /bin/bvbrc_login.py ~{user_name} ~{password}
-        python3 /bin/genome_asm.py ~{user_name} ~{sample_name} ~{read1} ~{read2}
+        python3 /bin/bvbrc_login.py ~{username} ~{password}
+        python3 /bin/bvbrc_jobs.py assembly ~{username} ~{sample_name} ~{read1} ~{read2}
     >>>
 
     output {
@@ -41,15 +41,22 @@ task run_genome_annotation {
     }
 
     input {
-        String user_name
+        File contigs_file
+        String username
+        String password
+        String assembly_filepath
+        String sample_name
+        String? scientific_name
     }
 
     runtime {
-        docker: 'danylmb/bvbrc:1.040'
+        docker: 'andrewrlapointe/bvbrc:latest'
     }
 
     command <<<
-        echo "Under construction"
+        python3 /bin/bvbrc_login.py ~{username} ~{password}
+        python3 /bin/bvbrc_jobs.py annotation ~{username} ~{sample_name} ~{assembly_filepath}
+
     >>>
 
     output {
@@ -66,15 +73,21 @@ task run_genome_analysis {
     }
 
     input {
-        String user_name
+        File contigs_file
+        String username
+        String password
+        String assembly_filepath
+        String sample_name
+        String? scientific_name
     }
 
     runtime {
-        docker: 'danylmb/bvbrc:1.040'
+        docker: 'andrewrlapointe/bvbrc:latest'
     }
 
     command <<<
-        echo "Under construction"
+        python3 /bin/bvbrc_login.py ~{username} ~{password}
+        python3 /bin/bvbrc_jobs.py cga ~{username} ~{sample_name} ~{assembly_filepath}
     >>>
 
     output {

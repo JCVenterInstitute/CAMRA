@@ -30,7 +30,7 @@ workflow assembly_workflow {
             read1 = read1,
             read2 = read2,
             sample_name = sample_name,
-            user_name = BVBRC_user,
+            username = BVBRC_user,
             password = BVBRC_password,
 
     }
