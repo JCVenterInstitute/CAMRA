@@ -1,7 +1,7 @@
 {
-  "assembly_workflow.read1": "/Users/alapoint/Documents/CAMRA/demo data/CCI165_S85_R1_001.fastq.gz",
-  "assembly_workflow.read2": "/Users/alapoint/Documents/CAMRA/demo data/CCI165_S85_R2_001.fastq.gz",
-  "assembly_workflow.sample_name": "wdlTest1",
+  "assembly_workflow.read1": "/home/alapointe/JCVI/CAMRA/demo data/CCI165_S85_R1_001.fastq.gz",
+  "assembly_workflow.read2": "/home/alapointe/JCVI/CAMRA/demo data/CCI165_S85_R2_001.fastq.gz",
+  "assembly_workflow.sample_name": "wdlTest5",
   "assembly_workflow.BVBRC_user": "alapoint",
   "assembly_workflow.BVBRC_password": "test"
 }

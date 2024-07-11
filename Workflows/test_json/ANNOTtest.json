@@ -1,0 +1,7 @@
+{
+  "annotation_analysis.assembly_filepath": "ws:/alapoint@bvbrc/home/assemblies/wdlTest1/assembly/.wdlTest1/wdlTest1_contigs.fasta",
+  "annotation_analysis.sample_name": "wdlTest2",
+  "annotation_analysis.BVBRC_username": "alapoint",
+  "annotation_analysis.BVBRC_password": "test",
+  "annotation_analysis.contigs_file": "/home/alapointe/JCVI/CAMRA/demo data/CCI165_S85_contigs.fasta.gz"
+}

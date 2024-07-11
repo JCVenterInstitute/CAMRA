@@ -10,7 +10,7 @@ RUN apt-get update && \
 COPY ./scripts /bin/
 
 # Ensure the bash scripts are executable
-RUN chmod +x /bin/*.sh
+RUN chmod +x /bin/*.py
 
 # Set the entrypoint to bash
 ENTRYPOINT ["/bin/bash"]
