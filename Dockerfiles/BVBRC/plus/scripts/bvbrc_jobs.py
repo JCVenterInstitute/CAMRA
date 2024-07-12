@@ -47,6 +47,7 @@ class PseudoTerminalPair():
         os.close(self.controller)
         os.close(self.worker)
 
+
 def run_command(command:list[str], print_out:bool = False) -> None:
     """
     Generates a pseudo terminal pair and executes bash command.
@@ -70,6 +71,7 @@ def bvbrc_job_running(job_id) -> bool:
     status = 'in-progress' in job_status_process.get_output()
     job_status_process.close_terminal()
     return status
+
 
 def get_job_id(command_output:str) -> int:
     # NOTE:
@@ -152,34 +154,34 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
         print(output_path, file=f)
 
 
-def bvbrcGenomeAnnotation(user: str, sample_name: str, assembly_filepath: str | os.PathLike, scientific_name: str=None) -> None:#
+def bvbrcGenomeAnnotation(user: str, sample_name: str, assembly_file: str | os.PathLike, is_workspace_filepath: bool=False, scientific_name: str=None) -> None:
 
     # TODO change asm dir to user input
-    root_dir = f"/{user}@bvbrc/home"
-    sample_dir = f"{root_dir}/assemblies/{sample_name}"
+    sample_dir = f"/{user}@bvbrc/home/assemblies/{sample_name}"
     assembly_dir = f"{sample_dir}/assembly"
     output_dir = f"{sample_dir}/annotation"
 
+    # create directory if does not exist
     run_command(['p3-mkdir', output_dir])
-    
-    # TODO allow for user to provide file for upload or bvbrc location of file
-    annotation_command = ['p3-submit-genome-annotation', '--workspace-path-prefix', assembly_dir, '-f',
-                        '--contigs-file', assembly_filepath, '-d', 'Bacteria']
+
+    annotation_command = ['p3-submit-genome-annotation', '-f',
+                          '--contigs-file', assembly_file, '-d', 'Bacteria']
+
     if scientific_name:
         annotation_command.append('-n')
         annotation_command.append(scientific_name)
+    # annotation_command.append("--dry-run")
     
     annotation_command.append(output_dir)
     annotation_command.append(f"{sample_name}_annotation")
 
     annotation_job = PseudoTerminalPair(command=annotation_command)
+    job_output = annotation_job.get_output()
 
-    job_id = get_job_id(annotation_job.get_output())
+    job_id = get_job_id(job_output)
 
     while bvbrc_job_running(job_id):
         time.sleep(10)  # This timing may need to be adjusted.
-    
-    print(f"Job {job_id} Finished")
 
     annotation_job.close_terminal()
 

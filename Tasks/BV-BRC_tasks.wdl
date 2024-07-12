@@ -44,7 +44,6 @@ task run_genome_annotation {
         File contigs_file
         String username
         String password
-        String assembly_filepath
         String sample_name
         String? scientific_name
     }
@@ -55,7 +54,7 @@ task run_genome_annotation {
 
     command <<<
         python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py annotation ~{username} ~{sample_name} ~{assembly_filepath}
+        python3 /bin/bvbrc_jobs.py annotation ~{username} ~{sample_name} ~{contigs_file}
 
     >>>
 

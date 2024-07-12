@@ -14,13 +14,11 @@ workflow annotation_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        File assembly
         File plasmidfinder_DB
-        File contigs_file
+        File assembly
         String sample_name
         String BVBRC_username
         String BVBRC_password
-        String assembly_filepath
         String? scientific_name
     }
 
@@ -28,8 +26,7 @@ workflow annotation_analysis   {
         input:
             username = BVBRC_username,
             password = BVBRC_password,
-            assembly_filepath = assembly_filepath,  # BVBRC location of assembly file or path for files to be uploaded to
-            contigs_file = contigs_file,
+            contigs_file = assembly,
             sample_name = sample_name,
             scientific_name = scientific_name  # "Genus species" from MASH, Optional
     }
@@ -56,7 +53,6 @@ workflow annotation_analysis   {
 
 
     output {
-
         String plasmidfinder_plasmids_list = run_PlasmidFinder.plasmidfinder_plasmids_list
         String plasmidfinder_qty_hits =run_PlasmidFinder.plasmidfinder_qty_hits 
         File plasmidfinder_tsv_output = run_PlasmidFinder.plasmidfinder_tsv_output
