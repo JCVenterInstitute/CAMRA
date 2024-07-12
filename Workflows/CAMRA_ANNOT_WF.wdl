@@ -14,8 +14,8 @@ workflow annotation_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        # File assembly
-        # File plasmidfinder_DB
+        File assembly
+        File plasmidfinder_DB
         File contigs_file
         String sample_name
         String BVBRC_username
@@ -34,13 +34,13 @@ workflow annotation_analysis   {
             scientific_name = scientific_name  # "Genus species" from MASH, Optional
     }
 
-    # call plasmidfinder.run_PlasmidFinder {
-    #     #there is also plasflow and plasmidspades
-    #     input:
-    #         assembly = assembly,
-    #         sample_name = sample_name,
-    #         database = plasmidfinder_DB 
-    # }
+    call plasmidfinder.run_PlasmidFinder {
+        #there is also plasflow and plasmidspades
+        input:
+            assembly = assembly,
+            sample_name = sample_name,
+            database = plasmidfinder_DB 
+    }
 
     # call pgap, prokka, bakta
     # call phage finder
@@ -57,10 +57,10 @@ workflow annotation_analysis   {
 
     output {
 
-        # String plasmidfinder_plasmids_list = run_PlasmidFinder.plasmidfinder_plasmids_list
-        # String plasmidfinder_qty_hits =run_PlasmidFinder.plasmidfinder_qty_hits 
-        # File plasmidfinder_tsv_output = run_PlasmidFinder.plasmidfinder_tsv_output
-        # File plasmidfinder_seq_output = run_PlasmidFinder.plasmidfinder_seq_output
+        String plasmidfinder_plasmids_list = run_PlasmidFinder.plasmidfinder_plasmids_list
+        String plasmidfinder_qty_hits =run_PlasmidFinder.plasmidfinder_qty_hits 
+        File plasmidfinder_tsv_output = run_PlasmidFinder.plasmidfinder_tsv_output
+        File plasmidfinder_seq_output = run_PlasmidFinder.plasmidfinder_seq_output
     }
 
 }
