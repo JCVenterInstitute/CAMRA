@@ -1,0 +1,13 @@
+Run ASM Workflow:
+java -jar /home/alapointe/cromwell/cromwell-87.jar run --inputs /home/alapointe/JCVI/CAMRA/Workflows/test_json/ASMtest.json /home/alapointe/JCVI/CAMRA/Workflows/CAMRA_ASM_WF.wdl
+
+Run ANNOT Workflow:
+java -jar /home/alapointe/cromwell/cromwell-87.jar run --inputs /home/alapointe/JCVI/CAMRA/Workflows/test_json/ANNOTtest.json /home/alapointe/JCVI/CAMRA/Workflows/CAMRA_ANNOT_WF.wdl
+
+
+
+Validate wdl:
+java -jar cromwell-84.jar validate /path/to/your/WDL_file.wdl
+
+java -jar cromwell-84.jar validate /path/to/your/WDL_file.wdl
+

@@ -1,0 +1,29 @@
+2024-07-11 12:50:46,984 INFO  - MaterializeWorkflowDescriptorActor [UUID(66fd172d)]: Parsing workflow as WDL 1.0
+2024-07-11 12:50:47,633 INFO  - MaterializeWorkflowDescriptorActor [UUID(66fd172d)]: Call-to-Backend assignments: annotation_analysis.run_genome_analysis -> Local
+2024-07-11 12:50:50,042 INFO  - WorkflowExecutionActor-66fd172d-5057-4736-af3e-654980921075 [UUID(66fd172d)]: Starting annotation_analysis.run_genome_analysis
+2024-07-11 12:50:57,452 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d)annotation_analysis.run_genome_analysis:NA:1]: `python3 /bin/bvbrc_login.py alapoint test
+python3 /bin/bvbrc_jobs.py cga alapoint wdlTest2 ws:/alapoint@bvbrc/home/assemblies/wdlTest1/assembly/.wdlTest1/wdlTest1_contigs.fasta`
+2024-07-11 12:50:57,484 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d)annotation_analysis.run_genome_analysis:NA:1]: executing: # make sure there is no preexisting Docker CID file
+rm -f /home/alapointe/JCVI/CAMRA/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis/execution/docker_cid
+# run as in the original configuration without --rm flag (will remove later)
+docker run \
+  --cidfile /home/alapointe/JCVI/CAMRA/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis/execution/docker_cid \
+  -i \
+   \
+  --entrypoint /bin/bash \
+  -v /home/alapointe/JCVI/CAMRA/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis:/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis:delegated \
+  andrewrlapointe/bvbrc@sha256:b462059eace02f6ca9f16cc967b1629e3f0831f633616c9311adc84822050610 /cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis/execution/script
+
+# get the return code (working even if the container was detached)
+rc=$(docker wait `cat /home/alapointe/JCVI/CAMRA/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis/execution/docker_cid`)
+
+# remove the container after waiting
+docker rm `cat /home/alapointe/JCVI/CAMRA/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis/execution/docker_cid`
+
+# return exit code
+exit $rc
+2024-07-11 12:51:01,370 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d)annotation_analysis.run_genome_analysis:NA:1]: job id: 1362206
+2024-07-11 12:51:01,374 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d)annotation_analysis.run_genome_analysis:NA:1]: Status change from - to WaitingForReturnCode
+2024-07-11 12:53:12,144 INFO  - WorkflowExecutionActor-66fd172d-5057-4736-af3e-654980921075 [UUID(66fd172d)]: Aborting workflow
+2024-07-11 12:53:12,152 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d)annotation_analysis.run_genome_analysis:NA:1]: executing: docker kill `cat /home/alapointe/JCVI/CAMRA/cromwell-executions/annotation_analysis/66fd172d-5057-4736-af3e-654980921075/call-run_genome_analysis/execution/docker_cid`
+2024-07-11 12:53:12,615 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d)annotation_analysis.run_genome_analysis:NA:1]: BackgroundConfigAsyncJobExecutionActor [UUID(66fd172d):annotation_analysis.run_genome_analysis:NA:1] Aborted StandardAsyncJob(1362206)
