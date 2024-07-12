@@ -1,6 +1,7 @@
 version 1.0
 
 import "../Tasks/plasmidfinder.wdl" as plasmidfinder
+import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 
 workflow annotation_analysis   {
     meta {
@@ -13,9 +14,24 @@ workflow annotation_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        String sample_name
         File assembly
         File plasmidfinder_DB
+        File contigs_file
+        String sample_name
+        String BVBRC_username
+        String BVBRC_password
+        String assembly_filepath
+        String? scientific_name
+    }
+
+    call bvbrc.run_genome_annotation {
+        input:
+            username = BVBRC_username,
+            password = BVBRC_password,
+            assembly_filepath = assembly_filepath,  # BVBRC location of assembly file or path for files to be uploaded to
+            contigs_file = contigs_file,
+            sample_name = sample_name,
+            scientific_name = scientific_name  # "Genus species" from MASH, Optional
     }
 
     call plasmidfinder.run_PlasmidFinder {
@@ -25,7 +41,7 @@ workflow annotation_analysis   {
             sample_name = sample_name,
             database = plasmidfinder_DB 
     }
-    # BVBRC docker and build task to send assembly and conduct genome analysis & annotation
+
     # call pgap, prokka, bakta
     # call phage finder
         #other tools that we could use: 
