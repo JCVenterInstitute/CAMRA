@@ -4,8 +4,8 @@ import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 
 workflow assembly_workflow {
     meta {
-    author: ""
-    email: ""
+    author: "Andrew LaPointe"
+    email: "andrewrlapointe@gmail.com"
     description: "Create genome assembly"
     version: "1.0"
     }
