@@ -1,8 +1,0 @@
-Run Workflow:
-java -jar /Users/alapoint/.dockstore/libraries/cromwell-84.jar run --inputs /Users/alapoint/Documents/CAMRA/Workflows/test_json/ASMtest.json /Users/alapoint/Documents/CAMRA/Workflows/CAMRA_ASM_WF.wdl
-
-Validate wdl:
-java -jar cromwell-84.jar validate /path/to/your/WDL_file.wdl
-
-java -jar cromwell-84.jar validate /path/to/your/WDL_file.wdl
-
