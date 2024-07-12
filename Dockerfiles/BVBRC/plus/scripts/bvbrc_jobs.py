@@ -62,16 +62,32 @@ def run_command(command:list[str], print_out:bool = False) -> None:
     run_command.close_terminal()
 
 
-def bvbrc_job_running(job_id):
+def bvbrc_job_running(job_id) -> bool:
+    if job_id is None:
+        raise TypeError
     
     job_status_process = PseudoTerminalPair(command=['p3-job-status', job_id])
     status = 'in-progress' in job_status_process.get_output()
     job_status_process.close_terminal()
     return status
 
+def get_job_id(command_output:str) -> int:
+    # NOTE:
+    # This is a slightly brittle method. It relies on the output of the command including
+    # the job id prefixed by "id". Would break if bvbrc changed the output of their 
+    # assembly command.
+    match = re.search(r'id (\d+)', command_output)
+    if match:
+        job_id = match.group(1)
+        return job_id
+    return None
+
+
 
 def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, read2: str | os.PathLike ) -> None:
-    """_summary_
+    """
+    Submits two read files to BV-BRC for assembly. 
+    Must be logged into the BV-BRC cli.
 
     Args:
         read1 (str | os.PathLike): Path to read1
@@ -94,11 +110,10 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
             run_command(command)
         
         # NOTE:
-        # Reading from the ls command us considered to be bad practice.
+        # Reading from the ls command is generally considered to be bad practice.
         # This could cause errors if there are unusual file names (filepaths with newline characters, etc.).
         # BVBRC doesn't seem to have a glob method or some better way of doing this.
-        # However, it should work fine in the context of this project.
-        # Here's to hoping. Cheers
+        # However, it should work fine in the context of this project as we define filepaths internally.
         raw_ls = PseudoTerminalPair(command=['p3-ls', f"{raw_reads_dir}/", '--one-column'])
         raw_ls_output = raw_ls.get_output()
         raw_files = raw_ls_output.split('\n')
@@ -111,10 +126,7 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
                             '300', '--min-contig-cov', '30', f"ws:{assembly_dir}", sample_name])
         
         # Get the job id
-        match = re.search(r'id (\d+)', assembly_job.get_output())
-        if match:
-            job_id = match.group(1)
-            
+        job_id = get_job_id(assembly_job.get_output())
         
         while bvbrc_job_running(job_id):
             time.sleep(10)  # This timing may need to be adjusted.
@@ -125,33 +137,22 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
         # Close all of the pseudo terminals
         raw_ls.close_terminal()
         assembly_job.close_terminal()
-        
-        output_commands = [['mkdir', 'bvbrc_asm_output'],
-                           ['touch', 'bvbrc_asm_output/output_path.txt'],
-                           ['p3-cp', output_path, 'bvbrc_asm_output']]
-        
-        for command in output_commands:
-            run_command(command)
-
-        return
        
     else:
         print("Directory already exists:")
 
-        output_commands = [['mkdir', 'bvbrc_asm_output'],
-                           ['touch', 'bvbrc_asm_output/output_path.txt'],
-                           ['p3-cp', output_path, 'bvbrc_asm_output']]
-        
-        for command in output_commands:
-            run_command(command)
+    output_commands = [['mkdir', 'bvbrc_asm_output'],
+                        ['touch', 'bvbrc_asm_output/output_path.txt'],
+                        ['p3-cp', output_path, 'bvbrc_asm_output']]
+    
+    for command in output_commands:
+        run_command(command)
 
-        with open('bvbrc_asm_output/output_path.txt', 'w') as f:
-            print(output_path, file=f)
-
-        return
+    with open('bvbrc_asm_output/output_path.txt', 'w') as f:
+        print(output_path, file=f)
 
 
-def bvbrcGenomeAnnotation(user: str, sample_name: str, assembly_filepath: str | os.PathLike, scientific_name: str=None) -> None:
+def bvbrcGenomeAnnotation(user: str, sample_name: str, assembly_filepath: str | os.PathLike, scientific_name: str=None) -> None:#
 
     # TODO change asm dir to user input
     root_dir = f"/{user}@bvbrc/home"
@@ -162,23 +163,18 @@ def bvbrcGenomeAnnotation(user: str, sample_name: str, assembly_filepath: str | 
     run_command(['p3-mkdir', output_dir])
     
     # TODO allow for user to provide file for upload or bvbrc location of file
-    # annotation_command = ['p3-submit-genome-annotation', '--workspace-path-prefix', assembly_dir, '-f',
-    #                     '--contigs-file', f"ws:/alapoint@bvbrc/home/assemblies/wdlTest1/assembly/.wdlTest1/wdlTest1_contigs.fasta", '-d', 'Bacteria']
     annotation_command = ['p3-submit-genome-annotation', '--workspace-path-prefix', assembly_dir, '-f',
                         '--contigs-file', assembly_filepath, '-d', 'Bacteria']
     if scientific_name:
         annotation_command.append('-n')
         annotation_command.append(scientific_name)
     
-    # annotation_command.append('-t')
     annotation_command.append(output_dir)
     annotation_command.append(f"{sample_name}_annotation")
 
     annotation_job = PseudoTerminalPair(command=annotation_command)
 
-    match = re.search(r'id (\d+)', annotation_job.get_output())
-    if match:
-        job_id = match.group(1)
+    job_id = get_job_id(annotation_job.get_output())
 
     while bvbrc_job_running(job_id):
         time.sleep(10)  # This timing may need to be adjusted.
@@ -189,43 +185,7 @@ def bvbrcGenomeAnnotation(user: str, sample_name: str, assembly_filepath: str | 
 
 def completeGenomeAnalysis(user: str, sample_name: str, assembly_filepath: str | os.PathLike, scientific_name: str=None):
     pass
-    # # TODO change asm dir to user input
-    # root_dir = f"/{user}@bvbrc/home"
-    # sample_dir = f"{root_dir}/assemblies/{sample_name}"
-    # assembly_dir = f"{sample_dir}/assembly"
-    # output_dir = f"{sample_dir}/CGA"
-
-    # run_command(['p3-mkdir', output_dir])
-
-    # # TODO allow for user to provide file for upload or bvbrc location of file
-    # cga_command = ['p3-submit-CGA', '-P', assembly_dir, '–overwrite'
-    #                '-contigs', '/home/alapointe/JCVI/CAMRA/demo data/CCI165_S85_contigs.fasta.gz', '-d', 'Bacteria']
-
-    # if scientific_name:
-    #     cga_command.append('-n')
-    #     cga_command.append(scientific_name)
     
-    # # annotation_command.append('-t')
-    # cga_command.append(output_dir)
-    # cga_command.append(f"{sample_name}_CGA")
-    
-
-
-    # cga_job = PseudoTerminalPair(command=cga_command)
-    # print(cga_job.get_output())
-
-    # match = re.search(r'id (\d+)', cga_job.get_output())
-    # if match:
-    #     job_id = match.group(1)
-
-    # while bvbrc_job_running(job_id):
-    #     time.sleep(10)  # This timing may need to be adjusted.
-    
-    # print(f"Job {job_id} Finished")
-
-    # cga_job.close_terminal()
-
-
 def main():
     match sys.argv[1].lower():
 
@@ -242,14 +202,8 @@ def main():
                     raise IndexError
                 
         case 'analysis' | 'cga':
-            match len(sys.argv):
-                case 5:
-                    completeGenomeAnalysis(sys.argv[2], sys.argv[3], sys.argv[4])
-                case 6:
-                    bvbrcGenomeAnnotation(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
-                case _:
-                    raise IndexError
-        
+            pass
+
         case _:
             raise ValueError
 
