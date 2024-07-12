@@ -1,7 +1,0 @@
-{
-  "assembly_qc.assembly_size": "2511694",
-  "assembly_qc.assembly": "/Users/alapoint/Documents/CAMRA/demo data/CCI165_S85_contigs.fasta.gz",
-  "assembly_qc.read1": "/Users/alapoint/Documents/CAMRA/demo data/CCI165_S85_R1_001.fastq.gz",
-  "assembly_qc.sample_name": "CCI165_S85",
-  "assembly_qc.read2": "/Users/alapoint/Documents/CAMRA/demo data/CCI165_S85_R2_001.fastq.gz"
-}
