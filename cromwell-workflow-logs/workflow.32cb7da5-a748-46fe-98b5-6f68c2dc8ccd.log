@@ -1,0 +1,29 @@
+2024-07-17 13:21:16,075 INFO  - MaterializeWorkflowDescriptorActor [UUID(32cb7da5)]: Parsing workflow as WDL 1.0
+2024-07-17 13:21:16,589 INFO  - MaterializeWorkflowDescriptorActor [UUID(32cb7da5)]: Call-to-Backend assignments: assembly_workflow.run_genome_assembly -> Local
+2024-07-17 13:21:18,885 INFO  - WorkflowExecutionActor-32cb7da5-a748-46fe-98b5-6f68c2dc8ccd [UUID(32cb7da5)]: Starting assembly_workflow.run_genome_assembly
+2024-07-17 13:21:26,789 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5)assembly_workflow.run_genome_assembly:NA:1]: `python3 /bin/bvbrc_login.py alapoint test
+python3 /bin/bvbrc_jobs.py assembly alapoint DockerTest /cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/inputs/957136120/CCI165_S85_R1_001.fastq.gz /cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/inputs/957136120/CCI165_S85_R2_001.fastq.gz`
+2024-07-17 13:21:26,825 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5)assembly_workflow.run_genome_assembly:NA:1]: executing: # make sure there is no preexisting Docker CID file
+rm -f /home/alapointe/JCVI/CAMRA/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/execution/docker_cid
+# run as in the original configuration without --rm flag (will remove later)
+docker run \
+  --cidfile /home/alapointe/JCVI/CAMRA/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/execution/docker_cid \
+  -i \
+   \
+  --entrypoint /bin/bash \
+  -v /home/alapointe/JCVI/CAMRA/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly:/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly:delegated \
+  andrewrlapointe/bvbrc@sha256:06218365587e6079f72ebbefff48c1cc24fc8a12f88fc13c0e719d5ade4d48ab /cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/execution/script
+
+# get the return code (working even if the container was detached)
+rc=$(docker wait `cat /home/alapointe/JCVI/CAMRA/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/execution/docker_cid`)
+
+# remove the container after waiting
+docker rm `cat /home/alapointe/JCVI/CAMRA/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/execution/docker_cid`
+
+# return exit code
+exit $rc
+2024-07-17 13:21:30,488 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5)assembly_workflow.run_genome_assembly:NA:1]: job id: 65121
+2024-07-17 13:21:30,493 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5)assembly_workflow.run_genome_assembly:NA:1]: Status change from - to WaitingForReturnCode
+2024-07-17 13:37:54,441 INFO  - WorkflowExecutionActor-32cb7da5-a748-46fe-98b5-6f68c2dc8ccd [UUID(32cb7da5)]: Aborting workflow
+2024-07-17 13:37:54,466 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5)assembly_workflow.run_genome_assembly:NA:1]: executing: docker kill `cat /home/alapointe/JCVI/CAMRA/cromwell-executions/assembly_workflow/32cb7da5-a748-46fe-98b5-6f68c2dc8ccd/call-run_genome_assembly/execution/docker_cid`
+2024-07-17 13:37:54,513 INFO  - BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5)assembly_workflow.run_genome_assembly:NA:1]: BackgroundConfigAsyncJobExecutionActor [UUID(32cb7da5):assembly_workflow.run_genome_assembly:NA:1] Aborted StandardAsyncJob(65121)

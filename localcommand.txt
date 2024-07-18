@@ -1,0 +1,7 @@
+java -jar /home/alapointe/cromwell/cromwell-87.jar run --inputs /home/alapointe/JCVI/CAMRA/Workflows/test_json/ANNOTtest.json /home/alapointe/JCVI/CAMRA/Workflows/CAMRA_ANNOT_WF.wdl
+
+['p3-submit-CGA','-contigs', contigs, '-scientific-name', scientific_name,
+                   '-taxonomy-id', taxonomy_id, '-code', '11',
+                   '-domain', 'Bacteria', output_path, output_name]
+
+p3-submit-CGA -contigs ws:/alapoint@bvbrc/home/assemblies/wdlTest1/assembly/.wdlTest1/wdlTest1_contigs.fasta -scientific-name SCINAME -taxonomy-id 2 -code 11 -domain Bacteria /alapoint@bvbrc/home/assemblies/CGA/CGATest TestOutputName
