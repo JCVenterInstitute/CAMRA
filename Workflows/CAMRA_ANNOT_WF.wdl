@@ -37,6 +37,7 @@ workflow annotation_analysis   {
             # VIBRANT (37)
     # FCS
     # IS elements
+    # Mobile element Finder
 
 
     output {
