@@ -18,7 +18,7 @@ task run_genome_assembly {
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:latest'
+        docker: 'andrewrlapointe/bvbrc:3.0'
 
     }
 
@@ -32,61 +32,33 @@ task run_genome_assembly {
     }
 }
 
-task run_genome_annotation {
+
+task run_annotation_analysis {
     meta {
-        author: ""
-        email: ""
-        description: "Task for running the BV-BRC genome annotation tool."
-        version: "1.0"
-    }
-
-    input {
-        File contigs_file
-        String username
-        String password
-        String sample_name
-        String? scientific_name
-    }
-
-    runtime {
-        docker: 'andrewrlapointe/bvbrc:latest'
-    }
-
-    command <<<
-        python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py annotation ~{username} ~{sample_name} ~{contigs_file}
-
-    >>>
-
-    output {
-        String anno_out = "TODO"
-    }
-}
-
-task run_genome_analysis {
-    meta {
-        author: ""
-        email: ""
+        author: "Andrew LaPointe"
+        email: "andrewrlapointe@gmail.com"
         description: "Task for running the BV-BRC complete genome analysis tool."
-        version: "1.0"
+        version: "1.2"
     }
 
     input {
-        File contigs_file
+        String contigs_file
         String username
         String password
-        String assembly_filepath
         String sample_name
-        String? scientific_name
+        String scientific_name
+        String output_path
+        String taxonomy_id
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:latest'
+        docker: 'andrewrlapointe/bvbrc:3.0'
     }
 
+    # output path could be changed to be relative to the contigs file location to reduce the number of inputs
     command <<<
         python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py cga ~{username} ~{sample_name} ~{assembly_filepath}
+        python3 /bin/bvbrc_jobs.py cga ~{contigs_file} ~{output_path} ~{sample_name}_output ~{scientific_name} ~{taxonomy_id}
     >>>
 
     output {

@@ -6,6 +6,7 @@ import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 workflow annotation_analysis   {
     meta {
         author: "Daniella Matute"
+        co-author: "Andrew LaPointe"
         email: "dmatute@jcvi.org"
         description: "Run Annotation on an Assembly."
     }
@@ -14,21 +15,24 @@ workflow annotation_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        File plasmidfinder_DB
-        File assembly
+        # File plasmidfinder_DB
+        String assembly
         String sample_name
         String BVBRC_username
         String BVBRC_password
-        String? scientific_name
+        String output_path
+        String scientific_name
     }
 
-    call bvbrc.run_genome_annotation {
+    call bvbrc.run_annotation_analysis {
         input:
             username = BVBRC_username,
             password = BVBRC_password,
             contigs_file = assembly,
             sample_name = sample_name,
-            scientific_name = scientific_name  # "Genus species" from MASH, Optional
+            output_path = output_path,
+            scientific_name = scientific_name,  # "Genus species" from MASH, Optional
+            taxonomy_id = 2
     }
 
     call plasmidfinder.run_PlasmidFinder {
@@ -39,15 +43,15 @@ workflow annotation_analysis   {
             database = plasmidfinder_DB 
     }
 
-    # call pgap, prokka, bakta
-    # call phage finder
-        #other tools that we could use: 
-            # Seeker
-            # VirFinder (23)
-            # DeepVirFinder (25)
-            # PPR-Meta (24)
-            # VirSorter (22)
-            # VIBRANT (37)
+    call pgap, prokka, bakta
+    call phage finder
+        other tools that we could use: 
+            Seeker
+            VirFinder (23)
+            DeepVirFinder (25)
+            PPR-Meta (24)
+            VirSorter (22)
+            VIBRANT (37)
     # FCS
     # IS elements
 
