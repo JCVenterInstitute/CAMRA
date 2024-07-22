@@ -3,6 +3,6 @@
   "annotation_analysis.BVBRC_username": "alapoint",
   "annotation_analysis.BVBRC_password": "test",
   "annotation_analysis.assembly": "ws:/alapoint@bvbrc/home/assemblies/wdlTest1/assembly/.wdlTest1/wdlTest1_contigs.fasta",
-  "annotation_analysis.output_path": "/alapoint@bvbrc/home/assemblies/CGA/CGATest",
+  "annotation_analysis.output_path": "/alapoint@bvbrc/home/assemblies/CGA/CGATest2",
   "annotation_analysis.scientific_name": "SCINAME"
 }
