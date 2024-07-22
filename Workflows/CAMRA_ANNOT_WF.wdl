@@ -6,7 +6,7 @@ import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 workflow annotation_analysis   {
     meta {
         author: "Daniella Matute"
-        co-author: "Andrew LaPointe"
+        author: "Andrew LaPointe"
         email: "dmatute@jcvi.org"
         description: "Run Annotation on an Assembly."
     }
@@ -35,32 +35,32 @@ workflow annotation_analysis   {
             taxonomy_id = 2
     }
 
-    call plasmidfinder.run_PlasmidFinder {
-        #there is also plasflow and plasmidspades
-        input:
-            assembly = assembly,
-            sample_name = sample_name,
-            database = plasmidfinder_DB 
-    }
+    # call plasmidfinder.run_PlasmidFinder {
+    #     #there is also plasflow and plasmidspades
+    #     input:
+    #         assembly = assembly,
+    #         sample_name = sample_name,
+    #         database = plasmidfinder_DB 
+    # }
 
-    call pgap, prokka, bakta
-    call phage finder
-        other tools that we could use: 
-            Seeker
-            VirFinder (23)
-            DeepVirFinder (25)
-            PPR-Meta (24)
-            VirSorter (22)
-            VIBRANT (37)
-    # FCS
-    # IS elements
+    # call pgap, prokka, bakta
+    # call phage finder
+    #     other tools that we could use: 
+    #         Seeker
+    #         VirFinder (23)
+    #         DeepVirFinder (25)
+    #         PPR-Meta (24)
+    #         VirSorter (22)
+    #         VIBRANT (37)
+    # # FCS
+    # # IS elements
 
 
     output {
-        String plasmidfinder_plasmids_list = run_PlasmidFinder.plasmidfinder_plasmids_list
-        String plasmidfinder_qty_hits =run_PlasmidFinder.plasmidfinder_qty_hits 
-        File plasmidfinder_tsv_output = run_PlasmidFinder.plasmidfinder_tsv_output
-        File plasmidfinder_seq_output = run_PlasmidFinder.plasmidfinder_seq_output
+        # String plasmidfinder_plasmids_list = run_PlasmidFinder.plasmidfinder_plasmids_list
+        # String plasmidfinder_qty_hits =run_PlasmidFinder.plasmidfinder_qty_hits 
+        # File plasmidfinder_tsv_output = run_PlasmidFinder.plasmidfinder_tsv_output
+        # File plasmidfinder_seq_output = run_PlasmidFinder.plasmidfinder_seq_output
     }
 
 }
