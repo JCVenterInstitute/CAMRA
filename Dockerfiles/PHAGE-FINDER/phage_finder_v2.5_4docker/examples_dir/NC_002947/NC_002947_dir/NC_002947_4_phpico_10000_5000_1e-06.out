@@ -1,0 +1,85 @@
+Pseudomonas putida KT2440, complete genome [asmbl_id: NC_002947], 6181863, gc%: 61.52%
+Small degenerate region 0 is from  to  and is 1 bp in size, gc%: 100.00%.
+
+END5     FEATNAME           ANNOTATION OF BEST HIT FROM PHAGE DB, [ANNO]TATION, OR [HMM] HIT                                                                       PAGE: 1
+............................................................................................................................................................................
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pseudomonas putida KT2440, complete genome [asmbl_id: NC_002947], 6181863, gc%: 61.52%
+Small degenerate region 2 is from 1860279 to 1866812 and is 6534 bp in size, gc%: 62.96%.
+
+END5     FEATNAME           ANNOTATION OF BEST HIT FROM PHAGE DB, [ANNO]TATION, OR [HMM] HIT                                                                       PAGE: 2
+............................................................................................................................................................................
+
+1860932  purN_gi26988396    gi|61805923|ref|YP_214283.1|, TAG = PHAGE_prochl_PSSM2, E-VALUE = 7e-26
+                            [ANNO] phosphoribosylglycinamide formyltransferase
+1861990  purM_gi26988397    gi|61806048|ref|YP_214408.1|, TAG = PHAGE_prochl_PSSM2, E-VALUE = 3e-76
+                            [ANNO] phosphoribosylformylglycinamidine cyclo-ligase
+1862311  PP1666_gi26988398  [ANNO] hypothetical protein
+1863391  PP1667_gi26988399  [ANNO] transporter putative
+1864663  PP1668_gi26988400  [ANNO] dnaa family protein
+1865492  PP1669_gi26988401  gi|56693182|ref|YP_164769.1|, TAG = PHAGE_lactob_LP65, E-VALUE = 3e-07
+                            [ANNO] nlp/p60 family protein
+1866279  PP1670_gi26988402  gi|29566640|ref|NP_818206.1|, TAG = PHAGE_mycoba_Bxz1, E-VALUE = 1e-09
+                            [ANNO] lipoprotein putative
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pseudomonas putida KT2440, complete genome [asmbl_id: NC_002947], 6181863, gc%: 61.52%
+Small degenerate region 5 is from 3258737 to 3267393 and is 8657 bp in size, gc%: 61.42%.
+
+END5     FEATNAME           ANNOTATION OF BEST HIT FROM PHAGE DB, [ANNO]TATION, OR [HMM] HIT                                                                       PAGE: 3
+............................................................................................................................................................................
+
+3260188  PP2856_gi26989575  gi|56693145|ref|YP_164732.1|, TAG = PHAGE_lactob_LP65, E-VALUE = 5e-12
+                            [ANNO] hypothetical protein
+3260816  PP2857_gi26989576  [ANNO] hypothetical protein
+3261255  PP2858_gi26989577  [ANNO] hypothetical protein
+3262122  PP2859_gi26989578  gi|34419444|ref|NP_899457.1|, TAG = PHAGE_vibrio_KVP40, E-VALUE = 2e-07
+                            [ANNO] hypothetical protein
+3262685  PP2860_gi26989579  gi|34419448|ref|NP_899461.1|, TAG = PHAGE_vibrio_KVP40, E-VALUE = 7e-13
+                            [ANNO] nicotinamide mononucleotide transporter putative
+3264543  PP2861_gi26989580  [ANNO] methyl-accepting chemotaxis transducer
+3264841  PP2862_gi26989581  [ANNO] bacitracin resistance protein baca/undecaprenol kinase putative
+3265703  PP2863_gi26989582  [ANNO] hypothetical protein
+3266510  PP2864_gi26989583  [ANNO] hypothetical protein
+3267393  PP2865_gi26989584  gi|38707948|ref|NP_945089.1|, TAG = PHAGE_burkho_phi1026b, E-VALUE = 1e-11
+                            [ANNO] transcriptional regulator lysr family
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pseudomonas putida KT2440, complete genome [asmbl_id: NC_002947], 6181863, gc%: 61.52%
+Small degenerate region 8 is from 4671226 to 4680770 and is 9545 bp in size, gc%: 62.27%.
+
+END5     FEATNAME           ANNOTATION OF BEST HIT FROM PHAGE DB, [ANNO]TATION, OR [HMM] HIT                                                                       PAGE: 4
+............................................................................................................................................................................
+
+4671489  PP4132_gi26990826  gi|17313254|ref|NP_490634.1|, TAG = PHAGE_pseudo_phiCTX, E-VALUE = 1e-15
+                            [ANNO] hypothetical protein
+4671669  PP4133_gi26990827  [ANNO] transcriptional regulator-related protein
+4672405  PP4134_gi26990828  gi|17313227|ref|NP_490607.1|, TAG = PHAGE_pseudo_phiCTX, E-VALUE = 7e-12
+                            [ANNO] hypothetical protein
+4672745  PP4135_gi26990829  gi|17313224|ref|NP_490604.1|, TAG = PHAGE_pseudo_phiCTX, E-VALUE = 1e-07
+                            [ANNO] hypothetical protein
+4673005  PP4136_gi26990830  [ANNO] transcriptional regulator luxr family
+4673226  PP4137_gi26990831  [ANNO] outer membrane siderophore receptor putative
+4675962  PP4138_gi26990832  [ANNO] hypothetical protein
+4676119  PP4139_gi26990833  [ANNO] hypothetical protein
+4679457  dnaQ_gi26990834    [ANNO] dna polymerase iii epsilon subunit
+4679954  rnhA_gi26990835    gi|46401827|ref|YP_006919.1|, TAG = PHAGE_coliph_T5, E-VALUE = 4e-24
+                            [ANNO] ribonuclease hi
+4680770  PP4143_gi26990836  [ANNO] hypothetical protein
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pseudomonas putida KT2440, complete genome [asmbl_id: NC_002947], 6181863, gc%: 61.52%
+Small degenerate region 9 is from 5135002 to 5141559 and is 6558 bp in size, gc%: 62.89%.
+
+END5     FEATNAME           ANNOTATION OF BEST HIT FROM PHAGE DB, [ANNO]TATION, OR [HMM] HIT                                                                       PAGE: 5
+............................................................................................................................................................................
+
+5136567  PP4521_gi26991206  gi|34610158|ref|NP_918983.1|, TAG = PHAGE_Burkho_BcepNazgul, E-VALUE = 4e-07
+                            [ANNO] aerotaxis receptor putative
+5137599  PP4522_gi26991207  gi|38707948|ref|NP_945089.1|, TAG = PHAGE_burkho_phi1026b, E-VALUE = 9e-14
+                            [ANNO] transcriptional regulator lysr family
+5137812  PP4523_gi26991208  [ANNO] agmatinase putative
+5138907  PP4524_gi26991209  gi|37651715|ref|NP_932589.1|, TAG = PHAGE_aeromo_44RR2.8t, E-VALUE = 9e-19
+                            [ANNO] sodium-solute symporter putative
+5141559  PP4525_gi26991210  gi|38707948|ref|NP_945089.1|, TAG = PHAGE_burkho_phi1026b, E-VALUE = 9e-09
+                            [ANNO] transcriptional regulator lysr family
+............................................................................................................................................................................
+There are 5 regions < 10 Kb and summing 31295 bp of sequence ( 0.51% of the genome)

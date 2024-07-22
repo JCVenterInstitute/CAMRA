@@ -1,0 +1,51 @@
+------------------------------
+ARAGORN v1.1   Dean Laslett
+------------------------------
+
+Please reference the following paper if you use this
+program as part of any published research.
+
+Laslett, D. and Canback, B. (2004) ARAGORN, a
+program for the detection of transfer RNA and
+transfer-messenger RNA genes in nucleotide sequences.
+Nucleic Acids Research, 32;11-16.
+
+
+Searching for tmRNA genes
+Using standard genetic code for peptide tag prediction
+Assuming circular topology, search wraps around ends
+Searching both strands
+
+
+NC_002947 Pseudomonas putida KT2440, complete genome
+6181863 nucleotides in sequence
+Mean G+C content = 61.5%
+
+1.
+Location [5390009,5390407]
+tmRNA Sequence in NC_002947 Pseudomonas putida KT2440, complete genome
+
+1   .   10    .   20    .   30    .   40    .   50
+ggggccgattaggattcgacgccggtaGCGAAACTCTAGGTGCATGCCGA
+GTTGGTAACAGAACTCGTAAATCCACTGTTGCAACTTTTATAGTTgccaa
+tgacgaaaactacggcgcggagtacaagctggctgcgtaaGCAGTCCTCT
+TGACCCGTTGCTTCTGGTAGCTTCGGCTCCAGCAATCACTAGGGGATGCC
+TGTAAACCCGAACTGATTGTCATACAGAACAGGATCGTCGCGTAGCACGT
+TGTGGGCGAAGTGACTAAAACTTACACAACTCATCCAAAGCACCCTGCCC
+GTCGGGCGGCTGCGGATTAAATCAGTAGACACGGCTAAGCATGTAGTACC
+GACAGCGGAGtactggcggacgggggttcaaatccccccggctccacca
+
+Resume consensus sequence (at 89): tatagttgccaatgacga
+
+Tag peptide (at 96)
+Tag sequence: gcc-aat-gac-gaa-aac-tac-ggc-gcg-gag-tac-aag-ctg-gct-gcg-taa
+Tag peptide:  Ala-Asn-Asp-Glu-Asn-Tyr-Gly-Ala-Glu-Tyr-Lys-Leu-Ala-Ala-Stop
+Tag peptide:  ANDENYGAEYKLAA*
+Tag match to tmRNA from Pseudomonas putida 1
+
+
+
+Number of tmRNA genes = 1
+
+
+Configuration: aragorn -m -o tmRNA_aragorn.out /usr/local/db/MICROBIAL/bacteria/chromosomes/NC_002947/NC_002947.con 
