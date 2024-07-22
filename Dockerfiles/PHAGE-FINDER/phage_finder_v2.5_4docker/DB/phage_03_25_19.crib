@@ -1,0 +1,680 @@
+GU815091	66275	Pseudomonas phage JG024	JG024	749447	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	93	0	0	55.62%
+HM368260	45159	Acinetobacter phage AB1	AB1	889876	Viruses; unclassified phages	Chromosome	85	0	0	37.69%
+NC_000866	168903	Enterobacteria phage T4	NULL	10665	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; Enterobacteria phage T4 sensu lato	Chromosome	278	0	8	35.30%
+NC_000867	10079	Pseudoalteromonas phage PM2	NULL	10661	Viruses; dsDNA viruses, no RNA stage; Corticoviridae; Corticovirus	Chromosome	22	0	0	42.17%
+NC_000871	37370	Streptococcus phage Sfi19	NULL	72638	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	45	0	0	38.27%
+NC_000872	40739	Streptococcus phage Sfi21	NULL	64186	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	50	0	0	37.57%
+NC_000896	43785	Lactobacillus phage phiadh	NULL	12417	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	35.57%
+NC_000902	60942	Enterobacteria phage VT2-Sakai	NULL	97081	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae; Enterobacteria phage 933W sensu lato	Chromosome	83	0	3	49.91%
+NC_000924	61670	Enterobacteria phage 933W	NULL	10730	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae; Enterobacteria phage 933W sensu lato	Chromosome	80	0	3	49.37%
+NC_000929	36717	Enterobacteria phage Mu	NULL	10677	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; Mu-like viruses	Chromosome	55	0	0	52.05%
+NC_000935	36524	Acyrthosiphon pisum secondary endosymbiont phage 1	NULL	67571	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	54	0	0	43.89%
+NC_001270	6825	Spiroplasma phage SVTS2	NULL	93224	Viruses; ssDNA viruses; Inoviridae; Plectrovirus; unclassified Plectrovirus	Chromosome	13	0	0	22.65%
+NC_001271	39600	Yersinia phage phiYeO3-12	NULL	110457	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses	Chromosome	59	0	0	50.63%
+NC_001317	30624	Enterobacteria phage 186	NULL	29252	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; Enterobacteria phage P2	Chromosome	41	0	1	53.09%
+NC_001330	6087	Enterobacteria phage alpha3	NULL	10849	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade	Chromosome	10	0	0	45.18%
+NC_001331	7349	Pseudomonas phage Pf1	ATCC 25102-B1	10871	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	14	0	0	61.49%
+NC_001332	6744	Enterobacteria phage I2-2	NULL	10869	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	9	0	0	42.72%
+NC_001333	3575	Enterobacteria phage fr	NULL	12017	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Levivirus; Enterobacteria phage MS2	Chromosome	4	0	0	51.38%
+NC_001335	52297	Mycobacterium phage L5	NULL	31757	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; L5-like viruses	Chromosome	85	0	3	62.26%
+NC_001338	15465	Sulfolobus virus 1	NULL	244589	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; Fusellovirus	Chromosome	32	0	0	39.70%
+NC_001341	4491	Acholeplasma phage MV-L1	JA-1	10876	Viruses; ssDNA viruses; Inoviridae; Plectrovirus; unclassified Plectrovirus	Chromosome	4	0	0	33.29%
+NC_001365	8273	Spiroplasma phage 1-R8A2B	NULL	10854	Viruses; ssDNA viruses; Inoviridae; Plectrovirus	Chromosome	12	0	0	22.89%
+NC_001396	7308	Xanthomonas phage Cf1c	NULL	10862	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	9	0	0	58.07%
+NC_001416	48502	Enterobacteria phage lambda	NULL	10710	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses	Chromosome	71	0	0	49.86%
+NC_001417	3569	Enterobacterio phage MS2	NULL	12022	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Levivirus; Enterobacteria phage MS2	Chromosome	4	0	0	52.12%
+NC_001418	5833	Pseudomonas phage Pf3	NULL	10872	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	9	0	0	45.36%
+NC_001420	5577	Enterobacteria phage G4	NULL	10843	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.69%
+NC_001421	14925	Enterobacteria phage PRD1	NULL	10658	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus	Chromosome	22	0	0	48.09%
+NC_001422	5386	Enterobacteria phage phiX174	NULL	10847	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.76%
+NC_001423	19366	Bacillus phage phi29	PZA	10756	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses	Chromosome	27	0	0	39.66%
+NC_001424	5386	Enterobacteria phage S13	NULL	10844	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	12	0	0	44.34%
+NC_001426	3466	Enterobacteria phage GA	NULL	12018	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Levivirus; Enterobacteria phage BZ13	Chromosome	3	0	0	47.86%
+NC_001447	11965	Acholeplasma phage L2	NULL	46014	Viruses; dsDNA viruses, no RNA stage; Plasmaviridae; Plasmavirus	Chromosome	14	0	0	31.96%
+NC_001604	39937	Enterobacteria phage T7	NULL	10760	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses	Chromosome	60	0	0	48.40%
+NC_001609	11624	Enterobacteria phage P4	NULL	10680	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	14	0	0	49.53%
+NC_001628	3588	Pseudomonas phage PP7	NULL	12023	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Levivirus; unclassified Levivirus	Chromosome	4	0	0	54.21%
+NC_001629	22195	Lactococcus phage bIL67	NULL	36343	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; c2-like viruses	Chromosome	37	0	0	35.99%
+NC_001697	32355	Haemophilus phage HP1	HP1c1	10690	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses	Chromosome	42	0	0	40.01%
+NC_001706	22172	Lactococcus phage c2	NULL	31537	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; c2-like viruses	Chromosome	39	0	0	36.31%
+NC_001730	6089	Enterobacteria phage phiK	NULL	10848	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage alpha3	Chromosome	10	0	0	44.92%
+NC_001741	4877	Chlamydia phage Chp1	NULL	10857	Viruses; ssDNA viruses; Microviridae; Chlamydiamicrovirus	Chromosome	12	0	0	36.50%
+NC_001825	19343	Streptococcus phage Cp-1	NULL	10747	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses	Chromosome	28	0	0	38.83%
+NC_001835	28451	Lactococcus phage sk1	NULL	31532	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	56	0	0	34.51%
+NC_001884	134416	Bacillus phage SPBc2	NULL	66797	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	185	0	0	34.64%
+NC_001890	4215	Enterobacteria phage Qbeta	Enterobacteria phage MX1	39803	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Allolevivirus; Enterobacteria phage Qbeta sensu lato	Chromosome	4	0	0	48.54%
+NC_001895	33593	Enterobacteria phage P2	NULL	10679	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses	Chromosome	43	0	0	50.17%
+NC_001900	49136	Mycobacterium phage D29	NULL	28369	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; L5-like viruses	Chromosome	79	0	5	63.53%
+NC_001901	46375	Enterobacteria phage N15	NULL	40631	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; N15-like viruses	Chromosome	60	0	0	51.17%
+NC_001902	26111	Methanobacterium phage psiM2	NULL	77048	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	32	0	0	46.31%
+NC_001909	31754	Lactococcus phage bIL170	NULL	63118	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	64	0	0	34.35%
+NC_001942	15644	Mycoplasma phage MAV1	NULL	75590	Viruses; unclassified phages	Chromosome	15	0	0	29.03%
+NC_001954	8454	Enterobacteria phage If1	NULL	10868	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	10	0	0	43.71%
+NC_001956	8651	Vibrio phage fs2	NULL	83201	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	9	0	0	44.53%
+NC_001978	41491	Streptomyces phage phiC31	Norwich stock	10719	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; PhiC31-like viruses	Chromosome	53	0	1	63.62%
+NC_001998	4529	Chlamydia phage phiCPG1	PhiCPG1	90963	Viruses; ssDNA viruses; Microviridae; Chlamydiamicrovirus	Chromosome	9	0	0	40.98%
+NC_002014	6883	Enterobacteria phage Ike	NULL	10867	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	10	0	0	40.55%
+NC_002072	34815	Streptococcus phage DT1	DT1	90410	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	45	0	0	39.07%
+NC_002166	40751	Enterobacteria phage HK022	NULL	10742	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses	Chromosome	57	0	0	49.48%
+NC_002167	39732	Enterobacteria phage HK97	NULL	37554	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses	Chromosome	61	0	0	49.79%
+NC_002180	4532	Chlamydia phage CPAR39	NULL	117575	Viruses; ssDNA viruses; Microviridae; Chlamydiamicrovirus	Chromosome	7	0	0	40.62%
+NC_002185	35466	Streptococcus phage 7201	NULL	112023	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	46	0	0	38.73%
+NC_002194	4563	Chlamydia phage Chp2	NULL	105154	Viruses; ssDNA viruses; Microviridae; Chlamydiamicrovirus	Chromosome	7	0	0	40.94%
+NC_002214	39807	Streptococcus phage Sfi11	NULL	78541	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	53	0	0	38.56%
+NC_002250	3486	Enterobacteria phage KU1	NULL	12021	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Levivirus; Enterobacteria phage BZ13	Chromosome	4	0	0	46.53%
+NC_002321	41401	Staphylococcus phage PVL	NULL	71366	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	62	0	0	33.55%
+NC_002362	8784	Vibrio phage VfO3K6	NULL	127507	Viruses; ssDNA viruses; Inoviridae; Inovirus; unclassified Inovirus	Chromosome	10	0	0	45.16%
+NC_002363	6891	Vibrio phage VfO4K68	NULL	127508	Viruses; ssDNA viruses; Inoviridae; Inovirus; unclassified Inovirus	Chromosome	8	0	0	47.24%
+NC_002371	41724	Enterobacteria phage P22	NULL	10754	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses	Chromosome	72	0	0	47.09%
+NC_002484	56425	Pseudomonas phage D3	NULL	31535	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	95	0	4	57.80%
+NC_002486	45636	Staphylococcus prophage phiPV83	P83	129009	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	33.48%
+NC_002515	11660	Mycoplasma phage P1	NULL	35238	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	11	0	0	26.79%
+NC_002519	39898	Roseobacter phage SIO1	NULL	136084	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae; Cyanophage P60 group	Chromosome	34	0	0	46.16%
+NC_002628	28798	Methanothermobacter phage psiM100	NULL	173824	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	35	0	0	45.37%
+NC_002643	4594	Bdellovibrio phage phiMH2K	NULL	145579	Viruses; ssDNA viruses; Microviridae; Bdellomicrovirus	Chromosome	11	0	0	46.10%
+NC_002649	21129	Bacillus phage GA-1	NULL	12345	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; Bacillus phage phi29	Chromosome	35	0	0	34.65%
+NC_002656	50550	Mycobacterium phage Bxb1	NULL	148603	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; L5-like viruses; unclassified L5-like viruses	Chromosome	86	0	0	63.65%
+NC_002661	42942	Staphylococcus phage phiSLT	NULL	130478	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	61	0	0	33.31%
+NC_002666	35538	Lactococcus phage bIL285	NULL	151535	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	62	0	0	35.19%
+NC_002667	41834	Lactococcus phage bIL286	NULL	151536	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	61	0	0	35.32%
+NC_002668	36949	Lactococcus phage bIL309	NULL	151537	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	56	0	0	35.68%
+NC_002669	14957	Lactococcus phage bIL310	NULL	151538	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	29	0	0	35.88%
+NC_002670	14510	Lactococcus phage bIL311	NULL	151534	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	22	0	0	34.24%
+NC_002671	15179	Lactococcus phage bIL312	NULL	151539	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	27	0	0	33.04%
+NC_002700	4268	Acinetobacter phage AP205	NULL	154784	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Levivirus; unclassified Levivirus	Chromosome	4	0	0	43.86%
+NC_002703	38347	Lactococcus phage Tuc2009	NULL	35241	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	56	0	0	36.22%
+NC_002730	38297	Enterobacteria phage HK620	NULL	155148	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	58	0	0	46.69%
+NC_002747	37667	Lactococcus phage TP901-1	NULL	35345	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	56	0	0	35.38%
+NC_002796	40003	Lactococcus phage BK5-T	NULL	31754	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	34.97%
+NC_003050	40248	Streptococcus phage MM1	NULL	120574	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	53	0	0	38.41%
+NC_003085	49534	Myxococcus phage Mx8	NULL	49964	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	85	0	0	67.75%
+NC_003157	41796	Temperate phage phiNIH1.1	NULL	173707	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	55	0	0	38.57%
+NC_003214	40047	Sulfolobus islandicus filamentous virus	NULL	176106	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Betalipothrixvirus	Chromosome	72	0	0	33.34%
+NC_003216	40834	Listeria phage A118	NULL	40521	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	72	0	0	36.11%
+NC_003278	35580	Pseudomonas phage phiCTX	phiCTX-c	35343	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	47	0	0	62.62%
+NC_003287	6407	Enterobacteria phage M13	NULL	10870	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	10	0	0	40.74%
+NC_003288	43081	Staphylococcus phage phiETA	NULL	106284	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	66	0	0	35.43%
+NC_003291	37618	Listeria phage 2389	NULL	181007	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	57	0	1	34.73%
+NC_003298	38208	Enterobacteria phage T3	Luria	10759	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses	Chromosome	55	0	0	49.90%
+NC_003299	7051	Pseudomonas phage phi8	NULL	120086	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	6	0	0	54.02%
+NC_003300	4741	Pseudomonas phage phi8	NULL	120086	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	6	0	0	55.26%
+NC_003301	3192	Pseudomonas phage phi8	NULL	120086	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	4	0	0	54.45%
+NC_003309	53373	Burkholderia phage phiE125	NULL	180504	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	71	0	0	61.19%
+NC_003311	6834	Vibrio phage VSKK	NULL	180503	Viruses; ssDNA viruses; Inoviridae; Inovirus; Vibrio phage VSK	Chromosome	6	0	0	43.50%
+NC_003313	33106	Vibrio phage K139	NULL	70734	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses; K139-like phages	Chromosome	44	0	0	48.90%
+NC_003315	31508	Haemophilus phage HP2	NULL	157239	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	37	0	0	39.94%
+NC_003324	57416	Sinorhizobium phage PBC5	NULL	179237	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	83	0	0	61.49%
+NC_003327	6882	Vibrio phage VSK	NULL	181604	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	14	0	0	43.72%
+NC_003345	77670	Halorubrum phage HF2	NULL	33771	Viruses; unclassified archaeal viruses; Haloviruses	Chromosome	114	0	5	55.85%
+NC_003356	42575	Enterobacteria phage phiP27	NULL	103807	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	58	0	2	49.35%
+NC_003387	52797	Mycobacterium phage TM4	NULL	88870	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	89	0	0	68.11%
+NC_003390	47872	Synechococcus phage P60	NULL	151528	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae; Cyanophage P60 group	Chromosome	80	0	0	53.21%
+NC_003438	4421	Spiroplasma phage 4	NULL	10855	Viruses; ssDNA viruses; Microviridae; Spiromicrovirus	Chromosome	9	0	0	32.05%
+NC_003444	37074	Enterobacteria phage SfV	NULL	55884	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	53	0	0	50.77%
+NC_003460	5804	Propionibacterium phage B5	NULL	189836	Viruses; ssDNA viruses; Inoviridae; Inovirus; unclassified Inovirus	Chromosome	10	0	0	64.28%
+NC_003524	33507	Clostridium phage phi3626	NULL	190478	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	50	0	0	28.38%
+NC_003525	61765	Stx2 converting phage I	Stx2 phage-I	180816	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae; Enterobacteria phage 933W sensu lato	Chromosome	166	0	0	49.39%
+NC_003714	2948	Pseudomonas phage phi6	NULL	10879	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	5	0	0	55.16%
+NC_003715	6374	Pseudomonas phage phi6	NULL	10879	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	4	0	0	55.52%
+NC_003716	4063	Pseudomonas phage phi6	NULL	10879	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	4	0	0	56.76%
+NC_003793	7768	Spiroplasma phage 1-C74	SpV1-C74	185959	Viruses; ssDNA viruses; Inoviridae; Plectrovirus	Chromosome	13	0	0	23.16%
+NC_003907	46012	Vibriophage VpV262	NULL	194802	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	67	0	0	49.52%
+NC_004066	36798	Lactococcus phage ul36	NULL	114416	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	61	0	0	35.84%
+NC_004084	58498	Natrialba phage PhiCh1	NULL	114777	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	98	0	0	61.89%
+NC_004086	35450	Sulfolobus islandicus rod-shaped virus 2	HVE10/4	157899	Viruses; dsDNA viruses, no RNA stage; Rudiviridae; Rudivirus	Chromosome	54	0	0	25.20%
+NC_004087	32308	Sulfolobus islandicus rod-shaped virus 1	NULL	157898	Viruses; dsDNA viruses, no RNA stage; Rudiviridae; Rudivirus	Chromosome	45	0	0	25.27%
+NC_004112	43411	Lactobacillus phage A2	NULL	51369	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	61	0	0	44.89%
+NC_004165	18630	Bacillus phage B103	NULL	10778	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	17	0	0	37.66%
+NC_004166	44010	Bacillus phage SPP1	NULL	10724	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	101	0	0	43.72%
+NC_004167	39325	Bacillus phage phi105	NULL	10717	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	51	0	0	42.69%
+NC_004170	2981	Pseudomonas phage phi13	NULL	134554	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	4	0	0	56.19%
+NC_004171	4213	Pseudomonas phage phi13	NULL	134554	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	5	0	0	57.87%
+NC_004172	6458	Pseudomonas phage phi13	NULL	134554	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	4	0	0	58.36%
+NC_004173	6751	Pseudomonas phage phi12	NULL	161736	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	6	0	0	54.11%
+NC_004174	2322	Pseudomonas phage phi12	NULL	161736	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	4	0	0	56.98%
+NC_004175	4100	Pseudomonas phage phi12	NULL	161736	Viruses; dsRNA viruses; Cystoviridae; Cystovirus	Chromosome	5	0	0	56.02%
+NC_004301	4276	Enterobacteria phage FI sensu lato	Enterobacteria phage SP	329855	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; Allolevivirus	Chromosome	4	0	0	50.26%
+NC_004302	33350	Lactococcus phage r1t	NULL	43685	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	50	0	0	35.46%
+NC_004303	43075	Streptococcus phage O1205	CNRZ1205	85154	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	57	0	0	38.26%
+NC_004305	42259	Lactobacillus phage phig1e	NULL	52979	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	50	0	0	43.06%
+NC_004306	6340	Vibrio phage fs1	NULL	70203	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	15	0	0	43.42%
+NC_004313	40149	Enterobacteria phage ST64B	NULL	175950	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	56	0	0	51.01%
+NC_004333	48247	Burkholderia phage Bcep781	NULL	209052	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bcep781 - like phages	Chromosome	66	0	0	63.33%
+NC_004348	40679	Enterobacteria phage ST64T	NULL	173443	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	65	0	0	47.52%
+NC_004456	43198	Vibrio phage VHML	NULL	207597	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	57	0	0	50.62%
+NC_004462	19603	Thermus phage IN93	NULL	164037	Viruses; unclassified phages	Chromosome	35	0	0	65.94%
+NC_004466	45503	Pseudomonas phage PaP3	NULL	188350	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae; Cyanophage P60 group	Chromosome	71	0	4	52.23%
+NC_004584	39538	Streptococcus pyogenes phage 315.1	NULL	198538	Viruses; unclassified phages; Streptococcus pyogenes phage	Chromosome	56	0	0	37.80%
+NC_004585	41072	Streptococcus pyogenes phage 315.2	NULL	198539	Viruses; unclassified phages; Streptococcus pyogenes phage	Chromosome	60	0	0	38.25%
+NC_004586	34419	Streptococcus pyogenes phage 315.3	NULL	198540	Viruses; unclassified phages; Streptococcus pyogenes phage	Chromosome	52	0	0	38.03%
+NC_004587	41796	Streptococcus pyogenes phage 315.4	NULL	198541	Viruses; unclassified phages; Streptococcus pyogenes phage	Chromosome	64	0	0	38.57%
+NC_004588	38206	Streptococcus pyogenes phage 315.5	NULL	198542	Viruses; unclassified phages; Streptococcus pyogenes phage	Chromosome	55	0	0	38.08%
+NC_004589	40014	Streptococcus pyogenes phage 315.6	NULL	198543	Viruses; unclassified phages; Streptococcus pyogenes phage	Chromosome	51	0	0	39.71%
+NC_004615	43604	Staphylococcus phage 11	NULL	12360	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	53	0	0	34.50%
+NC_004616	44970	Staphylococcus phage phi 12	NULL	186152	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	49	0	0	33.35%
+NC_004617	42722	Staphylococcus phage phi13	NULL	186153	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	49	0	0	33.47%
+NC_004629	280334	Pseudomonas phage phiKZ	NULL	169683	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	306	0	0	36.83%
+NC_004664	41831	Streptomyces phage phiBT1	NULL	225588	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; PhiC31-like viruses; unclassified phiC31-like viruses	Chromosome	55	0	1	62.76%
+NC_004665	37359	Pseudomonas phage gh-1	NULL	197783	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses	Chromosome	42	0	0	57.42%
+NC_004678	16784	Staphylococcus phage 44AHJD	NULL	204086	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	21	0	0	29.62%
+NC_004679	18227	Staphylococcus aureus phage P68	NULL	204090	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	22	0	0	29.32%
+NC_004680	59471	Mycobacterium phage Che8	NULL	205868	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	112	0	0	61.30%
+NC_004681	75931	Mycobacterium phage Cjw1	NULL	205869	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	141	0	1	63.12%
+NC_004682	50913	Mycobacterium phage Bxz2	NULL	205870	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	3	64.18%
+NC_004683	57050	Mycobacterium phage Che9c	NULL	205872	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	84	0	1	65.38%
+NC_004684	67480	Mycobacterium phage Rosebush	NULL	205874	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	90	0	0	68.96%
+NC_004685	69777	Mycobacterium phage Corndog	NULL	205875	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	122	0	0	65.38%
+NC_004686	56276	Mycobacterium phage Che9d	NULL	205876	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	111	0	0	60.90%
+NC_004687	156102	Mycobacterium phage Bxz1	NULL	205877	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	225	0	28	64.77%
+NC_004688	110865	Mycobacterium phage Omega	NULL	205879	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	237	0	2	61.37%
+NC_004689	70797	Mycobacterium phage Barnyard	NULL	205880	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	109	0	0	57.31%
+NC_004735	129908	Rhodothermus phage RM378	NULL	148943	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	146	0	0	42.49%
+NC_004736	7542	Vibrio phage VGJphi	NULL	223524	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	13	0	0	43.37%
+NC_004740	44082	Staphylococcus phage phiN315	NULL	225979	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	64	0	0	32.78%
+NC_004745	30728	Yersinia phage L-413C	NULL	227940	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	40	0	0	52.11%
+NC_004746	36596	Lactococcus phage P335 sensu lato	NULL	354260	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	49	0	0	35.37%
+NC_004775	39671	Enterobacteria phage epsilon15	NULL	215158	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	51	0	0	50.85%
+NC_004777	37555	Yersinia pestis phage phiA1122	NULL	227720	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses	Chromosome	50	0	0	48.32%
+NC_004813	57930	Phage BP-4795	NULL	196242	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	48	0	0	50.61%
+NC_004814	16687	Streptococcus phage C1	NULL	230871	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	20	0	0	34.63%
+NC_004820	61395	Bacillus phage phBC6A51	NULL	225725	Viruses; unclassified phages	Chromosome	75	0	0	37.69%
+NC_004821	38472	Bacillus phage phBC6A52	NULL	225726	Viruses; unclassified phages	Chromosome	49	0	0	34.72%
+NC_004827	43033	Haemophilus phage Aaphi23	NULL	230158	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	66	0	0	42.46%
+NC_004831	43769	Enterobacteria phage SP6	NULL	194966	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	52	0	0	47.23%
+NC_004902	44373	Xanthomonas phage Xp10	NULL	232237	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	60	0	0	52.04%
+NC_004913	59866	Stx1 converting phage	Stx1 phage	194948	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	166	0	0	49.69%
+NC_004914	62706	Stx2 converting phage II	Stx2 phage-II	194949	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	169	0	0	49.90%
+NC_004927	75898	Halovirus HF1	NULL	222645	Viruses; dsDNA viruses, no RNA stage; unclassified dsDNA viruses; unclassified archaeal dsDNA viruses; Haloviruses	Chromosome	102	0	4	55.79%
+NC_004928	167560	Enterobacteria phage RB69	NULL	12353	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	273	0	2	37.66%
+NC_004996	34692	Streptococcus phage SM1	NULL	157924	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	56	0	0	39.15%
+NC_005045	42519	Pseudomonas phage phiKMV	NULL	204270	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses	Chromosome	49	0	0	62.30%
+NC_005056	32684	Enterobacteria phage WPhi	NULL	103216	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; Enterobacteria phage P2	Chromosome	44	0	0	51.72%
+NC_005066	164018	Enterobacteria phage RB49	NULL	50948	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	274	0	0	40.44%
+NC_005069	46339	Yersinia phage PY54	NULL	172667	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	66	0	0	44.57%
+NC_005083	244834	Vibrio phage KVP40	NULL	75320	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; Vibrio phage nt-1 sensu lato	Chromosome	381	0	29	42.60%
+NC_005091	57455	Burkholderia phage BcepNazgul	NULL	242861	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	73	0	0	60.64%
+NC_005131	7118	Ralstonia phage p12J	NULL	247080	Viruses; unclassified phages	Chromosome	9	0	0	56.95%
+NC_005135	173591	Aeromonas phage 44RR2.8t	NULL	115987	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	252	0	17	43.88%
+NC_005178	37611	Pseudomonas phage D3112	NULL	10708	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	55	0	0	64.34%
+NC_005258	14935	Bacillus phage Bam35c	NULL	236750	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; Bacillus phage Bam35	Chromosome	32	0	0	39.72%
+NC_005259	68999	Mycobacterium phage PG1	NULL	213236	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	100	0	0	66.50%
+NC_005260	233234	Aeromonas phage Aeh1	NULL	227470	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses	Chromosome	352	0	23	42.78%
+NC_005262	63882	Burkholderia phage Bcep22	NULL	242527	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	78	0	0	65.31%
+NC_005263	48177	Burkholderia phage Bcep1	NULL	244310	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	71	0	0	63.64%
+NC_005265	14796	Sulfolobus virus 2	NULL	244590	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; Fusellovirus; unclassified Fusellovirus	Chromosome	34	0	0	38.50%
+NC_005282	86155	Enterobacteria phage Felix 01	NULL	77775	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	246	0	22	39.01%
+NC_005284	54865	Burkholderia phage phi1026b	NULL	255131	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	83	0	0	60.68%
+NC_005294	42935	Streptococcus phage EJ-1	NULL	12402	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	73	0	0	39.64%
+NC_005340	30636	Enterobacteria phage PsP3	NULL	12407	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	42	0	0	52.83%
+NC_005342	48024	Burkholderia phage Bcep43	NULL	260373	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	65	0	0	63.43%
+NC_005344	39043	Enterobacteria phage Sf6	NULL	10761	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	66	0	2	47.47%
+NC_005345	49220	Streptomyces phage VWB	NULL	10702	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	61	0	0	71.14%
+NC_005354	38384	Lactobacillus prophage Lj928	NULL	139872	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	50	0	1	34.70%
+NC_005355	40190	Lactobacillus prophage Lj965	NULL	139870	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	46	0	4	35.14%
+NC_005356	41708	Staphylococcus phage 77	NULL	259901	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	69	0	0	33.53%
+NC_005357	42493	Bordetella phage BPP-1	NULL	194699	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	49	0	0	65.41%
+NC_005360	16473	Sulfolobus virus Ragged Hills	NULL	256994	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; Fusellovirus; unclassified Fusellovirus	Chromosome	37	0	0	37.53%
+NC_005361	17385	Sulfolobus virus Kamchatka 1	NULL	248496	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; Fusellovirus; unclassified Fusellovirus	Chromosome	31	0	0	38.75%
+NC_005808	42663	Bordetella phage BMP-1	NULL	263374	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	47	0	0	65.44%
+NC_005809	42638	Bordetella phage BIP-1	NULL	263375	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	48	0	0	65.40%
+NC_005822	32172	Lactococcus phage phiLC3	IMN-C3	12390	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	51	0	0	35.51%
+NC_005830	20869	Acidianus filamentous virus 1	NULL	235266	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Gammalipothrixvirus	Chromosome	40	0	0	36.94%
+NC_005833	48836	Enterobacteria phage T1	NULL	12355	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; T1-like viruses	Chromosome	78	0	0	45.55%
+NC_005841	41391	Enterobacteria phage ST104	NULL	221029	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	63	0	0	47.43%
+NC_005856	94800	Enterobacteria phage P1	NULL	10678	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P1-like viruses	Chromosome	110	0	3	47.31%
+NC_005857	51601	Klebsiella phage phiKO2	NULL	255431	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	51.49%
+NC_005859	121750	Enterobacteria phage T5	NULL	10726	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; T5-like viruses	Chromosome	162	0	25	39.27%
+NC_005872	28337	Pyrobaculum spherical virus	NULL	270161	Viruses; dsDNA viruses, no RNA stage; Globuloviridae; Globulovirus	Chromosome	48	0	0	48.40%
+NC_005879	39853	Vibrio phage VP2	NULL	260372	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	47	0	0	50.56%
+NC_005880	127395	Staphylococcus phage K	NULL	221915	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	115	0	0	30.60%
+NC_005882	36748	Burkholderia phage BcepMu	NULL	264729	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; Mu-like viruses	Chromosome	53	0	0	62.86%
+NC_005884	43783	Pseudomonas phage PaP2	NULL	270673	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	58	0	0	45.36%
+NC_005885	58638	Actinoplanes phage phiAsp2	NULL	279303	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	76	0	0	70.39%
+NC_005886	47399	Burkholderia phage BcepB1A	NULL	279530	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	73	0	0	54.45%
+NC_005887	42415	Burkholderia phage BcepC6B	NULL	279280	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	46	0	0	65.19%
+NC_005891	39786	Vibrio phage VP5	NULL	260827	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	48	0	0	50.49%
+NC_005892	17663	Sulfolobus turreted icosahedral virus	NULL	269145	Viruses; dsDNA viruses, no RNA stage; Rudiviridae; Rudivirus; unclassified Rudivirus	Chromosome	36	0	0	36.01%
+NC_005893	39166	Lactobacillus phage phiAT3	NULL	279281	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactobacillus phage Lc-Nu	Chromosome	55	0	0	44.59%
+NC_005948	7965	Vibrio phage Vf33	NULL	127509	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	7	0	0	45.66%
+NC_005949	7965	Vibrio phage Vf12	NULL	127511	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	7	0	0	45.67%
+NC_005964	15141	Mycoplasma phage phiMFV1	NULL	280702	Viruses; unclassified phages	Chromosome	15	0	0	25.10%
+NC_006268	75294	Sulfolobus virus STSV1	NULL	285013	Viruses; dsDNA viruses, no RNA stage; Bicaudaviridae	Chromosome	74	0	0	35.22%
+NC_006294	7107	Vibrio phage KSF-1phi	NULL	292443	Viruses; ssDNA viruses; Inoviridae; Inovirus	Chromosome	12	0	0	44.38%
+NC_006356	36012	Flavobacterium phage 11b	NULL	294631	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	30.59%
+NC_006548	38439	Pseudomonas phage B3	ATCC15692-B1	151599	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	59	0	0	63.16%
+NC_006552	65195	Pseudomonas phage F116	NULL	280701	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	70	0	0	63.17%
+NC_006556	20933	Thermoproteus tenax spherical virus 1	NULL	292639	Viruses; dsDNA viruses, no RNA stage; Globuloviridae; Globulovirus	Chromosome	38	0	0	49.53%
+NC_006557	41092	Bacillus phage BCJA1c	NULL	294382	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	58	0	0	41.74%
+NC_006565	131522	Lactobacillus phage LP65	NULL	298338	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; SPO1-like viruses; unclassified SPO1-like viruses	Chromosome	165	0	14	37.32%
+NC_006820	196280	Cyanophage phage S-PM2	NULL	238854	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	236	0	1	37.82%
+NC_006882	44970	Cyanophage P-SSP7	NULL	268748	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	53	0	0	38.76%
+NC_006883	252401	Cyanophage P-SSM2	NULL	268746	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	329	0	1	35.51%
+NC_006884	178249	Cyanophage P-SSM4	NULL	268747	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	198	0	0	36.74%
+NC_006936	36674	Lactobacillus phage phiJL-1	NULL	235201	Viruses; unclassified phages	Chromosome	46	0	0	39.35%
+NC_006938	63649	Phage phiJL001	NULL	279383	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	90	0	0	62.12%
+NC_006940	40794	Phage KS7	NULL	293644	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	59	0	0	50.08%
+NC_006945	14844	Bacillus thuringiensis phage GIL16c	NULL	307240	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; unclassified Tectivirus	Chromosome	31	0	0	40.07%
+NC_006949	46900	Enterobacteria phage ES18	NULL	101570	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	79	0	0	48.59%
+NC_006953	37966	Listonella phage phiHSIC	NULL	310539	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	47	0	0	43.96%
+NC_006954	5577	Enterobacteria phage ID11	NULL	310953	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.94%
+NC_007019	34704	Streptococcus phage 2972	NULL	306323	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	44	0	0	40.15%
+NC_007021	130706	Staphylococcus phage Twort	NULL	55510	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	195	0	0	30.26%
+NC_007022	172963	Aeromonas phage 31	NULL	321023	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	247	0	15	43.91%
+NC_007023	180500	Enterobacteria phage RB43	NULL	115991	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	292	0	1	43.20%
+NC_007024	55770	Xanthomonas phage Xp15	NULL	322855	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	84	0	0	51.89%
+NC_007045	15603	Staphylococcus phage PT1028	NULL	320831	Viruses; unclassified phages	Chromosome	22	0	0	31.42%
+NC_007046	18199	Staphylococcus phage 66	NULL	320832	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	27	0	0	29.29%
+NC_007047	39620	Staphylococcus phage 187	NULL	55511	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	77	0	0	34.25%
+NC_007048	42732	Staphylococcus phage 69	NULL	320834	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	76	0	0	34.30%
+NC_007049	43883	Staphylococcus phage 53	NULL	320835	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	79	0	0	34.08%
+NC_007050	44283	Staphylococcus phage 85	NULL	59506	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	78	0	0	34.59%
+NC_007051	41318	Staphylococcus phage 2638A	NULL	320836	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	57	0	0	36.92%
+NC_007052	45861	Staphylococcus phage 42E	NULL	320837	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	79	0	0	33.73%
+NC_007053	43095	Staphylococcus phage 3A	NULL	215167	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	67	0	0	33.46%
+NC_007054	44777	Staphylococcus phage 47	NULL	320839	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	72	0	0	33.46%
+NC_007055	43681	Staphylococcus phage 37	NULL	320840	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	77	0	0	35.11%
+NC_007056	45286	Staphylococcus phage EW	NULL	320841	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	77	0	0	35.99%
+NC_007057	43576	Staphylococcus phage 96	NULL	320842	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	79	0	0	35.01%
+NC_007058	43155	Staphylococcus phage ROSA	NULL	320843	Viruses; unclassified phages	Chromosome	74	0	0	35.06%
+NC_007059	43114	Staphylococcus phage 71	NULL	320844	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	72	0	0	35.24%
+NC_007060	41902	Staphylococcus phage 55	NULL	320845	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	77	0	0	35.72%
+NC_007061	42802	Staphylococcus phage 29	NULL	320846	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	75	0	0	35.37%
+NC_007062	41690	Staphylococcus phage 52A	NULL	320847	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	65	0	0	35.53%
+NC_007063	43231	Staphylococcus phage 88	NULL	320848	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	72	0	0	35.47%
+NC_007064	42431	Staphylococcus phage 92	NULL	320849	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	74	0	0	35.72%
+NC_007065	43440	Staphylococcus phage X2	NULL	320850	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Staphylococcus phage 53 sensu lato	Chromosome	77	0	0	35.96%
+NC_007066	138715	Staphylococcus phage G1	NULL	292029	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	214	0	0	30.39%
+NC_007145	37639	Burkholderia phage phi52237	NULL	332032	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	47	0	0	64.82%
+NC_007149	39503	Vibriophage VP4	NULL	329886	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	31	0	0	42.61%
+NC_007189	6907	Phage phiSMA9	NULL	334856	Viruses; unclassified phages	Chromosome	7	0	0	62.39%
+NC_007217	30889	Haloarcula phage SH1	NULL	326574	Viruses; unclassified archaeal viruses	Chromosome	56	0	0	68.38%
+NC_007291	46072	Enterobacteria phage JK06	NULL	337828	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	82	0	0	44.00%
+NC_007409	62730	Acidianus two-tailed virus	NULL	315953	Viruses; dsDNA viruses, no RNA stage; Bicaudaviridae	Chromosome	72	0	0	41.23%
+NC_007449	14935	Enterobacteria phage L17	NULL	318593	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; Enterobacteria phage PRD1	Chromosome	31	0	0	48.26%
+NC_007450	14937	Enterobacteria phage PR3	NULL	318594	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; Enterobacteria phage PRD1	Chromosome	31	0	0	48.23%
+NC_007451	14954	Enterobacteria phage PR4	NULL	318595	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; Enterobacteria phage PRD1	Chromosome	31	0	0	48.32%
+NC_007452	14939	Enterobacteria phage PR5	NULL	318596	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; Enterobacteria phage PRD1	Chromosome	31	0	0	48.18%
+NC_007453	14942	Enterobacteria phage PR772	NULL	261665	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; Enterobacteria phage PRD1	Chromosome	31	0	0	48.35%
+NC_007456	39704	Enterobacteria phage K1F	NULL	344021	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	42	0	0	49.78%
+NC_007457	36615	Bacillus phage Cherry	NULL	347966	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	51	0	0	35.26%
+NC_007458	37253	Bacillus phage Gamma	NULL	347962	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	53	0	0	35.22%
+NC_007461	4530	Chlamydia phage 4	NULL	313629	Viruses; ssDNA viruses; Microviridae; Chlamydiamicrovirus; unclassified Chlamydiamicrovirus	Chromosome	8	0	0	41.17%
+NC_007497	44856	Burkholderia phage Bcep176	NULL	348137	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	81	0	0	61.54%
+NC_007501	36466	Lactobacillus phage Lc-Nu	NULL	146269	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	51	0	0	44.28%
+NC_007581	185683	Clostridium phage c-st	NULL	12336	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	198	0	0	26.28%
+NC_007603	46219	Enterobacteria phage RTP	NULL	355246	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; T1-like viruses; unclassified T1-like viruses	Chromosome	75	0	0	44.28%
+NC_007610	131384	Listeria phage P100	NULL	330395	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	174	0	18	36.04%
+NC_007623	211215	Pseudomonas phage EL	NULL	273133	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	201	0	0	49.33%
+NC_007637	45251	Enterobacteria phage K1E	NULL	344022	Viruses; unclassified phages	Chromosome	62	0	0	45.05%
+NC_007709	43785	Xanthomonas phage OP1	NULL	329254	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	59	0	0	51.07%
+NC_007710	46643	Xanthomonas phage OP2	NULL	331627	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	62	0	0	60.88%
+NC_007734	40867	Bacillus phage WBeta	NULL	359961	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	53	0	0	35.26%
+NC_007804	39104	Phage phiV10	NULL	343516	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	55	0	0	48.97%
+NC_007805	39199	Pseudomonas phage F10	NULL	347324	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	62.08%
+NC_007806	42999	Pseudomonas phage 73	NULL	347325	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	52	0	0	53.56%
+NC_007807	43365	Pseudomonas phage 119X	NULL	347326	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	53	0	0	44.89%
+NC_007808	49639	Pseudomonas phage PA11	NULL	347327	Viruses; unclassified phages	Chromosome	70	0	0	44.78%
+NC_007809	59446	Pseudomonas phage M6	NULL	347328	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	85	0	0	64.46%
+NC_007810	66015	Pseudomonas phage F8	NULL	347329	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	91	0	0	54.94%
+NC_007814	37974	Bacillus phage Fah	NULL	345922	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	50	0	0	34.94%
+NC_007817	5486	Coliphage ID2	NULL	338100	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage ID18	Chromosome	11	0	0	45.75%
+NC_007818	6068	Coliphage ID21	NULL	338101	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	45.27%
+NC_007819	6071	Coliphage ID32	NULL	338102	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	45.03%
+NC_007820	6039	Coliphage NC35	NULL	338103	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	44.73%
+NC_007821	6068	Coliphage WA13	NULL	338104	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	44.83%
+NC_007822	6068	Coliphage WA45	NULL	338105	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	44.94%
+NC_007823	6065	Coliphage NC28	NULL	338106	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	44.83%
+NC_007824	6051	Coliphage ID62	NULL	338107	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	44.93%
+NC_007825	5538	Enterobacteria phage ID52	NULL	338108	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.86%
+NC_007826	6097	Coliphage NC3	NULL	338109	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	45.09%
+NC_007827	6259	Coliphage NC29	NULL	338110	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage alpha3 clade; Enterobacteria phage WA13	Chromosome	10	0	0	44.35%
+NC_007828	5386	Enterobacteria phage ID1	NULL	338111	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.49%
+NC_007829	5386	Enterobacteria phage ID22	NULL	338112	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.36%
+NC_007830	5386	Enterobacteria phage ID34	NULL	338113	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.73%
+NC_007831	5386	Enterobacteria phage ID45	NULL	338114	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.47%
+NC_007832	5386	Enterobacteria phage NC1	NULL	338115	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.84%
+NC_007833	5386	Enterobacteria phage NC5	NULL	338116	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.49%
+NC_007834	5386	Enterobacteria phage NC7	NULL	338117	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.88%
+NC_007835	5386	Enterobacteria phage NC11	NULL	338118	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	45.08%
+NC_007836	5386	Enterobacteria phage NC16	NULL	338119	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.45%
+NC_007837	5386	Enterobacteria phage NC37	NULL	338120	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.50%
+NC_007838	5386	Enterobacteria phage NC41	NULL	338121	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.58%
+NC_007839	5386	Enterobacteria phage NC51	NULL	338122	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.39%
+NC_007840	5386	Enterobacteria phage NC56	NULL	338123	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.37%
+NC_007841	5386	Enterobacteria phage WA4	NULL	338124	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.54%
+NC_007842	5386	Enterobacteria phage WA10	NULL	338125	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.73%
+NC_007843	5387	Enterobacteria phage WA11	NULL	338126	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage phiX174 sensu lato	Chromosome	11	0	0	44.55%
+NC_007844	5540	Enterobacteria phage WA2	NULL	338127	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.08%
+NC_007845	5540	Enterobacteria phage WA3	NULL	338128	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.03%
+NC_007846	5540	Enterobacteria phage ID8	NULL	338129	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.30%
+NC_007847	5577	Enterobacteria phage WA5	NULL	338130	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.96%
+NC_007848	5577	Enterobacteria phage NC2	NULL	338131	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.28%
+NC_007849	5577	Enterobacteria phage NC13	NULL	338132	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.08%
+NC_007850	5577	Enterobacteria phage NC19	NULL	338133	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.81%
+NC_007851	5577	Enterobacteria phage ID41	NULL	338134	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.80%
+NC_007852	5529	Enterobacteria phage WA6	NULL	338135	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.46%
+NC_007853	5529	Enterobacteria phage ID12	NULL	338136	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.32%
+NC_007854	5529	Enterobacteria phage NC10	NULL	338137	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	46.14%
+NC_007855	5529	Enterobacteria phage NC6	NULL	338138	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage G4 sensu lato	Chromosome	11	0	0	45.85%
+NC_007856	5486	Coliphage ID18	NULL	338139	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage ID18	Chromosome	11	0	0	45.22%
+NC_007857	5486	Coliphage WA14	NULL	338140	Viruses; ssDNA viruses; Microviridae; Microvirus; Enterobacteria phage G4 clade; Enterobacteria phage ID18	Chromosome	11	0	0	45.08%
+NC_007902	52162	Sodalis phage phiSG1	NULL	373126	Viruses; unclassified phages	Chromosome	47	0	0	50.83%
+NC_007914	14462	His1 virus	NULL	128708	Viruses; dsDNA viruses, no RNA stage; Salterprovirus	Chromosome	35	0	0	38.85%
+NC_007917	53325	Clostridium phage phi CD119	NULL	320122	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	79	0	0	28.77%
+NC_007918	16067	His2 virus	NULL	128710	Viruses; dsDNA viruses, no RNA stage; Salterprovirus	Chromosome	35	0	0	40.37%
+NC_007924	38239	Lactobacillus phage KC5a	NULL	363555	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	61	0	0	36.90%
+NC_007967	38194	Streptomyces phage mu1/6	NULL	370623	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	52	0	0	71.19%
+NC_008152	44385	Enterobacteria phage K1-5	NULL	187764	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	52	0	0	45.25%
+NC_008193	30505	Pasteurella phage F108	NULL	342564	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	44	0	0	42.10%
+NC_008194	74483	Mycobacterium phage 244	NULL	373403	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	142	0	2	62.94%
+NC_008195	70654	Mycobacterium phage Cooper	NULL	373406	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	99	0	0	69.11%
+NC_008196	56852	Mycobacterium phage Llij	NULL	373408	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	100	0	0	61.53%
+NC_008197	68427	Mycobacterium phage Orion	NULL	373409	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	100	0	0	66.51%
+NC_008198	64494	Mycobacterium phage PBI1	NULL	373410	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	81	0	0	59.71%
+NC_008199	69059	Mycobacterium phage Pipefish	NULL	373413	Viruses; unclassified phages	Chromosome	102	0	0	67.34%
+NC_008200	64787	Mycobacterium phage PLot	NULL	373411	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	89	0	0	59.66%
+NC_008201	34525	Mannheimia phage phiMHaA1	Bacteriophage phi-MhaA1-PHL101	390978	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	49	0	0	41.57%
+NC_008202	42289	Mycobacterium phage Halo	NULL	373407	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	66.72%
+NC_008203	52047	Mycobacterium phage Che12	NULL	373405	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	98	0	3	62.88%
+NC_008204	67188	Mycobacterium phage Qyrzula	NULL	373414	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	81	0	0	68.96%
+NC_008205	56692	Mycobacterium phage PMC	NULL	373412	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	104	0	0	61.42%
+NC_008206	78441	Mycobacterium phage Wildcat	NULL	373415	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	148	0	22	56.85%
+NC_008207	153766	Mycobacterium phage Catera	NULL	373404	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	218	0	34	64.74%
+NC_008208	161475	Aeromonas phage 25	NULL	233894	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	242	0	13	41.04%
+NC_008265	38092	Clostridium perfringens phage phiSM101	NULL	396359	Viruses; unclassified phages	Chromosome	53	0	1	28.13%
+NC_008294	3573	Pseudomonas phage PRR1	NULL	12024	Viruses; ssRNA viruses; ssRNA positive-strand viruses, no DNA stage; Leviviridae; unclassified Leviviridae	Chromosome	4	0	0	49.20%
+NC_008296	176847	Phage Syn9	NULL	346873	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	229	0	6	40.61%
+NC_008355	4554	Chlamydia phage 3	NULL	225067	Viruses; ssDNA viruses; Microviridae; Chlamydiamicrovirus; unclassified Chlamydiamicrovirus	Chromosome	8	0	0	41.04%
+NC_008363	28538	Lactococcus phage P008	NULL	83129	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	58	0	0	34.68%
+NC_008364	26537	Lactococcus phage Q54	NULL	382685	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	47	0	0	37.10%
+NC_008367	40938	Cyanophage Pf-WMP4	NULL	400567	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	45	0	0	51.80%
+NC_008370	30510	Lactococcus phage 712	NULL	213769	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	55	0	0	33.88%
+NC_008371	27453	Lactococcus phage jj50	NULL	213775	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	49	0	0	34.94%
+NC_008376	34683	Geobacillus phage GBSV1	NULL	365048	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	55	0	0	44.38%
+NC_008464	60238	Stx2-converting phage 86	NULL	379329	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	80	0	3	49.07%
+NC_008515	165890	Enterobacteria phage RB32	NULL	45406	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	270	0	8	35.34%
+NC_008562	162109	Cyanophage Ma-LMM01	NULL	340435	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Cyanophage Ma	Chromosome	184	0	2	45.95%
+NC_008574	8999	Ralstonia phage RSM1	NULL	384359	Viruses; ssDNA viruses; Inoviridae; Inovirus; unclassified Inovirus	Chromosome	15	0	0	59.92%
+NC_008575	6662	Ralstonia phage RSS1	NULL	384360	Viruses; ssDNA viruses; Inoviridae; Inovirus; unclassified Inovirus	Chromosome	12	0	0	62.61%
+NC_008583	43128	Staphylococcus phage phiNM	NULL	387905	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	64	0	0	34.16%
+NC_008584	152372	Thermus phage phiYS40	NULL	407392	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	170	0	3	32.59%
+NC_008617	44061	Staphylococcus aureus phage phiNM3	NULL	387909	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	32.99%
+NC_008689	44857	Staphylococcus phage phiPVL108	MR108	360398	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	59	0	0	33.47%
+NC_008694	38564	Yersinia phage Berlin	NULL	369257	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	45	0	0	47.19%
+NC_008695	42271	Archaeal BJ1 virus	NULL	416419	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	70	0	1	64.89%
+NC_008717	36415	Pseudomonas phage DMS3	NULL	389469	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	52	0	0	64.26%
+NC_008720	70153	Enterobacteria phage N4	NULL	10752	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; N4-like viruses	Chromosome	72	0	0	41.30%
+NC_008721	36216	Streptococcus phage SMP	NULL	413066	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	48	0	0	41.61%
+NC_008722	43420	Staphylococcus phage CNPH82	CNPH82	398839	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	34.68%
+NC_008723	44041	Staphylococcus phage PH15	PH15	399185	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	68	0	0	34.91%
+NC_008798	43265	Staphylococcus phage phiETA2	TY94	326036	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	69	0	0	34.28%
+NC_008799	43282	Staphylococcus phage phiETA3	TY32	326037	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	68	0	0	34.90%
+NC_009014	45445	Erwinia amylovora phage Era103	NULL	418443	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; T7-like viruses; unclassified T7-like viruses	Chromosome	53	0	0	49.84%
+NC_009015	72415	Burkholderia ambifaria phage BcepF1	NULL	417280	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bcep781 - like phages	Chromosome	127	0	0	55.89%
+NC_009016	38197	Vibrio phage VP882	NULL	261726	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	71	0	0	56.95%
+NC_009018	38528	Streptococcus phage phi3396	NULL	423476	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	64	0	0	37.48%
+NC_009231	56538	Clostridium phage phiC2	NULL	262071	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	82	0	0	28.73%
+NC_009232	42572	Salmonella phage SETP3	NULL	424944	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	53	0	0	49.85%
+NC_009234	35741	Burkholderia phage phiE202	NULL	431893	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	48	0	0	65.43%
+NC_009235	48674	Burkholderia phage phi644-2	NULL	431891	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	71	0	0	60.45%
+NC_009236	36690	Burkholderia phage phiE12-2	NULL	431892	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	50	0	0	64.62%
+NC_009237	37446	Burkholderia phage phiE255	NULL	431894	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	55	0	0	63.05%
+NC_009382	38760	Ralstonia phage RSA1	NULL	406340	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses; unclassified P2-like viruses	Chromosome	51	0	0	65.35%
+NC_009447	52414	Burkholderia phage BcepGomr	NULL	437329	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	75	0	0	56.29%
+NC_009452	23814	Acidianus bottle-shaped virus	NULL	437444	Viruses; unclassified archaeal viruses	Chromosome	57	0	0	34.56%
+NC_009514	47021	Enterobacteria phage cdtI	NULL	414970	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	60	0	0	49.12%
+NC_009526	43864	Staphylococcus phage 80alpha	NULL	53369	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	73	0	0	34.10%
+NC_009531	46214	Cyanophage Syn5	NULL	438482	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	61	0	0	54.97%
+NC_009534	2435	Leuconostoc phage L5	NULL	440576	Viruses; unclassified phages	Chromosome	0	0	0	33.26%
+NC_009540	49902	Phage TLS	NULL	245685	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; T1-like viruses; unclassified T1-like viruses	Chromosome	87	0	0	42.68%
+NC_009541	29739	Propionibacterium phage PA6	NULL	376758	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	48	0	0	54.02%
+NC_009542	35825	Phage phiO18P	NULL	393598	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; P2-like viruses	Chromosome	49	0	1	61.16%
+NC_009543	44520	Xanthomonas phage phiXo411	NULL	395879	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	52	0	0	51.90%
+NC_009551	43249	Phormidium phage Pf-WMP3	NULL	440250	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	41	0	0	46.48%
+NC_009552	40863	Geobacillus virus E2	NULL	447909	Viruses; unclassified phages	Chromosome	62	0	0	44.79%
+NC_009554	34659	Lactobacillus phage LL-H	NULL	12348	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	51	0	0	47.82%
+NC_009603	46365	Microbacterium phage Min1	NULL	446529	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	77	0	0	68.31%
+NC_009604	47382	Burkholderia phage BcepNY3	NULL	446807	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bcep781 - like phages	Chromosome	70	0	1	63.64%
+NC_009643	17171	Actinomyces phage Av-1	NULL	338473	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	22	0	0	49.50%
+NC_009737	34931	Bacillus virus 1	NULL	396034	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	48	0	0	44.81%
+NC_009760	218948	Bacillus phage 0305phi8-36	NULL	458639	Viruses; unclassified phages	Chromosome	246	0	0	41.80%
+NC_009761	42232	Staphylococcus aureus	spa310	1280	Bacteria; Firmicutes; Bacilli; Bacillales; Staphylococcaceae; Staphylococcus	Chromosome	59	0	0	33.50%
+NC_009762	47785	Staphylococcus aureus	spa310	1280	Bacteria; Firmicutes; Bacilli; Bacillales; Staphylococcaceae; Staphylococcus	Chromosome	67	0	0	33.75%
+NC_009763	42973	Staphylococcus aureus	spa310	1280	Bacteria; Firmicutes; Bacilli; Bacillales; Staphylococcaceae; Staphylococcus	Chromosome	58	0	0	33.45%
+NC_009799	42968	Corynebacterium phage BFK20	NULL	28358	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	55	0	0	56.16%
+NC_009803	84201	Thermus phage P23-45	NULL	466051	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	117	0	0	57.76%
+NC_009804	83319	Thermus phage P74-26	NULL	466052	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	116	0	0	57.76%
+NC_009810	38867	Listeria phage A500	NULL	40522	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	36.68%
+NC_009811	134494	Listeria phage A511	NULL	40523	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	190	0	16	35.97%
+NC_009812	42653	Listeria phage B025	NULL	330396	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	35.10%
+NC_009813	48172	Listeria phage B054	NULL	330397	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	80	0	0	36.21%
+NC_009814	35822	Listeria phage P35	NULL	330398	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	56	0	0	40.82%
+NC_009815	38124	Listeria phage A006	NULL	330399	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	62	0	0	35.50%
+NC_009816	70579	Corynebacterium phage P1201	NULL	384848	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	97	0	4	50.92%
+NC_009817	79232	Lactococcus phage KSY1	NULL	388452	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	130	0	3	35.11%
+NC_009818	36409	Pseudomonas phage MP22	NULL	397353	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	51	0	0	64.19%
+NC_009819	40539	Streptococcus phage P9	NULL	403905	Viruses; unclassified phages	Chromosome	53	0	0	39.65%
+NC_009820	58692	Mycobacterium phage Tweety	NULL	439809	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	109	0	0	61.74%
+NC_009821	164270	Enterobacteria phage Phi1	NULL	448384	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	276	0	0	40.50%
+NC_009875	17938	Staphylococcus phage SAP-2	NULL	470865	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phi29-like viruses; unclassified phi-29-like viruses	Chromosome	20	0	0	28.94%
+NC_009877	51277	Mycobacterium phage U2	NULL	260120	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	81	0	0	63.70%
+NC_009878	52250	Mycobacterium phage Bethlehem	NULL	260121	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	87	0	0	63.25%
+NC_009884	31787	Acidianus filamentous virus 2	NULL	300186	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Deltalipothrixvirus	Chromosome	52	0	1	35.66%
+NC_009904	142072	Enterococcus phage phiEF24C	phiEF24C	442493	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; SPO1-like viruses; unclassified SPO1-like viruses	Chromosome	221	0	5	35.74%
+NC_009935	43200	Pseudomonas phage LKD16	NULL	386792	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses	Chromosome	53	0	0	62.32%
+NC_009936	41593	Pseudomonas phage LKA1	NULL	386793	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses	Chromosome	56	0	0	60.90%
+NC_009965	24655	Acidianus rod-shaped virus 1	NULL	309181	Viruses; dsDNA viruses, no RNA stage; Rudiviridae; Rudivirus; unclassified Rudivirus	Chromosome	41	0	0	39.13%
+NC_009986	15135	Sulfolobus spindle-shaped virus 4	NULL	459290	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; Fusellovirus; unclassified Fusellovirus	Chromosome	34	0	0	38.47%
+NC_009987	7870	Spiroplasma kunkelii virus SkV1_CR2-3x	NULL	455649	Viruses; ssDNA viruses; Inoviridae; Plectrovirus; unclassified Plectrovirus	Chromosome	13	0	0	22.21%
+NC_009990	37313	Thalassomonas phage BA3	NULL	469660	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	47	0	0	40.89%
+NC_009993	54512	Mycobacterium phage Giles	NULL	480808	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	79	0	0	67.27%
+NC_010105	170523	Enterobacteria phage JS98	NULL	293178	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses; Enterobacteria phage JS	Chromosome	266	0	3	39.51%
+NC_010106	52975	Enterobacteria phage phiEcoM-GJ1	NULL	451705	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	75	0	1	44.02%
+NC_010116	58663	Pseudomonas phage YuA	NULL	462590	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	77	0	0	64.26%
+NC_010147	43011	Staphylococcus phage phiMR11	NULL	379501	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	67	0	0	35.63%
+NC_010152	39577	Acidianus filamentous virus 6	NULL	346882	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Betalipothrixvirus	Chromosome	66	0	0	36.87%
+NC_010153	36895	Acidianus filamentous virus 7	NULL	346883	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Betalipothrixvirus	Chromosome	57	0	0	37.97%
+NC_010154	38179	Acidianus filamentous virus 8	NULL	346884	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Betalipothrixvirus	Chromosome	61	0	0	36.80%
+NC_010155	40449	Acidianus filamentous virus 3	NULL	346881	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Betalipothrixvirus	Chromosome	68	0	0	36.85%
+NC_010179	40881	Lactobacillus johnsonii prophage Lj771	NULL	139871	Viruses; unclassified phages	Chromosome	56	0	0	36.40%
+NC_010237	63395	Enterobacteria phage Min27	NULL	489779	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	83	0	3	49.50%
+NC_010275	33134	Vibrio phage kappa	NULL	493906	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; Peduovirinae; P2-like viruses; unclassified P2-like viruses; K139-like phages	Chromosome	45	0	0	48.89%
+NC_010324	77554	Enterobacteria phage Phieco32	NULL	490103	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Phieco32-like viruses	Chromosome	128	0	1	42.27%
+NC_010325	45625	Pseudomonas phage LUZ24	NULL	484895	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; LUZ24-like viruses	Chromosome	68	0	0	52.25%
+NC_010326	43548	Pseudomonas phage LUZ19	NULL	484896	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses; unclassified phiKMV-like phages	Chromosome	54	0	0	62.28%
+NC_010342	39245	Halomonas phage phiHAP-1	NULL	499235	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	46	0	0	58.98%
+NC_010353	35543	Streptococcus phage 858	NULL	459845	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	46	0	0	39.79%
+NC_010355	62337	Azospirillum phage Cd	NULL	467481	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	95	0	0	63.93%
+NC_010363	18762	Lactococcus phage asccphi28	NULL	503388	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	28	0	0	33.66%
+NC_010391	42723	Salmonella phage Fels-1	NULL	128975	Viruses; unclassified phages	Chromosome	52	0	0	51.56%
+NC_010392	48491	Phage Gifsy-1	NULL	129861	Viruses; unclassified phages	Chromosome	58	0	1	51.10%
+NC_010393	45840	Phage Gifsy-2	NULL	129862	Viruses; unclassified phages	Chromosome	55	0	0	51.10%
+NC_010463	33693	Enterobacteria phage Fels-2	NULL	194701	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; Peduovirinae; P2-like viruses; unclassified P2-like viruses	Chromosome	47	0	0	52.49%
+NC_010495	45051	Salmonella phage Vi II-E1	NULL	424716	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	51	0	0	46.13%
+NC_010537	41172	Acidianus filamentous virus 9	NULL	512792	Viruses; dsDNA viruses, no RNA stage; Lipothrixviridae; Betalipothrixvirus	Chromosome	73	0	0	34.64%
+NC_010576	55597	Lactococcus phage 1706	NULL	475178	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	76	0	0	33.69%
+NC_010583	111382	Enterobacteria phage EPS7	NULL	491003	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	170	0	0	39.90%
+NC_010762	41901	Mycobacterium phage BPs	NULL	515982	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Angel-like phages	Chromosome	63	0	0	66.56%
+NC_010763	64511	Mycobacterium phage Adjutor	NULL	528321	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	0	59.73%
+NC_010807	38815	Salmonella phage phiSG-JL2	NULL	529929	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses	Chromosome	55	0	0	50.86%
+NC_010808	44342	Staphylococcus phage phiMR25	NULL	487152	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	70	0	0	34.33%
+NC_010811	231255	Ralstonia phage RSL1	NULL	482058	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	343	0	2	58.03%
+NC_010821	316674	Pseudomonas phage 201phi2-1	NULL	198110	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; phiKZ-like viruses	Chromosome	461	0	1	45.34%
+NC_010945	39136	Streptococcus phage PH15	PH15	537874	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	60	0	0	40.51%
+NC_011019	53572	Mycobacterium phage KBG	KBG	540066	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	89	0	0	63.57%
+NC_011020	50968	Mycobacterium phage Jasper	Jasper	540065	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	94	0	0	63.71%
+NC_011021	51478	Mycobacterium phage Lockley	Lockley	540067	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	90	0	0	63.43%
+NC_011022	51621	Mycobacterium phage DD5	DD5	540064	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	87	0	0	63.39%
+NC_011023	52892	Mycobacterium phage Pukovnik	Pukovnik	540068	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	88	0	1	63.26%
+NC_011038	38677	Yersinia phage Yepe2	NULL	532078	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	46	0	0	47.27%
+NC_011039	70110	Mycobacterium phage Predator	NULL	543153	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	92	0	0	56.29%
+NC_011040	39816	Enterobacteria phage BA14	NULL	532074	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	52	0	0	48.78%
+NC_011041	137947	Escherichia phage rv5	NULL	399183	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	233	0	6	43.56%
+NC_011042	39252	Enterobacteria phage EcoDS1	NULL	532075	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	53	0	0	49.94%
+NC_011043	41181	Klebsiella phage K11	NULL	532077	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	51	0	0	53.25%
+NC_011044	69904	Mycobacterium phage Nigel	NULL	543152	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	94	0	1	68.34%
+NC_011045	38841	Enterobacteria phage 13a	NULL	532076	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	55	0	0	48.39%
+NC_011046	29305	Lactococcus phage bIBB29	NULL	494269	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Lactococcus phage 936 sensu lato	Chromosome	54	0	0	34.72%
+NC_011048	19282	Bacillus phage phi29	NULL	10756	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Picovirinae; Phi29-like viruses	Chromosome	27	0	0	39.99%
+NC_011054	58037	Mycobacterium phage Boomer	NULL	546182	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	105	0	0	61.13%
+NC_011055	76312	Mycobacterium phage Porky	NULL	546185	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	147	0	2	62.84%
+NC_011056	75811	Mycobacterium phage Kostya	NULL	546183	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	143	0	2	62.92%
+NC_011057	68090	Mycobacterium phage Phaedrus	NULL	546184	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	98	0	0	67.57%
+NC_011085	38234	Morganella phage MmP1	NULL	526118	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	49	0	0	46.54%
+NC_011103	60195	Rhizobium phage 16-3	NULL	10704	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	110	0	0	58.95%
+NC_011104	39989	Lactobacillus phage Lrm1	M-1	496874	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	54	0	0	45.49%
+NC_011105	42954	Pseudomonas phage PT5	NULL	476523	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses	Chromosome	52	0	0	62.33%
+NC_011107	42961	Pseudomonas phage PT2	PT2	496396	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses	Chromosome	54	0	0	62.18%
+NC_011132	18343	Sputnik virophage	NULL	543939	Viruses; unclassified virophages	Chromosome	21	0	0	27.04%
+NC_011142	47453	Iodobacteriophage phiPLPE	NULL	551895	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	84	0	0	46.10%
+NC_011165	64427	Pseudomonas phage LBL3	NULL	549445	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	88	0	0	55.47%
+NC_011166	66530	Pseudomonas phage LMA2	NULL	549446	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	94	0	0	55.62%
+NC_011167	53104	Bacillus phage IEBH	NULL	552525	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	0	36.42%
+NC_011201	43079	Ralstonia phage RSB1	NULL	551790	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses; unclassified phiKMV-like phages	Chromosome	47	0	0	61.74%
+NC_011216	37635	Burkholderia phage KS10	NULL	557289	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	49	0	0	62.87%
+NC_011217	15330	Sulfolobus spindle-shaped virus 5	NULL	459291	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; Fusellovirus; unclassified Fusellovirus	Chromosome	34	0	0	38.48%
+NC_011222	44929	Bacteroides phage B40-8	NULL	99179	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	46	0	0	38.63%
+NC_011267	49487	Mycobacterium phage Solon	NULL	555603	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	0	63.84%
+NC_011269	154017	Mycobacterium phage ScottMcG	NULL	546807	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bxz1-like phages	Chromosome	221	0	35	64.83%
+NC_011270	154906	Mycobacterium phage Spud	NULL	546808	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bxz1-like phages	Chromosome	222	0	35	64.78%
+NC_011271	155372	Mycobacterium phage Cali	NULL	546803	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bxz1-like phages	Chromosome	222	0	35	64.72%
+NC_011272	153894	Mycobacterium phage Rizal	NULL	546806	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bxz1-like phages	Chromosome	220	0	35	64.74%
+NC_011273	164602	Mycobacterium phage Myrna	NULL	546805	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	229	0	41	65.44%
+NC_011284	68450	Mycobacterium phage Chah	NULL	563124	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; PG1-like phages	Chromosome	104	0	0	66.50%
+NC_011285	64618	Mycobacterium phage Troll4	NULL	561999	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	84	0	0	59.61%
+NC_011286	64562	Mycobacterium phage Butterscotch	NULL	561997	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	0	59.67%
+NC_011287	58554	Mycobacterium phage Pacc40	NULL	563122	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	101	0	0	61.26%
+NC_011288	58471	Mycobacterium phage Fruitloop	NULL	563119	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	102	0	0	61.77%
+NC_011289	58578	Mycobacterium phage Ramsey	NULL	563123	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	108	0	0	61.22%
+NC_011290	64807	Mycobacterium phage Gumball	NULL	561998	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	88	0	0	59.55%
+NC_011291	47057	Mycobacterium phage Brujita	NULL	561996	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	74	0	0	66.77%
+NC_011292	68952	Mycobacterium phage Konstantine	NULL	563121	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	95	0	0	57.34%
+NC_011308	35638	Listeria phage P40	NULL	560178	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	62	0	0	39.26%
+NC_011318	38753	Clostridium phage 39-O	NULL	541865	Viruses; unclassified phages	Chromosome	62	0	0	30.42%
+NC_011344	47342	Staphylococcus phage phi2958PVL	JCSC2958	430796	Viruses; unclassified phages	Chromosome	60	0	0	33.04%
+NC_011356	54896	Enterobacteria phage YYZ-2008	NULL	564886	Viruses; unclassified phages	Chromosome	75	0	0	51.11%
+NC_011357	62147	Stx2-converting phage 1717	NULL	563769	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	77	0	0	50.91%
+NC_011373	46872	Pseudomonas phage PAJU2	PAJU2	504346	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	79	0	0	56.26%
+NC_011398	50930	Clostridium phage phiCD27	NULL	559189	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	75	0	0	29.33%
+NC_011399	8929	Ralstonia phage RSM3	NULL	520962	Viruses; ssDNA viruses; Inoviridae; Inovirus; unclassified Inovirus	Chromosome	14	0	0	59.65%
+NC_011421	132562	Bacillus phage SPO1	NULL	10685	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; SPO1-like viruses	Chromosome	204	0	5	39.96%
+NC_011523	14398	Bacillus phage AP50	NULL	513550	Viruses; dsDNA viruses, no RNA stage; Tectiviridae; Tectivirus; unclassified Tectivirus	Chromosome	31	0	0	38.65%
+NC_011534	39472	Kluyvera phage Kvp1	NULL	47049	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses	Chromosome	47	0	0	48.64%
+NC_011551	39867	Bacteriophage APSE-2	NULL	340054	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	41	0	1	42.91%
+NC_011589	40287	Stenotrophomonas phage S1	NULL	573591	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	48	0	0	63.69%
+NC_011611	36885	Pseudomonas phage MP38	NULL	505292	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	51	0	0	64.51%
+NC_011612	45344	Staphylococcus phage phiSauS-IPLA35	NULL	575610	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	62	0	0	33.25%
+NC_011613	36632	Pseudomonas phage MP29	NULL	505291	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	51	0	0	64.33%
+NC_011614	42526	Staphylococcus phage phiSauS-IPLA88	NULL	575608	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	60	0	0	34.91%
+NC_011645	37456	Bacillus phage TP21-L	NULL	565140	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	56	0	0	37.80%
+NC_011703	66235	Pseudomonas phage 14-1	NULL	581037	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	90	0	0	55.59%
+NC_011756	66390	Pseudomonas phage SN	NULL	582382	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	92	0	0	55.58%
+NC_011801	38934	Lactobacillus phage Lv-1	NULL	578234	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	47	0	0	37.04%
+NC_011802	41941	Salmonella phage SE1	NULL	329864	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	67	0	0	46.99%
+NC_011810	65764	Pseudomonas phage PB1	NULL	538398	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	93	0	0	54.93%
+NC_011811	84576	Erwinia phage phiEa21-4	NULL	557393	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	118	0	26	43.81%
+NC_011976	43016	Salmonella phage epsilon34	NULL	348058	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	73	0	0	47.26%
+NC_012027	69378	Mycobacterium phage Phlyer	NULL	591487	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	103	0	0	67.48%
+NC_012091	6501	Pseudomonas phage phi2954	NULL	593131	Viruses; dsRNA viruses; Cystoviridae; unclassified Cystoviridae	Chromosome	6	0	0	52.21%
+NC_012092	3606	Pseudomonas phage phi2954	NULL	593131	Viruses; dsRNA viruses; Cystoviridae; unclassified Cystoviridae	Chromosome	4	0	0	53.94%
+NC_012093	2578	Pseudomonas phage phi2954	NULL	593131	Viruses; dsRNA viruses; Cystoviridae; unclassified Cystoviridae	Chromosome	4	0	0	55.90%
+NC_012223	39792	Enterobacteria phage SSL-2009a	NULL	624134	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	52	0	0	54.72%
+NC_012418	43152	Pseudomonas phage phikF77	NULL	627480	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses; unclassified phiKMV-like phages	Chromosome	53	0	0	62.87%
+NC_012419	21115	Enterococcus phage EFAP-1	NULL	627087	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	24	0	0	36.72%
+NC_012530	142111	Lactobacillus phage Lb338-1	Lb338-1	632112	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	199	0	0	37.40%
+NC_012635	168394	Enterobacteria phage RB51	NULL	10693	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	273	0	9	35.25%
+NC_012638	165429	Enterobacteria phage RB14	NULL	197310	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	274	0	10	35.32%
+NC_012662	43931	Vibrio phage VP93	NULL	641832	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses	Chromosome	44	0	0	49.11%
+NC_012663	60074	Lactococcus phage P087	NULL	641487	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	88	0	5	34.38%
+NC_012696	73325	Sulfitobacter phage EE36phi1	EE36P1	490913	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; N4-like viruses; unclassified N4-like viruses	Chromosome	79	0	0	47.04%
+NC_012697	74611	Silicibacter phage DSS3phi2	DSS3P2	490912	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; N4-like viruses; unclassified N4-like viruses	Chromosome	81	0	0	47.92%
+NC_012740	166418	Enterobacteria phage JSE	NULL	576789	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	277	0	0	40.51%
+NC_012741	171451	Enterobacteria phage JS10	NULL	576790	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	265	0	3	39.52%
+NC_012742	44080	Xanthomonas phage phiL7	NULL	538979	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	58	0	0	55.64%
+NC_012743	62714	Burkholderia phage BcepIL02	NULL	644524	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	76	0	1	66.20%
+NC_012749	88487	Enterobacteria phage WV8	NULL	576791	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	140	0	23	38.89%
+NC_012753	37184	Streptococcus phage 5093	NULL	646413	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	48	0	0	38.03%
+NC_012756	31276	Streptococcus phage PH10	NULL	644007	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	54	0	0	39.49%
+NC_012757	6842	Vibrio phage VEJphi	NULL	642111	Viruses; ssDNA viruses; Inoviridae; unclassified Inoviridae	Chromosome	11	0	0	42.96%
+NC_012784	44492	Staphylococcus phage phiPVL-CN125	NULL	648017	Viruses; dsDNA viruses, no RNA stage; unclassified dsDNA phages	Chromosome	65	0	0	33.57%
+NC_012788	41441	Mycobacterium phage Angel	NULL	649688	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae; Angel-like phages	Chromosome	61	0	0	66.69%
+NC_012868	6094	Enterobacteria phage St-1	NULL	10845	Viruses; ssDNA viruses; Microviridae; Microvirus	Chromosome	11	0	0	45.21%
+NC_012884	31147	Streptococcus phage M102	NULL	372457	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	41	0	0	39.21%
+NC_013021	107530	Cyanophage PSS2	NULL	658401	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	131	0	0	52.30%
+NC_013055	39896	Burkholderia phage KS9	KS9	335797	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; Lambda-like viruses; unclassified Lambda-like viruses	Chromosome	50	0	0	60.68%
+NC_013059	40975	Salmonella phage g341c	NULL	590739	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	68	0	0	47.40%
+NC_013085	194454	Synechococcus phage S-RSM4	NULL	555387	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	237	0	12	41.12%
+NC_013195	40761	Staphylococcus phage P954	NULL	668618	Viruses; dsDNA viruses, no RNA stage; unclassified dsDNA phages	Chromosome	69	0	0	33.99%
+NC_013197	17036	Thermus phage P23-77	NULL	668994	Viruses; dsDNA viruses, no RNA stage; unclassified dsDNA phages	Chromosome	37	0	0	67.95%
+NC_013585	24186	Acidianus spindle-shaped virus 1	NULL	693629	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; unclassified Fuselloviridae	Chromosome	38	0	0	37.70%
+NC_013587	15684	Sulfolobus spindle-shaped virus 6	NULL	693627	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; unclassified Fuselloviridae	Chromosome	33	0	0	38.19%
+NC_013588	17602	Sulfolobus spindle-shaped virus 7	NULL	693628	Viruses; dsDNA viruses, no RNA stage; Fuselloviridae; unclassified Fuselloviridae	Chromosome	33	0	0	38.98%
+NC_013594	37235	Escherichia phage D108	NULL	665033	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; Mu-like viruses; unclassified Mu-like viruses	Chromosome	57	0	0	51.76%
+NC_013597	43970	Aggregatibacter phage S1249	NULL	683735	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	66	0	0	42.44%
+NC_013598	35525	Streptococcus phage ALQ13.2	NULL	682370	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	44	0	0	39.39%
+NC_013599	36674	Xylella phage Xfas53	NULL	670252	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	45	0	0	56.76%
+NC_013600	45169	Sodalis phage SO-1	NULL	673375	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	59	0	0	54.58%
+NC_013638	43144	Pseudomonas phage phi-2	phi 2	693582	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; phiKMV-like viruses; unclassified phiKMV-like phages	Chromosome	43	0	0	58.91%
+NC_013643	36270	Enterococcus phage phiFL2A	phiFL2A	673835	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	34.61%
+NC_013644	37856	Enterococcus phage phiFL4A	phiFL4A	673839	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	55	0	0	37.78%
+NC_013645	34882	Streptococcus phage Abc2	NULL	633135	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	48	0	0	38.99%
+NC_013646	38764	Enterococcus phage phiFL1A	phiFL1A	673832	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	61	0	0	34.01%
+NC_013647	41119	Klebsiella phage KP32	KP32	674082	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	44	0	0	52.37%
+NC_013648	39576	Enterococcus phage phiFL3A	phiFL3A	673837	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	64	0	0	34.55%
+NC_013649	43809	Klebsiella phage KP34	KP34	674081	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	57	0	0	54.07%
+NC_013650	155445	Mycobacterium phage ET08	NULL	663554	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae; Bxz1-like phages	Chromosome	218	0	34	64.60%
+NC_013651	38497	Vibrio phage N4	NULL	644563	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses	Chromosome	47	0	0	42.80%
+NC_013691	74901	Pseudomonas phage LUZ7	NULL	655097	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; N4-like viruses; unclassified N4-like viruses	Chromosome	115	0	0	53.22%
+NC_013692	72544	Pseudomonas phage LIT1	NULL	655098	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; N4-like viruses; unclassified N4-like viruses	Chromosome	90	0	0	55.02%
+NC_013693	158006	Shigella phage phiSboM-AG3	NULL	637730	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	216	0	4	50.40%
+NC_013694	51376	Mycobacterium phage Peaches	NULL	663557	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	0	63.87%
+NC_013696	42822	Enterococcus phage phiEf11	NULL	663241	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	65	0	0	34.39%
+NC_013697	157486	Deftia phage phiW-14	NULL	665032	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	236	0	0	56.28%
+NC_013698	58652	Clavibacter phage CMP1	NULL	686439	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	74	0	0	57.01%
+NC_013936	52141	Mycobacterium phage Ardmore	NULL	685506	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	87	0	0	61.49%
+NC_014036	174436	Klebsiella phage KP15	NULL	707757	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	257	0	0	41.83%
+NC_014229	37068	Streptomyces phage phiSASD1	NULL	747763	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; PhiC31-like viruses; unclassified phiC31-like viruses	Chromosome	43	0	0	66.25%
+NC_014260	172253	Enterobacteria phage IME08	NULL	697227	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	252	0	3	39.59%
+NC_014321	17666	Hyperthermophilic Archaeal Virus 2	NULL	762906	Viruses; unclassified archaeal viruses	Chromosome	15	0	0	52.08%
+NC_014457	59199	Clostridium phage phiCTP1	NULL	871584	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	86	0	0	31.26%
+NC_014458	59598	Mycobacterium phage Angelica	Angelica	861044	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	94	0	1	66.39%
+NC_014459	59798	Mycobacterium phage CrimD	CrimD	861045	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	95	0	1	66.88%
+NC_014460	41207	Staphylococcus phage SAP-26	NULL	872294	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	63	0	0	34.02%
+NC_014461	73453	Mycobacterium phage LeBron	LeBron	861047	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	123	0	9	58.83%
+NC_014467	176788	Enterobacteria phage RB16	NULL	329381	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	270	0	2	43.52%
+NC_014595	170605	Shigella phage SP18	NULL	645664	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	284	0	3	40.44%
+NC_014635	163875	Aeromonas phage phiAS4	NULL	879628	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	271	0	0	41.30%
+NC_014636	225268	Aeromonas phage phiAS5	NULL	879630	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	343	0	0	43.00%
+NC_014660	167716	Acinetobacter phage Ac42	Ac42	762660	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	255	0	6	36.37%
+NC_014661	164093	Acinetobacter phage Acj61	NULL	760732	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	241	0	12	39.01%
+NC_014662	165540	Enterobacteria phage CC31	NULL	709484	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	279	0	8	39.92%
+NC_014663	169947	Acinetobacter phage Acj9	NULL	760939	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	253	0	19	40.03%
+NC_014792	169285	Enterobacteria phage vB_EcoM-VR7	NULL	700939	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses; unclassified T4-like viruses	Chromosome	293	0	1	40.33%
+NC_014900	40986	Salmonella phage ST160	NULL	714583	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; P22-like viruses; unclassified P22-like viruses	Chromosome	63	0	0	47.06%
+NC_014901	59230	Mycobacterium phage Wee	Wee	938131	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	108	0	0	61.79%
+NC_015157	125956	Vibrio phage ICP1	NULL	979525	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	230	0	0	37.07%
+NC_015158	49675	Vibrio phage ICP2	NULL	979533	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; unclassified Podoviridae	Chromosome	72	0	0	42.68%
+NC_015159	39162	Vibrio phage ICP3	NULL	979535	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	54	0	0	42.86%
+NC_015208	39562	Pseudomonas phage phi15	NULL	988656	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	50	0	0	58.16%
+NC_015210	61440	Tsukamurella phage TPA2	NULL	981330	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	78	0	0	69.57%
+NC_015249	39270	Enterobacteria phage 285P	NULL	669008	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	47	0	0	48.73%
+NC_015250	159801	Acinetobacter phage 133	Acj133	279006	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses	Chromosome	257	0	16	39.67%
+NC_015251	235229	Aeromonas phage 65	NULL	260149	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; T4-like viruses	Chromosome	437	0	16	37.20%
+NC_015262	37664	Clostridium phage phiCD6356	NULL	864178	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; unclassified Siphoviridae	Chromosome	59	0	0	28.38%
+NC_015264	40973	Pseudomonas phage phiIBB-PF7A	NULL	942165	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	52	0	0	56.27%
+NC_015269	118351	Enterobacteria phage SPC35	NULL	977927	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Siphoviridae; T5-like viruses; unclassified T5-like viruses	Chromosome	145	0	24	39.39%
+NC_015271	38368	Salmonella phage Vi06	NULL	866889	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Podoviridae; Autographivirinae; T7-like viruses; unclassified T7-like viruses	Chromosome	47	0	0	48.93%
+NC_015279	190789	Synechococcus phage S-SM2	8017-1	444860	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	267	0	11	40.43%
+NC_015280	181044	Prochlorococcus phage P-HM1	M4-247	445700	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	241	0	0	37.85%
+NC_015281	179563	Synechococcus phage S-ShM2	8102-4	445683	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	230	0	1	41.11%
+NC_015282	174079	Synechococcus phage S-SM1	6501-1	444859	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	234	0	6	41.14%
+NC_015283	176428	Prochlorococcus phage P-RSM4	9303-10a	444862	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	239	0	3	37.64%
+NC_015284	183806	Prochlorococcus phage P-HM2	M4-259	445696	Viruses; unclassified phages	Chromosome	242	0	0	38.12%
+NC_015285	174285	Prochlorococcus phage Syn33	Syn33	444878	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	227	0	5	39.57%
+NC_015286	175230	Synechococcus phage Syn19	Syn19	445684	Viruses; unclassified phages	Chromosome	215	0	6	41.25%
+NC_015287	232878	Synechococcus phage S-SSM7	8109-3	445686	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	319	0	5	39.12%
+NC_015288	191195	Prochlorococcus phage Syn1	Syn1	444861	Viruses; dsDNA viruses, no RNA stage; Caudovirales; unclassified Caudovirales	Chromosome	234	0	6	40.62%
+NC_015289	176184	Synechococcus phage S-SSM5	8102-12	445685	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	225	0	4	39.96%
+NC_015290	182180	Prochlorococcus phage P-SSM7	NATL1A-15	445688	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	237	0	4	37.09%
+NC_015294	93398	Pseudomonas phage PAK_P1	NULL	743813	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	158	0	0	49.49%
+NC_015296	157061	Salmonella phage Vi01	NULL	867696	Viruses; dsDNA viruses, no RNA stage; Caudovirales; Myoviridae; unclassified Myoviridae	Chromosome	208	0	0	45.22%

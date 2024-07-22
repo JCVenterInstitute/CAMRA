@@ -1,0 +1,434 @@
+PF00078	214	20.70	20.60	RVT_1: RNA-directed DNA polymerase
+PF00161	206	20.70	19.90	RIP: ribosome inactivating protein
+PF00239	141	21.10	21.00	Resolvase: resolvase, N terminal domain
+PF00589	173	21.40	21.30	Phage_integrase: site-specific recombinase, phage integrase family
+PF00665	120	23.70	23.60	rve: integrase core domain
+PF00801	71	23.5	23.4	PKD domain
+PF00959	110	21.20	21.10	Phage_lysozyme: phage lysozyme
+PF01018	156	24.20	20.70	GTP1_OBG: GTP1/OBG
+PF01123	88	21.10	20.40	Stap_Strp_toxin: staphylococcal/Streptococcal toxin, OB-fold domain
+PF01324	154	32.20	19.60	Diphtheria_R: diphtheria toxin, R domain
+PF01375	260	19.90	19.50	Enterotoxin_a: heat-labile enterotoxin alpha chain
+PF01376	102	80.60	21.30	Enterotoxin_b: heat-labile enterotoxin beta chain
+PF01464	121	21.30	21.20	SLT: transglycosylase SLT domain
+PF01473	19	20.50	20.40	CW_binding_1: putative cell wall-binding repeat
+PF01476	44	20.90	20.80	LysM: LysM domain
+PF01510	132	21.10	20.80	Amidase_2: N-acetylmuramoyl-L-alanine amidase
+PF01520	175	21.10	21.00	Amidase_3: N-acetylmuramoyl-L-alanine amidase
+PF01664	219	105.00	19.70	Reo_sigma1: reovirus viral attachment protein sigma 1
+PF01818	121	73.20	19.80	Translat_reg: bacteriophage translational regulator
+PF01819	129	21.40	19.20	Levi_coat: levivirus coat protein
+PF02048	54	23.10	19.90	Enterotoxin_ST: heat-stable enterotoxin ST
+PF02061	45	20.90	19.60	Lambda_CIII: lambda phage CIII
+PF02258	70	21.20	21.00	SLT_beta: shiga-like toxin beta subunit
+PF02303	86	30.00	21.70	Phage_DNA_bind: helix-destabilizing protein
+PF02304	117	174.40	19.00	Phage_B: scaffold protein B
+PF02305	510	70.30	19.30	Phage_F: capsid protein
+PF02306	179	27.70	21.00	Phage_G: major spike protein
+PF02316	144	21.70	21.50	HTH_Tnp_Mu_1: Mu DNA-binding domain
+PF02368	79	22.10	22.00	Big_2: bacterial Ig-like domain, group 2
+PF02382	653	21.90	18.50	RTX: RTX N-terminal domain
+PF02413	130	22.10	20.90	Caudo_TAP: caudovirales tail fibre assembly protein
+PF02661	96	21.80	21.60	Fic: Fic/DOC family
+PF02763	187	426.20	21.70	Diphtheria_C: diphtheria toxin, C domain
+PF02764	180	399.60	19.00	Diphtheria_T: diphtheria toxin, T domain
+PF02794	134	25.40	19.10	HlyC: RTX toxin acyltransferase family
+PF02831	68	20.90	20.70	gpW: head to-tail joining protein W
+PF02876	106	20.80	20.60	Stap_Strp_tox_C: staphylococcal/Streptococcal toxin, beta-grasp domain
+PF02899	84	21.20	21.10	Phage_integr_N: phage integrase, N-terminal SAM-like domain
+PF02914	219	21.40	20.00	DDE_2: bacteriophage Mu transposase
+PF02917	233	21.70	20.60	Pertussis_S1: pertussis toxin, subunit 1
+PF02918	109	23.50	21.60	Pertussis_S2S3: pertussis toxin, subunit 2 and 3, C-terminal domain
+PF02924	94	20.70	18.90	HDPD: bacteriophage lambda head decoration protein D
+PF02925	141	268.00	18.70	gpD: bacteriophage scaffolding protein D
+PF03197	102	21.80	20.90	FRD2: bacteriophage FRD2 protein
+PF03237	384	20.30	20.20	Terminase_6: Terminase-like family
+PF03245	125	25.60	24.70	Phage_lysis: bacteriophage lysis protein
+PF03335	14	20.20	19.20	Phage_fiber: phage tail fiber repeat
+PF03354	477	19.90	19.50	Terminase_1: putative phage terminase, large subunit
+PF03374	112	25.00	24.50	ANT: phage antirepressor protein KilAC domain
+PF03406	44	21.10	19.50	Phage_fiber_2: phage tail fiber repeat
+PF03420	213	22.10	20.00	Peptidase_U9: prohead core protein protease, T4 family
+PF03431	542	25.00	22.90	RNA_replicase_B: RNA replicase, beta-chain
+PF03440	83	36.70	24.80	APT: aerolysin/pertussis toxin domain
+PF03495	406	20.40	17.80	Binary_toxB: clostridial binary toxin B/anthrax toxin PA
+PF03496	190	23.90	23.30	ADPrib_exo_Tox: ADP-ribosyltransferase exoenzyme
+PF03498	150	21.70	21.50	CDtoxinA: cytolethal distending toxin A/C family
+PF03505	197	277.00	17.00	Clenterotox: Clostridium enterotoxin
+PF03507	190	22.10	19.90	CagA: CagA exotoxin
+PF03545	70	26.10	23.40	YopE: Yersinia virulence determinant (YopE)
+PF03592	144	21.60	21.20	Terminase_2: terminase small subunit
+PF03863	400	25.70	17.10	Phage_mat-A: phage maturation protein
+PF03864	345	20.40	19.10	Phage_cap_E: phage major capsid protein E
+PF03903	219	27.80	26.80	Phage_T4_gp36: phage T4 tail fibre
+PF03906	159	21.20	21.00	Phage_T7_tail: phage T7 tail fiber protein
+PF04020	108	21.00	20.90	DUF360: uncharacterized membrane protein
+PF04233	112	24.10	24.00	Phage_Mu_F: phage Mu protein F-like protein
+PF04404	160	25.00	24.60	ERF: Erf superfamily
+PF04447	101	21.40	20.90	DUF550: PF04447 family
+PF04448	69	21.70	21.50	DUF551: PF04448 family
+PF04466	387	22.40	22.10	Terminase_3: phage terminase large subunit
+PF04492	100	28.80	27.60	Phage_rep_O: bacteriophage replication protein O
+PF04517	42	50.50	15.00	Microvir_lysis: microvirus lysis protein, C-terminal
+PF04531	84	21.90	21.20	Phage_holin_1: bacteriophage holin
+PF04550	90	25.50	20.40	Phage_holin_2: phage holin family 2
+PF04586	163	20.80	20.60	Peptidase_U35: caudovirus prohead protease
+PF04606	47	20.80	20.60	Ogr_Delta: phage transcriptional activator, Ogr/Delta
+PF04630	199	20.80	20.60	Phage_tail: phage major tail protein
+PF04687	310	36.80	20.80	Microvir_H: microvirus H protein
+PF04688	47	20.60	20.40	Phage_holin: phage lysis protein, holin
+PF04717	79	22.20	22.00	Phage_base_V: phage-related baseplate assembly protein
+PF04726	24	21.40	15.40	Microvir_J: microvirus J protein
+PF04761	57	85.90	21.90	Phage_Treg: Lactococcus bacteriophage putative transcription regulator
+PF04860	347	27.90	27.70	Phage_portal: phage portal protein
+PF04865	243	20.80	20.10	Baseplate_J: baseplate J-like protein
+PF04883	106	21.40	21.30	DUF646: bacteriophage protein, PF04883 family
+PF04936	186	22.30	22.20	DUF658: PF04936 family
+PF04971	68	20.80	20.60	Lysis_S: lysis protein S
+PF04984	464	26.20	25.90	Phage_sheath_1: phage tail sheath protein
+PF04985	167	25.90	20.80	Phage_tube: phage tail tube protein FII
+PF05017	11	15.00	14.90	TMP: TMP repeat
+PF05037	141	21.30	20.70	DUF669: PF05037 family
+PF05065	276	24.10	23.90	Phage_capsid: phage capsid family
+PF05069	148	24.50	24.00	Phage_tail_S: phage virion morphogenesis family
+PF05100	206	36.30	18.90	Phage_tail_L: phage minor tail protein L
+PF05102	61	22.00	21.00	Holin_BlyA: holin, BlyA family
+PF05105	118	19.90	19.30	Phage_holin_4: holin family
+PF05106	100	21.10	21.00	Phage_holin_3: phage holin family
+PF05119	100	24.10	24.00	Terminase_4: phage terminase, small subunit
+PF05125	333	20.60	19.70	Phage_cap_P2: phage major capsid protein, P2 family
+PF05133	442	24.70	24.40	Phage_prot_Gp6: phage portal protein, SPP1 Gp6-like
+PF05135	101	21.20	21.10	Phage_connect_1: Phage gp6-like head-tail connector protein
+PF05136	355	23.70	22.30	Phage_portal_2: phage portal protein, lambda family
+PF05144	271	23.90	19.90	Phage_CRI: phage replication protein CRI
+PF05155	92	23.10	20.60	Phage_X: phage X family
+PF05263	130	29.90	29.50	DUF722: PF05263 family
+PF05268	260	41.40	19.40	GP38: phage tail fibre adhesin Gp38
+PF05269	91	21.30	20.90	Phage_CII: bacteriophage CII protein
+PF05289	105	25.60	25.50	BLYB: Borrelia hemolysin accessory protein
+PF05322	60	64.10	23.80	NinE: NINE protein
+PF05339	138	19.60	19.20	DUF739: PF05339 family
+PF05352	281	31.80	19.30	Phage_connector: phage connector
+PF05354	117	27.60	20.70	Phage_attach: phage head-tail attachment
+PF05356	83	28.90	21.20	Phage_Coat_B: phage coat protein B
+PF05357	63	22.80	20.70	Phage_Coat_A: phage coat protein A
+PF05358	62	25.30	20.80	DicB: DicB protein
+PF05367	149	25.60	19.70	Phage_endo_I: phage endonuclease I
+PF05371	52	21.80	18.20	Phage_Coat_Gp8: phage major coat protein, Gp8
+PF05382	145	20.40	20.30	Amidase_5: bacteriophage peptidoglycan hydrolase
+PF05396	123	20.80	20.30	Phage_T7_Capsid: phage T7 capsid assembly protein
+PF05435	266	449.40	21.30	Phi-29_GP3: phi-29 DNA terminal protein GP3
+PF05449	83	27.70	18.40	DUF754: PF05449 family
+PF05464	125	22.10	19.60	Phi-29_GP4: phi-29-like late genes activator
+PF05489	60	20.60	20.50	Phage_tail_X: phage tail protein X
+PF05521	95	21.20	21.10	Phage_H_T_join: phage head-tail joining protein
+PF05565	162	25.20	24.60	Sipho_Gp157: siphovirus Gp157
+PF05595	91	21.30	20.70	DUF771: PF05595 domain
+PF05657	123	26.30	24.40	DUF806: PF05657 family
+PF05666	45	47.40	19.70	Fels1: Fels-1 prophage protein-like
+PF05707	193	20.30	20.20	Zot: zonula occludens toxin
+PF05709	248	20.30	20.00	Sipho_tail: phage tail protein
+PF05766	189	22.20	22.10	NinG: bacteriophage Lambda NinG protein
+PF05772	127	20.80	20.60	NinB: NinB protein
+PF05791	184	25.40	24.90	Bacillus_HBL: Bacillus haemolytic enterotoxin (HBL)
+PF05798	75	142.30	19.80	Phage_FRD3: bacteriophage FRD3 protein
+PF05810	58	21.20	19.60	NinF: NinF protein
+PF05840	371	21.00	20.50	Phage_GPA: bacteriophage replication gene A family protein
+PF05847	350	44.40	19.30	Baculo_LEF-3: nucleopolyhedrovirus late expression factor 3
+PF05869	181	20.70	19.70	Dam: DNA N-6-adenine-methyltransferase (Dam)
+PF05876	557	22.10	20.80	Terminase_GpA: phage terminase large subunit GpA
+PF05894	333	21.40	20.40	Podovirus_Gp16: podovirus DNA encapsidation protein
+PF05908	194	27.60	18.70	DUF867: PF05908 family
+PF05926	140	30.10	19.00	Phage_GPL: phage head completion protein GPL
+PF05929	276	22.80	21.40	Phage_GPO: phage capsid scaffolding protein (GPO) serine peptidase
+PF05930	51	20.30	20.20	Phage_AlpA: transcriptional regulator, AlpA family
+PF05939	109	21.60	20.40	Phage_min_tail: phage minor tail protein
+PF05944	132	21.50	20.40	Phage_term_smal: phage small terminase subunit
+PF05946	127	120.10	19.30	TcpA: toxin-coregulated pilus subunit TcpA
+PF05954	332	20.00	19.90	Phage_GPD: phage late control gene D protein
+PF05973	91	23.90	23.80	Gp49: Gp49-like PF05973 family
+PF06019	123	36.40	19.00	Phage_30_8: phage GP30.8 protein
+PF06056	58	20.30	20.20	Terminase_5: putative terminase, ATPase subunit, gpP-like
+PF06064	98	70.90	19.70	Gam: host-nuclease inhibitor protein Gam
+PF06074	516	22.30	18.50	DUF935: PF06074 family
+PF06085	40	39.70	23.30	Rz1: lipoprotein Rz1 precursor
+PF06116	53	26.00	21.70	RinB: transcriptional activator RinB
+PF06120	301	23.80	23.50	Phage_HK97_TLTM: tail length tape measure protein
+PF06141	133	36.80	19.20	Phage_tail_U: phage minor tail protein U
+PF06147	200	30.60	29.50	DUF968: PF06147 family
+PF06152	361	20.30	19.90	Phage_min_cap2: phage minor capsid protein 2
+PF06158	86	21.90	21.10	Phage_E: phage tail protein E
+PF06194	80	21.10	21.00	Phage_Orf51: phage conserved open reading frame 51
+PF06199	134	22.40	22.10	Phage_tail_2: phage major tail protein 2
+PF06222	127	39.10	22.10	Phage_TAC: phage tail assembly chaperone
+PF06223	103	28.00	19.70	Phage_tail_T: minor tail protein T
+PF06260	82	22.30	18.40	DUF1024: PF06260 family
+PF06275	80	19.90	19.20	DUF1031: PF06275 family
+PF06291	97	23.10	21.00	Lambda_Bor: bor protein
+PF06301	43	24.10	22.00	Lambda_Kil: bacteriophage lambda Kil family protein
+PF06322	64	24.50	23.10	Phage_NinH: phage protein NinH
+PF06323	230	29.30	18.50	Phage_antiter_Q: phage antitermination protein Q
+PF06340	311	432.60	18.40	TcpF: Vibrio cholerae toxin co-regulated pilus biosynthesis protein F
+PF06341	63	23.20	20.90	DUF1056: PF06341 family
+PF06356	118	25.00	24.10	DUF1064: PF06356 family
+PF06378	165	28.50	20.30	DUF1071: PF06378 family
+PF06381	363	26.40	25.00	DUF1073: PF06381 family
+PF06453	122	251.70	20.70	LT-IIB: type II heat-labile enterotoxin , B subunit
+PF06488	301	20.20	19.40	L_lac_phage_MSP: Lactococcus lactis bacteriophage major structural protein
+PF06528	39	20.50	19.30	Phage_P2_GpE: phage tail protein, P2 GpE family
+PF06530	126	21.10	20.90	Phage_antitermQ: phage antitermination protein Q
+PF06531	86	90.90	22.50	DUF1108: PF06531 family
+PF06543	49	21.10	19.50	Lac_bphage_repr: Lactococcus bacteriophage repressor
+PF06563	55	28.70	18.90	DUF1125: PF06563 family
+PF06591	152	26.10	17.70	Phage_T4_Ndd: T4-like phage nuclear disruption protein (Ndd)
+PF06600	107	74.20	17.70	DUF1140: PF06600 family
+PF06605	327	28.00	27.40	Prophage_tail: Prophage endopeptidase tail
+PF06673	347	20.10	17.90	L_lactis_ph-MCP: lactococcus lactis bacteriophage major capsid protein
+PF06714	144	27.10	24.70	Gp5_OB: Gp5 N-terminal OB domain
+PF06715	24	20.40	20.30	Gp5_C: Gp5 C-terminal repeat (3 copies)
+PF06720	130	47.60	21.40	Phi-29_GP16_7: bacteriophage phi-29 early protein GP16.7
+PF06737	77	21.50	21.40	Transglycosylas: transglycosylase-like domain
+PF06763	189	20.10	19.80	Minor_tail_Z: prophage minor tail protein Z
+PF06791	210	23.60	23.50	TMP_2: prophage tail length tape measure protein
+PF06805	194	20.80	20.30	Lambda_tail_I: bacteriophage lambda tail assembly protein I
+PF06806	72	21.40	20.80	DUF1233: excisionase family protein
+PF06810	156	31.50	30.40	Phage_GP20: phage minor structural protein GP20
+PF06820	64	26.60	22.70	Phage_fiber_C: putative prophage tail fibre C-terminus
+PF06841	134	19.30	17.10	Phage_T4_gp19: T4-like virus tail tube protein gp19
+PF06854	183	22.10	18.70	Phage_Gp15: bacteriophage Gp15 protein
+PF06890	162	30.30	30.00	Phage_Mu_Gp45: bacteriophage Mu Gp45 protein
+PF06891	135	29.40	23.80	P2_Phage_GpR: P2 phage tail completion protein R (GpR)
+PF06892	162	21.90	20.60	Phage_CP76: phage regulatory protein CII
+PF06894	127	22.50	19.00	Phage_lambd_GpG: bacteriophage lambda minor tail protein GpG
+PF06896	114	22.40	21.70	DUF1268: PF06896 family
+PF06900	53	20.60	20.40	DUF1270: PF06900 family
+PF06919	121	70.10	22.80	Phage_T4_Gp30_7: phage Gp30.7 protein
+PF06926	95	22.30	20.30	Rep_Org_C: putative replisome organiser protein C-terminal
+PF06946	93	20.10	19.80	Phage_holin_5: phage holin
+PF06950	115	29.40	24.50	DUF1293: PF06950 family
+PF06992	233	21.70	20.20	Phage_lambda_P: replication protein P
+PF06995	121	26.00	21.80	Phage_P2_GpU: phage P2 GpU
+PF07022	66	21.70	21.60	Phage_CI_repr: bacteriophage CI repressor protein
+PF07026	60	20.90	19.20	DUF1317: phage conserved hypothetical protein
+PF07030	130	21.70	20.60	DUF1320: phage conserved hypothetical protein
+PF07066	159	20.90	20.40	DUF3882: lactococcus phage M3 protein
+PF07067	236	460.10	19.70	DUF1340: PF07067 family
+PF07068	493	20.40	18.80	Gp23: major capsid protein Gp23
+PF07083	215	21.90	21.30	DUF1351: PF07083 family
+PF07097	102	133.60	20.50	DUF1359: PF07097 family
+PF07102	94	27.90	21.40	DUF1364: PF07102 family
+PF07104	116	22.20	21.40	DUF1366: PF07104 family
+PF07105	196	27.30	18.40	DUF1367: PF07105 family
+PF07108	228	130.50	18.80	PipA: PipA protein
+PF07116	104	38.90	18.50	DUF1372: PF07116 family
+PF07125	59	25.90	19.10	DUF1378: PF07125 family
+PF07129	44	48.40	24.90	DUF1381: PF07129 family
+PF07131	61	41.80	19.20	DUF1382: PF07131 family
+PF07141	174	23.10	19.60	Phage_term_sma: putative bacteriophage terminase small subunit
+PF07157	93	19.90	18.00	DNA_circ_N: DNA circulation protein N-terminus
+PF07193	75	21.90	19.50	DUF1408: PF07193 family
+PF07212	277	37.30	18.40	Hyaluronidase_1: hyaluronidase protein HylP
+PF07230	501	49.00	18.50	Peptidase_S80: bacteriophage T4-like capsid assembly protein Gp20
+PF07278	152	27.60	25.50	DUF1441: PF07278 family
+PF07332	121	25.00	24.90	DUF1469: PF07332 family
+PF07352	149	22.20	22.00	Phage_Mu_Gam: bacteriophage Mu Gam like protein
+PF07374	100	21.50	21.40	DUF1492: PF07374 family
+PF07384	59	23.20	16.30	DUF1497: PF07384 family
+PF07409	116	24.20	22.00	GP46: phage protein GP46
+PF07410	106	38.30	21.80	Phage_Gp111: streptococcus thermophilus bacteriophage Gp111 protein
+PF07438	66	29.20	24.70	DUF1514: PF07438 family
+PF07455	188	21.20	19.60	Psu: phage polarity suppression protein
+PF07459	117	22.30	18.50	CTX_RstB: CTX phage RstB protein
+PF07471	164	28.80	28.40	Phage_Nu1: phage DNA packaging protein Nu1
+PF07484	57	20.60	20.50	Collar: phage tail collar domain
+PF07505	261	24.50	23.10	Gp37_Gp68: phage protein Gp37/Gp68
+PF07508	102	21.10	21.00	Recombinase: recombinase
+PF07634	19	33.20	17.50	RtxA: RtxA repeat
+PF07737	226	24.20	20.40	ATLF: anthrax toxin lethal factor, N- and C-terminal domain
+PF07761	143	21.40	20.70	DUF1617: PF07761 family
+PF07768	118	21.60	21.40	PVL_ORF50: PVL ORF-50-like family
+PF07825	77	21.40	21.30	Exc: excisionase-like protein
+PF07852	138	23.90	23.70	DUF1642: PF07852 family
+PF07868	55	19.90	18.20	DUF1655: PF07868 family
+PF07874	64	21.60	20.70	DUF1660: PF07874 family
+PF07880	278	25.30	24.60	T4_gp9_10: bacteriophage T4 gp9/10-like protein
+PF07902	601	30.10	29.70	Gp58: gp58-like protein
+PF07906	284	30.30	18.30	Toxin_15: ShET2 enterotoxin, N-terminal region
+PF07921	93	20.40	19.70	Fibritin_C: fibritin C-terminal region
+PF07951	214	50.90	21.10	Toxin_R_bind_C: Clostridium neurotoxin, C-terminal receptor binding
+PF07952	321	36.90	20.00	Toxin_trans: Clostridium neurotoxin, Translocation domain
+PF07953	195	21.40	20.60	Toxin_R_bind_N: Clostridium neurotoxin, N-terminal receptor binding
+PF07968	251	22.20	17.00	Leukocidin: leukocidin/hemolysin toxin family
+PF08010	146	28.90	26.70	Phage_30_3: bacteriophage protein GP30.3
+PF08090	36	73.10	18.60	Enterotoxin_HS1: heat stable E.coli enterotoxin 1
+PF08133	26	36.50	18.50	Nuclease_act: anticodon nuclease activator family
+PF08199	37	36.80	17.30	E2: bacteriophage E2-like protein
+PF08200	45	20.70	17.70	Phage_1_1: bacteriophage 1.1 protein
+PF08230	42	39.20	18.70	Cpl-7: Cpl-7 lysozyme C-terminal domain
+PF08273	40	22.00	21.60	Prim_Zn_Ribbon: zinc-binding domain of primase-helicase
+PF08339	145	30.50	30.00	RTX_C: RTX C-terminal domain
+PF08346	71	20.60	19.30	AntA: AntA/AntB antirepressor
+PF08400	134	26.60	26.40	phage_tail_N: prophage tail fiber protein, N-terminal
+PF08677	218	21.00	20.60	GP11: GP11 baseplate wedge protein
+PF08684	101	83.30	20.40	ocr: DNA mimic ocr
+PF08706	150	21.50	21.20	D5_N: D5 N terminal like
+PF08748	128	21.30	20.80	DUF1789: PF08748 domain
+PF08765	108	24.90	24.80	Mor: mor transcription activator family
+PF08774	97	22.00	21.60	VRR_NUC: VRR-NUC domain
+PF08804	94	20.90	19.60	gp32: gp32 DNA binding protein like
+PF08813	165	24.20	24.10	Phage_tail_3: phage tail protein
+PF08931	146	25.10	20.90	DUF1913: PF08931 domain
+PF08932	114	21.60	18.60	DUF1914: PF08932 domain
+PF08948	126	32.00	20.30	DUF1859: PF08948 domain
+PF08949	220	462.10	17.60	DUF1860: PF08949 domain
+PF08993	94	20.00	18.80	T4-helicase_N: T4 gene 59 helicase, N terminal
+PF08994	103	64.70	20.50	T4-helicase_C: T4 gene 59 helicase, C terminal
+PF09003	81	22.60	21.20	Phage_integ_N: bacteriophage lambda integrase, N-terminal domain
+PF09008	114	24.60	20.20	Head_binding: phage head-binding domain protein
+PF09009	236	31.00	20.40	Exotox-A_cataly: exotoxin A catalytic
+PF09018	394	937.50	17.10	Phage_Capsid_P3: P3 major capsid protein
+PF09063	127	283.40	18.10	Phage_coat: phage PP7 coat protein
+PF09075	48	129.30	18.70	STb_secrete: heat-stable enterotoxin B, secretory
+PF09077	78	28.20	20.00	Phage-MuB_C: Mu B transposition protein, C terminal
+PF09089	81	25.50	21.90	gp12-short_mid: phage short tail fibre protein gp12, central domain
+PF09096	168	59.50	23.30	Phage-tail_2: baseplate structural protein, domain 2
+PF09097	195	19.10	17.30	Phage-tail_1: baseplate structural protein, domain 1
+PF09101	262	20.60	19.60	Exotox-A_bind: exotoxin A binding
+PF09102	143	22.60	21.20	Exotox-A_target: exotoxin A, targeting
+PF09114	96	27.10	25.70	MotA_activ: transcription factor MotA, activation domain
+PF09124	54	21.60	21.20	Endonuc-dimeris: T4 recombination endonuclease VII, dimerisation
+PF09156	287	108.40	82.90	Anthrax-tox_M: anthrax toxin lethal factor, middle domain
+PF09158	103	72.30	17.90	MotCF: bacteriophage T4 MotA, C-terminal
+PF09214	560	1204.10	17.00	Prd1-P2: bacteriophage Prd1, adsorption protein P2
+PF09215	324	182.20	19.70	Phage-Gp8: bacteriophage T4, Gp8
+PF09251	549	127.50	18.20	PhageP22-tail: Salmonella phage P22 tailspike
+PF09275	110	254.40	19.00	Pertus-S4-tox: pertussis toxin S4 subunit
+PF09276	97	217.50	20.60	Pertus-S5-tox: pertussis toxin S5 subunit
+PF09299	62	20.50	20.30	Mu-transpos_C: Mu transposase, C-terminal
+PF09300	84	197.80	18.90	Tecti-min-caps: tectiviridae, minor capsid
+PF09306	304	25.80	24.00	Phage-scaffold: bacteriophage, scaffolding protein
+PF09327	81	20.90	20.80	DUF1983: PF09327 domain
+PF09393	142	22.40	21.80	DUF2001: PF09393 family
+PF09682	108	24.80	24.60	Holin_LLH: phage holin protein
+PF09684	139	20.70	20.50	Tail_P2_I: phage tail protein
+PF09693	40	23.50	23.40	Phage_XkdX: phage uncharacterised protein
+PF09718	78	21.80	21.70	Tape_meas_lam_C: lambda phage tail tape-measure protein
+PF10076	179	27.60	27.00	DUF2313: PF10076 family
+PF10124	291	20.30	20.00	Mu-like_gpT: Mu-like prophage major head subunit gpT
+PF10145	202	30.00	29.80	PhageMin_Tail: phage-related minor tail protein
+PF10618	119	21.90	21.40	Tail_tube: phage tail tube protein
+PF10651	170	21.20	20.70	DUF2479: PF10651 domain
+PF10653	62	21.60	19.40	Phage-A118_gp45: protein gp45 of Bacteriophage A118
+PF10665	114	25.60	23.50	Minor_capsid_1: Minor capsid protein
+PF10668	60	21.60	21.50	Phage_terminase: phage terminase small subunit
+PF10669	121	23.70	22.40	Phage_Gp23: protein gp23 of Bacteriophage A118
+PF10746	66	20.90	20.00	Phage_holin_6: phage holin family 6
+PF10758	363	20.30	20.10	DUF2586: PF10758 family
+PF10772	134	113.10	24.00	DUF2597: PF10772 family
+PF10779	71	35.40	34.60	XhlA: hemolysin XhlA
+PF10960	71	22.90	22.50	DUF2762: PF10960 family
+PF11031	216	19.90	18.40	Phage_holin_T: bacteriophage T holin
+PF11053	153	30.30	19.80	DNA_Packaging: terminase DNA packaging enzyme
+PF11123	82	21.60	20.30	DNA_Packaging_2: DNA packaging protein
+PF11246	193	20.90	20.10	Phage_gp53: base plate wedge protein 53
+PF11351	123	25.40	24.60	DUF3154: PF11351 family
+PF11651	414	24.30	23.50	P22_CoatProtein: coat protein, P22 family
+PF11836	101	29.00	26.30	DUF3356: PF11836 family
+PF11962	229	25.30	24.60	Peptidase_G2: peptidase_G2, IMC autoproteolytic cleavage domain
+PF11985	180	25.90	24.70	DUF3486: PF11985 family
+PF12236	480	20.20	17.70	Head-tail_con: bacteriophage head to tail connecting protein
+PF12571	159	23.10	22.90	DUF3751: tail fiber protein
+PF12604	145	21.80	21.30	gp37_C: tail fiber protein gp37 C-terminal
+PF12789	60	27.00	26.90	PTR: phage tail repeat like
+PF13227	53	23.20	21.00	DUF4035: PF13227 family
+PF13272	107	34.40	19.10	DUF4063: PF13272 family
+PF13550	164	21.80	21.40	Phage-tail_3: putative phage tail protein
+PF13554	127	27.00	26.90	DUF4128: uncharacterized bacteriophage domain
+PF14928	120	31.40	22.50	S_tail_recep_bd: Short tail fibre protein receptor-binding domain
+PF16079	75	29.60	28.80	Phage holin family Hol44, in holin superfamily V
+PF16080	56	28.80	27.90	Bacteriophage holin family HP1
+PF16081	133	30.70	24.90	Mycobacterial 2 TMS Phage Holin (M2 Hol) Family
+PF16082	76	30.20	29.60	Bacteriophage holin family, superfamily II-like
+PF16083	78	30.20	28.20	LydA holin phage, holin superfamily III
+PF16084	147	32.40	21.50	LydA-holin antagonist
+PF16085	113	37.20	23.20	Bacteriophage holin Hol, superfamily III
+PF16460	137	29.70	24.00	Phage tail tube, TTP, lambda-like
+PF16461	153	28.30	24.40	Lambda phage tail tube protein, TTP
+PF16463	137	239.70	22.00	Phage tail tube protein family
+PF16510	668	27.70	23.70	Phage P22-like portal protein
+PF16532	175	97.70	26.90	Sf6-type phage tail needle knob or tip of some Caudovirales
+PF16677	113	29.80	28.50	DNA-packaging protein gp3
+PF16724	234	31.10	24.80	T4-like virus Myoviridae tail sheath stabiliser
+PF16792	372	835.40	18.70	Phage tail base-plate attachment protein of Caudovirales ORF16
+PF16838	116	33.30	20.00	Caudoviral major tail protein N-terminus
+PF16931	123	26.80	25.80	Putative phage holin
+PF16936	78	25.70	22.70	Putative holin
+PF16938	63	26.10	21.80	Putative phage holin Dp-1
+PF16945	72	27.20	26.50	Putative lactococcus lactis phage r1t holin
+PF18338	25	25.80	25.70	Lower baseplate protein N-terminal domain
+PF18668	70	27.00	24.70	Tail spike TSP1/Gp66 receptor binding N-terminal domain
+TIGR00616	242	52.65	50.50	rect: recombinase, phage RecT family
+TIGR01446	73	24.95	23.50	DnaD_dom: DnaD domain protein
+TIGR01537	343	112.05	56.00	portal_HK97: phage portal protein, HK97 family
+TIGR01538	426	165.85	38.35	portal_SPP1: phage portal protein, SPP1 family
+TIGR01539	457	172.70	108.85	portal_lambda: phage portal protein, lambda family
+TIGR01540	320	166.05	102.35	portal_PBSX: phage portal protein, PBSX family
+TIGR01541	332	104.75	20.95	tape_meas_lam_C: phage tail tape measure protein, lambda family
+TIGR01542	476	277.20	38.20	A118_put_portal: phage portal protein, putative, A118 family
+TIGR01543	142	59.00	30.70	proheadase_HK97: phage prohead protease, HK97 family
+TIGR01547	396	105.05	50.85	phage_term_2: phage terminase, large subunit, PBSX family
+TIGR01551	326	219.65	126.45	major_capsid_P2: phage major capsid protein, P2 family
+TIGR01554	385	23.50	21.00	major_cap_HK97: phage major capsid protein, HK97 family
+TIGR01555	404	196.25	57.30	phge_rel_HI1409: phage-associated protein, HI1409 family
+TIGR01558	116	45.60	30.25	sm_term_P27: putative phage terminase, small subunit, P27 family
+TIGR01560	91	26.35	26.00	put_DNA_pack: uncharacterized phage protein (possible DNA packaging)
+TIGR01563	101	20.60	20.00	gp16_SPP1: putative phage head-tail adaptor
+TIGR01592	78	47.30	28.25	holin_SPP1: holin, SPP1 family
+TIGR01593	128	40.20	38.30	holin_tox_secr: toxin secretion/phage lysis holin
+TIGR01594	107	55.05	33.15	holin_lambda: phage holin, lambda family
+TIGR01598	79	39.70	26.80	holin_phiLC3: holin, phage phi LC3 family
+TIGR01600	224	70.75	33.70	phage_tail_L: phage minor tail protein L
+TIGR01603	190	35.20	34.95	maj_tail_phi13: phage major tail protein, phi13 family
+TIGR01606	63	52.85	44.00	holin_BlyA: holin, BlyA family
+TIGR01610	95	45.50	30.75	phage_O_Nterm: phage replication protein O, N-terminal domain
+TIGR01611	168	102.75	33.95	tail_tube: phage major tail tube protein
+TIGR01613	304	108.70	99.35	primase_Cterm: phage/plasmid primase, P4 family, C-terminal domain
+TIGR01618	220	138.75	46.65	phage_P_loop: phage nucleotide-binding protein
+TIGR01629	407	29.00	21.00	rep_II_X: phage/plasmid replication protein, gene II/X family
+TIGR01630	142	41.65	27.85	psiM2_ORF9: phage uncharacterized protein, C-terminal domain
+TIGR01633	123	23.65	22.70	phi3626_gp14_N: putative phage tail component, N-terminal domain
+TIGR01634	139	30.05	24.00	tail_P2_I: phage tail protein I
+TIGR01635	144	37.65	34.85	tail_comp_S: phage virion morphogenesis protein
+TIGR01636	134	31.90	31.80	phage_rinA: phage transcriptional regulator, RinA family
+TIGR01637	136	43.10	35.30	phage_arpU: phage transcriptional regulator, ArpU family
+TIGR01641	109	39.65	34.00	phageSPP1_gp7: phage head morphogenesis protein, SPP1 gp7 family
+TIGR01644	192	46.75	36.05	phage_P2_V: phage baseplate assembly protein V
+TIGR01665	316	26.75	25.80	put_anti_recept: phage minor structural protein, N-terminal region
+TIGR01669	45	28.20	27.90	phage_XkdX: phage uncharacterized protein, XkdX family
+TIGR01671	151	41.30	25.85	phage_TIGR01671: phage conserved hypothetical protein TIGR01671
+TIGR01673	108	34.75	34.65	holin_LLH: phage holin, LL-H family
+TIGR01674	138	74.45	39.55	phage_lambda_G: phage minor tail protein G
+TIGR01712	165	97.05	46.80	phage_N6A_met: phage N-6-adenine-methyltransferase
+TIGR01714	119	49.80	49.50	phage_rep_org_N: phage replisome organizer, putative, N-terminal region
+TIGR01715	111	77.35	53.85	phage_lam_T: phage tail assembly protein T
+TIGR01725	120	30.80	27.95	phge_HK97_gp10: phage protein, HK97 gp10 family
+TIGR01760	349	28.80	27.50	tape_meas_TP901: phage tail tape measure protein, TP901 family, core region
+TIGR01913	188	76.95	56.55	bet_lambda: phage recombination protein Bet
+TIGR02126	135	37.00	22.80	phgtail_TP901_1: phage major tail protein, TP901-1 family
+TIGR02215	188	39.00	30.80	phage_chp_gp8: phage conserved hypothetical protein, phiE125 gp8 family
+TIGR02216	58	56.10	28.15	phage_TIGR02216: phage conserved hypothetical protein
+TIGR02217	210	136.65	29.35	chp_TIGR02217: TIGR02217 family protein
+TIGR02218	266	80.50	53.85	phg_TIGR02218: phage conserved hypothetical protein BR0599
+TIGR02219	134	81.90	62.25	phage_NlpC_fam: putative phage cell wall peptidase, NlpC/P60 family
+TIGR02220	77	66.65	20.10	phg_TIGR02220: phage conserved hypothetical protein, C-terminal domain
+TIGR02224	295	335.15	316.75	recomb_XerC: tyrosine recombinase XerC
+TIGR02225	290	329.60	326.65	recomb_XerD: tyrosine recombinase XerD
+TIGR02242	131	51.85	33.45	tail_TIGR02242: phage tail protein domain
+TIGR02243	659	155.80	88.05	TIGR02243: conserved hypothetical protein
+TIGR02249	315	265.00	260.00	integrase_gron: integron integrase
+TIGR02307	326	197.15	62.35	RNA_lig_RNL2: RNA ligase, Rnl2 family
+TIGR02308	373	242.25	74.90	RNA_lig_T4_1: RNA ligase, T4 RnlA family
+TIGR02419	64	59.70	46.50	C4_traR_proteo: phage/conjugal plasmid C-4 type zinc finger protein, TraR family
+TIGR02642	267	101.40	30.80	phage_xxxx: uncharacterized phage protein
+TIGR02681	108	45.95	37.20	phage_pRha: phage regulatory protein, Rha family
+TIGR02763	114	104.95	41.40	chlamy_scaf: scaffolding protein
