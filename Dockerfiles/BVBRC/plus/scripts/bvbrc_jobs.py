@@ -1,4 +1,5 @@
-import os, io, sys, pty, subprocess, time, re
+import os, io, sys, pty, subprocess, time, re, json
+from bs4 import BeautifulSoup
 
 class PseudoTerminalPair():
     """
@@ -119,8 +120,20 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
     sample_dir = f"{root_dir}/CAMRA_WDL/{sample_name}"
     raw_reads_dir = f"{sample_dir}/raw_reads"
     assembly_dir = f"{sample_dir}/assembly"
-    output_path = f"ws:{assembly_dir}/.{sample_name}/{sample_name}_contigs.fasta"
-    
+    output_dir = f"ws:{assembly_dir}/.{sample_name}"
+    details_dir = f"{output_dir}/details"
+
+
+    ### OUTPUTS
+    contig_output = f"{output_dir}/{sample_name}_contigs.fasta"
+    assembly_report_html = f"{output_dir}/{sample_name}_AssemblyReport.html" # scrape data from this file. BeautifulSoup?
+    bandage_plot = f"{details_dir}/{sample_name}_assembly_graph.plot.svg"
+    details_json = f"{details_dir}/{sample_name}_run_details.json"
+    average_depth = None
+    contigs_above_threshold = None
+    contigs_below_threshold = None
+    ###
+
     ls_command = PseudoTerminalPair(command=['p3-ls', sample_dir])
     if 'Object not found' in ls_command.get_output():
         directory_commands = [['p3-mkdir', raw_reads_dir],
@@ -161,13 +174,65 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
 
     output_commands = [['mkdir', 'bvbrc_asm_output'],
                         ['touch', 'bvbrc_asm_output/output_path.txt'],
-                        ['p3-cp', output_path, 'bvbrc_asm_output']]
+                        ['p3-cp', contig_output, 'bvbrc_asm_output'],
+                        ['p3-cp', bandage_plot, 'bvbrc_asm_output'],
+                        ['p3-cp', details_json, 'bvbrc_asm_output'],
+                        ['p3-cp', assembly_report_html, 'bvbrc_asm_output']]
     
     for command in output_commands:
         run_command(command)
 
+    with open(f"bvbrc_asm_output/{sample_name}_AssemblyReport.html", 'r') as file:
+        soup = BeautifulSoup(file, 'html.parser')
+
+    # Find the table with the header "Preprocessing of Reads"
+    table = soup.find('h2', string='Preprocessing of Reads').find_next('table')
+
+    # Extract the number of reads from the table
+    table_data = []
+    num_reads = None
+    rows = table.find_all('tr')
+
+    for i, row in enumerate(rows):
+        if i == 0:
+            cells = row.find_all('th')
+        else:
+            cells = row.find_all('td')
+        
+        cells_data = list(map(lambda x: x.get_text(), cells)) 
+        table_data.append(cells_data)
+
+    num_reads = table_data[1][table_data[0].index("Num Reads")]
+    average_size = table_data[1][table_data[0].index("Avg Length")]
+
+    table2 = soup.find('h2', string='Assembly').find_next('table')
+    rows2 = table2.find('tbody').find_all('tr')
+    fasta_file_size = None
+    for row in rows2:
+        cell = row.find_all('td')
+        if cell[0].get_text() == 'contigs.fasta file size:':
+            fasta_file_size = cell[1].get_text()
+
+
+    with open(f"bvbrc_asm_output/{sample_name}_run_details.json", 'r') as f:
+        data = json.load(f)
+        average_depth = data['contig_filtering']['average depth (short reads)']
+        contigs_above_threshold = data['contig_filtering']['num contigs above thresholds']
+        contigs_below_threshold = data['contig_filtering']['num contigs below thresholds']
+
+
     with open('bvbrc_asm_output/output_path.txt', 'w') as f:
-        print(output_path, file=f)
+        f.write(f"Contigs Workspace Path: {contig_output}\n")
+        f.write(f"Contig.fasta File Size: {fasta_file_size}\n")
+        f.write(f"Number of Reads: {num_reads}\n")
+        f.write(f"Average Read Length: {average_size}\n")
+        f.write(f"Average Read Depth: {average_depth}\n")
+        f.write(f"Number of Contigs Above Threshold: {contigs_above_threshold}\n")
+        f.write(f"Number of Contigs Below Threshold: {contigs_below_threshold}\n")
+
+
+
+
 
 
 def bvbrcGenomeAnnotation(user:str, sample_name:str, assembly_file:str|os.PathLike, is_workspace_filepath:bool=False, scientific_name:str=None) -> None:
