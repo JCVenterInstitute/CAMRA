@@ -49,6 +49,7 @@ task run_genome_assembly {
 
     output {
         File asm_bandage_plot = "bvbrc_asm_output/~{sample_name}_assembly_graph.plot.svg"
+        File assembly_file = "bvbrc_asm_output/~{sample_name}_AssemblyReport.html"
         String contigs_workspace_path = read_string("contigs_workspace_path.txt")
         Int contig_fasta_file_size = read_int("contig_fasta_file_size.txt")
         Float average_read_depth = read_float("average_read_depth.txt")
