@@ -3,7 +3,7 @@ LABEL maintainer="Daniella Matute <dmatute@jcvi.org>"
 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y wget libssl-dev perl cpanminus libxml2 libgomp1 python3 python3-pip infernal-doc autoconf && \
+    apt install -y wget libssl-dev perl cpanminus libxml2 libgomp1 python3 python3-pip infernal-doc autoconf git build-essential musl dietlibc-dev && \
     cpanm Math::Round less 
 
 ENV BIN=/bin
@@ -12,14 +12,19 @@ ENV OPT=/opt
 # # PhageFinder
 WORKDIR /opt
 
-COPY ./phage_finder_v2.5_4docker /opt/phage_finder_v2.5_4
-
+####4####
+#COPY ../../../PhageFinder /opt/phage_finder
+####3####
+RUN git clone https://github.com/DanyMatute/PhageFinder.git
+####2####
+#COPY ./phage_finder_v2.5_4docker /opt/phage_finder_v2.5_4
+####1####
 # COPY ./phage_finder_v2.5_4docker.tar.gz /opt
 
 # RUN tar -xvf phage_finder_v2.5_4docker.tar.gz && \
 #     rm phage_finder_v2.5_4docker.tar.gz
 
-ENV PATH="/opt/phage_finder_v2.5_4docker/bin:{$PATH}"
+#ENV PATH="/opt/phage_finder_v2.5_4docker/bin:{$PATH}"ß
 
 
 # BLAST
@@ -53,7 +58,18 @@ RUN mkdir Aragron && cd Aragron && \
     wget https://github.com/TheSEED/aragorn/raw/master/aragorn1.2.36.c
 
 # SEQSTAT
-RUN wget https://github.com/DanyMatute/seqstats/archive/refs/tags/v1.0.tar.gz
+RUN git clone --recursive https://github.com/clwgg/seqstats &&\
+    cd seqstats && make
+
+#EASEL (for esl-seqstat)    
+RUN git clone https://github.com/EddyRivasLab/easel && \ 
+    cd easel && autoconf && ./configure && make && make check \
+    wget /opt/easel 
+
+RUN wget https://uclibc.org/downloads/uClibc-0.9.33.2.tar.xz &&\
+    tar -xvf uClibc-0.9.33.2.tar.xz &&\
+    rm uClibc-0.9.33.2.tar.xz 
+
 
 WORKDIR /data
 
