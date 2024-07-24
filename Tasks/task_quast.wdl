@@ -8,7 +8,7 @@ task run_Quast {
 
     input {
         File assembly
-        Int? min_contigs
+        Int min_contigs = 500
     }
 
     runtime {
