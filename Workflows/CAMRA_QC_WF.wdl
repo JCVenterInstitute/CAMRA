@@ -64,14 +64,14 @@ workflow assembly_qc {
 
     call quast.run_Quast {
         input:
-            assembly = assembly,
-            min_contigs = min_contigs
+            assembly = assembly
+            #min_contigs = min_contigs
     }
 
     call fastQC.run_fastQC {
         input:
             read1 = read1,
-            read2 = read2,
+            read2 = read2
     }
 
     output{
