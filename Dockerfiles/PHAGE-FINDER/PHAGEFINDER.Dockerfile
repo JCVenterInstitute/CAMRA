@@ -3,11 +3,10 @@ LABEL maintainer="Daniella Matute <dmatute@jcvi.org>"
 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y wget libssl-dev perl cpanminus build-essential libxml2 linux-headers-generic libgomp1 python3 python3-pip infernal-doc autoconf git build-essential musl dietlibc-dev && \
-    cpanm Math::Round less 
+    apt install -y wget libssl-dev perl cpanminus build-essential libxml2 linux-headers-generic libgraphics-colorobject-perl libgomp1 python3 python3-pip infernal-doc autoconf git build-essential musl dietlibc-dev && \
+    cpanm Math::Round less  Term::ReadKey  Graphics::ColorNames::WWW XML::Simple module
 
-ENV BIN=/bin
-ENV OPT=/opt
+
 
 # # PhageFinder
 WORKDIR /opt
@@ -15,7 +14,7 @@ WORKDIR /opt
 ####4####
 #COPY ../../../PhageFinder /opt/phage_finder
 ####3####
-RUN git clone https://github.com/DanyMatute/PhageFinder.git
+RUN git clone https://github.com/DanyMatute/PhageFinder.git 
 ####2####
 #COPY ./phage_finder_v2.5_4docker /opt/phage_finder_v2.5_4
 ####1####
@@ -35,14 +34,18 @@ RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/${BLASTPLUS_VERSION
 ENV PATH="/opt/ncbi-blast-2.15.0+/bin/:{$PATH}"
 
 
-# HMMER
-RUN apt-get update && (apt-get install -t buster-backports -y hmmer || apt-get install -y hmmer) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
-
+# HMMER I am changing hwo i get it because i think this way of getting hmmer you can get esl-seqstat:
+# RUN apt-get update && (apt-get install -t buster-backports -y hmmer || apt-get install -y hmmer) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN wget http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz && \
+tar zxf hmmer-3.3.2.tar.gz && rm hmmer-3.3.2.tar.gz &&\
+cd hmmer-3.3.2&&\
+./configure --prefix /usr/local && make && make check && make install 
 # tRNAscan-SE
 RUN wget --no-check-certificate http://trna.ucsc.edu/software/trnascan-se-2.0.12.tar.gz  && \ 
     tar -xvf trnascan-se-2.0.12.tar.gz && \
     rm trnascan-se-2.0.12.tar.gz #&& \
-    cd /opt/tRNAscan-SE-2.0 && ./configure && make && make install
+    cd /opt/tRNAscan-SE-2.0 && ./configure && make && make install &&\ 
+    cd easel && make install
 
 
 # XGRAPH
@@ -57,20 +60,20 @@ RUN mkdir Aragron && cd Aragron && \
     wget https://github.com/TheSEED/aragorn/raw/master/aragorn.1 &&\
     wget https://github.com/TheSEED/aragorn/raw/master/aragorn1.2.36.c
 
-# SEQSTAT
-RUN git clone --recursive https://github.com/clwgg/seqstats &&\
-    cd seqstats && make
+# # SEQSTAT
+# RUN git clone --recursive https://github.com/clwgg/seqstats &&\
+#     cd seqstats && make
 
-#EASEL (for esl-seqstat)    
-RUN git clone https://github.com/EddyRivasLab/easel && \ 
-    cd easel && autoconf && ./configure && make && make check \
-    wget /opt/easel 
+# #EASEL (for esl-seqstat)    
+# RUN git clone https://github.com/EddyRivasLab/easel && \ 
+#     cd easel && autoconf && ./configure && make && make check
+#     wget /opt/easel 
 
-RUN wget https://uclibc.org/downloads/uClibc-0.9.33.2.tar.xz &&\
-    tar -xvf uClibc-0.9.33.2.tar.xz &&\
-    rm uClibc-0.9.33.2.tar.xz && \
-    make
-# export .config and input it here. /usr/src/linux-headers-6.1.0-23-common/
+# RUN wget https://uclibc.org/downloads/uClibc-0.9.33.2.tar.xz &&\
+#     tar -xvf uClibc-0.9.33.2.tar.xz &&\
+#     rm uClibc-0.9.33.2.tar.xz && \
+#     make
+# # export .config and input it here. /usr/src/linux-headers-6.1.0-23-common/
 
 
 WORKDIR /data
