@@ -79,16 +79,19 @@ task run_annotation_analysis {
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:3.0'
+        docker: 'andrewrlapointe/bvbrc:3.3'
     }
 
     # output path could be changed to be relative to the contigs file location to reduce the number of inputs
     command <<<
         python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py cga ~{contigs_file} ~{output_path} ~{sample_name}_output ~{scientific_name} ~{taxonomy_id}
+        python3 /bin/bvbrc_jobs.py cga ~{contigs_file} ~{output_path} ~{sample_name}_output ~{scientific_name} ~{sample_name} ~{taxonomy_id}
     >>>
 
     output {
+        File full_genome_report = "bvbrc_cga_output/FullGenomeReport.html"
+        File annotation_genome_report = "bvbrc_cga_output/GenomeReport.html"
+        File annotation_xls = "bvbrc_cga_output/annotation.xls"
 
     }
 }

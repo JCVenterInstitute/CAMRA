@@ -26,13 +26,13 @@ class PseudoTerminalPair():
         self.run_process(command)
     
     def run_process(self, command):
-        try:
-            process = subprocess.Popen(command, stdin=self.worker, 
-                            stdout=self.worker, stderr=self.worker, 
-                            shell=False)
-            process.wait()
-        except:
-            print(f"There was an error running the command '{command}'")
+        # try:
+        process = subprocess.Popen(command, stdin=self.worker, 
+                        stdout=self.worker, stderr=self.worker, 
+                        shell=False)
+        process.wait()
+        # except:
+        #     print(f"There was an error running the command '{command}'")
     
     def get_controller(self):
         return self.controller
@@ -231,10 +231,6 @@ def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, r
         f.write(f"Number of Contigs Below Threshold: {contigs_below_threshold}\n")
 
 
-
-
-
-
 def bvbrcGenomeAnnotation(user:str, sample_name:str, assembly_file:str|os.PathLike, is_workspace_filepath:bool=False, scientific_name:str=None) -> None:
     """
     DEPRECATED - use bvbrcAnnotationAssembly
@@ -274,7 +270,7 @@ def bvbrcGenomeAnnotation(user:str, sample_name:str, assembly_file:str|os.PathLi
 
     annotation_job.close_terminal()
 
-def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike, output_name:str, scientific_name:str, taxonomy_id:int=2) -> None:
+def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike, output_name:str, scientific_name:str, sample_name:str, taxonomy_id:int=2) -> None:
     """
     Submits assembly contig to BVBRC for annotation and assembly.
 
@@ -297,13 +293,26 @@ def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike
     cga_job = PseudoTerminalPair(command=cga_command)
 
     job_id = get_job_id(cga_job.get_output())
-    print(job_id)
     
     while bvbrc_job_running(job_id):
         time.sleep(10)  # This timing may need to be adjusted.
 
-    print(f"Job {job_id} Finished")
     cga_job.close_terminal()
+
+    full_genome_report_path = f"ws:{output_path}/.{sample_name}_output/FullGenomeReport.html"
+    annotation_genome_report_path = f"ws:{output_path}/.{sample_name}_output/.annotation/GenomeReport.html"
+    annotation_xls = f"ws:{output_path}/.{sample_name}_output/.annotation/annotation.xls"
+
+    # PROBLEM!
+    # If the file does not exist or changes location, the command never exits.
+    output_commands = [['mkdir', 'bvbrc_cga_output'],
+                       ['p3-cp', full_genome_report_path, 'bvbrc_cga_output'],
+                       ['p3-cp', annotation_genome_report_path, 'bvbrc_cga_output'],
+                       ['p3-cp', annotation_xls, 'bvbrc_cga_output']]
+    
+    for command in output_commands:
+        print(f"Running Command: {command}")
+        run_command(command)
 
     
 def main():
@@ -323,8 +332,8 @@ def main():
                 
         case 'analysis' | 'cga' | 'aa':
             match len(sys.argv):
-                case 7:
-                    bvbrcAnnotationAnalysis(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
+                case 8:
+                    bvbrcAnnotationAnalysis(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7])
 
         case _:
             raise ValueError
