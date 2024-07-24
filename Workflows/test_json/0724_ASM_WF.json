@@ -1,0 +1,8 @@
+{
+  "assembly_workflow.BVBRC_password": "Luciana1996",
+  "assembly_workflow.sample_name": "CCI165-0724",
+  "assembly_workflow.read2": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Raw_Reads/CCI165_S85_R1_001.fastq.gz",
+  "assembly_workflow.read1": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Raw_Reads/CCI165_S85_R2_001.fastq.gz",
+  "assembly_workflow.BVBRC_user": "DanyMB"
+}
+
