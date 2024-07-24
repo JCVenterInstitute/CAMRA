@@ -3,7 +3,7 @@ LABEL maintainer="Daniella Matute <dmatute@jcvi.org>"
 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y wget libssl-dev perl cpanminus libxml2 libgomp1 python3 python3-pip infernal-doc autoconf git build-essential musl dietlibc-dev && \
+    apt install -y wget libssl-dev perl cpanminus build-essential libxml2 linux-headers-generic libgomp1 python3 python3-pip infernal-doc autoconf git build-essential musl dietlibc-dev && \
     cpanm Math::Round less 
 
 ENV BIN=/bin
@@ -68,7 +68,9 @@ RUN git clone https://github.com/EddyRivasLab/easel && \
 
 RUN wget https://uclibc.org/downloads/uClibc-0.9.33.2.tar.xz &&\
     tar -xvf uClibc-0.9.33.2.tar.xz &&\
-    rm uClibc-0.9.33.2.tar.xz 
+    rm uClibc-0.9.33.2.tar.xz && \
+    make
+# export .config and input it here. /usr/src/linux-headers-6.1.0-23-common/
 
 
 WORKDIR /data
