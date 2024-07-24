@@ -2,7 +2,7 @@
   "annotation_analysis.sample_name": "CGATest",
   "annotation_analysis.BVBRC_username": "alapoint",
   "annotation_analysis.BVBRC_password": "test",
-  "annotation_analysis.assembly": "ws:/alapoint@bvbrc/home/assemblies/wdlTest1/assembly/.wdlTest1/wdlTest1_contigs.fasta",
-  "annotation_analysis.output_path": "/alapoint@bvbrc/home/assemblies/CGA/CGATest2",
+  "annotation_analysis.assembly": "ws:/alapoint@bvbrc/home/CAMRA_WDL/WorkflowTest/assembly/.WorkflowTest/WorkflowTest_contigs.fasta",
+  "annotation_analysis.output_path": "/alapoint@bvbrc/home/CAMRA_WDL/WorkflowTest/CGA",
   "annotation_analysis.scientific_name": "SCINAME"
 }
