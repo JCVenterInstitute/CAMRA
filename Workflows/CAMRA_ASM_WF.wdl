@@ -36,6 +36,7 @@ workflow assembly_workflow {
     }
 
     output {
+        File assembly_file = run_genome_assembly.assembly_file
         File asm_bandage_plot = run_genome_assembly.asm_bandage_plot
         String contigs_workspace_path = run_genome_assembly.contigs_workspace_path
         Int contig_fasta_file_size = run_genome_assembly.contig_fasta_file_size

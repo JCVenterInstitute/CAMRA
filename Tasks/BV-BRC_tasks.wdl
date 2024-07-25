@@ -43,13 +43,16 @@ task run_genome_assembly {
         echo "$contigs_below_threshold" > contigs_below_threshold.txt
         echo "$average_read_length" > average_read_length.txt
         echo "$contig_fasta_file_size" > contig_fasta_file_size.txt
+        
+        gzip bvbrc_asm_output/~{sample_name}_contigs.fasta
 
+        # Clean up unneeded files
         rm bvbrc_asm_output/output_path.txt
     >>>
 
     output {
         File asm_bandage_plot = "bvbrc_asm_output/~{sample_name}_assembly_graph.plot.svg"
-        File assembly_file = "bvbrc_asm_output/~{sample_name}_AssemblyReport.html"
+        File assembly_file = "bvbrc_asm_output/~{sample_name}_contigs.fasta.gz"
         String contigs_workspace_path = read_string("contigs_workspace_path.txt")
         Int contig_fasta_file_size = read_int("contig_fasta_file_size.txt")
         Float average_read_depth = read_float("average_read_depth.txt")
