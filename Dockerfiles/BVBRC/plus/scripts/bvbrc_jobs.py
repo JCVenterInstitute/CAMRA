@@ -191,7 +191,7 @@ def genome_assembly_job(read1: str | os.PathLike, read2: str | os.PathLike , dry
         for file in ASM_OUTPUTS.values():
             run_command(['p3-cp', file, 'bvbrc_asm_output'])
 
-        with open(f"bvbrc_asm_output/{args.username}_AssemblyReport.html", 'r') as file:
+        with open(f"bvbrc_asm_output/{args.sample_name}_AssemblyReport.html", 'r') as file:
             soup = BeautifulSoup(file, 'html.parser')
 
         # Find the table with the header "Preprocessing of Reads"
