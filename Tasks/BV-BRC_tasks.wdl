@@ -18,14 +18,14 @@ task run_genome_assembly {
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:3.2'
+        docker: 'andrewrlapointe/bvbrc:4.0'
 
     }
 
     command <<<
         python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py assembly ~{username} ~{sample_name} ~{read1} ~{read2}
-                
+        python3 /bin/bvbrc_jobs.py -asm -u ~{username} -n ~{sample_name} -r1 ~{read1} -r2 ~{read2}
+
         # Extract values
         contigs_workspace_path=$(grep -oP '(?<=Contigs Workspace Path: ).*' bvbrc_asm_output/output_path.txt)
         num_reads=$(grep -oP '(?<=Number of Reads: ).*' bvbrc_asm_output/output_path.txt)
@@ -83,13 +83,14 @@ task run_annotation_analysis {
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:3.3'
+        docker: 'andrewrlapointe/bvbrc:4.0'
     }
 
     # output path could be changed to be relative to the contigs file location to reduce the number of inputs
     command <<<
         python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py cga ~{contigs_file} ~{output_path} ~{sample_name}_output ~{scientific_name} ~{sample_name} ~{taxonomy_id}
+        # output name was removed as an input
+        python3 /bin/bvbrc_jobs.py -cga -a ~{contigs_file} -o ~{output_path} -sci ~{scientific_name} -n ~{sample_name} -tax ~{taxonomy_id} -d
     >>>
 
     output {

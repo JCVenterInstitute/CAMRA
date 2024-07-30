@@ -1,81 +1,78 @@
-import os, io, sys, pty, subprocess, time, re, json
+import os, io, sys, pty, subprocess, time, re, json, argparse, logging
 from bs4 import BeautifulSoup
 
-class PseudoTerminalPair():
+
+class RunSubprocess():
     """
-    Creates pseudo terminal pair with a command to run.
+    Runs a shell command via pythons subprocess module. Stores the completed process instance and the input command.
 
     Methods:
         run_process(self, command):
-            Creates a subprocess in the worker terminal. Runs given command and waits for completion.
+            Creates a subprocess. Runs given command and waits for completion.
 
             Args:
                 command (list[str]): Bash command broken into args as a list of strings
 
                 
         get_output(self, length):
-            Used to retrieve the output of a command. Decoded to a string.
+            Used to retrieve the output of a command from the completed process instance stdout.
 
             Args:
                 length (optional- int): Length, in bytes, of returned output. Defaults to 1024.
 
-    """
+    """ 
     
-    def __init__(self, command: list[str]):
-        self.controller, self.worker = pty.openpty()
-        self.run_process(command)
+    def __init__(self, command: list[str], auto_run:bool=True, timeout:bool=None):
+        self.command = command
+        self.timeout = timeout
+        self.process = None
+        
+        if auto_run:
+            self.run()
     
-    def run_process(self, command):
-        # try:
-        process = subprocess.Popen(command, stdin=self.worker, 
-                        stdout=self.worker, stderr=self.worker, 
-                        shell=False)
-        process.wait()
-        # except:
-        #     print(f"There was an error running the command '{command}'")
-    
-    def get_controller(self):
-        return self.controller
-    
-    def get_worker(self):
-        return self.worker
-    
-    def get_output(self, length = 1024) -> str:
-        output = os.read(self.controller, length).decode()
-        return output
-    
-    def close_terminal(self):
-        os.close(self.controller)
-        os.close(self.worker)
+
+    # TODO: Add a timeout to this?
+    def run(self):
+        logging.debug(f"Running command {self.str_command()}")
+        self.process = subprocess.run(self.command, capture_output=True, text=True, timeout=self.timeout)
+        logging.debug(f"Command ran with output:\n{self.get_output()}")
+
+    def get_output(self):
+        return self.process.stdout
 
 
-def run_command(command:list[str], print_out:bool = False) -> None:
+    def str_command(self):
+        return ' '.join(self.command)
+
+
+
+def run_command(command:list[str]) -> str:
     """
-    Generates a pseudo terminal pair and executes bash command.
-    Automatically kills terminal upon completion.
+    Runs command with RunSubprocess() and returns the command output.
 
     Args:
         command (list[str]): Bash command broken into args as a list of strings
         print_out (optional- bool): If True, prints command output to stdout.
     """
-    run_command = PseudoTerminalPair(command=command)
-    if print_out:
-        print(run_command.get_output())
-    run_command.close_terminal()
+    run_command = RunSubprocess(command)
+    command_output = run_command.get_output()
+    return command_output
 
 
-def bvbrcLsFiles(dir) -> list[str]:
-    """_summary_
+def bvbrc_ls_files(dir) -> list[str] | None:
+    """
+    Runs the p3-ls command on the given BV-BRC workspace path.
 
     Args:
-        dir (string): bvbrc workspace path
+        dir (string): BV-BRC workspace path
 
     Returns:
-        list[str]: list of files in the directory (if it exists)
+        list[str]: list of files in the directory (if it exists) or None
     """
-    ls_command = PseudoTerminalPair(command=['p3-ls', dir, '--one-column'])
+    ls_command = RunSubprocess(command=['p3-ls', dir, '--one-column'])
     ls_out = ls_command.get_output()
     if 'Object not found' in ls_out:
+        logging.warning(f'The file or directory {dir} does not exist on BV-BRC.')
         return None
     
     files = ls_out.split('\n')
@@ -83,22 +80,42 @@ def bvbrcLsFiles(dir) -> list[str]:
         file.strip('\r')
     return files
 
+# TODO: check output of p3-job-status with invalid id
+def bvbrc_job_running(job_id:int) -> bool:
+    """
+    Uses BV-BRC job id to check if the given job is still running, completed, or failed.
 
-def bvbrc_job_running(job_id) -> bool:
+    Args:
+        job_id (int): BV-BRC job id.
+
+    Raises:
+        TypeError: If a non-integer (e.g. None) value is passed.
+
+    Returns:
+        bool: True if the task is still running, else False.
+    """
     if job_id is None:
+        logging.warning('The job id is None. Check that job was properly submitted')
         raise TypeError
     
-    job_status_process = PseudoTerminalPair(command=['p3-job-status', job_id])
+    job_status_process = RunSubprocess(command=['p3-job-status', job_id])
     status = 'in-progress' in job_status_process.get_output()
-    job_status_process.close_terminal()
     return status
 
 
 def get_job_id(command_output:str) -> int:
-    # NOTE:
-    # This is a slightly brittle method. It relies on the output of the command including
-    # the job id to be prefixed by "id". Would break if bvbrc changed the output of their 
-    # assembly/cga commands.
+    """
+    Checks the output of a Bv-BRC "submit job" command to see if there was a
+    job id returned.
+
+    Finds id by checking for string "id " in return.
+
+    Args:
+        command_output (str): String output of a submit job command (e.g. p3-submit-genome-assembly)
+
+    Returns:
+        int: BV-BRC job id
+    """
     match = re.search(r'id (\d+)', command_output)
     if match:
         job_id = match.group(1)
@@ -106,171 +123,128 @@ def get_job_id(command_output:str) -> int:
     return None
 
 
-def bvbrcGenomeAssembly(user: str, sample_name: str, read1: str | os.PathLike, read2: str | os.PathLike ) -> None:
+def genome_assembly_job(read1: str | os.PathLike, read2: str | os.PathLike , dry_run:bool=False) -> None:
     """
-    Submits two read files to BV-BRC for assembly. 
-    Must be logged into the BV-BRC cli.
+    Must be logged into the BV-BRC CLI.
+
+    Creates BV-BRC workspace directory structure, and copies local files to the workspace.
+    Runs BV-BRC genome assembly job.
+    Copies output files from workspace to local machine.
 
     Args:
-        read1 (str | os.PathLike): Path to read1
-        read2 (str | os.PathLike): Path to read2
+        read1 (str | os.PathLike): Local path to read1.
+        read2 (str | os.PathLike): Local path to read2.
     """
-    # TODO move directory creation elsewhere
-    root_dir = f"/{user}@bvbrc/home"
-    sample_dir = f"{root_dir}/CAMRA_WDL/{sample_name}"
-    raw_reads_dir = f"{sample_dir}/raw_reads"
-    assembly_dir = f"{sample_dir}/assembly"
-    output_dir = f"ws:{assembly_dir}/.{sample_name}"
-    details_dir = f"{output_dir}/details"
+
+    def __generate_directory_structure():
+        raw_reads_dir_ls = bvbrc_ls_files(RAW_READS_DIR)
+        try:
+            read1_ws_name, read2_ws_name = raw_reads_dir_ls[0], raw_reads_dir_ls[1]
+            logging.info(f"Files {read1_ws_name, read2_ws_name} already exist on bvbrc")
+        except IndexError:
+            directory_commands = [['p3-mkdir', RAW_READS_DIR],
+                            ['p3-mkdir', ASSEMBLY_DIR],
+                            ['p3-cp', read1, f"ws:{RAW_READS_DIR}"],
+                            ['p3-cp', read2, f"ws:{RAW_READS_DIR}"],
+                            ['mkdir', 'bvbrc_asm_output'],]
+            for command in directory_commands:
+                print(run_command(command))
+
+            raw_reads_dir_ls = bvbrc_ls_files(RAW_READS_DIR)
+            read1_ws_name, read2_ws_name = raw_reads_dir_ls[0], raw_reads_dir_ls[1]
+            logging.debug("Created directory structure")
+
+        finally:
+            return f"ws:{RAW_READS_DIR}/{read1_ws_name}", f"ws:{RAW_READS_DIR}/{read2_ws_name}"
 
 
-    ### OUTPUTS
-    contig_output = f"{output_dir}/{sample_name}_contigs.fasta"
-    assembly_report_html = f"{output_dir}/{sample_name}_AssemblyReport.html" # scrape data from this file. BeautifulSoup?
-    bandage_plot = f"{details_dir}/{sample_name}_assembly_graph.plot.svg"
-    details_json = f"{details_dir}/{sample_name}_run_details.json"
-    average_depth = None
-    contigs_above_threshold = None
-    contigs_below_threshold = None
-    ###
 
-    ls_command = PseudoTerminalPair(command=['p3-ls', sample_dir])
-    if 'Object not found' in ls_command.get_output():
-        directory_commands = [['p3-mkdir', raw_reads_dir],
-                          ['p3-mkdir', assembly_dir],
-                          ['p3-cp', read1, f"ws:{raw_reads_dir}"],
-                          ['p3-cp', read2, f"ws:{raw_reads_dir}"],
-                          ['mkdir', 'bvbrc_asm_output'],]
-        for command in directory_commands:
-            run_command(command)
-        
-        # NOTE:
-        # Reading from the ls command is generally considered to be bad practice.
-        # This could cause errors if there are unusual file names (filepaths with newline characters, etc.).
-        # BVBRC doesn't seem to have a glob method or some better way of doing this.
-        # However, it should work fine in the context of this project as we define filepaths internally.
-        raw_ls = PseudoTerminalPair(command=['p3-ls', f"{raw_reads_dir}/", '--one-column'])
-        raw_ls_output = raw_ls.get_output()
-        raw_files = raw_ls_output.split('\n')
-        read1_name, read2_name = raw_files[0].strip('\r'), raw_files[1].strip('\r')
-            
-        assembly_job = PseudoTerminalPair(command=['p3-submit-genome-assembly', '--trim-reads', 
-                            '--workspace-upload-path', raw_reads_dir, 
-                            '--recipe unicycler', '--paired-end-lib', 
-                            f"ws:{raw_reads_dir}/{read1_name}", f"ws:{raw_reads_dir}/{read2_name}",  '--min-contig-len', 
-                            '300', '--min-contig-cov', '30', f"ws:{assembly_dir}", sample_name])
+    def bvbrc_genome_assembly(ws_read1, ws_read2, dry_run:bool):
+        if dry_run:
+            logging.warning("Running dry run job. No data will be submitted.")
+            assembly_job = RunSubprocess(command=['p3-submit-genome-assembly', '--trim-reads', 
+                                '--workspace-upload-path', RAW_READS_DIR, 
+                                '--recipe unicycler', '--paired-end-lib', '--dry-run',
+                                ws_read1, ws_read2,  '--min-contig-len', 
+                                '300', '--min-contig-cov', '30', f"ws:{ASSEMBLY_DIR}", args.sample_name])
+            return
+
+        assembly_job = RunSubprocess(command=['p3-submit-genome-assembly', '--trim-reads', 
+                            '--workspace-upload-path', RAW_READS_DIR, 
+                            '--recipe unicycler', '--paired-end-lib',
+                            ws_read1, ws_read2,  '--min-contig-len', 
+                            '300', '--min-contig-cov', '30', f"ws:{ASSEMBLY_DIR}", args.sample_name])
 
         job_id = get_job_id(assembly_job.get_output())
+        if job_id != None:
+            while bvbrc_job_running(job_id):
+                time.sleep(10)  # This timing may need to be adjusted.
+
+
+    def __handle_asm_output():
+        output_commands = [['mkdir', 'bvbrc_asm_output'], 
+                           ['touch', 'bvbrc_asm_output/output_path.txt']]
         
-        while bvbrc_job_running(job_id):
-            time.sleep(10)  # This timing may need to be adjusted.
-        
-        # Close all of the pseudo terminals
-        raw_ls.close_terminal()
-        assembly_job.close_terminal()
-       
-    else:
-        print("Directory already exists:")
+        for command in output_commands:
+            run_command(command)
 
-    output_commands = [['mkdir', 'bvbrc_asm_output'],
-                        ['touch', 'bvbrc_asm_output/output_path.txt'],
-                        ['p3-cp', contig_output, 'bvbrc_asm_output'],
-                        ['p3-cp', bandage_plot, 'bvbrc_asm_output'],
-                        ['p3-cp', details_json, 'bvbrc_asm_output'],
-                        ['p3-cp', assembly_report_html, 'bvbrc_asm_output']]
-    
-    for command in output_commands:
-        run_command(command)
+        for file in ASM_OUTPUTS.values():
+            run_command(['p3-cp', file, 'bvbrc_asm_output'])
 
-    with open(f"bvbrc_asm_output/{sample_name}_AssemblyReport.html", 'r') as file:
-        soup = BeautifulSoup(file, 'html.parser')
+        with open(f"bvbrc_asm_output/{args.sample_name}_AssemblyReport.html", 'r') as file:
+            soup = BeautifulSoup(file, 'html.parser')
 
-    # Find the table with the header "Preprocessing of Reads"
-    table = soup.find('h2', string='Preprocessing of Reads').find_next('table')
+        # Find the table with the header "Preprocessing of Reads"
+        table = soup.find('h2', string='Preprocessing of Reads').find_next('table')
 
-    # Extract the number of reads from the table
-    table_data = []
-    num_reads = None
-    rows = table.find_all('tr')
+        # Extract the number of reads from the table
+        table_data = []
+        num_reads = None
+        rows = table.find_all('tr')
 
-    for i, row in enumerate(rows):
-        if i == 0:
-            cells = row.find_all('th')
-        else:
-            cells = row.find_all('td')
-        
-        cells_data = list(map(lambda x: x.get_text(), cells)) 
-        table_data.append(cells_data)
+        for i, row in enumerate(rows):
+            if i == 0:
+                cells = row.find_all('th')
+            else:
+                cells = row.find_all('td')
+            
+            cells_data = list(map(lambda x: x.get_text(), cells)) 
+            table_data.append(cells_data)
 
-    num_reads = table_data[1][table_data[0].index("Num Reads")]
-    average_size = table_data[1][table_data[0].index("Avg Length")]
+        num_reads = table_data[1][table_data[0].index("Num Reads")]
+        average_size = table_data[1][table_data[0].index("Avg Length")]
 
-    table2 = soup.find('h2', string='Assembly').find_next('table')
-    rows2 = table2.find('tbody').find_all('tr')
-    fasta_file_size = None
-    for row in rows2:
-        cell = row.find_all('td')
-        if cell[0].get_text() == 'contigs.fasta file size:':
-            fasta_file_size = cell[1].get_text()
+        table2 = soup.find('h2', string='Assembly').find_next('table')
+        rows2 = table2.find('tbody').find_all('tr')
+        fasta_file_size = None
+        for row in rows2:
+            cell = row.find_all('td')
+            if cell[0].get_text() == 'contigs.fasta file size:':
+                fasta_file_size = cell[1].get_text()
 
 
-    with open(f"bvbrc_asm_output/{sample_name}_run_details.json", 'r') as f:
-        data = json.load(f)
-        average_depth = data['contig_filtering']['average depth (short reads)']
-        contigs_above_threshold = data['contig_filtering']['num contigs above thresholds']
-        contigs_below_threshold = data['contig_filtering']['num contigs below thresholds']
+        with open(f"bvbrc_asm_output/{args.sample_name}_run_details.json", 'r') as f:
+            data = json.load(f)
+            average_depth = data['contig_filtering']['average depth (short reads)']
+            contigs_above_threshold = data['contig_filtering']['num contigs above thresholds']
+            contigs_below_threshold = data['contig_filtering']['num contigs below thresholds']
 
 
-    with open('bvbrc_asm_output/output_path.txt', 'w') as f:
-        f.write(f"Contigs Workspace Path: {contig_output}\n")
-        f.write(f"Contig.fasta File Size: {fasta_file_size}\n")
-        f.write(f"Number of Reads: {num_reads}\n")
-        f.write(f"Average Read Length: {average_size}\n")
-        f.write(f"Average Read Depth: {average_depth}\n")
-        f.write(f"Number of Contigs Above Threshold: {contigs_above_threshold}\n")
-        f.write(f"Number of Contigs Below Threshold: {contigs_below_threshold}\n")
+        with open('bvbrc_asm_output/output_path.txt', 'w') as f:
+            f.write(f"Contigs Workspace Path: {ASM_OUTPUTS['CONTIG_OUTPUT']}\n")
+            f.write(f"Contig.fasta File Size: {fasta_file_size}\n")
+            f.write(f"Number of Reads: {num_reads}\n")
+            f.write(f"Average Read Length: {average_size}\n")
+            f.write(f"Average Read Depth: {average_depth}\n")
+            f.write(f"Number of Contigs Above Threshold: {contigs_above_threshold}\n")
+            f.write(f"Number of Contigs Below Threshold: {contigs_below_threshold}\n")
+
+    ws_read1, ws_read2 = __generate_directory_structure()
+    bvbrc_genome_assembly(ws_read1, ws_read2, dry_run)
+    __handle_asm_output()   
 
 
-def bvbrcGenomeAnnotation(user:str, sample_name:str, assembly_file:str|os.PathLike, is_workspace_filepath:bool=False, scientific_name:str=None) -> None:
-    """
-    DEPRECATED - use bvbrcAnnotationAssembly
-
-    Args:
-        user (str): _description_
-        sample_name (str): _description_
-        assembly_file (str | os.PathLike): _description_
-        is_workspace_filepath (bool, optional): _description_. Defaults to False.
-        scientific_name (str, optional): _description_. Defaults to None.
-    """
-    sample_dir = f"/{user}@bvbrc/home/assemblies/{sample_name}"
-    assembly_dir = f"{sample_dir}/assembly"
-    output_dir = f"{sample_dir}/annotation"
-
-    # create directory if does not exist
-    run_command(['p3-mkdir', output_dir])
-
-    annotation_command = ['p3-submit-genome-annotation', '-f',
-                          '--contigs-file', assembly_file, '-d', 'Bacteria']
-
-    if scientific_name:
-        annotation_command.append('-n')
-        annotation_command.append(scientific_name)
-    # annotation_command.append("--dry-run")
-    
-    annotation_command.append(output_dir)
-    annotation_command.append(f"{sample_name}_annotation")
-
-    annotation_job = PseudoTerminalPair(command=annotation_command)
-    job_output = annotation_job.get_output()
-
-    job_id = get_job_id(job_output)
-
-    while bvbrc_job_running(job_id):
-        time.sleep(10)  # This timing may need to be adjusted.
-
-    annotation_job.close_terminal()
-
-def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike, output_name:str, scientific_name:str, sample_name:str, taxonomy_id:int=2) -> None:
+def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike, scientific_name:str, sample_name:str, taxonomy_id:str='2') -> None:
     """
     Submits assembly contig to BVBRC for annotation and assembly.
 
@@ -282,22 +256,24 @@ def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike
         scientific_name (str): Scientific name of sample
         taxonomy_id (int, optional): Defaults to 2.
     """
+
+    output_name = f"{sample_name}_output"
+
+
     # Makes directory (if none exists)
     # NOTE: This is a workspace path, but should not be prefixed with "ws:"
     run_command(['p3-mkdir', output_path])
 
     cga_command = ['p3-submit-CGA','-contigs', contigs, '-scientific-name', scientific_name,
-                   '-taxonomy-id', taxonomy_id, '-code', '11',
+                   '-taxonomy-id', str(taxonomy_id), '-code', '11',
                    '-domain', 'Bacteria', output_path, output_name]
 
-    cga_job = PseudoTerminalPair(command=cga_command)
+    cga_job = RunSubprocess(command=cga_command)
 
     job_id = get_job_id(cga_job.get_output())
     
     while bvbrc_job_running(job_id):
         time.sleep(10)  # This timing may need to be adjusted.
-
-    cga_job.close_terminal()
 
     full_genome_report_path = f"ws:{output_path}/.{sample_name}_output/FullGenomeReport.html"
     annotation_genome_report_path = f"ws:{output_path}/.{sample_name}_output/.annotation/GenomeReport.html"
@@ -314,30 +290,104 @@ def bvbrcAnnotationAnalysis(contigs:str|os.PathLike, output_path:str|os.PathLike
         print(f"Running Command: {command}")
         run_command(command)
 
+
+parser = argparse.ArgumentParser(
+                    prog='AutoBVBRC',
+                    description='What the program does',
+                    epilog='Text at the bottom of help')
+
+# JOB SELECTION
+selected_job = parser.add_mutually_exclusive_group()
+selected_job.add_argument('-asm', '--genome-assembly', action='store_true')
+selected_job.add_argument('-cga', '--complete-genome-analysis', action='store_true')
+selected_job.add_argument('-dev', "--development", action='store_true')
+
+# Logging
+command_output = parser.add_mutually_exclusive_group()
+command_output.add_argument('-q', '--quiet', action='store_true', help='Skips all logging to stdout except CRITICAL errors')
+command_output.add_argument('-v', '--verbose', action='store_true', help='More comprehensive logging to stdout')
+command_output.add_argument('-d', '--debug', action='store_true', help='Most comprehensive logging to stdout for DEBUGGING')
+
+# COMMON
+parser.add_argument('-u', '--username', type=str, metavar='', required=False, help='BV-BRC username for account login')
+parser.add_argument('-p', '--password', type=str, metavar='', required=False, help='BV-BRC password for account login')
+parser.add_argument('-n', '--sample-name', type=str, metavar='', required=False, help='Name of bacterial sample')
+parser.add_argument('--dry-run', action='store_true', help='A dry run will validate input, but not submit a BVBRC job')
+
+# CGA
+parser.add_argument('-a', '--assembly-file', type=str, metavar='', required=False, help='BV-BRC workspace path of assembly')
+parser.add_argument('-sci', '--scientific-name', type=str, metavar='', required=False, help='Scientific name of bacterial sample')
+parser.add_argument('-o', '--output-path', type=str, metavar='', required=False, help='BV-BRC workspace output path for result files')
+parser.add_argument('-tax', '--taxonomy-id', type=int, metavar='', required=False, default=2, help='Taxonomy ID of sample, defaults to 2')
+
+# ASM
+parser.add_argument('-r1', '--read1', type=str, metavar='', required=False, default=2, help='Read 1 file for assembly')
+parser.add_argument('-r2', '--read2', type=str, metavar='', required=False, default=2, help='Read 2 file for assembly')
+
+args = parser.parse_args()
+
+class Log():
+    HELP_TIP = f"Run Command with -h or --help to see a complete list of options."
+
+if args.quiet:
+    log_level = logging.CRITICAL
+elif args.verbose:
+    log_level = logging.INFO
+elif args.debug:
+    log_level = logging.DEBUG
+else:
+    log_level = logging.WARNING
+
+
+logging.basicConfig(
+    level=log_level,
+    format="%(asctime)s %(levelname)s %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    filename="bvbrc.log"
+)
+
+########## CONSTANTS ##########
+PROJECT_ROOT = f"/{args.username}@bvbrc/home/CAMRA_WDL"
+
+SAMPLE_DIR = f"{PROJECT_ROOT}/{args.sample_name}"
+RAW_READS_DIR = f"{SAMPLE_DIR}/raw_reads"
+ASSEMBLY_DIR = f"{SAMPLE_DIR}/assembly"
+
+ASM_OUTPUT_DIR = f"ws:{ASSEMBLY_DIR}/.{args.sample_name}"
+ASM_DETAILS_DIR = f"ws:{ASSEMBLY_DIR}/.{args.sample_name}/details"
+        
+    # ASM OUTPUTS
+ASM_OUTPUTS = {
+    'CONTIG_OUTPUT' : f"{ASM_OUTPUT_DIR}/{args.sample_name}_contigs.fasta",
+    'ASSEMBLY_REPORT' : f"{ASM_OUTPUT_DIR}/{args.sample_name}_AssemblyReport.html",
+    'BANDAGE_PLOT' : f"{ASM_DETAILS_DIR}/{args.sample_name}_assembly_graph.plot.svg",
+    'DETAILS_JSON' : f"{ASM_DETAILS_DIR}/{args.sample_name}_run_details.json"
+}
+
+########## END CONSTANTS ##########
+
+def main(args):
+    if args.dry_run:
+        logging.warning("You submitted a job with the '--dry-run' option. This may break the output of the workflow if the output has not already been generated.")
+
+    if args.genome_assembly:
+        genome_assembly_job(read1=args.read1, read2=args.read2, dry_run=args.dry_run)
+
+    elif args.complete_genome_analysis:
+        bvbrcAnnotationAnalysis(contigs=args.assembly_file, output_path=args.output_path, 
+                                scientific_name=args.scientific_name, sample_name=args.sample_name, 
+                                taxonomy_id=args.taxonomy_id)
     
-def main():
-    match sys.argv[1].lower():
+    # elif args.development:
+    #     logging.warning("Dev Run Started")
+    #     print(Config.get_raw_reads_dir())
+    #     print(bvbrc_ls_files(Config.get_raw_reads_dir()))
+    #     genome_assembly_job(read1=args.read1, read2=args.read2, dry_run=True)
+    #     logging.warning("Dev Run Finished")
 
-        case 'assembly' | 'asm':
-            bvbrcGenomeAssembly(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
-
-        case 'annotation' | 'annot':
-            match len(sys.argv):
-                case 5:
-                    bvbrcGenomeAnnotation(sys.argv[2], sys.argv[3], sys.argv[4])
-                case 6:
-                    bvbrcGenomeAnnotation(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
-                case _:
-                    raise IndexError
-                
-        case 'analysis' | 'cga' | 'aa':
-            match len(sys.argv):
-                case 8:
-                    bvbrcAnnotationAnalysis(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7])
-
-        case _:
-            raise ValueError
+    else:
+        logging.error("Error in the job selection. Function - main()")
 
 
 if __name__ == "__main__":
-    main()
+    main(args)
