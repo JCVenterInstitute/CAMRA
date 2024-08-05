@@ -20,7 +20,7 @@ workflow annotation_analysis   {
         String sample_name
         String BVBRC_username
         String BVBRC_password
-        String output_path
+        String timestamp
         String scientific_name
     }
 
@@ -30,7 +30,7 @@ workflow annotation_analysis   {
             password = BVBRC_password,
             contigs_file = assembly,
             sample_name = sample_name,
-            output_path = output_path,
+            timestamp = timestamp,
             scientific_name = scientific_name,  # "Genus species" from MASH, Optional
             taxonomy_id = 2
     }
