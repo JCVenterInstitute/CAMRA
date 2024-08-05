@@ -270,7 +270,7 @@ def genome_assembly_job(
 
         with open("bvbrc_asm_output/output_path.txt", "w") as f:
             f.write(f"Contigs Workspace Path: {ASM_OUTPUTS['CONTIG_OUTPUT']}\n")
-            f.write(f"Read Timestamp: {FROM_EPOCH}")
+            f.write(f"Read Timestamp: {FROM_EPOCH}\n")
             f.write(f"Contig.fasta File Size: {fasta_file_size}\n")
             f.write(f"Number of Reads: {num_reads}\n")
             f.write(f"Average Read Length: {average_size}\n")
