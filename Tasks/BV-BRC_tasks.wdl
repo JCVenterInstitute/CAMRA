@@ -23,10 +23,8 @@ task run_genome_assembly {
     }
 
     command <<<
-        python3 /bin/bvbrc_login.py ~{username} ~{password}
-        echo "logged in"
-        python3 /bin/bvbrc_jobs.py -asm -u ~{username} -n "${sample_name}" -r1 ~{read1} -r2 ~{read2}
-        echo "ran assembly job"
+        python3 /bin/bvbrc_login.py "~{username}" "~{password}"
+        python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name}" -r1 "~{read1}" -r2 "~{read2}"
 
         # Extract values
         contigs_workspace_path=$(grep -oP '(?<=Contigs Workspace Path: ).*' bvbrc_asm_output/output_path.txt)
