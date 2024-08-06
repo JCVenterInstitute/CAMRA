@@ -19,13 +19,13 @@ task run_genome_assembly {
 
     runtime {
         docker: 'andrewrlapointe/bvbrc:4.1'
-
     }
 
+    String sample_name_no_space = sub(sample_name, " ", "_")
+
     command <<<
-        sample_name="${sample_name// /_}"
         python3 /bin/bvbrc_login.py "~{username}" "~{password}"
-        python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name}" -r1 "~{read1}" -r2 "~{read2}"
+        python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name_no_space}" -r1 "~{read1}" -r2 "~{read2}"
 
         # Extract values
         contigs_workspace_path=$(grep -oP '(?<=Contigs Workspace Path: ).*' bvbrc_asm_output/output_path.txt)
