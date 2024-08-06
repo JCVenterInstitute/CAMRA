@@ -140,30 +140,24 @@ def genome_assembly_job(
     """
 
     def __generate_directory_structure() -> tuple[str, str]:
+        directory_commands = [
+            ["p3-mkdir", RAW_READS_DIR],
+            ["p3-mkdir", ASSEMBLY_DIR],
+            ["p3-cp", read1, f"ws:{RAW_READS_DIR}"],
+            ["p3-cp", read2, f"ws:{RAW_READS_DIR}"],
+            ["mkdir", "bvbrc_asm_output"],
+        ]
+        for command in directory_commands:
+            RunSubprocess(command)
+        print(RunSubprocess(["ls", "bvbrc_asm_output"]).get_output())
         raw_reads_dir_ls = bvbrc_ls_files(RAW_READS_DIR)
-        try:
-            read1_ws_name, read2_ws_name = raw_reads_dir_ls[0], raw_reads_dir_ls[1]
-            logging.info(f"Files {read1_ws_name, read2_ws_name} already exist on bvbrc")
-        except IndexError:
-            directory_commands = [
-                ["p3-mkdir", RAW_READS_DIR],
-                ["p3-mkdir", ASSEMBLY_DIR],
-                ["p3-cp", read1, f"ws:{RAW_READS_DIR}"],
-                ["p3-cp", read2, f"ws:{RAW_READS_DIR}"],
-                ["mkdir", "bvbrc_asm_output"],
-            ]
-            for command in directory_commands:
-                RunSubprocess(command)
+        read1_ws_name, read2_ws_name = raw_reads_dir_ls[0], raw_reads_dir_ls[1]
+        logging.debug("Created directory structure")
 
-            raw_reads_dir_ls = bvbrc_ls_files(RAW_READS_DIR)
-            read1_ws_name, read2_ws_name = raw_reads_dir_ls[0], raw_reads_dir_ls[1]
-            logging.debug("Created directory structure")
-
-        finally:
-            return (
-                f"ws:{RAW_READS_DIR}/{read1_ws_name}",
-                f"ws:{RAW_READS_DIR}/{read2_ws_name}",
-            )
+        return (
+            f"ws:{RAW_READS_DIR}/{read1_ws_name}",
+            f"ws:{RAW_READS_DIR}/{read2_ws_name}",
+        )
 
     def bvbrc_genome_assembly(ws_read1, ws_read2, dry_run: bool) -> None:
         if dry_run:
@@ -215,7 +209,6 @@ def genome_assembly_job(
 
     def __handle_asm_output() -> None:
         output_commands = [
-            ["mkdir", "bvbrc_asm_output"],
             ["touch", "bvbrc_asm_output/output_path.txt"],
         ]
 
@@ -223,7 +216,7 @@ def genome_assembly_job(
             RunSubprocess(command)
 
         for file in ASM_OUTPUTS.values():
-            RunSubprocess(["p3-cp", file, "bvbrc_asm_output"])
+            command = RunSubprocess(["p3-cp", file, "bvbrc_asm_output"])
 
         with open(
             f"bvbrc_asm_output/{args.sample_name}_AssemblyReport.html", "r"
