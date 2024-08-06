@@ -6,9 +6,25 @@ workflows:
     authors:
       - name: Daniella Matute
         email: dmatute@jcvi.org
+      - name: Andrew LaPointe
+        email: andrewrlapointe@gmail.com
   - name: genome_assembly
     subclass: WDL
     primaryDescriptorPath: /Workflows/CAMRA_ASM_WF.wdl
     authors:
       - name: Andrew LaPointe
         email: andrewrlapointe@gmail.com
+  - name: annotation_analysis
+    subclass: WDL
+    primaryDescriptorpath: /Workflows/CAMRA_ANNOT_WF.wdl
+    authors:
+      - name: Daniella Matute
+        email: dmatute@jcvi.org
+      - name: Andrew LaPointe
+        email: andrewrlapointe@gmail.com
+  - name: amr_analysis
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_WF.wdl
+    authors:
+      - name: Daniella Matute
+        email: dmatute@jcvi.org

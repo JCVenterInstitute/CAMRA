@@ -18,16 +18,18 @@ task run_genome_assembly {
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:4.0'
-
+        docker: 'andrewrlapointe/bvbrc:4.1'
     }
 
+    String sample_name_no_space = sub(sample_name, " ", "_")
+
     command <<<
-        python3 /bin/bvbrc_login.py ~{username} ~{password}
-        python3 /bin/bvbrc_jobs.py -asm -u ~{username} -n ~{sample_name} -r1 ~{read1} -r2 ~{read2}
+        python3 /bin/bvbrc_login.py "~{username}" "~{password}"
+        python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name_no_space}" -r1 "~{read1}" -r2 "~{read2}"
 
         # Extract values
         contigs_workspace_path=$(grep -oP '(?<=Contigs Workspace Path: ).*' bvbrc_asm_output/output_path.txt)
+        timestamp=$(grep -oP '(?<=Read Timestamp: ).*' bvbrc_asm_output/output_path.txt)
         num_reads=$(grep -oP '(?<=Number of Reads: ).*' bvbrc_asm_output/output_path.txt)
         average_read_depth=$(grep -oP '(?<=Average Read Depth: ).*' bvbrc_asm_output/output_path.txt)
         contigs_above_threshold=$(grep -oP '(?<=Number of Contigs Above Threshold: ).*' bvbrc_asm_output/output_path.txt)
@@ -37,6 +39,7 @@ task run_genome_assembly {
 
         # Save the variables to separate output files
         echo "$contigs_workspace_path" > contigs_workspace_path.txt
+        echo "$timestamp" > timestamp.txt
         echo "$num_reads" > num_reads.txt
         echo "$average_read_depth" > average_read_depth.txt
         echo "$contigs_above_threshold" > contigs_above_threshold.txt
@@ -44,16 +47,17 @@ task run_genome_assembly {
         echo "$average_read_length" > average_read_length.txt
         echo "$contig_fasta_file_size" > contig_fasta_file_size.txt
         
-        gzip bvbrc_asm_output/~{sample_name}_contigs.fasta
+        gzip bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta
 
         # Clean up unneeded files
         rm bvbrc_asm_output/output_path.txt
     >>>
 
     output {
-        File asm_bandage_plot = "bvbrc_asm_output/~{sample_name}_assembly_graph.plot.svg"
-        File assembly_file = "bvbrc_asm_output/~{sample_name}_contigs.fasta.gz"
+        File asm_bandage_plot = "bvbrc_asm_output/~{sample_name_no_space}_assembly_graph.plot.svg"
+        File assembly_file = "bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta.gz"
         String contigs_workspace_path = read_string("contigs_workspace_path.txt")
+        Int timestamp = read_int("timestamp.txt")
         Int contig_fasta_file_size = read_int("contig_fasta_file_size.txt")
         Float average_read_depth = read_float("average_read_depth.txt")
         Int number_reads = read_int("num_reads.txt")
@@ -78,25 +82,24 @@ task run_annotation_analysis {
         String password
         String sample_name
         String scientific_name
-        String output_path
+        String timestamp
         String taxonomy_id
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:4.0'
+        docker: 'andrewrlapointe/bvbrc:4.1'
     }
 
     # output path could be changed to be relative to the contigs file location to reduce the number of inputs
     command <<<
         python3 /bin/bvbrc_login.py ~{username} ~{password}
         # output name was removed as an input
-        python3 /bin/bvbrc_jobs.py -cga -a ~{contigs_file} -o ~{output_path} -sci ~{scientific_name} -n ~{sample_name} -tax ~{taxonomy_id} -d
+        python3 /bin/bvbrc_jobs.py -cga -a ~{contigs_file} -t ~{timestamp} -u ~{username} -sci ~{scientific_name} -n ~{sample_name} -tax ~{taxonomy_id} -d
     >>>
 
     output {
         File full_genome_report = "bvbrc_cga_output/FullGenomeReport.html"
         File annotation_genome_report = "bvbrc_cga_output/GenomeReport.html"
         File annotation_xls = "bvbrc_cga_output/annotation.xls"
-
     }
 }
