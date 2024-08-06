@@ -23,6 +23,7 @@ task run_genome_assembly {
     }
 
     command <<<
+        sample_name="${sample_name// /_}"
         python3 /bin/bvbrc_login.py "~{username}" "~{password}"
         python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name}" -r1 "~{read1}" -r2 "~{read2}"
 
