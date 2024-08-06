@@ -47,15 +47,15 @@ task run_genome_assembly {
         echo "$average_read_length" > average_read_length.txt
         echo "$contig_fasta_file_size" > contig_fasta_file_size.txt
         
-        gzip bvbrc_asm_output/~{sample_name}_contigs.fasta
+        gzip bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta
 
         # Clean up unneeded files
         rm bvbrc_asm_output/output_path.txt
     >>>
 
     output {
-        File asm_bandage_plot = "bvbrc_asm_output/~{sample_name}_assembly_graph.plot.svg"
-        File assembly_file = "bvbrc_asm_output/~{sample_name}_contigs.fasta.gz"
+        File asm_bandage_plot = "bvbrc_asm_output/~{sample_name_no_space}_assembly_graph.plot.svg"
+        File assembly_file = "bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta.gz"
         String contigs_workspace_path = read_string("contigs_workspace_path.txt")
         Int timestamp = read_int("timestamp.txt")
         Int contig_fasta_file_size = read_int("contig_fasta_file_size.txt")
