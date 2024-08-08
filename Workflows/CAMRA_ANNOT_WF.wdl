@@ -29,7 +29,7 @@ workflow annotation_analysis   {
         input:
             username = BVBRC_username,
             password = BVBRC_password,
-            contigs_file = assembly,
+            contigs_file = bvbrc_assembly_path,
             sample_name = sample_name,
             timestamp = timestamp,
             scientific_name = scientific_name,  # "Genus species" from MASH, Optional
