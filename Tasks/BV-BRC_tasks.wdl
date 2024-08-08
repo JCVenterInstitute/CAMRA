@@ -92,9 +92,9 @@ task run_annotation_analysis {
 
     # output path could be changed to be relative to the contigs file location to reduce the number of inputs
     command <<<
-        python3 /bin/bvbrc_login.py ~{username} ~{password}
+        python3 /bin/bvbrc_login.py "~{username}" "~{password}"
         # output name was removed as an input
-        python3 /bin/bvbrc_jobs.py -cga -a ~{contigs_file} -t ~{timestamp} -u ~{username} -sci ~{scientific_name} -n ~{sample_name} -tax ~{taxonomy_id} -d
+        python3 /bin/bvbrc_jobs.py -cga -a "~{contigs_file}" -t "~{timestamp}" -u "~{username}" -sci "~{scientific_name}" -n "~{sample_name}" -tax "~{taxonomy_id}"
     >>>
 
     output {
