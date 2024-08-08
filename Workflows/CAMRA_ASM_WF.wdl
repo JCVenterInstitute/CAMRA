@@ -2,7 +2,7 @@ version 1.0
 
 import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 
-workflow assembly_workflow {
+workflow genome_assembly {
     meta {
     author: "Andrew LaPointe"
     email: "andrewrlapointe@gmail.com"
@@ -36,10 +36,12 @@ workflow assembly_workflow {
     }
 
     output {
+        File assembly_file = run_genome_assembly.assembly_file
         File asm_bandage_plot = run_genome_assembly.asm_bandage_plot
         String contigs_workspace_path = run_genome_assembly.contigs_workspace_path
         Int contig_fasta_file_size = run_genome_assembly.contig_fasta_file_size
         Int number_reads = run_genome_assembly.number_reads
+        Int timestamp = run_genome_assembly.timestamp
         Float average_read_length = run_genome_assembly.average_read_length 
         Float average_read_depth = run_genome_assembly.average_read_depth
         Int contigs_above_threshold = run_genome_assembly.contigs_above_threshold
