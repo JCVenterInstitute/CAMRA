@@ -16,7 +16,7 @@ workflows:
         email: andrewrlapointe@gmail.com
   - name: annotation_analysis
     subclass: WDL
-    primaryDescriptorpath: /Workflows/CAMRA_ANNOT_WF.wdl
+    primaryDescriptorPath: /Workflows/CAMRA_ANNOT_WF.wdl
     authors:
       - name: Daniella Matute
         email: dmatute@jcvi.org

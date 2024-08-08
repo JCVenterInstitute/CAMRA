@@ -1,6 +1,7 @@
 FROM debian:stable-slim
 
-# Set environment variables for non-interactive installation
+# This cannot be an environmental variable. As an arg, it is only used for the build.
+# If it is set as an environmental variable, it affects runtime behavior and breaks Terra.
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Update, upgrade, install dependencies, and clean up 
@@ -15,8 +16,7 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 # Install Python
-RUN apt-get update && \
-    apt-get install -y python3 python3-pip
+RUN apt install -y python3 python3-pip
 RUN apt install -y python3-bs4
 
 # Copy custom scripts into the Docker image
