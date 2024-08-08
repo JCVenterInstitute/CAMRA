@@ -6,8 +6,9 @@ import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 workflow annotation_analysis   {
     meta {
         author: "Daniella Matute"
-        author: "Andrew LaPointe"
         email: "dmatute@jcvi.org"
+        author: "Andrew LaPointe"
+        email: "andrewrlapointe@gmail.com"
         description: "Run Annotation on an Assembly."
     }
 
@@ -16,7 +17,7 @@ workflow annotation_analysis   {
     }
     input {
         # File plasmidfinder_DB
-        String assembly
+        String bvbrc_assembly_path
         String sample_name
         String BVBRC_username
         String BVBRC_password
