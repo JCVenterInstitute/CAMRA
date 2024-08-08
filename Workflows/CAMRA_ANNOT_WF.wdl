@@ -46,15 +46,16 @@ workflow annotation_analysis   {
 
     # call pgap, prokka, bakta
     # call phage finder
-    #     other tools that we could use: 
-    #         Seeker
-    #         VirFinder (23)
-    #         DeepVirFinder (25)
-    #         PPR-Meta (24)
-    #         VirSorter (22)
-    #         VIBRANT (37)
-    # # FCS
-    # # IS elements
+        #other tools that we could use: 
+            # Seeker
+            # VirFinder (23)
+            # DeepVirFinder (25)
+            # PPR-Meta (24)
+            # VirSorter (22)
+            # VIBRANT (37)
+    # FCS
+    # IS elements
+    # Mobile element Finder
 
 
     output {
