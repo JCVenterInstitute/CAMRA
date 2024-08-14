@@ -18,14 +18,14 @@ task run_genome_assembly {
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:4.1'
+        docker: 'andrewrlapointe/bvbrc:5.0'
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
 
     command <<<
         python3 /bin/bvbrc_login.py "~{username}" "~{password}"
-        python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name_no_space}" -r1 "~{read1}" -r2 "~{read2}"
+        python3 /bin/bvbrc_jobs.py -asm -u "~{username}" -n "~{sample_name_no_space}" -r1 "~{read1}" -r2 "~{read2}" --debug
 
         # Extract values
         contigs_workspace_path=$(grep -oP '(?<=Contigs Workspace Path: ).*' bvbrc_asm_output/output_path.txt)
@@ -77,17 +77,18 @@ task run_annotation_analysis {
     }
 
     input {
-        String contigs_file
+        File? contigs_file_local
+        String? bvbrc_assembly_path
         String username
         String password
         String sample_name
         String scientific_name
-        String timestamp
+        String? timestamp
         String taxonomy_id
     }
 
     runtime {
-        docker: 'andrewrlapointe/bvbrc:4.1'
+        docker: 'andrewrlapointe/bvbrc:5.0'
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
@@ -95,8 +96,11 @@ task run_annotation_analysis {
     # output path could be changed to be relative to the contigs file location to reduce the number of inputs
     command <<<
         python3 /bin/bvbrc_login.py "~{username}" "~{password}"
-        # output name was removed as an input
-        python3 /bin/bvbrc_jobs.py -cga -a "~{contigs_file}" -t "~{timestamp}" -u "~{username}" -sci "~{scientific_name}" -n "~{sample_name_no_space}" -tax "~{taxonomy_id}"
+        if [ "~{defined(timestamp)}" == "true" ]; then
+            python3 /bin/bvbrc_jobs.py -cga -a "~{bvbrc_assembly_path}" -u "~{username}" -t "~{timestamp}" -sci "~{scientific_name}" -n "~{sample_name_no_space}" -tax "~{taxonomy_id}" --debug
+        else
+            python3 /bin/bvbrc_jobs.py -cgal -a "~{contigs_file_local}" -u "~{username}" -sci "~{scientific_name}" -n "~{sample_name_no_space}" -tax "~{taxonomy_id}" --debug
+        fi
     >>>
 
     output {

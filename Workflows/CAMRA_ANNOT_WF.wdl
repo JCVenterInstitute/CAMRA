@@ -13,19 +13,35 @@ workflow annotation_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
+        File? local_assembly_path
+        String? bvbrc_assembly_path
         String sample_name
-        File assembly
+        String BVBRC_username
+        String BVBRC_password
+        String? timestamp
+        String scientific_name
         File plasmidfinder_DB
     }
 
     call plasmidfinder.run_PlasmidFinder {
         #there is also plasflow and plasmidspades
         input:
-            assembly = assembly,
+            assembly = local_assembly_path,
             sample_name = sample_name,
             database = plasmidfinder_DB 
     }
     # BVBRC docker and build task to send assembly and conduct genome analysis & annotation
+    call bvbrc.run_annotation_analysis {
+        input:
+            username = BVBRC_username,
+            password = BVBRC_password,
+            bvbrc_assembly_path = bvbrc_assembly_path,
+            contigs_file_local = local_assembly_path,
+            sample_name = sample_name,
+            timestamp = timestamp,
+            scientific_name = scientific_name,  # "Genus species" from MASH, Optional
+            taxonomy_id = 2
+    }    
     # call pgap, prokka, bakta
     # call phage finder
         #other tools that we could use: 
@@ -41,7 +57,9 @@ workflow annotation_analysis   {
 
 
     output {
-
+        File full_genome_report = run_annotation_analysis.full_genome_report
+        File annotation_genome_report = run_annotation_analysis.annotation_genome_report
+        File annotation_xls = run_annotation_analysis.annotation_xls
         String plasmidfinder_plasmids_list = run_PlasmidFinder.plasmidfinder_plasmids_list
         String plasmidfinder_qty_hits =run_PlasmidFinder.plasmidfinder_qty_hits 
         File plasmidfinder_tsv_output = run_PlasmidFinder.plasmidfinder_tsv_output

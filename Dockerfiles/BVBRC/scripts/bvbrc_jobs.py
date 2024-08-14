@@ -276,7 +276,7 @@ def genome_assembly_job(
     __handle_asm_output()
 
 
-def bvbrcAnnotationAnalysis(
+def bvbrc_annotation_analysis(
     contigs: str | os.PathLike,
     output_path: str | os.PathLike,
     scientific_name: str,
@@ -338,6 +338,33 @@ def bvbrcAnnotationAnalysis(
         RunSubprocess(command)
 
 
+def bvbrc_annotation_analysis_local(
+    contigs_local_path, output_path, scientific_name, sample_name, taxonomy_id=2
+):
+    workspace_directory_commands = [
+        ["p3-mkdir", ASSEMBLY_DIR],
+        ["p3-cp", contigs_local_path, f"ws:{ASSEMBLY_DIR}"],
+    ]
+
+    for command in workspace_directory_commands:
+        RunSubprocess(command)
+
+    assembly_files = bvbrc_ls_files(ASSEMBLY_DIR)
+
+    if assembly_files is None:
+        raise ValueError
+
+    contigs_ws_path = f"ws:{ASSEMBLY_DIR}/{assembly_files[0]}"
+
+    bvbrc_annotation_analysis(
+        contigs=contigs_ws_path,
+        output_path=output_path,
+        scientific_name=scientific_name,
+        sample_name=sample_name,
+        taxonomy_id=taxonomy_id,
+    )
+
+
 parser = argparse.ArgumentParser(
     prog="AutoBVBRC",
     description="What the program does",
@@ -348,6 +375,9 @@ parser = argparse.ArgumentParser(
 selected_job = parser.add_mutually_exclusive_group()
 selected_job.add_argument("-asm", "--genome-assembly", action="store_true")
 selected_job.add_argument("-cga", "--complete-genome-analysis", action="store_true")
+selected_job.add_argument(
+    "-cgal", "--complete-genome-analysis-local", action="store_true"
+)
 selected_job.add_argument("-dev", "--development", action="store_true")
 
 # Logging
@@ -519,7 +549,7 @@ def main(args):
         genome_assembly_job(read1=args.read1, read2=args.read2, dry_run=args.dry_run)
 
     elif args.complete_genome_analysis:
-        bvbrcAnnotationAnalysis(
+        bvbrc_annotation_analysis(
             contigs=args.assembly_file,
             output_path=cga_output_path,
             scientific_name=args.scientific_name,
@@ -527,12 +557,18 @@ def main(args):
             taxonomy_id=args.taxonomy_id,
         )
 
-    # elif args.development:
-    #     logging.warning("Dev Run Started")
-    #     print(Config.get_raw_reads_dir())
-    #     print(bvbrc_ls_files(Config.get_raw_reads_dir()))
-    #     genome_assembly_job(read1=args.read1, read2=args.read2, dry_run=True)
-    #     logging.warning("Dev Run Finished")
+    elif args.complete_genome_analysis_local:
+        bvbrc_annotation_analysis_local(
+            contigs_local_path=args.assembly_file,
+            output_path=cga_output_path,
+            scientific_name=args.scientific_name,
+            sample_name=args.sample_name,
+            taxonomy_id=args.taxonomy_id,
+        )
+
+    elif args.development:
+        logging.warning("Dev Run Started")
+        logging.warning("Dev Run Finished")
 
     else:
         logging.error("Error in the job selection. Function - main()")
