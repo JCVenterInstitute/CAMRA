@@ -17,11 +17,12 @@ workflow annotation_analysis   {
     }
     input {
         # File plasmidfinder_DB
-        String bvbrc_assembly_path
+        File? local_assembly_path
+        String? bvbrc_assembly_path
         String sample_name
         String BVBRC_username
         String BVBRC_password
-        String timestamp
+        String? timestamp
         String scientific_name
     }
 
@@ -29,7 +30,8 @@ workflow annotation_analysis   {
         input:
             username = BVBRC_username,
             password = BVBRC_password,
-            contigs_file = bvbrc_assembly_path,
+            bvbrc_assembly_path = bvbrc_assembly_path,
+            contigs_file_local = local_assembly_path,
             sample_name = sample_name,
             timestamp = timestamp,
             scientific_name = scientific_name,  # "Genus species" from MASH, Optional

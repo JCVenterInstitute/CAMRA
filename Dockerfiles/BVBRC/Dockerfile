@@ -16,8 +16,9 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 # Install Python
-RUN apt install -y python3 python3-pip
-RUN apt install -y python3-bs4
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip
+RUN apt-get install -y python3-bs4
 
 # Copy custom scripts into the Docker image
 COPY ./scripts /bin/
