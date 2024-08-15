@@ -2,11 +2,11 @@ version 1.0
 # All taks relating to BV-BRC
 task run_genome_assembly {
     meta {
-    author: "Andrew LaPointe"
-    email: "andrewrlapointe@gmail.com"
-    description: "Task for running the BV-BRC genome assembly tool."
-    version: "1.0"
-    dockerhub: "https://hub.docker.com/repository/docker/andrewrlapointe/bvbrc/general"
+        author: "Andrew LaPointe"
+        email: "andrewrlapointe@gmail.com"
+        description: "Task for running the BV-BRC genome assembly tool."
+        version: "1.0"
+        dockerhub: "https://hub.docker.com/repository/docker/andrewrlapointe/bvbrc/general"
     }
 
     input {
