@@ -14,7 +14,7 @@ workflow annotation_analysis   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        File? local_assembly_path
+        File local_assembly_path
         String? bvbrc_assembly_path
         String sample_name
         String BVBRC_username
