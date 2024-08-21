@@ -1,6 +1,7 @@
 version 1.0
 
 import "../Tasks/plasmidfinder.wdl" as plasmidfinder
+import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 
 workflow annotation_analysis   {
     meta {
