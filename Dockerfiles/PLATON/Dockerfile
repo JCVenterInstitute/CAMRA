@@ -3,7 +3,7 @@ FROM --platform=linux/amd64 debian:stable-slim
 
 RUN apt update && \
     apt upgrade -y && \
-    apt -y install wget ncbi-blast+ build-essential
+    apt -y install wget ncbi-blast+ build-essential python3-pip python3 
 
 
 # Install DB
@@ -22,12 +22,14 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
     . /opt/miniconda/bin/activate
 ENV PATH="/opt/miniconda/bin:$PATH"
 
+
 WORKDIR /opt
 
-
-#5
+#Platon 
 RUN wget https://files.pythonhosted.org/packages/b9/70/7d09c2b4144c5bb328e3b4a74ee2f3ba63bf95e625a60bd9cf5b839d37bf/cb-platon-1.7.tar.gz && \ 
 tar -xvf cb-platon-1.7.tar.gz && rm cb-platon-1.7.tar.gz &&  cd cb-platon-1.7 && python setup.py install
+RUN conda install --solver=classic -y pandas jsonschema
+COPY platon_json_to_csv.py /opt/cb-platon-1.7/platon/platon_json_to_csv.py
 
 #Prodigal (2.6.3)
 RUN conda install -y -c conda-forge -c bioconda prodigal=2.6.3 
