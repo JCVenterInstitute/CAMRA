@@ -19,7 +19,7 @@ task run_AMRfinderPlus {
 
     command <<<
 
-        date | tee date
+        date | tee DATE
         amrfinder --version |tee VERSION
         amrfinder --database_version 2>/dev/null | grep "Database version" | sed 's|Database version: ||' | tee DB_VERSION
         
