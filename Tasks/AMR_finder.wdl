@@ -122,3 +122,38 @@ task run_AMRfinderPlus {
         String amrfinder_date = read_string("DATE")
     }
 }
+
+task run_Query_Blastn {
+
+    meta {
+    description: "Blastn genome against query"
+    gitrepository: "https://github.com/ncbi/amr"
+    docker:"https://hub.docker.com/r/staphb/ncbi-amrfinderplus"
+    cite: "Feldgarden M, Brover V, Gonzalez-Escalona N, Frye JG, Haendiges J, Haft DH, Hoffmann M, Pettengill JB, Prasad AB, Tillman GE, Tyson GH, Klimke W. AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. Sci Rep. 2021 Jun 16;11(1):12728. doi: 10.1038/s41598-021-91456-0. PMID: 34135355; PMCID: PMC8208984."
+    } 
+    input {
+        File assembly
+        File? query
+    }
+    
+    runtime{
+        docker: "staphb/ncbi-amrfinderplus:3.12.8-2024-01-31.1"
+    }
+
+    command <<<
+        if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz || "~{assembly}" == *.fna.gz ]]; then 
+            gunzip -c ~{assembly} > /data/assembly.fasta 
+        elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa || "~{assembly}" == *.fna.gz ]]; then
+            mv ~{assembly} /data/assembly.fasta
+        fi
+        # makeblastdb sets up a structured, searchable version of your genome sequence so that BLAST can efficiently find and match your target genes.
+        makeblastdb -in /data/assembly.fasta -dbtype nucl -out genome_db
+        # BLASTn command that detects variations and closely related sequences effectively
+        blastn -query  ~{query} -db genome_db -out results.out -outfmt 6 -evalue 1e-10 -reward 2 -penalty -3 -word_size 7 -max_target_seqs 10 -dust no
+        # sort results.out by the bitscore
+        sort -k 12,12nr -t$'\t' results.out -o results_sorted.txt
+    >>>
+    output{
+        File blastn_output = "results_sorted.txt"
+    }
+}

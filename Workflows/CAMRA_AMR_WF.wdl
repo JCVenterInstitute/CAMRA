@@ -21,8 +21,10 @@ workflow amr_analysis   {
         File assembly
         File read1
         File read2
+        File? query
         String sample_name
         String organism 
+        
 
     }
 
@@ -32,7 +34,14 @@ workflow amr_analysis   {
             sample_name = sample_name,
             organism = organism
     }
-    
+
+    if (defined(query)) {
+        call amrfinder.run_Query_Blastn {
+            input:
+                assembly = assembly,
+                query = query
+        }
+    }
     call abricate.run_Abricate{
         input:
             assembly = assembly,
@@ -65,6 +74,8 @@ workflow amr_analysis   {
         input:
         hamronize_amr_output = run_Hamronize.hAMRonization_amr_output
     }
+
+
 
     
     
