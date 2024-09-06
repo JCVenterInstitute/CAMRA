@@ -1,4 +1,4 @@
-FROM python:3.11.9-alpine3.20
+FROM --platform=linux/amd64 python:3.11.9-alpine3.20
 
 RUN apk add --no-cache bash
 

@@ -6,7 +6,7 @@ task run_AMR_harmonizer {
             File hamronize_amr_output
         }
     runtime {
-        docker: 'danylmb/amrharmonize:1.0'
+        docker: 'danylmb/amrharmonize:1.0-build1'
     }
     command <<<
 
