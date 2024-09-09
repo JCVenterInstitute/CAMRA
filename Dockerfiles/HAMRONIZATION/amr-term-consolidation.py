@@ -161,8 +161,8 @@ hamr_IDisna['possible_harmonize_gene_symbol'] = hamr_IDisna.apply(find_matches_f
 
 
 hamr_IDisna
-hamr_IDisna.to_csv("hamronization_isna.tsv", sep='\t', index=False, mode='w')
-hamr_output.to_csv("hamronization_all.tsv", sep='\t', index=False, mode='w')
-df_98.to_csv("harmonized_amr_over98identity.tsv", sep = '\t', index = False, mode='w')
-df_all.to_csv("harmonized_amr_allidentity.tsv", sep = '\t', index = False, mode='w')
+hamr_IDisna.to_csv("consolidation_isna.tsv", sep='\t', index=False, mode='w')
+hamr_output.to_csv("consolidation_all.tsv", sep='\t', index=False, mode='w')
+df_98.to_csv("consolidation_amr_over98identity.tsv", sep = '\t', index = False, mode='w')
+df_all.to_csv("consolidation_amr_allidentity.tsv", sep = '\t', index = False, mode='w')
 print("PY DONE")

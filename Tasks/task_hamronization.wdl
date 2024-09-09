@@ -12,7 +12,7 @@ task run_hAMRonize {
         Array[File] VIR_files
     }
     runtime{
-        docker: 'danylmb/hamronize:v1.1.4-build4'
+        docker: 'danylmb/hamronize:v1.1.4-build5'
     }
 
     command <<<
@@ -59,10 +59,10 @@ task run_hAMRonize {
     output{
         File hAMRonization_amr_output = "hamronize_amr_output.tsv"
         File hAMRonization_vir_output = "hamronize_vir_output.tsv"
-        File amrtermconsolidation_isna = "hamronization_isna.tsv"
-        File amrtermconsolidation_all = "hamronization_all.tsv"
-        File amrtermconsolidation_over98 = "harmonized_amr_over98identity.tsv"
-        File amrtermconsolidation_allidentity = "harmonized_amr_allidentity.tsv"
+        File amrtermconsolidation_isna = "consolidation_isna.tsv"
+        File amrtermconsolidation_all = "consolidation_all.tsv"
+        File amrtermconsolidation_over98 = "consolidation_amr_over98identity.tsv"
+        File amrtermconsolidation_allidentity = "consolidation_amr_allidentity.tsv"
     }
 
 }
