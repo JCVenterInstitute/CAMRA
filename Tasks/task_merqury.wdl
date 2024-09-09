@@ -11,7 +11,9 @@ task run_merqury {
 
     runtime{
         docker : 'danylmb/merqury:1.4.1-build2'
-        memory: "4G" 
+        cpu: 4
+        memory: "32 GB"
+        disk: "/tmp 1000 SSD"
     }
     command <<<
         echo "V1.3" | tee MERQURY_VERSION
