@@ -53,19 +53,18 @@ workflow assembly_qc {
             mash_genus = run_entrez_direct.mash_genus
     }
 
-    call merqury.run_merqury {
-        input:
-            assembly = assembly,
-            sample_name = sample_name,
-            asm_size = run_Quast.quast_total_length,
-            read1 = read1,
-            read2 = read2
-    }
-
     call quast.run_Quast {
         input:
             assembly = assembly
             #min_contigs = min_contigs
+    }
+
+    call merqury.run_merqury {
+        input:
+            assembly = assembly,
+            asm_size = run_Quast.quast_total_length,
+            read1 = read1,
+            read2 = read2
     }
 
     call fastQC.run_fastQC {
