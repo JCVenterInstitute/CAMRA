@@ -96,26 +96,26 @@ task run_fastQC {
     output {
         # File fastQC_R1_data = "fastQC_output/fastqc_R1_data.txt"
         # File fastQC_R2_data = "fastQC_output/fastqc_R2_data.txt"
-        File fastQC_R1_html = "fastQC_output/fastqc_R1_report.html"
-        File fastQC_R2_html = "fastQC_output/fastqc_R2_report.html"
+        File fastQC_R1_html = "/data/fastQC_output/fastqc_R1_report.html"
+        File fastQC_R2_html = "/data/fastQC_output/fastqc_R2_report.html"
         # File fastQC_R1_summary = "fastQC_output/fastqc_R1_summary.txt"
         # File fastQC_R2_summary = "fastQC_output/fastqc_R2_summary.txt"
 
-        String fastQC_R1_PassWarnFail = read_string("fastQC_output/result_string_R1.txt")
-        String fastQC_R2_PassWarnFail = read_string("fastQC_output/result_string_R2.txt")
+        String fastQC_R1_PassWarnFail = read_string("/data/fastQC_output/result_string_R1.txt")
+        String fastQC_R2_PassWarnFail = read_string("/data/fastQC_output/result_string_R2.txt")
 
-        String fastQC_R1_total_sequences = read_string("fastQC_output/total_sequences_R1.txt")
-        String fastQC_R1_total_bases = read_string("fastQC_output/total_bases_R1.txt")
-        String fastQC_R1_poor_quality = read_string("fastQC_output/poor_quality_R1.txt")
-        String fastQC_R1_sequence_length = read_string("fastQC_output/sequence_length_R1.txt")
-        String fastQC_R1_gc_content = read_string("fastQC_output/gc_content_R1.txt")
-        String fastQC_R2_total_sequences = read_string("fastQC_output/total_sequences_R2.txt")
-        String fastQC_R2_total_bases = read_string("fastQC_output/total_bases_R2.txt")
-        String fastQC_R2_poor_quality = read_string("fastQC_output/poor_quality_R2.txt")
-        String fastQC_R2_sequence_length = read_string("fastQC_output/sequence_length_R2.txt")
-        String fastQC_R2_gc_content = read_string("fastQC_output/gc_content_R2.txt")
+        String fastQC_R1_total_sequences = read_string("/data/fastQC_output/total_sequences_R1.txt")
+        String fastQC_R1_total_bases = read_string("/data/fastQC_output/total_bases_R1.txt")
+        String fastQC_R1_poor_quality = read_string("/data/fastQC_output/poor_quality_R1.txt")
+        String fastQC_R1_sequence_length = read_string("/data/fastQC_output/sequence_length_R1.txt")
+        String fastQC_R1_gc_content = read_string("/data/fastQC_output/gc_content_R1.txt")
+        String fastQC_R2_total_sequences = read_string("/data/fastQC_output/total_sequences_R2.txt")
+        String fastQC_R2_total_bases = read_string("/data/fastQC_output/total_bases_R2.txt")
+        String fastQC_R2_poor_quality = read_string("/data/fastQC_output/poor_quality_R2.txt")
+        String fastQC_R2_sequence_length = read_string("/data/fastQC_output/sequence_length_R2.txt")
+        String fastQC_R2_gc_content = read_string("/data/fastQC_output/gc_content_R2.txt")
         
-        String fastQC_version = read_string("VERSION")
+        String fastQC_version = read_string("/data/VERSION")
     }
 }
 
