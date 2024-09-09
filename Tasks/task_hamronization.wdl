@@ -52,7 +52,7 @@ task run_hAMRonize {
         done
         hamronize summarize -o hamronize_vir_output.tsv -t tsv VIR_hAMRonization/*
 
-        python3 /usr/bin/amrharmonization.py hamronize_amr_output.tsv
+        python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv
 
         >>>
 
