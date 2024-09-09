@@ -66,6 +66,7 @@ workflows:
     #   tags: [ /v.*dockstore/ ]
     branches:
       - main 
+      - quality_control
 
     
   - name: CAMRA-Genome_Assembly-WDL
