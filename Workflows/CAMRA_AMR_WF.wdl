@@ -1,10 +1,10 @@
 version 1.0
 
 import "../Tasks/task_amrfinder.wdl" as amrfinder
-import "../Tasks/task_abricate.wdl " as abricate
+import "../Tasks/task_abricate.wdl" as abricate
 import "../Tasks/task_hamronization.wdl" as hamronize
 import "../Tasks/task_resfinder.wdl" as resfinder
-import "../Tasks/task_amr_term_consolidation.wdl" as amrconsolidation
+# import "../Tasks/task_amr_term_consolidation.wdl" as amrconsolidation
 
 
 workflow amr_analysis   {
