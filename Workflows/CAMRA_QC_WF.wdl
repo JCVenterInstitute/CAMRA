@@ -4,7 +4,7 @@ import "../Tasks/task_checkm.wdl" as checkm
 import "../Tasks/task_mash.wdl" as mash 
 import "../Tasks/task_entrezdirect.wdl" as entrezdirect
 import "../Tasks/task_merqury.wdl" as merqury 
-import "../Tasks/MLST.wdl" as mlst
+import "../Tasks/task_mlst.wdl" as mlst
 import "../Tasks/task_quast.wdl" as quast
 import "../Tasks/task_fastQC.wdl" as fastQC
 
