@@ -70,10 +70,10 @@ workflow amr_analysis   {
             run_AMRfinderPlus.amrfinder_virulence_output]
     }
     
-    call amrconsolidation.run_AMR_Term_Consolidation {
-        input:
-        hamronize_amr_output = run_hAMRonize.hAMRonization_amr_output
-    }
+    # call amrconsolidation.run_AMR_Term_Consolidation {
+    #     input:
+    #     hamronize_amr_output = run_hAMRonize.hAMRonization_amr_output
+    # }
 
     output{
         # Optional Output - blast against userinput query
@@ -106,6 +106,11 @@ workflow amr_analysis   {
         # hAMRonization
         File hAMRonization_amr_output = run_hAMRonize.hAMRonization_amr_output
         File hAMRonization_vir_output = run_hAMRonize.hAMRonization_vir_output
+        # AMR Term Consolidation
+        File amrtermconsolidation_isna = run_hAMRonize.amrtermconsolidation_isna
+        File amrtermconsolidation_all = run_hAMRonize.amrtermconsolidation_all
+        File amrtermconsolidation_over98 = run_hAMRonize.amrtermconsolidation_over98 
+        File amrtermconsolidation_allidentity = run_hAMRonize.amrtermconsolidation_allidentity
 
         # ResFinder
         String resfinder_asm_arg = run_ResFinder.resfinder_asm_arg
@@ -120,11 +125,7 @@ workflow amr_analysis   {
         File resfinder_asm_argseq = run_ResFinder.resfinder_asm_argseq
         File resfinder_read_argseq = run_ResFinder.resfinder_read_argseq
 
-        # AMR Term Consolidation
-        File amrtermconsolidation_isna = run_AMR_Term_Consolidation.amrtermconsolidation_isna
-        File amrtermconsolidation_all = run_AMR_Term_Consolidation.amrtermconsolidation_all
-        File amrtermconsolidation_over98 = run_AMR_Term_Consolidation.amrtermconsolidation_over98 
-        File amrtermconsolidation_allidentity = run_AMR_Term_Consolidation.amrtermconsolidation_allidentity
+
     }
 
     
