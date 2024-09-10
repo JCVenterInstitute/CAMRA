@@ -4,7 +4,7 @@ import "../Tasks/task_checkm.wdl" as checkm
 import "../Tasks/task_mash.wdl" as mash 
 import "../Tasks/task_entrezdirect.wdl" as entrezdirect
 import "../Tasks/task_merqury.wdl" as merqury 
-import "../Tasks/MLST.wdl" as mlst
+import "../Tasks/task_mlst.wdl" as mlst
 import "../Tasks/task_quast.wdl" as quast
 import "../Tasks/task_fastQC.wdl" as fastQC
 
@@ -53,19 +53,18 @@ workflow assembly_qc {
             mash_genus = run_entrez_direct.mash_genus
     }
 
-    call merqury.run_merqury {
-        input:
-            assembly = assembly,
-            sample_name = sample_name,
-            asm_size = run_Quast.quast_total_length,
-            read1 = read1,
-            read2 = read2
-    }
-
     call quast.run_Quast {
         input:
             assembly = assembly
             #min_contigs = min_contigs
+    }
+
+    call merqury.run_merqury {
+        input:
+            assembly = assembly,
+            asm_size = run_Quast.quast_total_length,
+            read1 = read1,
+            read2 = read2
     }
 
     call fastQC.run_fastQC {
