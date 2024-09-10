@@ -4,7 +4,7 @@ import "../Tasks/task_amrfinder.wdl" as amrfinder
 import "../Tasks/task_abricate.wdl" as abricate
 import "../Tasks/task_hamronization.wdl" as hamronize
 import "../Tasks/task_resfinder.wdl" as resfinder
-# import "../Tasks/task_amr_term_consolidation.wdl" as amrconsolidation
+import "../Tasks/task_utilities.wdl" as utilities
 
 
 workflow amr_analysis   {
@@ -23,16 +23,23 @@ workflow amr_analysis   {
         File read2
         File? query
         String sample_name
-        String organism 
-        
-
+        String genus
+        String species
     }
+
+    # Task to combine genus and species
+    call utilities.run_taxajoin {
+        input:
+            genus = genus,
+            species = species
+    }
+
 
     call amrfinder.run_AMRfinderPlus {
         input:
             assembly = assembly,
             sample_name = sample_name,
-            organism = organism
+            organism = run_taxajoin.organism 
     }
 
     if (defined(query)) {
@@ -52,7 +59,7 @@ workflow amr_analysis   {
             assembly = assembly,
             read1 = read1,
             read2 = read2,
-            organism = organism
+            organism = run_taxajoin.organism
         
     }
     call hamronize.run_hAMRonize{
@@ -70,10 +77,7 @@ workflow amr_analysis   {
             run_AMRfinderPlus.amrfinder_virulence_output]
     }
     
-    # call amrconsolidation.run_AMR_Term_Consolidation {
-    #     input:
-    #     hamronize_amr_output = run_hAMRonize.hAMRonization_amr_output
-    # }
+
 
     output{
         # Optional Output - blast against userinput query
