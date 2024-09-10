@@ -6,7 +6,7 @@ task run_taxajoin {
         String species
     }
     runtime{
-        docker: "staphb/ncbi-amrfinderplus:3.12.8-2024-01-31.1"
+        docker: "debian:stable-slim"
     }
     command <<<
         species_length=$(echo -n "~{species}" | wc -c)
