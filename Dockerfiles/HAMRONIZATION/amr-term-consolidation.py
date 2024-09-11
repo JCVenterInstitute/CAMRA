@@ -139,11 +139,11 @@ df_all = pd.DataFrame(row_collect_all, columns=['harmonized_gene_symbol', 'start
 hamr_output['harmonize_gene_symbol'] = hamr_output['gene_symbol'].map(genome_inversed_harmonized_data_all)
 read_resfinder['harmonize_gene_symbol'] = read_resfinder['gene_symbol'].map(genome_inversed_harmonized_data_all)
 hamr_output = pd.concat([hamr_output,read_resfinder])
-hamr_output
+
 
 # Filter: Sequence_Identity >= 98
 hamr_IDisna = hamr_output[hamr_output['harmonize_gene_symbol'].isna()]
-hamr_IDisna
+print(">>>>>" , hamr_IDisna.size)
 
 # Assuming the `find_matches` function is defined as previously discussed
 def find_matches(target, array):
@@ -159,10 +159,6 @@ def find_matches_for_row(row):
     else:
         return None
 
-
-# Apply the custom function to each row and store the result in a new column
-hamr_IDisna.loc[:, 'possible_harmonize_gene_symbol'] = hamr_IDisna.apply(find_matches_for_row, axis=1)
-
 def check_empty_df(df,tsv_name):
     if not df.empty:
         df.to_csv(tsv_name, sep='\t', index=False, mode='w')
@@ -172,7 +168,15 @@ def check_empty_df(df,tsv_name):
             f.write("empty\n")  # You can modify this to write column headers or any other placeholder text if needed
         print(f"{tsv_name} is empty, writing 'empty' to file.")
 
-check_empty_df(hamr_IDisna,"consolidation_isna.tsv")
+if hamr_IDisna.apply(find_matches_for_row, axis=1).size==0:
+    with open('consolidation_isna.tsv', 'w') as f:
+        pass 
+elif hamr_IDisna.apply(find_matches_for_row, axis=1).size > 0:
+    hamr_IDisna = hamr_IDisna.copy()
+    hamr_IDisna.loc[:, 'possible_harmonize_gene_symbol'] = hamr_IDisna.apply(find_matches_for_row, axis=1)
+    check_empty_df(hamr_IDisna,"consolidation_isna.tsv")
+
+
 check_empty_df(hamr_output,"consolidation_all.tsv")
 check_empty_df(df_98,"consolidation_amr_over98identity.tsv")
 check_empty_df(df_all,"consolidation_amr_allidentity.tsv")
