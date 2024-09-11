@@ -42,13 +42,12 @@ workflow amr_analysis   {
             organism = run_taxajoin.organism 
     }
 
-    if (defined(query)) {
-        call amrfinder.run_Query_Blastn {
-            input:
-                assembly = assembly,
-                query = query
-        }
+    call amrfinder.run_Query_Blastn {
+        input:
+            assembly = assembly,
+            query = query
     }
+    
     call abricate.run_Abricate{
         input:
             assembly = assembly,
