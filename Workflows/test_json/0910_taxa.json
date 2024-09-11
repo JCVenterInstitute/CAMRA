@@ -1,9 +1,10 @@
 {
-  "amr_analysis.read1": "/Users/dmatute/Documents/CAMRA/data/batches/BatchB_250823/Raw_Reads/CCI165_S85_R1_001.fastq.gz",
-  "amr_analysis.assembly": "/Users/dmatute/Documents/CAMRA/data/batches/BatchB_250823/Assembly/CCI165_S85/CCI165_S85_contigs.fasta.gz",
-  "amr_analysis.read2": "/Users/dmatute/Documents/CAMRA/data/batches/BatchB_250823/Raw_Reads/CCI165_S85_R2_001.fastq.gz",
+  "amr_analysis.read1": "/Users/dmatute/Documents/CAMRA/data/batches/BatchA_121022/Raw_Reads/CCI34_R1.fastq.gz",
+  "amr_analysis.assembly": "/Users/dmatute/Documents/CAMRA/data/batches/BatchA_121022/Assembly/CCI34/CCI34_contigs.fasta.gz",
+  "amr_analysis.read2": "/Users/dmatute/Documents/CAMRA/data/batches/BatchA_121022/Raw_Reads/CCI34_R2.fastq.gz",
   "amr_analysis.genus": "Klebsiella",
-  "amr_analysis.sample_name": "CCI165_S85",
-  "amr_analysis.species": "qua"
+  "amr_analysis.sample_name": "IFAIN-A34-G4730-2",
+  "amr_analysis.species": "pneumoniae",
+  "amr_analysis.query": "/Users/dmatute/Documents/CAMRA/data/reference/from-Derrick-refgene_catalog_OKP-B/ncbi_dataset/data/nucleotide.fna"
 }
 
