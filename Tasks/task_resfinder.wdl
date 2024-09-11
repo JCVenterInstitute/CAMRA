@@ -119,8 +119,8 @@ task run_ResFinder {
         # Run the assembly file on resfinder, does BLAST and KMA
         python3 -m resfinder --inputfastq read1.fastq read2.fastq --species species --disinfectant --acquired --point --ignore_missing_species --outputPath read_output  ~{'--min_cov ' + min_cov}  ~{'--threshold ' + threshold}  
         
-        tail -n +2 assembly_output/ResFinder_results_tab.txt |cut -f1 | sort |uniq | tee ASSEMBLY_GENES
-        tail -n +2 read_output/ResFinder_results_tab.txt |cut -f1 | sort |uniq | tee READ_GENES
+        tail -n +2 assembly_output/ResFinder_results_tab.txt |cut -f1 | sort |uniq | paste -sd "," - | tee ASSEMBLY_GENES
+        tail -n +2 read_output/ResFinder_results_tab.txt |cut -f1 | sort |uniq | paste -sd "," - | tee READ_GENES
 
         rm assembly.fasta read1.fastq read2.fastq
 
