@@ -133,7 +133,7 @@ task run_Query_Blastn {
     } 
     input {
         File assembly
-        File? query
+        File query
     }
     
     runtime{

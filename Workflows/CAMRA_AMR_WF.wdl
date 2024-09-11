@@ -21,7 +21,7 @@ workflow amr_analysis   {
         File assembly
         File read1
         File read2
-        File? query
+        File query
         String sample_name
         String genus
         String species
@@ -81,7 +81,7 @@ workflow amr_analysis   {
 
     output{
         # Optional Output - blast against userinput query
-        File? blastn_output = run_Query_Blastn.blastn_output
+        File blastn_output = run_Query_Blastn.blastn_output
         # AMR finder
         File amrfinder_all_output = run_AMRfinderPlus.amrfinder_all_output
         File amrfinder_stress_output = run_AMRfinderPlus.amrfinder_stress_output
