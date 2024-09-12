@@ -12,7 +12,7 @@ task run_hAMRonize {
         Array[File] VIR_files
     }
     runtime{
-        docker: 'danylmb/hamronize:v1.1.4-build9'
+        docker: 'danylmb/hamronize:v1.1.4-build10'
     }
 
     command <<<

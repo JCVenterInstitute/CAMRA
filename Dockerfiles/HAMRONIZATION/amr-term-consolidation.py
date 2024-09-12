@@ -104,7 +104,7 @@ for con in contigs:
 
     for gene, idx in zip(gene_data, gene_index):
         gene_sy, gene_sta, gene_sto, gene_id = gene
-        range = 15
+        range = 50
         start_1 = gene_sta - range
         start_2 = gene_sta + range
         stop_1 = gene_sta - range
