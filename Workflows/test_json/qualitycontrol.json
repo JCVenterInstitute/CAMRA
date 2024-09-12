@@ -1,7 +1,0 @@
-{
-  "assembly_qc.assembly_size": "2511694",
-  "assembly_qc.assembly": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Assembly/CCI102_S22/CCI102_S22_contigs.fasta",
-  "assembly_qc.read1": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Raw_Reads/CCI102_S22_R1_001.fastq.gz",
-  "assembly_qc.sample_name": "CCI102",
-  "assembly_qc.read2": "/Users/dmatute/Documents/CAMRA/Bioinformatics/IFAIN/BatchB_250823/Raw_Reads/CCI102_S22_R2_001.fastq.gz"
-}
