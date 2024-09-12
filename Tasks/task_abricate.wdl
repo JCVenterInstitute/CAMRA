@@ -59,21 +59,16 @@ task run_Abricate {
         >>>
 
     output{
+        File abricate_DB_version = "DB_VERSION"
+        String abricate_version = read_string("VERSION")
+        String abricate_date = read_string("DATE")
+
         File abricate_ncbiDB_tsv_output = "abricate_~{sample_name}_ncbi_hits.tsv"
         File abricate_cardDB_tsv_output = "abricate_~{sample_name}_card_hits.tsv"
         File abricate_resfinderDB_tsv_output = "abricate_~{sample_name}_resfinder_hits.tsv"
         File abricate_vfdb_tsv_output = "abricate_~{sample_name}_vfdb_hits.tsv"
         File abricate_argannotBD_tsv_output = "abricate_~{sample_name}_argannot_hits.tsv"
 
-        String abricate_ncbiDB_genes = read_string("ABRICATE_GENES_NCBI")
-        String abricate_cardDB_genes = read_string("ABRICATE_GENES_CARD")
-        String abricate_resfinderDB_genes = read_string("ABRICATE_GENES_RESFINDER")
-        String abricate_vfdbDB_genes = read_string("ABRICATE_GENES_VFDB")
-        String abricate_argannotDB_genes = read_string("ABRICATE_GENES_ARGANNOT")
-
-        File abricate_DB_version = "DB_VERSION"
-        String abricate_version = read_string("VERSION")
-        String abricate_date = read_string("DATE")
     }
 
 
