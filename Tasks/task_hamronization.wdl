@@ -17,21 +17,50 @@ task run_hAMRonize {
 
     command <<<
         mkdir AMR_hAMRonization
+
+        # Function to check if the DataFrame has rows
+        check_dataframe_rows() {
+            local program_content="$1"  # Take the first argument as the input (CSV content or file path)
+            # Check if the input variable is empty
+            if [[ -z "$program_content" ]]; then
+                echo "    No data available in the DataFrame."
+                return 1  # Return with an error code to indicate no data
+            fi
+            # Check if there are rows present
+            if [[ $row_count -gt 0 ]]; then
+                echo "    The DataFrame has rows."
+                return 0  # Return success code
+            else
+                echo "    The DataFrame is empty (only headers)."
+                return 1  # Return with an error code to indicate no rows
+            fi
+        }
+
         for amr_file in ~{sep=" " AMR_files}; do
-        
             amr_name=$(basename "$amr_file")
             program="${amr_name%%_*}"
             echo $program
             if [[ $program == "abricate" ]]; then
-                hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 1.0.1 --reference_database_version 1.0.0  $amr_file
+                echo "    $amr_file = abricate"
+                # Check if there are rows in the DataFrame
+                if check_dataframe_rows "$program"; then
+                    hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 1.0.1 --reference_database_version 1.0.0  $amr_file
+                fi   
             fi
             if [[ $program == "amrfinderplus" ]]; then
-                hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $amr_file $amr_file
+                echo "    $amr_file = amrfinderplus"
+                if check_dataframe_rows "$program"; then
+                    hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $amr_file $amr_file
+                fi
             fi
             if [[ $program == "resfinder" ]]; then 
-                hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 4.5.0 --reference_database_version 2.3.1 --input_file_name $amr_file $amr_file
+                echo "    $amr_file = resfinder"
+                if check_dataframe_rows "$program"; then
+                    hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 4.5.0 --reference_database_version 2.3.1 --input_file_name $amr_file $amr_file
+                fi
             fi
         done
+
         hamronize summarize -o hamronize_amr_output.tsv -t tsv AMR_hAMRonization/*
 
         mkdir VIR_hAMRonization
@@ -41,18 +70,28 @@ task run_hAMRonize {
             program="${vir_name%%_*}"
             echo $program
             if [[ $program == "abricate" ]]; then
-                hamronize $program --format tsv --output VIR_hAMRonization/"H-$vir_name" --analysis_software_version 1.0.1 --reference_database_version 1.0.0  $vir_file
+                if check_dataframe_rows "$program"; then
+                    hamronize $program --format tsv --output VIR_hAMRonization/"H-$vir_name" --analysis_software_version 1.0.1 --reference_database_version 1.0.0  $vir_file
+                fi
             fi
             if [[ $program == "amrfinderplus" ]]; then
-                hamronize $program --format tsv --output VIR_hAMRonization/"H-$vir_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $vir_file $vir_file
+                if check_dataframe_rows "$program"; then
+                    hamronize $program --format tsv --output VIR_hAMRonization/"H-$vir_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $vir_file $vir_file
+                fi
             fi
             if [[ $program == "resfinder" ]]; then 
-                hamronize $program --format tsv --output VIR_hAMRonization/"H-$vir_name" --analysis_software_version 4.5.0 --reference_database_version 2.3.1 --input_file_name $vir_file $vir_file
+                if check_dataframe_rows "$program"; then
+                    hamronize $program --format tsv --output VIR_hAMRonization/"H-$vir_name" --analysis_software_version 4.5.0 --reference_database_version 2.3.1 --input_file_name $vir_file $vir_file
+                fi
             fi
         done
         hamronize summarize -o hamronize_vir_output.tsv -t tsv VIR_hAMRonization/*
-
-        python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv
+        if check_dataframe_rows "$program"; then
+            python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv
+        else
+            echo "No files in hamr_output (aka hamronize_amr_output.tsv)"
+            touch consolidation_isna.tsv consolidation_all.tsv consolidation_amr_over98identity.tsv consolidation_amr_allidentity.tsv
+        fi
 
         >>>
 
