@@ -61,7 +61,14 @@ task run_hAMRonize {
             fi
         done
 
-        hamronize summarize -o hamronize_amr_output.tsv -t tsv AMR_hAMRonization/*
+        # Check if there are any files in the directory
+        if [ -n "$(ls -A AMR_hAMRonization/ 2>/dev/null)" ]; then
+            # If the directory is not empty, run the hamronize command
+            hamronize summarize -o hamronize_amr_output.tsv -t tsv AMR_hAMRonization/*
+        else
+            # If the directory is empty, print a message
+            echo "The directory AMR_hAMRonization/ is empty. "
+        fi
 
         mkdir VIR_hAMRonization
         for vir_file in ~{sep=" " VIR_files}; do
@@ -85,7 +92,19 @@ task run_hAMRonize {
                 fi
             fi
         done
-        hamronize summarize -o hamronize_vir_output.tsv -t tsv VIR_hAMRonization/*
+        
+                # Check if there are any files in the directory
+        if [ -n "$(ls -A VIR_hAMRonization/ 2>/dev/null)" ]; then
+            # If the directory is not empty, run the hamronize command
+            hamronize summarize -o hamronize_vir_output.tsv -t tsv VIR_hAMRonization/*
+        else
+            # If the directory is empty, print a message
+            echo "The directory AMR_hAMRonization/ is empty. "
+        fi
+
+
+        
+
         if check_dataframe_rows "$program"; then
             python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv
         else
