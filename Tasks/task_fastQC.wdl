@@ -2,10 +2,10 @@ version 1.0
 
 task run_fastQC {
     meta {
-    description: "FastQC aims to provide a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines."
+    description: "FastQC aims to provide a simple way to do some quality control checks on raw read data coming from high throughput sequencing pipelines."
     gitrepository: "https://github.com/s-andrews/FastQC"
     docker:"https://hub.docker.com/r/staphb/fastqc"
-    cite:"Andrews, S. (2010), 'FASTQC. A quality control tool for high throughput sequence data' ."
+    cite:"Andrews, S. (2010), 'FASTQC. A quality control tool for high throughput read data' ."
     }
 
     input {
@@ -22,6 +22,7 @@ task run_fastQC {
     command <<<
         mkdir read1 read2
         echo $(fastqc --version) | sed 's/FastQC //' | tee VERSION
+        date | tee DATE
 
         # Run FastQC
         fastqc -t 8 -o read1 -j /usr/bin/java -f fastq ~{read1} 
@@ -63,29 +64,29 @@ task run_fastQC {
         echo $result_string_R2 > read2_output/result_string_R2.txt
 
         # Extract values from *_data.txt
-        total_sequences_R1=$(grep 'Total Sequences' read1_output/fastqc_data.txt | cut -f2)
+        total_reads_R1=$(grep 'Total Reads' read1_output/fastqc_data.txt | cut -f2)
         total_bases_R1=$(grep 'Total Bases' read1_output/fastqc_data.txt | cut -f2)
-        poor_quality_R1=$(grep 'Sequences flagged as poor quality' read1_output/fastqc_data.txt | cut -f2)
-        sequence_length_R1=$(grep 'Sequence length' read1_output/fastqc_data.txt | cut -f2)
+        poor_quality_R1=$(grep 'Reads flagged as poor quality' read1_output/fastqc_data.txt | cut -f2)
+        read_length_R1=$(grep 'Read length' read1_output/fastqc_data.txt | cut -f2)
         gc_content_R1=$(grep '%GC' read1_output/fastqc_data.txt | cut -f2)
 
-        total_sequences_R2=$(grep 'Total Sequences' read2_output/fastqc_data.txt | cut -f2)
+        total_reads_R2=$(grep 'Total Reads' read2_output/fastqc_data.txt | cut -f2)
         total_bases_R2=$(grep 'Total Bases' read2_output/fastqc_data.txt | cut -f2)
-        poor_quality_R2=$(grep 'Sequences flagged as poor quality' read2_output/fastqc_data.txt | cut -f2)
-        sequence_length_R2=$(grep 'Sequence length' read2_output/fastqc_data.txt | cut -f2)
+        poor_quality_R2=$(grep 'Reads flagged as poor quality' read2_output/fastqc_data.txt | cut -f2)
+        read_length_R2=$(grep 'Read length' read2_output/fastqc_data.txt | cut -f2)
         gc_content_R2=$(grep '%GC' read2_output/fastqc_data.txt | cut -f2)
 
         # Save values to files
-        echo $total_sequences_R1 > read1_output/total_sequences_R1.txt
+        echo $total_reads_R1 > read1_output/total_reads_R1.txt
         echo $total_bases_R1 > read1_output/total_bases_R1.txt
         echo $poor_quality_R1 > read1_output/poor_quality_R1.txt
-        echo $sequence_length_R1 > read1_output/sequence_length_R1.txt
+        echo $read_length_R1 > read1_output/read_length_R1.txt
         echo $gc_content_R1 > read1_output/gc_content_R1.txt
 
-        echo $total_sequences_R2 > read2_output/total_sequences_R2.txt
+        echo $total_reads_R2 > read2_output/total_reads_R2.txt
         echo $total_bases_R2 > read2_output/total_bases_R2.txt
         echo $poor_quality_R2 > read2_output/poor_quality_R2.txt
-        echo $sequence_length_R2 > read2_output/sequence_length_R2.txt
+        echo $read_length_R2 > read2_output/read_length_R2.txt
         echo $gc_content_R2 > read2_output/gc_content_R2.txt
 
 
@@ -99,18 +100,19 @@ task run_fastQC {
         String fastQC_R1_PassWarnFail = read_string("read1_output/result_string_R1.txt")
         String fastQC_R2_PassWarnFail = read_string("read2_output/result_string_R2.txt")
 
-        String fastQC_R1_total_sequences = read_string("read1_output/total_sequences_R1.txt")
+        String fastQC_R1_total_reads = read_string("read1_output/total_reads_R1.txt")
         String fastQC_R1_total_bases = read_string("read1_output/total_bases_R1.txt")
         String fastQC_R1_poor_quality = read_string("read1_output/poor_quality_R1.txt")
-        String fastQC_R1_sequence_length = read_string("read1_output/sequence_length_R1.txt")
+        String fastQC_R1_read_length = read_string("read1_output/read_length_R1.txt")
         String fastQC_R1_gc_content = read_string("read1_output/gc_content_R1.txt")
-        String fastQC_R2_total_sequences = read_string("read2_output/total_sequences_R2.txt")
+        String fastQC_R2_total_reads = read_string("read2_output/total_reads_R2.txt")
         String fastQC_R2_total_bases = read_string("read2_output/total_bases_R2.txt")
         String fastQC_R2_poor_quality = read_string("read2_output/poor_quality_R2.txt")
-        String fastQC_R2_sequence_length = read_string("read2_output/sequence_length_R2.txt")
+        String fastQC_R2_read_length = read_string("read2_output/read_length_R2.txt")
         String fastQC_R2_gc_content = read_string("read2_output/gc_content_R2.txt")
         
         String fastQC_version = read_string("VERSION")
+        String fastQC_date = read_string("DATE")
     }
 }
 

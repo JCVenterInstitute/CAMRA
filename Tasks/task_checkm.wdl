@@ -15,6 +15,8 @@ task run_checkM {
         disks: "local-disk 100 HDD"
     }
     command <<<
+        date | tee DATE
+
         export TMPDIR=/tmp
         mkdir assembly_dir
         
@@ -38,6 +40,8 @@ task run_checkM {
         echo "$cm_Heterogeneity"
     >>>
     output {
+        String checkm_version = "v1.2.2"
+        String checkm_date = read_string("DATE")
         File checkm_output = "checkm_quality_assessment.txt"
         Array[String] stdout_values = read_lines(stdout()) 
         String checkm_markerlineage = stdout_values[0]

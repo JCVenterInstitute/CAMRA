@@ -16,6 +16,8 @@ task run_Quast {
     }
 
     command <<<
+        date | tee DATE
+        quast.py --version | tee VERSION
         quast.py -o quast_output ~{if defined(min_contigs) then "--min-contig " + min_contigs else ""} ~{assembly}
         # Extract specific metrics from the TSV report
         awk -F"\t" '/Largest contig/ {print $2}' quast_output/report.tsv > quast_output/largest_contig.txt
@@ -27,6 +29,9 @@ task run_Quast {
     >>>
 
     output {
+        String quast_version = read_string("VERSION")
+        String quast_date = read_string("DATE")
+        
         File quast_report = "quast_output/report.tsv"
         Int quast_contig_largest = read_int("quast_output/largest_contig.txt")
         Int quast_total_length = read_int("quast_output/total_length.txt")
