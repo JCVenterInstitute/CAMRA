@@ -150,7 +150,7 @@ workflow assembly_qc {
         String fastQC_R1_read_length = run_fastQC.fastQC_R1_read_length 
         String fastQC_R1_gc_content = run_fastQC.fastQC_R1_gc_content
 
-        String fastQC_R2_total_readss = run_fastQC.fastQC_R2_total_reads
+        String fastQC_R2_total_reads = run_fastQC.fastQC_R2_total_reads
         String fastQC_R2_total_bases = run_fastQC.fastQC_R2_total_bases
         String fastQC_R2_read_length = run_fastQC.fastQC_R2_read_length
         String fastQC_R2_gc_content = run_fastQC.fastQC_R2_gc_content
