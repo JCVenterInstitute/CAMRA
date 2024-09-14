@@ -1,0 +1,8 @@
+{
+  "assembly_qc.read1": "/Users/dmatute/Documents/CAMRA/data/batches/BatchA_121022/Raw_Reads/CCI62_R1.fastq.gz",
+  "assembly_qc.assembly": "/Users/dmatute/Documents/CAMRA/data/batches/BatchA_121022/Assembly/CCI62/CCI62_contigs.fasta.gz",
+  "assembly_qc.sample_name": "IFAIN-A62-PO089-2",
+  "assembly_qc.read2": "/Users/dmatute/Documents/CAMRA/data/batches/BatchA_121022/Raw_Reads/CCI62_R2.fastq.gz",
+  "assembly_qc.pubmlst_DB": "/Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Data_Bases/pubmlst-2024apr05.tar.gz"
+}
+
