@@ -46,8 +46,8 @@ task run_merqury {
 
         Array[String] stdout_values = read_lines(stdout()) 
 
-        String merqury_qv = stdout_values[12]
-        String merqury_comp = stdout_values[13]
+        String merqury_qv = stdout_values[13]
+        String merqury_comp = stdout_values[14]
 
         File merqury_qv_file = "merqury_output/sample.qv"
         File merqury_completeness_file = "merqury_output/sample.completeness.stats"
