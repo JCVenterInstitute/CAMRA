@@ -116,7 +116,7 @@ workflow assembly_qc {
 
         #Merqury
         String merqury_qv = run_merqury.merqury_qv
-        String merqury_comp = run_merqury.merqury_comp
+        String merqury_completeness = run_merqury.merqury_comp
         File merqury_qv_file = run_merqury.merqury_qv_file
         File merqury_completeness_file = run_merqury.merqury_completeness_file
         String merqury_version = run_merqury.merqury_version
