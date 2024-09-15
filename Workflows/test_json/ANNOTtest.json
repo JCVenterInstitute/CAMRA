@@ -1,8 +1,0 @@
-{
-  "annotation_analysis.sample_name": "SampleName2",
-  "annotation_analysis.BVBRC_username": "alapoint",
-  "annotation_analysis.BVBRC_password": "test",
-  "annotation_analysis.timestamp": "1722445593",
-  "annotation_analysis.bvbrc_assembly_path": "ws:/alapoint@bvbrc/home/CAMRA_WDL/2024-07-31/1722445593_SampleName/assembly/.SampleName/SampleName_contigs.fasta",
-  "annotation_analysis.scientific_name": "SCINAME"
-}

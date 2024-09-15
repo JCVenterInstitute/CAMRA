@@ -10,7 +10,6 @@ task run_AMRfinderPlus {
     } 
     input {
         File assembly
-        String sample_name
         String organism
     }
     runtime{
@@ -113,13 +112,15 @@ task run_AMRfinderPlus {
         grep -F 'AMR' amrfinderplus_output_all.txt >> amrfinderplus_amr.tsv || true
     >>>
     output{
+
+        String amrinder_version = read_string("VERSION")
+        String amrfinder_db_version = read_string("DB_VERSION")
+        String amrfinder_date = read_string("DATE")
+
         File amrfinder_all_output = "amrfinderplus_output_all.txt"
         File amrfinder_stress_output = "amrfinderplus_stress.tsv"
         File amrfinder_virulence_output = "amrfinderplus_virulence.tsv"
         File amrfinder_amr_output = "amrfinderplus_amr.tsv"
-        String amrinder_version = read_string("VERSION")
-        String amrfinder_db_version = read_string("DB_VERSION")
-        String amrfinder_date = read_string("DATE")
     }
 }
 
@@ -133,7 +134,7 @@ task run_Query_Blastn {
     } 
     input {
         File assembly
-        File? query
+        File query
     }
     
     runtime{
@@ -141,19 +142,32 @@ task run_Query_Blastn {
     }
 
     command <<<
+        blastn -version |tee VERSION
+        date | tee DATE
+
+        # Unzips the assembly file if nessesary
         if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz || "~{assembly}" == *.fna.gz ]]; then 
             gunzip -c ~{assembly} > /data/assembly.fasta 
         elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa || "~{assembly}" == *.fna.gz ]]; then
             mv ~{assembly} /data/assembly.fasta
         fi
+
         # makeblastdb sets up a structured, searchable version of your genome sequence so that BLAST can efficiently find and match your target genes.
         makeblastdb -in /data/assembly.fasta -dbtype nucl -out genome_db
+
         # BLASTn command that detects variations and closely related sequences effectively
         blastn -query  ~{query} -db genome_db -out results.out -outfmt 6 -evalue 1e-10 -reward 2 -penalty -3 -word_size 7 -max_target_seqs 10 -dust no
+        
         # sort results.out by the bitscore
-        sort -k 12,12nr -t$'\t' results.out -o results_sorted.txt
+        sort -k 12,12nr -t$'\t' results.out -o blast_results.txt
     >>>
     output{
-        File blastn_output = "results_sorted.txt"
+        String blastn_date = read_string("DATE")
+        String blastn_version = read_string("VERSION")
+
+        File blastn_output = "blast_results.txt"
+                
+        
+        
     }
 }

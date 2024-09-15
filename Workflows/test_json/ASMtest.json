@@ -1,7 +1,0 @@
-{
-  "genome_assembly.read1": "/home/alapointe/JCVI/CAMRA/LOCAL/CCI165_S85_R1_001.fastq.gz",
-  "genome_assembly.read2": "/home/alapointe/JCVI/CAMRA/LOCAL/CCI165_S85_R2_001.fastq.gz",
-  "genome_assembly.sample_name": "Sample Name 2",
-  "genome_assembly.BVBRC_user": "alapoint",
-  "genome_assembly.BVBRC_password": "test"
-}

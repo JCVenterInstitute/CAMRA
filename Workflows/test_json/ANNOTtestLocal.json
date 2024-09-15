@@ -1,7 +1,0 @@
-{
-  "annotation_analysis.sample_name": "LocalFileTest",
-  "annotation_analysis.BVBRC_username": "alapoint",
-  "annotation_analysis.BVBRC_password": "test",
-  "annotation_analysis.local_assembly_path": "/home/alapointe/JCVI/CAMRA/LOCAL/Sample_Name_2_contigs.fasta.gz",
-  "annotation_analysis.scientific_name": "SCINAME"
-}

@@ -16,6 +16,7 @@ task run_merqury {
         disk: "/tmp 1000 SSD"
     }
     command <<<
+        date | tee DATE
         echo "V1.3" | tee MERQURY_VERSION
 
         total_length=~{asm_size} 
@@ -41,6 +42,7 @@ task run_merqury {
         >>>
     output {
         String merqury_version = read_string("MERQURY_VERSION")
+        String merqury_date = read_string("DATE")
 
         Array[String] stdout_values = read_lines(stdout()) 
 

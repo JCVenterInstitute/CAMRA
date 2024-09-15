@@ -9,13 +9,17 @@ task run_ResFinder {
 
     runtime{
         docker: 'danylmb/resfinder:v4.5.0'
+        memory: "8 GB"
+        cpu: 4
+        disks: "local-disk " + 100 + " SSD"
+        disk: 100 + " GB"
+        maxRetries: 3
     }
 
     input {
         File assembly
         File read1
         File read2
-        #String sample_name 
         String? organism
         Float? min_cov = 0.6 # Min coverage 
         Float? threshold = 0.9 # Min identity
@@ -113,9 +117,6 @@ task run_ResFinder {
 
         # Run the assembly file on resfinder, does BLAST and KMA
         python3 -m resfinder --inputfastq read1.fastq read2.fastq --species species --disinfectant --acquired --point --ignore_missing_species --outputPath read_output  ~{'--min_cov ' + min_cov}  ~{'--threshold ' + threshold}  
-        
-        tail -n +2 assembly_output/ResFinder_results_tab.txt |cut -f1 | sort |uniq | tee ASSEMBLY_GENES
-        tail -n +2 read_output/ResFinder_results_tab.txt |cut -f1 | sort |uniq | tee READ_GENES
 
         rm assembly.fasta read1.fastq read2.fastq
 
@@ -124,11 +125,11 @@ task run_ResFinder {
 
         >>>
     output {
-        String resfinder_asm_arg = read_string("ASSEMBLY_GENES")
-        String resfinder_read_arg = read_string("READ_GENES")
         String resfinder_version = read_string("RESFINDER_VERSION")
         String resfinder_kma_version = read_string("KMA_VERSION")
         String resfinder_db_version = read_string("DB_VERSION")
+        String resfinder_date = read_string("DATE")
+
         File resfider_asm_output = "assembly_output/resfinder_asm_results_tab.txt"
         File resfinder_read_output = "read_output/resfinder_read_results_tab.txt"
         File resfinder_asm_hits = "assembly_output/ResFinder_Hit_in_genome_seq.fsa"

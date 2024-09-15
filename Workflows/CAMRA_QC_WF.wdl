@@ -17,9 +17,10 @@ workflow assembly_qc {
 
     parameter_meta {
         sample_name     :   "Name of sample isolate"
-        read1           :   "raw read 1 fastq.gz or fastq file"
-        read2           :   "raw read 2 fastq.gz or fastq file"
-        assembly        :   "assembly ins fasta or fasta.gz format"
+        read1           :   "Raw read 1 fastq.gz or fastq file"
+        read2           :   "Raw read 2 fastq.gz or fastq file"
+        assembly        :   "Assembly in fasta or fasta.gz format"
+        pubmlst_DB      :   "Optional pubmlst_DB for mlst mapping"
     }
 
     input{
@@ -27,6 +28,7 @@ workflow assembly_qc {
         File read1
         File read2
         File assembly
+        File pubmlst_DB = "None"
     }
 
     call mash.run_MASH {
@@ -35,11 +37,20 @@ workflow assembly_qc {
             assembly = assembly
     }
     
-    call mlst.run_MLST {
-        input:
-            assembly = assembly,
-            sample_name = sample_name
+    if ( "~{pubmlst_DB}" == "None") {
+        call mlst.run_MLST {
+            input:
+                assembly = assembly
+        }
     }
+    
+    if ( "~{pubmlst_DB}" != "None" ) {
+        call mlst.run_MLST_pubmlst_DB {
+            input: 
+                assembly = assembly,
+                pubmlst_DB = pubmlst_DB
+        }
+    } 
 
     call entrezdirect.run_entrez_direct {
         input:
@@ -75,15 +86,19 @@ workflow assembly_qc {
 
     output{
         # Quast
+        String quast_version = run_Quast.quast_version
+        String quast_date = run_Quast.quast_date
         File quast_report = run_Quast.quast_report
-        Int largest_contig_value = run_Quast.quast_contig_largest
-        Int total_length_value = run_Quast.quast_total_length
-        Int n50_value = run_Quast.quast_N50
-        Int n90_value = run_Quast.quast_N90
-        Int l50_value = run_Quast.quast_L50
-        Int l90_value = run_Quast.quast_L90
+        Int quast_largest_contig = run_Quast.quast_contig_largest
+        Int quast_asm_length = run_Quast.quast_total_length
+        Int quast_N50 = run_Quast.quast_N50
+        Int quast_N90 = run_Quast.quast_N90
+        Int quast_L50 = run_Quast.quast_L50
+        Int quast_L90 = run_Quast.quast_L90
 
         #MASH
+        String mash_version = run_MASH.mash_version
+        String mash_date = run_MASH.mash_date
         String mash_ani = run_entrez_direct.mash_ani
         String mash_genus = run_entrez_direct.mash_genus
         String mash_species = run_entrez_direct.mash_species
@@ -91,6 +106,8 @@ workflow assembly_qc {
         String mash_taxaid = run_entrez_direct.mash_taxaid
 
         #CheckM
+        String checkm_version = run_checkM.checkm_version
+        String checkm_date = run_checkM.checkm_date
         File checkm_output = run_checkM.checkm_output
         String checkm_markerlineage = run_checkM.checkm_markerlineage
         String checkm_completeness = run_checkM.checkm_completeness
@@ -99,15 +116,27 @@ workflow assembly_qc {
 
         #Merqury
         String merqury_qv = run_merqury.merqury_qv
-        String merqury_comp = run_merqury.merqury_comp
+        String merqury_completeness = run_merqury.merqury_comp
         File merqury_qv_file = run_merqury.merqury_qv_file
         File merqury_completeness_file = run_merqury.merqury_completeness_file
         String merqury_version = run_merqury.merqury_version
+        String merqury_date = run_merqury.merqury_date
 
         #MLST
-        String mlst_scheme = run_MLST.tsMLST_scheme 
-        String mlst_seqtype = run_MLST.tsMLST_seqtype 
-        String mlst_alleles = run_MLST.tsMLST_alleles
+        String? tsMLST_version = run_MLST.tsMLST_version
+        String? tsMLST_date = run_MLST.tsMLST_date
+        File? tsMLST_tsv_output = run_MLST.tsMLST_tsv_output
+        String? tsMLST_scheme = run_MLST.tsMLST_scheme 
+        String? tsMLST_seqtype = run_MLST.tsMLST_seqtype 
+        String? tsMLST_alleles = run_MLST.tsMLST_alleles
+
+        #MLST + pubmlst_DB
+        String? tsMLSTdb_version = run_MLST_pubmlst_DB.tsMLST_version
+        String? tsMLSTdb_date = run_MLST_pubmlst_DB.tsMLST_date
+        File? tsMLSTdb_tsv_output = run_MLST_pubmlst_DB.tsMLST_tsv_output
+        String? tsMLSTdb_scheme = run_MLST_pubmlst_DB.tsMLST_scheme 
+        String? tsMLSTdb_seqtype = run_MLST_pubmlst_DB.tsMLST_seqtype 
+        String? tsMLSTdb_alleles = run_MLST_pubmlst_DB.tsMLST_alleles
 
         #FastQC
         File fastQC_R1_html = run_fastQC.fastQC_R1_html
@@ -116,20 +145,18 @@ workflow assembly_qc {
         String fastQC_R1_PassWarnFail = run_fastQC.fastQC_R1_PassWarnFail
         String fastQC_R2_PassWarnFail = run_fastQC.fastQC_R2_PassWarnFail
 
-        String fastQC_R1_total_sequences = run_fastQC.fastQC_R1_total_sequences
+        String fastQC_R1_total_reads = run_fastQC.fastQC_R1_total_reads
         String fastQC_R1_total_bases = run_fastQC.fastQC_R1_total_bases
-        String fastQC_R1_poor_quality = run_fastQC.fastQC_R1_poor_quality
-        String fastQC_R1_sequence_length = run_fastQC.fastQC_R1_sequence_length 
+        String fastQC_R1_read_length = run_fastQC.fastQC_R1_read_length 
         String fastQC_R1_gc_content = run_fastQC.fastQC_R1_gc_content
-        String fastQC_R2_total_sequences = run_fastQC.fastQC_R2_total_sequences
+
+        String fastQC_R2_total_reads = run_fastQC.fastQC_R2_total_reads
         String fastQC_R2_total_bases = run_fastQC.fastQC_R2_total_bases
-        String fastQC_R2_poor_quality = run_fastQC.fastQC_R2_poor_quality
-        String fastQC_R2_sequence_length = run_fastQC.fastQC_R2_sequence_length
+        String fastQC_R2_read_length = run_fastQC.fastQC_R2_read_length
         String fastQC_R2_gc_content = run_fastQC.fastQC_R2_gc_content
         
         String fastQC_version = run_fastQC.fastQC_version
-
-
+        String fastQC_date = run_fastQC.fastQC_date
     }
 
 

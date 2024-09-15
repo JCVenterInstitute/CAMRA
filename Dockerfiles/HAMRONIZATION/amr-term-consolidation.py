@@ -21,7 +21,7 @@ def clean_df(hamr_output):
     # 2 NEW DF FROM RESFINDER THAT DOES HAVE CONTIGS (AMS). These do have a input_sequence_id because they come from contigs, but it is not in the correct format. 
     # eg "CCI165_S85_contig_8 length 181163 coverage 173.9 normalized_cov 0.95" becomes "CCI165_S85_contig_8"
     asm_resfinder = hamr_output[(hamr_output['analysis_software_name']=='resfinder') & (hamr_output['input_sequence_id'].notna())]
-    asm_resfinder['input_sequence_id'] = asm_resfinder['input_sequence_id'].str.split().str[0]
+    asm_resfinder.loc[:, 'input_sequence_id'] = asm_resfinder['input_sequence_id'].str.split().str[0]
     
     # All resfinder rows are removed from the dataframe  
     hamr_output = hamr_output[hamr_output['analysis_software_name']!='resfinder']
@@ -104,7 +104,7 @@ for con in contigs:
 
     for gene, idx in zip(gene_data, gene_index):
         gene_sy, gene_sta, gene_sto, gene_id = gene
-        range = 15
+        range = 50
         start_1 = gene_sta - range
         start_2 = gene_sta + range
         stop_1 = gene_sta - range
@@ -139,11 +139,11 @@ df_all = pd.DataFrame(row_collect_all, columns=['harmonized_gene_symbol', 'start
 hamr_output['harmonize_gene_symbol'] = hamr_output['gene_symbol'].map(genome_inversed_harmonized_data_all)
 read_resfinder['harmonize_gene_symbol'] = read_resfinder['gene_symbol'].map(genome_inversed_harmonized_data_all)
 hamr_output = pd.concat([hamr_output,read_resfinder])
-hamr_output
+
 
 # Filter: Sequence_Identity >= 98
 hamr_IDisna = hamr_output[hamr_output['harmonize_gene_symbol'].isna()]
-hamr_IDisna
+print(">>>>>" , hamr_IDisna.size)
 
 # Assuming the `find_matches` function is defined as previously discussed
 def find_matches(target, array):
@@ -153,16 +153,31 @@ harmonized_gene_symb = df_all['harmonized_gene_symbol'].tolist()
 
 # Custom function to find matches for a row's third column value
 def find_matches_for_row(row):
-    return find_matches(row[2], harmonized_gene_symb)
+    matches = find_matches(row[2], harmonized_gene_symb)
+    if matches:
+        return ', '.join(matches)
+    else:
+        return None
 
-# Apply the custom function to each row and store the result in a new column
-hamr_IDisna['possible_harmonize_gene_symbol'] = hamr_IDisna.apply(find_matches_for_row, axis=1)
+def check_empty_df(df,tsv_name):
+    if not df.empty:
+        df.to_csv(tsv_name, sep='\t', index=False, mode='w')
+    else:
+        # If DataFrame is empty, write "empty" to the TSV file
+        with open(tsv_name, 'w') as f:
+            f.write("empty\n")  # You can modify this to write column headers or any other placeholder text if needed
+        print(f"{tsv_name} is empty, writing 'empty' to file.")
+
+if hamr_IDisna.apply(find_matches_for_row, axis=1).size==0:
+    with open('consolidation_isna.tsv', 'w') as f:
+        pass 
+elif hamr_IDisna.apply(find_matches_for_row, axis=1).size > 0:
+    hamr_IDisna = hamr_IDisna.copy()
+    hamr_IDisna.loc[:, 'possible_harmonize_gene_symbol'] = hamr_IDisna.apply(find_matches_for_row, axis=1)
+    check_empty_df(hamr_IDisna,"consolidation_isna.tsv")
 
 
-
-hamr_IDisna
-hamr_IDisna.to_csv("consolidation_isna.tsv", sep='\t', index=False, mode='w')
-hamr_output.to_csv("consolidation_all.tsv", sep='\t', index=False, mode='w')
-df_98.to_csv("consolidation_amr_over98identity.tsv", sep = '\t', index = False, mode='w')
-df_all.to_csv("consolidation_amr_allidentity.tsv", sep = '\t', index = False, mode='w')
+check_empty_df(hamr_output,"consolidation_all.tsv")
+check_empty_df(df_98,"consolidation_amr_over98identity.tsv")
+check_empty_df(df_all,"consolidation_amr_allidentity.tsv")
 print("PY DONE")
