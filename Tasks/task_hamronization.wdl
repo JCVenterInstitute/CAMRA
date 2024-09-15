@@ -26,11 +26,11 @@ task run_hAMRonize {
         check_dataframe_rows() {
             local file_path="$1"  # Take the first argument as the input (file path)
 
-            # Check if the file exists and is not empty
-            if [[ ! -s "$file_path" ]]; then
-                echo "    No data available in the DataFrame or file does not exist."
-                return 1  # Return with an error code to indicate no data or file not found
-            fi
+            # # Check if the file exists and is not empty
+            # if [[ ! -s "$file_path" ]]; then
+            #     echo "    No data available in the DataFrame or file does not exist."
+            #     return 1  # Return with an error code to indicate no data or file not found
+            # fi
 
             # Count the number of lines excluding the header
             local row_count=$(tail -n +2 "$file_path" | wc -l)
@@ -58,7 +58,7 @@ task run_hAMRonize {
 
             if [[ $program == "abricate" ]]; then
                 echo "    $amr_file = abricate"
-                if check_dataframe_rows "$program"; then
+                if check_dataframe_rows $amr_file; then
                     echo "    Starting hamronization of $amr_name"
                     hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 1.0.1 --reference_database_version 1.0.0  $amr_file
                 fi   
@@ -66,14 +66,14 @@ task run_hAMRonize {
 
             if [[ $program == "amrfinderplus" ]]; then
                 echo "    $amr_file = amrfinderplus"
-                if check_dataframe_rows "$program"; then
+                if check_dataframe_rows $amr_file; then
                     echo "    Starting hamronization of $amr_name"
                     hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 3.12.8 --reference_database_version 1.0.0 --input_file_name $amr_file $amr_file
                 fi
             fi
             if [[ $program == "resfinder" ]]; then 
                 echo "    $amr_file = resfinder"
-                if check_dataframe_rows "$program"; then
+                if check_dataframe_rows $amr_file; then
                     echo "    Starting hamronization of $amr_name"
                     hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 4.5.0 --reference_database_version 2.3.1 --input_file_name $amr_file $amr_file
                 fi
