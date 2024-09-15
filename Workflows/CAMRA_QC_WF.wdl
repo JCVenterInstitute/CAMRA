@@ -87,7 +87,7 @@ workflow assembly_qc {
     output{
         # Quast
         String quast_version = run_Quast.quast_version
-        String quart_date = run_Quast.quast_date
+        String quast_date = run_Quast.quast_date
         File quast_report = run_Quast.quast_report
         Int quast_largest_contig = run_Quast.quast_contig_largest
         Int quast_asm_length = run_Quast.quast_total_length
