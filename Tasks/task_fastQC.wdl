@@ -64,16 +64,16 @@ task run_fastQC {
         echo $result_string_R2 > read2_output/result_string_R2.txt
 
         # Extract values from *_data.txt
-        total_reads_R1=$(grep 'Total Reads' read1_output/fastqc_data.txt | cut -f2)
+        total_reads_R1=$(grep 'Total Sequences' read1_output/fastqc_data.txt | cut -f2)
         total_bases_R1=$(grep 'Total Bases' read1_output/fastqc_data.txt | cut -f2)
         poor_quality_R1=$(grep 'Reads flagged as poor quality' read1_output/fastqc_data.txt | cut -f2)
-        read_length_R1=$(grep 'Read length' read1_output/fastqc_data.txt | cut -f2)
+        read_length_R1=$(grep 'Sequence length' read1_output/fastqc_data.txt | cut -f2)
         gc_content_R1=$(grep '%GC' read1_output/fastqc_data.txt | cut -f2)
 
-        total_reads_R2=$(grep 'Total Reads' read2_output/fastqc_data.txt | cut -f2)
+        total_reads_R2=$(grep 'Total Sequences' read2_output/fastqc_data.txt | cut -f2)
         total_bases_R2=$(grep 'Total Bases' read2_output/fastqc_data.txt | cut -f2)
         poor_quality_R2=$(grep 'Reads flagged as poor quality' read2_output/fastqc_data.txt | cut -f2)
-        read_length_R2=$(grep 'Read length' read2_output/fastqc_data.txt | cut -f2)
+        read_length_R2=$(grep 'Sequence length' read2_output/fastqc_data.txt | cut -f2)
         gc_content_R2=$(grep '%GC' read2_output/fastqc_data.txt | cut -f2)
 
         # Save values to files
