@@ -5,6 +5,7 @@ import "../Tasks/task_abricate.wdl" as abricate
 import "../Tasks/task_hamronization.wdl" as hamronize
 import "../Tasks/task_resfinder.wdl" as resfinder
 import "../Tasks/task_utilities.wdl" as utilities
+import "../Tasks/task_rgi.wdl" as rgi
 
 
 workflow amr_analysis   {
@@ -41,6 +42,11 @@ workflow amr_analysis   {
             organism = run_taxajoin.organism 
     }
 
+    call rgi.run_RGI {
+        input:
+            assembly = assembly
+    }
+
     call amrfinder.run_Query_Blastn {
         input:
             assembly = assembly,
@@ -63,16 +69,25 @@ workflow amr_analysis   {
     call hamronize.run_hAMRonize{
         input:
 
-            AMR_files = [run_Abricate.abricate_ncbiDB_tsv_output,
-            run_Abricate.abricate_cardDB_tsv_output, 
-            run_Abricate.abricate_resfinderDB_tsv_output, 
-            run_Abricate.abricate_argannotBD_tsv_output, 
-            run_AMRfinderPlus.amrfinder_amr_output,
-            run_ResFinder.resfider_asm_output,
-            run_ResFinder.resfinder_read_output],
+            AMR_files = [
+                run_Abricate.abricate_ncbiDB_tsv_output,
+                run_Abricate.abricate_cardDB_tsv_output, 
+                run_Abricate.abricate_resfinderDB_tsv_output, 
+                run_Abricate.abricate_argannotBD_tsv_output, 
 
-            VIR_files = [run_Abricate.abricate_vfdb_tsv_output, 
-            run_AMRfinderPlus.amrfinder_virulence_output]
+                run_AMRfinderPlus.amrfinder_amr_output,
+
+                run_ResFinder.resfider_asm_output,
+                run_ResFinder.resfinder_read_output,
+
+                run_RGI.rgi_CARD_diamond_tsv_output,
+                run_RGI.rgi_CARD_diamond_json_output
+            ],
+
+            VIR_files = [
+                run_Abricate.abricate_vfdb_tsv_output, 
+                run_AMRfinderPlus.amrfinder_virulence_output
+            ]
     }
     
 
@@ -126,5 +141,15 @@ workflow amr_analysis   {
         File resfinder_read_hits = run_ResFinder.resfinder_read_hits
         File resfinder_asm_argseq = run_ResFinder.resfinder_asm_argseq
         File resfinder_read_argseq = run_ResFinder.resfinder_read_argseq
+
+        # RGI
+        String rgi_CARD_DB_version = run_RGI.rgi_CARD_DB_version
+        String rgi_version = run_RGI.rgi_version
+        String rgi_date = run_RGI.rgi_date
+
+        File rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output
+        File rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output
+        File rgi_CARD_diamond_json_output = run_RGI.rgi_CARD_diamond_json_output
+        File rgi_CARD_blast_json_output = run_RGI.rgi_CARD_blast_json_output
     }  
 }
