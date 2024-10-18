@@ -1,5 +1,5 @@
 version 1.0
-#TODO perhaps combine the entrez with the mash
+
 task run_MASH {
     input {
         String sample_name
