@@ -26,11 +26,11 @@ task run_hAMRonize {
         check_dataframe_rows() {
             local file_path="$1"  # Take the first argument as the input (file path)
 
-            # # Check if the file exists and is not empty
-            # if [[ ! -s "$file_path" ]]; then
-            #     echo "    No data available in the DataFrame or file does not exist."
-            #     return 1  # Return with an error code to indicate no data or file not found
-            # fi
+            # Check if the file exists and is not empty
+            if [[ ! -s "$file_path" ]]; then
+                echo "    No data available in the DataFrame or file does not exist."
+                return 1  # Return with an error code to indicate no data or file not found
+            fi
 
             # Count the number of lines excluding the header
             local row_count=$(tail -n +2 "$file_path" | wc -l)
