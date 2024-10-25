@@ -1,0 +1,561 @@
+{
+   "job_output" : {
+      "genome_id" : "1463165.1394",
+      "gto_path" : "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/annotated.genome"
+   },
+   "app" : {
+      "id" : "ComprehensiveGenomeAnalysis",
+      "parameters" : [
+         {
+            "comment" : "Start of common parameters"
+         },
+         {
+            "required" : 1,
+            "desc" : "Input type (reads / contigs / genbank)",
+            "enum" : [
+               "reads",
+               "contigs",
+               "genbank"
+            ],
+            "default" : null,
+            "type" : "enum",
+            "id" : "input_type",
+            "label" : "Input Type"
+         },
+         {
+            "required" : 1,
+            "desc" : "Path to which the output will be written. Defaults to the directory containing the input data. ",
+            "default" : null,
+            "id" : "output_path",
+            "type" : "folder",
+            "label" : "Output Folder"
+         },
+         {
+            "label" : "File Basename",
+            "id" : "output_file",
+            "type" : "wsid",
+            "default" : null,
+            "required" : 1,
+            "desc" : "Basename for the generated output files. Defaults to the basename of the input data."
+         },
+         {
+            "comment" : "Start of assembly parameters"
+         },
+         {
+            "id" : "paired_end_libs",
+            "type" : "group",
+            "group" : [
+               {
+                  "id" : "read1",
+                  "type" : "wstype",
+                  "label" : "Read file 1",
+                  "desc" : "FASTQ or FASTA file of reads",
+                  "required" : 0,
+                  "wstype" : "ReadFile"
+               },
+               {
+                  "required" : 0,
+                  "desc" : "FASTQ or FASTA file of reads",
+                  "wstype" : "ReadFile",
+                  "id" : "read2",
+                  "type" : "wstype",
+                  "label" : "Read file 2"
+               },
+               {
+                  "type" : "enum",
+                  "id" : "platform",
+                  "label" : "Sequencing Platform",
+                  "required" : 0,
+                  "desc" : "Sequencing platform used to generate the read library",
+                  "default" : "infer",
+                  "enum" : [
+                     "infer",
+                     "illumina",
+                     "pacbio",
+                     "pacbio_hifi",
+                     "nanopore"
+                  ]
+               },
+               {
+                  "required" : 0,
+                  "default" : false,
+                  "id" : "interleaved",
+                  "type" : "bool",
+                  "label" : "Are the paired end reads interleaved?"
+               },
+               {
+                  "label" : "Do the two reads in each pair face outward?",
+                  "id" : "read_orientation_outward",
+                  "type" : "bool",
+                  "default" : false,
+                  "required" : 0
+               },
+               {
+                  "required" : 0,
+                  "default" : null,
+                  "type" : "int",
+                  "id" : "insert_size_mean",
+                  "label" : "Average insert size"
+               },
+               {
+                  "required" : 0,
+                  "default" : null,
+                  "type" : "float",
+                  "id" : "insert_size_stdev",
+                  "label" : "Average insert standard deviation"
+               }
+            ],
+            "allow_multiple" : true,
+            "required" : 0,
+            "default" : null
+         },
+         {
+            "required" : 0,
+            "allow_multiple" : true,
+            "default" : null,
+            "type" : "group",
+            "id" : "single_end_libs",
+            "group" : [
+               {
+                  "desc" : "FASTQ, FASTA or H5 file of reads",
+                  "required" : 0,
+                  "wstype" : "ReadFile",
+                  "type" : "wstype",
+                  "id" : "read",
+                  "label" : "Read file"
+               },
+               {
+                  "type" : "enum",
+                  "id" : "platform",
+                  "label" : "Sequencing Platform",
+                  "desc" : "Sequencing platform used to generate the read library",
+                  "required" : 0,
+                  "default" : "infer",
+                  "enum" : [
+                     "infer",
+                     "illumina",
+                     "pacbio",
+                     "pacbio_hifi",
+                     "nanopore"
+                  ]
+               }
+            ]
+         },
+         {
+            "required" : 0,
+            "desc" : "Sequence Read Archive (SRA) Run ID",
+            "allow_multiple" : true,
+            "default" : null,
+            "type" : "string",
+            "id" : "srr_ids",
+            "label" : "SRR ID"
+         },
+         {
+            "label" : "Contig file",
+            "type" : "wstype",
+            "id" : "reference_assembly",
+            "default" : null,
+            "wstype" : "Contigs",
+            "required" : 0,
+            "desc" : "Reference set of assembled DNA contigs"
+         },
+         {
+            "required" : 0,
+            "desc" : "Recipe used for assembly",
+            "default" : "auto",
+            "enum" : [
+               "auto",
+               "unicycler",
+               "canu",
+               "spades",
+               "meta-spades",
+               "plasmid-spades",
+               "single-cell",
+               "flye"
+            ],
+            "id" : "recipe",
+            "type" : "enum",
+            "label" : "Assembly recipe"
+         },
+         {
+            "id" : "racon_iter",
+            "type" : "int",
+            "label" : "Racon iterations",
+            "desc" : "Racon polishing iterations (for long reads)",
+            "required" : 0,
+            "default" : 2
+         },
+         {
+            "label" : "Pilon iterations",
+            "type" : "int",
+            "id" : "pilon_iter",
+            "default" : 2,
+            "required" : 0,
+            "desc" : "Pilon polishing iterations (for short reads)"
+         },
+         {
+            "type" : "boolean",
+            "id" : "trim",
+            "label" : "trim_reads",
+            "required" : 0,
+            "desc" : "Trim reads before assembly",
+            "default" : false
+         },
+         {
+            "required" : 0,
+            "desc" : "Filter out short contigs in final assembly",
+            "default" : 300,
+            "type" : "int",
+            "id" : "min_contig_len",
+            "label" : "Minimal output contig length"
+         },
+         {
+            "type" : "float",
+            "id" : "min_contig_cov",
+            "label" : "Minimal output contig coverage",
+            "desc" : "Filter out contigs with low read depth in final assembly",
+            "required" : 0,
+            "default" : 5
+         },
+         {
+            "default" : "5M",
+            "required" : 0,
+            "desc" : "Estimated genome size (for canu)",
+            "label" : "Genome Size",
+            "type" : "string",
+            "id" : "genome_size"
+         },
+         {
+            "comment" : "Start of annotation parameters. Exactly one of reads, contigs, or genbank file input is required."
+         },
+         {
+            "required" : 0,
+            "desc" : "Preannotated genome object",
+            "wstype" : "Genome",
+            "default" : null,
+            "id" : "gto",
+            "type" : "wstype",
+            "label" : "Preannotated genome object"
+         },
+         {
+            "label" : "Genbank file",
+            "type" : "wstype",
+            "id" : "genbank_file",
+            "default" : null,
+            "wstype" : "genbank_file",
+            "required" : 0,
+            "desc" : "Genome to process"
+         },
+         {
+            "wstype" : "Contigs",
+            "default" : null,
+            "desc" : "Input set of DNA contigs for annotation",
+            "required" : 0,
+            "label" : "Contig file",
+            "id" : "contigs",
+            "type" : "wstype"
+         },
+         {
+            "default" : null,
+            "desc" : "Scientific name of genome to be annotated",
+            "required" : 1,
+            "label" : "Scientific Name",
+            "id" : "scientific_name",
+            "type" : "string"
+         },
+         {
+            "type" : "int",
+            "id" : "taxonomy_id",
+            "label" : "NCBI Taxonomy ID",
+            "required" : 0,
+            "desc" : "NCBI Taxonomy identfier for this genome",
+            "default" : null
+         },
+         {
+            "desc" : "Genetic code used in translation of DNA sequences",
+            "required" : 1,
+            "default" : 0,
+            "enum" : [
+               0,
+               1,
+               4,
+               11,
+               25
+            ],
+            "type" : "int",
+            "id" : "code",
+            "label" : "Genetic Code"
+         },
+         {
+            "desc" : "Domain of the submitted genome",
+            "required" : 1,
+            "default" : "auto",
+            "enum" : [
+               "Bacteria",
+               "Archaea",
+               "Viruses",
+               "auto"
+            ],
+            "type" : "enum",
+            "id" : "domain",
+            "label" : "Domain"
+         },
+         {
+            "comment" : "Control parameters"
+         },
+         {
+            "label" : "Public",
+            "type" : "bool",
+            "id" : "public",
+            "default" : false,
+            "desc" : "Make this genome public",
+            "required" : 0
+         },
+         {
+            "default" : false,
+            "required" : 0,
+            "desc" : "If set, don't wait for the indexing to finish before marking the job complete.",
+            "label" : "Don't wait on indexing queue",
+            "id" : "queue_nowait",
+            "type" : "bool"
+         },
+         {
+            "default" : false,
+            "desc" : "If set, don't index this genome in solr. It will not be available for analysis through the PATRIC site.",
+            "required" : 0,
+            "label" : "Don't index genome",
+            "id" : "skip_indexing",
+            "type" : "bool"
+         },
+         {
+            "label" : "Reference genome ID",
+            "id" : "reference_genome_id",
+            "type" : "string",
+            "default" : null,
+            "required" : 0,
+            "desc" : "Reference genome ID"
+         },
+         {
+            "default" : null,
+            "desc" : "(Internal) Parent job for this annotation",
+            "required" : 0,
+            "label" : "(Internal) Parent job for this annotation",
+            "id" : "_parent_job",
+            "type" : "string"
+         },
+         {
+            "type" : "string",
+            "id" : "workflow",
+            "label" : "Custom workflow",
+            "required" : 0,
+            "desc" : "Specifies a custom workflow document (expert).",
+            "default" : null
+         },
+         {
+            "label" : "Enable quality analysis of genome",
+            "type" : "bool",
+            "id" : "analyze_quality",
+            "default" : null,
+            "required" : 0,
+            "desc" : "If enabled, run quality analysis on genome"
+         },
+         {
+            "type" : "int",
+            "id" : "debug_level",
+            "label" : "Debug level",
+            "required" : 0,
+            "desc" : "Debugging level.",
+            "default" : 0
+         }
+      ],
+      "script" : "App-ComprehensiveGenomeAnalysis",
+      "default_memory" : "100G",
+      "label" : "Comprehensive Genome Analysis",
+      "description" : "Analyze a genome from reads or contigs, generating a detailed analysis report."
+   },
+   "start_time" : 1729274059.76002,
+   "elapsed_time" : 563.124613046646,
+   "hostname" : "pear.cels.anl.gov",
+   "success" : 1,
+   "id" : "14676548",
+   "parameters" : {
+      "recipe" : "auto",
+      "domain" : "Bacteria",
+      "taxonomy_id" : "1463165",
+      "pilon_iter" : 2,
+      "debug_level" : 0,
+      "public" : false,
+      "input_type" : "contigs",
+      "genome_size" : "5M",
+      "racon_iter" : 2,
+      "trim" : false,
+      "queue_nowait" : false,
+      "min_contig_cov" : 5,
+      "contigs" : "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Assembly/.CCI165_S85/CCI165_S85_contigs.fasta",
+      "skip_indexing" : false,
+      "output_path" : "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis",
+      "min_contig_len" : 300,
+      "scientific_name" : "Klebsiella quasipneumoniae CCI165_S85_CGA",
+      "code" : 0,
+      "output_file" : "Klebsiella quasipneumoniae CCI165_S85_CGA"
+   },
+   "end_time" : 1729274622.88463,
+   "output_files" : [
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation",
+         "014D4514-8D7A-11EF-8192-5A9B6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/FullGenomeReport.html",
+         "4D99B0A0-8D7B-11EF-9334-C5B86F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/GenomeReport.html",
+         "C7138FA6-8D7A-11EF-8E41-52B26F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/annotated.genome",
+         "4DB6AD72-8D7B-11EF-94D0-3AB76F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/annotation",
+         "DA88BB2E-8D7A-11EF-90D8-B5AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.contigs.fasta",
+         "D0E4B15E-8D7A-11EF-BA12-15AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.embl",
+         "D07027B2-8D7A-11EF-9E40-60B36F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.feature_dna.fasta",
+         "CC435CD6-8D7A-11EF-9EDF-39B16F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.feature_protein.fasta",
+         "CCAE8B64-8D7A-11EF-A728-A6B06F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.features.txt",
+         "CD159A84-8D7A-11EF-9685-8BA96F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.gb",
+         "CBBD5E4C-8D7A-11EF-90FE-50AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.genome",
+         "C79D013C-8D7A-11EF-8CA0-09A76F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.gff",
+         "D38D4920-8D7A-11EF-88CC-B5AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.merged.gb",
+         "D27EA312-8D7A-11EF-87A9-AAA96F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.tar.gz",
+         "D4EB105E-8D7A-11EF-9C94-7AB26F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.txt",
+         "D56B2690-8D7A-11EF-82D0-E2AE6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/annotation.xls",
+         "CE42A370-8D7A-11EF-B51E-A6B06F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/circos.png",
+         "4F5F0C1E-8D7B-11EF-A7B6-3AB96F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/circos.svg",
+         "4F47156E-8D7B-11EF-BE50-30B36F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/codonTree.svg",
+         "4F721E9E-8D7B-11EF-BDF6-21BC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/codontree.genesPerGenome.txt",
+         "4F8CEBB6-8D7B-11EF-A01F-27B46F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/codontree.homologAlignmentStats.txt",
+         "4F951660-8D7B-11EF-A756-7AB26F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/codontree.homologsAndGenesIncludedInAlignment.txt",
+         "4F9CA7CC-8D7B-11EF-8183-CAB76F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/codontree.nex",
+         "4F84EFD8-8D7B-11EF-8C60-CAB76F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/codontree_tree.nwk",
+         "4FA3F41E-8D7B-11EF-BF66-A6B06F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/feature_sequence.json",
+         "D7A8F540-8D7A-11EF-8876-15AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/genome.json",
+         "D6CA8AF8-8D7A-11EF-BAA5-52B36F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/genome_amr.json",
+         "D710EB1A-8D7A-11EF-B3F9-E2AE6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/genome_feature.json",
+         "D6E720B4-8D7A-11EF-9004-8AAE6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/genome_quality_details.txt",
+         "C580EFEE-8D7A-11EF-9F8D-50AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/genome_sequence.json",
+         "D72FA88E-8D7A-11EF-BA56-49B06F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files",
+         "D6C3B200-8D7A-11EF-8AD5-01AA6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/pathway.json",
+         "D75FD05E-8D7A-11EF-B3FD-A6B06F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/quality.json",
+         "D83F9072-8D7A-11EF-AD58-01AA6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/sp_gene.json",
+         "D7DA398E-8D7A-11EF-9968-27AC6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/subsystem.json",
+         "D77EFBBE-8D7A-11EF-A110-AAA96F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/subsystem_colors.json",
+         "4F6AFC54-8D7B-11EF-9B4B-6AB66F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/.annotation/load_files/taxonomy.json",
+         "D7F875E8-8D7A-11EF-A05C-E2AE6F9C6845"
+      ],
+      [
+         "/DanyMB@bvbrc/home/IFAIN_Retro_BatchB/Genome_Analysis/.Klebsiella quasipneumoniae CCI165_S85_CGA/tree_ingroup.txt",
+         "4F7CE81A-8D7B-11EF-9574-52B36F9C6845"
+      ]
+   ]
+}

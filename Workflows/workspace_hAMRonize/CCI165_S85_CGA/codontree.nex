@@ -1,0 +1,52 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=11;
+	taxlabels
+	"Klebsiella pneumoniae subsp. pneumoniae DSM 30104 1162296.3"
+	"Klebsiella pneumoniae subsp. pneumoniae HS11286 1125630.4"
+	"Klebsiella pneumoniae subsp. pneumoniae MGH 78578 272620.9"
+	"Klebsiella pneumoniae ISC21 1432558.3"
+	"Klebsiella pneumoniae IS46 1432553.3"
+	"Klebsiella quasipneumoniae CCI165_S85_CGA 1463165.1394 1463165.1394"[&!color=#ff0000]
+	"Klebsiella variicola At-22 640131.3"
+	"Enterobacter aerogenes KCTC 2190 1028307.3"
+	"Raoultella ornithinolytica B6 1286170.3"
+	"Raoultella planticola strain GCSL-DIFS-295 575.7"
+	"Klebsiella pneumoniae IS39 1432561.3"
+;
+end;
+
+begin trees;
+	translate
+		1162296.3 "Klebsiella pneumoniae subsp. pneumoniae DSM 30104 1162296.3",
+		1125630.4 "Klebsiella pneumoniae subsp. pneumoniae HS11286 1125630.4",
+		272620.9 "Klebsiella pneumoniae subsp. pneumoniae MGH 78578 272620.9",
+		1432558.3 "Klebsiella pneumoniae ISC21 1432558.3",
+		1432553.3 "Klebsiella pneumoniae IS46 1432553.3",
+		1463165.1394 "Klebsiella quasipneumoniae CCI165_S85_CGA 1463165.1394 1463165.1394",
+		640131.3 "Klebsiella variicola At-22 640131.3",
+		1028307.3 "Enterobacter aerogenes KCTC 2190 1028307.3",
+		1286170.3 "Raoultella ornithinolytica B6 1286170.3",
+		575.7 "Raoultella planticola strain GCSL-DIFS-295 575.7",
+		1432561.3 "Klebsiella pneumoniae IS39 1432561.3",
+	;
+	tree one = [&U] ((1162296.3:0.00167465033773955851,((1125630.4:0.00354507532792975233,(272620.9:0.00187054775406977187,1432558.3:0.00280912111902180232)[&support=97]:0.00127217080492368498)[&support=65]:0.00140111205570824090,1432553.3:0.00294455335688815177)[&support=100]:0.00806321169649072689)[&support=56]:0.00118967250115600224,(1463165.1394:0.04543815035957912002,(640131.3:0.02805944076755887209,(1028307.3:0.17020828705331794706,(1286170.3:0.00099146522279985232,575.7:0.00980675699005631278)[&support=100]:0.21844364523092230090)[&support=100]:0.13046940165981921189)[&support=100]:0.04056708552746923074)[&support=100]:0.03005113297340735942,1432561.3:0.00166724572020126270);
+
+
+end;
+
+begin figtree;
+	set nodeLabels.displayAttribute="support";
+	set nodeLabels.isShown=true;
+	set rectilinearLayout.alignTipLabels=false;
+	set tipLabels.fontName=sanserif;
+	set tipLabels.fontSize=14;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set trees.order=true;
+	set trees.orderType=increasing;
+	set trees.rooting=true;
+	set trees.rootingType=Midpoint;
+
+end;
+
