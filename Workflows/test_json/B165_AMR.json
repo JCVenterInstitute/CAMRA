@@ -5,6 +5,6 @@
   "amr_analysis.genus": "Klebsiella",
   "amr_analysis.sample_name": "IFAIN-B165_S85-717383RE",
   "amr_analysis.species": "quasipneumoniae",
-  "amr_analysis.query": "/Users/dmatute/Documents/CAMRA/data/reference/from-Derrick-refgene_catalog_OKP-B/ncbi_dataset/data/nucleotide.fna"
+  "amr_analysis.blast_carbapen_query": "/Users/dmatute/Documents/CAMRA/data/reference/from-Derrick-refgene_catalog_OKP-B/ncbi_dataset/data/nucleotide.fna"
 }
 

@@ -78,6 +78,15 @@ task run_hAMRonize {
                     hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 4.5.0 --reference_database_version 2.3.1 --input_file_name $amr_file $amr_file
                 fi
             fi
+
+            if [[ $program == "rgi" ]]; then 
+                echo "    $amr_file = rgi"
+                if check_dataframe_rows $amr_file; then
+                    echo "    Starting hamronization of $amr_name"
+                    hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --analysis_software_version 6.0.3 --reference_database_version 3.3.0 --input_file_name $amr_file $amr_file
+                fi
+            fi
+
         done
 
         # Check if there are any files in the directory

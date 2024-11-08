@@ -22,7 +22,7 @@ workflow amr_analysis   {
         File assembly
         File read1
         File read2
-        File query
+        File blast_carbapen_query
         String sample_name
         String genus
         String species
@@ -50,7 +50,7 @@ workflow amr_analysis   {
     call amrfinder.run_Query_Blastn {
         input:
             assembly = assembly,
-            query = query
+            query = blast_carbapen_query
     }
     
     call abricate.run_Abricate{
@@ -81,7 +81,7 @@ workflow amr_analysis   {
                 run_ResFinder.resfinder_read_output,
 
                 run_RGI.rgi_CARD_diamond_tsv_output,
-                run_RGI.rgi_CARD_diamond_json_output
+                run_RGI.rgi_CARD_blast_tsv_output
             ],
 
             VIR_files = [
