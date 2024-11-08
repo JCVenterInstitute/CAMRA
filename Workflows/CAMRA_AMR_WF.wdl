@@ -95,8 +95,6 @@ workflow amr_analysis   {
     output{
         # Optional Output - blast against userinput query
         File blastn_output = run_Query_Blastn.blastn_output
-        String blastn_date = run_Query_Blastn.blastn_date
-        String blastn_version = run_Query_Blastn.blastn_version
 
         # AMR finder
         File amrfinder_all_output = run_AMRfinderPlus.amrfinder_all_output

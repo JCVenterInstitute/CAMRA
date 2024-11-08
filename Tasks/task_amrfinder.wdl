@@ -142,8 +142,6 @@ task run_Query_Blastn {
     }
 
     command <<<
-        blastn -version |tee VERSION
-        date | tee DATE
 
         # Unzips the assembly file if nessesary
         if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz || "~{assembly}" == *.fna.gz ]]; then 
@@ -162,12 +160,6 @@ task run_Query_Blastn {
         sort -k 12,12nr -t$'\t' results.out -o blast_results.txt
     >>>
     output{
-        String blastn_date = read_string("DATE")
-        String blastn_version = read_string("VERSION")
-
-        File blastn_output = "blast_results.txt"
-                
-        
-        
+        File blastn_output = "blast_results.txt" 
     }
 }
