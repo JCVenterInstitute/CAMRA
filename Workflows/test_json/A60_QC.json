@@ -1,0 +1,10 @@
+{
+  "assembly_qc.run_merqury.memory": "4G",
+  "assembly_qc.read1": "/Users/dmatute/Documents/CAMRA/data/batches/pooling_raw_reads/CCI60_R1.fastq.gz",
+  "assembly_qc.run_Quast.min_contigs": "500",
+  "assembly_qc.assembly": "/Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Workflows/cromwell-executions/genome_assembly/eabd0dc2-32ef-4454-b8d5-7163efb5b3ab/call-run_genome_assembly/execution/bvbrc_asm_output/CCI9_contigs.fasta.gz",
+  "assembly_qc.sample_name": "CCI60",
+  "assembly_qc.read2": "/Users/dmatute/Documents/CAMRA/data/batches/pooling_raw_reads/CCI60_R2.fastq.gz",
+  "assembly_qc.pubmlst_DB": "/Users/dmatute/Documents/CAMRA/lib/CAMRA_GITHUB/pubmlst-2024apr05.tar.gz"
+}
+

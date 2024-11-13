@@ -1,0 +1,8 @@
+{
+  "genome_assembly.BVBRC_user": "DanyMB",
+  "genome_assembly.read2": "/Users/dmatute/Documents/CAMRA/data/batches/pooling_raw_reads/CCI60_R2.fastq.gz",
+  "genome_assembly.read1": "/Users/dmatute/Documents/CAMRA/data/batches/pooling_raw_reads/CCI60_R1.fastq.gz",
+  "genome_assembly.BVBRC_password": "Luciana1996",
+  "genome_assembly.sample_name": "CCI9"
+}
+
