@@ -329,8 +329,9 @@ def bvbrc_annotation_analysis(
     output_commands = [
         ["mkdir", "bvbrc_cga_output"],
         ["p3-cp", CGA_OUTPUTS["FULL_GENOME_REPORT"], "bvbrc_cga_output"],
-        ["p3-cp", CGA_OUTPUTS["ANNOTATION_GENOME_REPORT"], "bvbrc_cga_output"],
-        ["p3-cp", CGA_OUTPUTS["ANNOTATION_XLS"], "bvbrc_cga_output"],
+        ["p3-cp", CGA_OUTPUTS["ANNOTATION_GENOME"], "bvbrc_cga_output"],
+        ["p3-cp", CGA_OUTPUTS["ANNOTATION_QUALITY"], "bvbrc_cga_output"],
+        ["p3-cp", CGA_OUTPUTS["ANNOTATION_RESISTANCE"], "bvbrc_cga_output"],
     ]
 
     for command in output_commands:
@@ -534,6 +535,9 @@ CGA_OUTPUTS = {
     "FULL_GENOME_REPORT": f"ws:{cga_output_path}/.{args.sample_name}_output/FullGenomeReport.html",
     "ANNOTATION_GENOME_REPORT": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/GenomeReport.html",
     "ANNOTATION_XLS": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/annotation.xls",
+    "ANNOTATION_GENOME": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/quality.json",
+    "ANNOTATION_QUALITY": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/annotation.genome",
+    "ANNOTATION_RESISTANCE": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/load_files/genome_amr.json",
 }
 
 ########## END CONSTANTS ##########
