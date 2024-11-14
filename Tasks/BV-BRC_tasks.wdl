@@ -101,11 +101,16 @@ task run_annotation_analysis {
         else
             python3 /bin/bvbrc_jobs.py -cgal -a "~{contigs_file_local}" -u "~{username}" -sci "~{scientific_name}" -n "~{sample_name_no_space}" -tax "~{taxonomy_id}" --debug
         fi
+
+        python3 /bin/bvbrc_transform.py bvbrc_cga_output/quality.json  bvbrc_cga_output/annotation.genome bvbrc_cga_output/genome_amr.json
     >>>
 
     output {
-        File full_genome_report = "bvbrc_cga_output/FullGenomeReport.html"
-        File annotation_genome_report = "bvbrc_cga_output/GenomeReport.html"
-        File annotation_xls = "bvbrc_cga_output/annotation.xls"
+        File bvbrc_full_genome_report = "bvbrc_cga_output/FullGenomeReport.html"
+        File bvbrc_genome_annotation = "bvbrc_cga_output/annotation.genome"
+        File bvbrc_amr_annotation = "bvbrc_cga_output/genome_amr.json"
+        File bvbrc_annotation_quality = "bvbrc_cga_output/quality.json"
+        File bvbrc_transformed_amrhits = "./bvbrc_amr_annotation.tsv"
+        File bvbrc_transformed_predictedresistance = "bvbrc_predicted_resistance.tsv"
     }
 }
