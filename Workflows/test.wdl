@@ -1,27 +1,24 @@
 version 1.0
 
-import "../Tasks/task_rgi.wdl" as rgi
+import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 
-workflow amr_analysis   {
+workflow test_wdl  {
     input {
-        File assembly
-        Boolean update_CARD = false
+        File annotation_genome
+        File genome_amr_json
+        File quality_json
+
     }
-    call rgi.run_RGI {
+    call bvbrc.run_hamronize_reformatting {
         input:
-            assembly = assembly,
-            update_CARD = update_CARD 
+            annotation_genome = annotation_genome,
+            genome_amr_json = genome_amr_json,
+            quality_json = quality_json
     }
 
     output{
-    # RGI
-        String rgi_CARD_DB_version = run_RGI.rgi_CARD_DB_version
-        String rgi_version = run_RGI.rgi_version
-        String rgi_date = run_RGI.rgi_date
-
-        File rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output
-        File rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output
-        File rgi_CARD_diamond_json_output = run_RGI.rgi_CARD_diamond_json_output
-        File rgi_CARD_blast_json_output = run_RGI.rgi_CARD_blast_json_output
+    # BVBRC output for harmonization 
+        File bvbrc_amr_annotation = run_hamronize_reformatting.bvbrc_amr_annotation
+        File bvbrc_predicted_resistance = bvbrc_predicted_resistance 
     }  
 }
