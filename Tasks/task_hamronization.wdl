@@ -87,6 +87,13 @@ task run_hAMRonize {
                 fi
             fi
 
+            if [[ $program == "bvbrc" ]]; then 
+                echo "    $amr_file = bvbrc"
+                if check_dataframe_rows $amr_file; then
+                    echo "    Starting hamronization of $amr_name"
+                    hamronize $program --format tsv --output AMR_hAMRonization/"H-$amr_name" --input_file_name $amr_file $amr_file
+                fi
+            fi
         done
 
         # Check if there are any files in the directory
