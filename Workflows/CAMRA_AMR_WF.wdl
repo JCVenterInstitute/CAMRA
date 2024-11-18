@@ -26,6 +26,7 @@ workflow amr_analysis   {
         String sample_name
         String genus
         String species
+        File bvbrc_amr_file
     }
 
     # Task to combine genus and species
@@ -66,9 +67,9 @@ workflow amr_analysis   {
             organism = run_taxajoin.organism
         
     }
-    call hamronize.run_hAMRonize{
-        input:
 
+    call hamronize.run_hAMRonize {
+        input:
             AMR_files = [
                 run_Abricate.abricate_ncbiDB_tsv_output,
                 run_Abricate.abricate_cardDB_tsv_output, 
@@ -81,16 +82,15 @@ workflow amr_analysis   {
                 run_ResFinder.resfinder_read_output,
 
                 run_RGI.rgi_CARD_diamond_tsv_output,
-                run_RGI.rgi_CARD_blast_tsv_output
-            ],
+                run_RGI.rgi_CARD_blast_tsv_output,
 
+                bvbrc_amr_file
+            ],
             VIR_files = [
                 run_Abricate.abricate_vfdb_tsv_output, 
                 run_AMRfinderPlus.amrfinder_virulence_output
             ]
     }
-    
-
 
     output{
         # Optional Output - blast against userinput query
