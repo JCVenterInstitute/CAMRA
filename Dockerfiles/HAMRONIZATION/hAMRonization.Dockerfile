@@ -13,12 +13,12 @@ RUN rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED
 
 
 
-# # Install hAMRonization
+# Install hAMRonization
 RUN cd /opt && \ 
-    wget https://github.com/DanyMatute/hAMRonization/archive/refs/tags/v1.1.5.tar.gz && \ 
-    tar -xzf v1.1.5.tar.gz && \ 
-    rm v1.1.5.tar.gz && \ 
-    cd hAMRonization-1.1.5 && \ 
+    wget https://github.com/DanyMatute/hAMRonization/archive/refs/tags/v1.2.0.tar.gz && \ 
+    tar -xzf v1.2.0.tar.gz  && \ 
+    rm v1.2.0.tar.gz && \ 
+    cd hAMRonization-1.2.0 && \ 
     apt install -y python3-setuptools && \ 
     python3 setup.py install 
 

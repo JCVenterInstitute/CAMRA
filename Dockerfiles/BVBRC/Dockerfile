@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Update, upgrade, install dependencies, and clean up 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y wget libssl-dev cpanminus gdebi-core && \
+    apt install -y wget libssl-dev cpanminus gdebi-core python3-pandas python3-numpy && \
     cpanm Term::ReadLine::Stub && \
     wget https://github.com/BV-BRC/BV-BRC-CLI/releases/download/1.040/bvbrc-cli-1.040.deb && \
     gdebi -n bvbrc-cli-1.040.deb && \
