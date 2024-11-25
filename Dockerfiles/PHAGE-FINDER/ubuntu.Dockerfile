@@ -8,18 +8,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y build-essential wget libssl-dev perl alien cpanminus libxml2 linux-headers-generic blender libgraphics-colorobject-perl libgomp1 python3 python3-pip infernal-doc autoconf git  musl dietlibc-dev && \
-    cpanm Math::Round less  Term::ReadKey  Graphics::ColorNames::WWW XML::Simple module
+    apt install -y build-essential wget libssl-dev perl alien cpanminus libxml2 linux-headers-generic blender libgraphics-colorobject-perl libgomp1 python3 python3-pip python3-pandas python3-numpy python3-biopython infernal-doc autoconf git  musl dietlibc-dev && \
+    cpanm Math::Round less  Term::ReadKey TIGR Graphics::ColorNames::WWW XML::Simple module
 
 WORKDIR /opt
 
 # PhageFinder
-RUN git clone https://github.com/DanyMatute/PhageFinder.git 
-
-# BLAST
-RUN wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.16.0+-1.x86_64.rpm && \
-    alien -k ncbi-blast-2.16.0+-1.x86_64.rpm && \
-    dpkg -i ncbi-blast_2.16.0+-1_amd64.deb 
+RUN git clone https://github.com/DanyMatute/Phage_Finder.git
+COPY phage_finder_* .
 
 # HMMER 
 RUN pip install hmmer==3.4.0.0
@@ -57,6 +53,21 @@ RUN mkdir Aragron && cd Aragron && \
 RUN git clone https://git.code.sf.net/p/libpng/code libpng-code && \
     cd libpng-code &&  git checkout origin/libpng15 &&\
     ./configure && make check && make install && ldconfig /usr/local/lib 
+
+# Diamond
+RUN wget https://github.com/bbuchfink/diamond/releases/download/v2.1.10/diamond-linux64.tar.gz && \ 
+    tar -xvf diamond-linux64.tar.gz && \
+    rm -rd diamond-linux64.tar.gz
+
+#Mummer
+RUN wget https://github.com/mummer4/mummer/releases/download/v4.0.0rc1/mummer-4.0.0rc1.tar.gz && \
+    tar -xvf mummer-4.0.0rc1.tar.gz && \
+    rm -rd mummer-4.0.0rc1.tar.gz && \ 
+    cd mummer-4.0.0rc1 && ./configure && make && make install
+
+#Fasta36
+RUN wget https://github.com/wrpearson/fasta36/releases/download/v36.3.8i_14-Nov-2020/fasta-36.3.8i-linux64.tar.gz
+
 
 WORKDIR /data
 
