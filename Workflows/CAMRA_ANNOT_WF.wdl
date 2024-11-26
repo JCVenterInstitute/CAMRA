@@ -43,15 +43,12 @@ workflow annotation_analysis   {
             scientific_name = scientific_name,  # "Genus species" from MASH, Optional
             taxonomy_id = 2
     }    
+
+    #TODO Add phagefinder, I am waiting to have the list of important output files. 
+
+
     # call pgap, prokka, bakta
-    # call phage finder
-        #other tools that we could use: 
-            # Seeker
-            # VirFinder (23)
-            # DeepVirFinder (25)
-            # PPR-Meta (24)
-            # VirSorter (22)
-            # VIBRANT (37)
+
     # FCS
     # IS elements
     # Mobile element Finder
