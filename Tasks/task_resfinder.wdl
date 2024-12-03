@@ -18,8 +18,8 @@ task run_ResFinder {
 
     input {
         File assembly
-        File read1
-        File read2
+        File? read1
+        File? read2
         String? organism
         Float? min_cov = 0.6 # Min coverage 
         Float? threshold = 0.9 # Min identity
@@ -47,8 +47,12 @@ task run_ResFinder {
         }
 
         unzip_and_move "~{assembly}" "./assembly.fasta"
-        unzip_and_move "~{read1}" "./read1.fastq"
-        unzip_and_move "~{read2}" "./read2.fastq"
+        ~{if defined(read1) then
+        "unzip_and_move ~{read1} ./read1.fastq"
+        else ""}
+        ~{if defined(read2) then
+        "unzip_and_move ~{read2}  ./read2.fastq"
+        else ""}
 
         # Make directories that will store the resfinder run wiht the assembly file and the read file 
         mkdir assembly_output read_output 
@@ -115,14 +119,19 @@ task run_ResFinder {
         # Run the assembly file on resfinder, only does BLAST
         python3 -m resfinder --inputfasta assembly.fasta --species species  --disinfectant --acquired --point --ignore_missing_species --outputPath assembly_output  ~{'--min_cov ' + min_cov}  ~{'--threshold ' + threshold} 
 
+
         # Run the assembly file on resfinder, does BLAST and KMA
         python3 -m resfinder --inputfastq read1.fastq read2.fastq --species species --disinfectant --acquired --point --ignore_missing_species --outputPath read_output  ~{'--min_cov ' + min_cov}  ~{'--threshold ' + threshold}  
+        ~{if defined(read1) then
+        "rm assembly.fasta read1.fastq read2.fastq"
+        else ""}
 
-        rm assembly.fasta read1.fastq read2.fastq
+        rm assembly.fasta
 
         mv assembly_output/ResFinder_results_tab.txt assembly_output/resfinder_asm_results_tab.txt
-        mv read_output/ResFinder_results_tab.txt read_output/resfinder_read_results_tab.txt
-
+        ~{if defined(read1) then
+        "mv read_output/ResFinder_results_tab.txt read_output/resfinder_read_results_tab.txt"
+        else ""}
         >>>
     output {
         String resfinder_version = read_string("RESFINDER_VERSION")
@@ -131,10 +140,10 @@ task run_ResFinder {
         String resfinder_date = read_string("DATE")
 
         File resfider_asm_output = "assembly_output/resfinder_asm_results_tab.txt"
-        File resfinder_read_output = "read_output/resfinder_read_results_tab.txt"
+        File? resfinder_read_output = "read_output/resfinder_read_results_tab.txt"
         File resfinder_asm_hits = "assembly_output/ResFinder_Hit_in_genome_seq.fsa"
-        File resfinder_read_hits = "read_output/ResFinder_Hit_in_genome_seq.fsa"
+        File? resfinder_read_hits = "read_output/ResFinder_Hit_in_genome_seq.fsa"
         File resfinder_asm_argseq = "assembly_output/ResFinder_Resistance_gene_seq.fsa"
-        File resfinder_read_argseq = "read_output/ResFinder_Resistance_gene_seq.fsa"
+        File? resfinder_read_argseq = "read_output/ResFinder_Resistance_gene_seq.fsa"
     }
 }
