@@ -13,7 +13,8 @@ print("PY file imported", file)
 ## Cleaning Data
 #1. All the rows who's **analysis_software_name** is **resfinder**, and **'input_sequence_id'** is NA are collected in **read_resfinder**. Will be used later in XXX
 #2. All the rows who's **analysis_software_name** is **resfinder**, and **'input_sequence_id'** is NOT are collected in **asm_resfinder**. The **'input_sequence_id'** will be manipulated to contain the true contig location of the gene. These are re-incorporated into **hamr_output**
-#3. **hamr_output** is divided into hamr_idUNDER98 and hamr_idOVER98
+#3. All the rows who's **analysis_software_name** is *rgi* are collected in **rgi** and manipulated to have the correct **input_sequence_id** format. 
+#4. **hamr_output** is divided into hamr_idUNDER98 and hamr_idOVER98
 def clean_df(hamr_output):
     # 1 NEW DF FROM RESFINDER THAT DOES NOT HAVE CONTIGS (READ). These do not have a input_sequence_id as it was generated from reads.
     read_resfinder = hamr_output[hamr_output['input_sequence_id'].isna()]
@@ -22,9 +23,15 @@ def clean_df(hamr_output):
     # eg "CCI165_S85_contig_8 length 181163 coverage 173.9 normalized_cov 0.95" becomes "CCI165_S85_contig_8"
     asm_resfinder = hamr_output[(hamr_output['analysis_software_name']=='resfinder') & (hamr_output['input_sequence_id'].notna())]
     asm_resfinder.loc[:, 'input_sequence_id'] = asm_resfinder['input_sequence_id'].str.split().str[0]
+
+    # 3 NEW DF FROM RGI. The input_sequence_id is not in the correct format. 
+    # eg "CCI165_S85_contig_8_162"  becomes "CCI165_S85_contig_8"
+    rgi = hamr_output[hamr_output['analysis_software_name'] == 'rgi']
+    rgi.loc[:,'input_sequence_id'] = rgi['input_sequence_id'].str.split('_').str[:-1].apply(lambda x: '_'.join(x))
     
-    # All resfinder rows are removed from the dataframe  
+    # All resfinder and rgi rows are removed from the dataframe  
     hamr_output = hamr_output[hamr_output['analysis_software_name']!='resfinder']
+    hamr_output = hamr_output[hamr_output['analysis_software_name']!='rgi']
     
     # The modified resfinder rows from step 2 are added to the dataframe
     hamr_output = pd.concat([hamr_output,asm_resfinder])
