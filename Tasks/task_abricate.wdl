@@ -67,7 +67,7 @@ task run_Abricate {
         File abricate_cardDB_tsv_output = "abricate_~{sample_name}_card_hits.tsv"
         File abricate_resfinderDB_tsv_output = "abricate_~{sample_name}_resfinder_hits.tsv"
         File abricate_vfdb_tsv_output = "abricate_~{sample_name}_vfdb_hits.tsv"
-        File abricate_argannotBD_tsv_output = "abricate_~{sample_name}_argannot_hits.tsv"
+        File abricate_argannotDB_tsv_output = "abricate_~{sample_name}_argannot_hits.tsv"
 
     }
 
