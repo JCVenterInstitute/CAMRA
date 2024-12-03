@@ -8,8 +8,22 @@ task run_hAMRonize {
     }
 
     input {
-        Array[File] AMR_files
-        Array[File] VIR_files
+        File abricate_ncbiDB_tsv_output
+        File abricate_cardDB_tsv_output
+        File abricate_resfinderDB_tsv_output
+        File abricate_argannotDB_tsv_output 
+
+        File amrfinder_amr_output
+
+        File resfider_asm_output
+        File? resfinder_read_output
+
+        File rgi_CARD_diamond_tsv_output
+        File rgi_CARD_blast_tsv_output 
+
+        File? bvbrc_amr_file
+
+        Array[File]+ VIR_files
     }
     runtime{
         docker: 'danylmb/hamronize:v1.1.4-build11'
@@ -50,8 +64,22 @@ task run_hAMRonize {
         echo "##################################################"
         mkdir AMR_hAMRonization
 
+        #Create Array of file paths
+        if ~{! defined(bvbrc_amr_file)} && ~{! defined(resfinder_read_output)}; then 
+            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output})
+        elif ~{! defined(bvbrc_amr_file)} && ~{defined(resfinder_read_output)}; then
+            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output} ~{resfinder_read_output})
+        elif ~{defined(bvbrc_amr_file)} && ~{! defined(resfinder_read_output)}; then
+            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output} ~{bvbrc_amr_file})
+        elif ~{defined(bvbrc_amr_file)} && ~{defined(resfinder_read_output)}; then
+            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output} ~{resfinder_read_output} ~{bvbrc_amr_file})
+        else
+            echo "Inputfile Error"
+            exit 1
+        fi 
+
         # Iterate thought all available AMR files and standarize them.
-        for amr_file in ~{sep=" " AMR_files}; do
+        for amr_file in ${file_paths[@]}; do
             amr_name=$(basename "$amr_file") # Get the File's basename
             program="${amr_name%%_*}" # Get the tool the used to create the file (eg abricate, amrfinder, resfinder)
             echo $program
@@ -159,20 +187,22 @@ task run_hAMRonize {
             touch consolidation_isna.tsv consolidation_all.tsv consolidation_amr_over98identity.tsv consolidation_amr_allidentity.tsv
         fi
 
-        >>>
+    >>>
 
     output{
         String hAMRonization_version = read_string("VERSION")
         String hAMRonization_date = read_string("DATE")
 
         
-        File hAMRonization_amr_output = "hamronize_amr_output.tsv"
-        File hAMRonization_vir_output = "hamronize_vir_output.tsv"
+        File? hAMRonization_amr_output = "hamronize_amr_output.tsv"
+        File? hAMRonization_vir_output = "hamronize_vir_output.tsv"
+
         String amrtermconsolidation_version = "1.0.0"
-        File amrtermconsolidation_isna = "consolidation_isna.tsv"
-        File amrtermconsolidation_all = "consolidation_all.tsv"
-        File amrtermconsolidation_over98 = "consolidation_amr_over98identity.tsv"
-        File amrtermconsolidation_allidentity = "consolidation_amr_allidentity.tsv"
+
+        File? amrtermconsolidation_isna = "consolidation_isna.tsv"
+        File? amrtermconsolidation_all = "consolidation_all.tsv"
+        File? amrtermconsolidation_over98 = "consolidation_amr_over98identity.tsv"
+        File? amrtermconsolidation_allidentity = "consolidation_amr_allidentity.tsv"
     }
 
 }
