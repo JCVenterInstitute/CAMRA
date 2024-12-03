@@ -33,8 +33,9 @@ def clean_df(hamr_output):
     hamr_output = hamr_output[hamr_output['analysis_software_name']!='resfinder']
     hamr_output = hamr_output[hamr_output['analysis_software_name']!='rgi']
     
-    # The modified resfinder rows from step 2 are added to the dataframe
+    # The modified resfinder and rgi rows from step 2 are added to the dataframe
     hamr_output = pd.concat([hamr_output,asm_resfinder])
+    hamr_output = pd.concat([hamr_output,rgi])
     print("PY cleaned")
     return hamr_output, read_resfinder
 
