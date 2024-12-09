@@ -1,0 +1,11 @@
+{
+  "amr_analysis.blast_carbapen_query": "/Users/dmatute/Documents/CAMRA/data/reference/from-Derrick-refgene_catalog_OKP-B/ncbi_dataset/data/nucleotide.fna",
+  "amr_analysis.read1": "/Users/dmatute/Documents/CAMRA/CURRENT_WORK/BVBRCvsNCBIvsCAMRA/test_ARM_wdl/SRR29751096_1.fastq.gz",
+  "amr_analysis.assembly": "/Users/dmatute/Documents/CAMRA/CURRENT_WORK/BVBRCvsNCBIvsCAMRA/test_ARM_wdl/bvbrc_assembly_contigs.fasta",
+  "amr_analysis.read2": "/Users/dmatute/Documents/CAMRA/CURRENT_WORK/BVBRCvsNCBIvsCAMRA/test_ARM_wdl/SRR29751096_2.fastq.gz",
+  "amr_analysis.bvbrc_amr_file": "/Users/dmatute/Documents/CAMRA/CURRENT_WORK/BVBRCvsNCBIvsCAMRA/test_ARM_wdl/CGA_Klebsiella_pneumoniae_SRR29751096/annoation_dir/bvbrc_amr_annotation.tsv",
+  "amr_analysis.genus": "Klebsiella",
+  "amr_analysis.sample_name": "SAMN21162358",
+  "amr_analysis.species": "pneumoniae"
+}
+

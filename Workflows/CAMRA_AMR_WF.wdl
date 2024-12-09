@@ -20,13 +20,13 @@ workflow amr_analysis   {
     }
     input {
         File assembly
-        File read1
-        File read2
+        File? read1 
+        File? read2 
         File blast_carbapen_query
         String sample_name
         String genus
         String species
-        File bvbrc_amr_file
+        File? bvbrc_amr_file 
     }
 
     # Task to combine genus and species
@@ -59,6 +59,7 @@ workflow amr_analysis   {
             assembly = assembly,
             sample_name = sample_name,
     }
+
     call resfinder.run_ResFinder{
         input:
             assembly = assembly,
@@ -69,30 +70,30 @@ workflow amr_analysis   {
     }
 
     call hamronize.run_hAMRonize {
-        input:
-            AMR_files = [
-                run_Abricate.abricate_ncbiDB_tsv_output,
-                run_Abricate.abricate_cardDB_tsv_output, 
-                run_Abricate.abricate_resfinderDB_tsv_output, 
-                run_Abricate.abricate_argannotBD_tsv_output, 
+            input:
+                abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
+                abricate_cardDB_tsv_output  = run_Abricate.abricate_cardDB_tsv_output, 
+                abricate_resfinderDB_tsv_output  = run_Abricate.abricate_resfinderDB_tsv_output, 
+                abricate_argannotDB_tsv_output  = run_Abricate.abricate_argannotDB_tsv_output, 
 
-                run_AMRfinderPlus.amrfinder_amr_output,
+                amrfinder_amr_output = run_AMRfinderPlus.amrfinder_amr_output,
 
-                run_ResFinder.resfider_asm_output,
-                run_ResFinder.resfinder_read_output,
+                resfider_asm_output = run_ResFinder.resfider_asm_output,
+                resfinder_read_output = run_ResFinder.resfinder_read_output,
 
-                run_RGI.rgi_CARD_diamond_tsv_output,
-                run_RGI.rgi_CARD_blast_tsv_output,
+                rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output,
+                rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output,
 
-                bvbrc_amr_file
-            ],
-            VIR_files = [
-                run_Abricate.abricate_vfdb_tsv_output, 
-                run_AMRfinderPlus.amrfinder_virulence_output
-            ]
-    }
+                bvbrc_amr_file = bvbrc_amr_file,
+                VIR_files = [
+                    run_Abricate.abricate_vfdb_tsv_output, 
+                    run_AMRfinderPlus.amrfinder_virulence_output
+                ]
+        }
+    
 
-    output{
+
+    output {
         # Optional Output - blast against userinput query
         File blastn_output = run_Query_Blastn.blastn_output
 
@@ -111,7 +112,7 @@ workflow amr_analysis   {
         File abricate_cardDB_tsv_output = run_Abricate.abricate_cardDB_tsv_output
         File abricate_resfinderDB_tsv_output = run_Abricate.abricate_resfinderDB_tsv_output
         File abricate_vfdb_tsv_output = run_Abricate.abricate_vfdb_tsv_output 
-        File abricate_argannotBD_tsv_output = run_Abricate.abricate_argannotBD_tsv_output
+        File abricate_argannotDB_tsv_output = run_Abricate.abricate_argannotDB_tsv_output
 
         File abricate_DB_version = run_Abricate.abricate_DB_version
         String abricate_version = run_Abricate.abricate_version 
@@ -120,25 +121,25 @@ workflow amr_analysis   {
         # hAMRonization
         String hAMRonization_version = run_hAMRonize.hAMRonization_version
         String hAMRonization_date = run_hAMRonize.hAMRonization_date
-        File hAMRonization_amr_output = run_hAMRonize.hAMRonization_amr_output
-        File hAMRonization_vir_output = run_hAMRonize.hAMRonization_vir_output
+        File? hAMRonization_amr_output = run_hAMRonize.hAMRonization_amr_output
+        File? hAMRonization_vir_output = run_hAMRonize.hAMRonization_vir_output
 
         # AMR Term Consolidation
-        File amrtermconsolidation_isna = run_hAMRonize.amrtermconsolidation_isna
-        File amrtermconsolidation_all = run_hAMRonize.amrtermconsolidation_all
-        File amrtermconsolidation_over98 = run_hAMRonize.amrtermconsolidation_over98 
-        File amrtermconsolidation_allidentity = run_hAMRonize.amrtermconsolidation_allidentity
+        File? amrtermconsolidation_isna = run_hAMRonize.amrtermconsolidation_isna
+        File? amrtermconsolidation_all = run_hAMRonize.amrtermconsolidation_all
+        File? amrtermconsolidation_over98 = run_hAMRonize.amrtermconsolidation_over98 
+        File? amrtermconsolidation_allidentity = run_hAMRonize.amrtermconsolidation_allidentity
 
         # ResFinder
         String resfinder_version = run_ResFinder.resfinder_version
         String resfinder_kma_version = run_ResFinder.resfinder_kma_version
         String resfinder_db_version = run_ResFinder.resfinder_db_version
         File resfider_asm_output = run_ResFinder.resfider_asm_output
-        File resfinder_read_output = run_ResFinder.resfinder_read_output
+        File? resfinder_read_output = run_ResFinder.resfinder_read_output
         File resfinder_asm_hits = run_ResFinder.resfinder_asm_hits
-        File resfinder_read_hits = run_ResFinder.resfinder_read_hits
+        File? resfinder_read_hits = run_ResFinder.resfinder_read_hits
         File resfinder_asm_argseq = run_ResFinder.resfinder_asm_argseq
-        File resfinder_read_argseq = run_ResFinder.resfinder_read_argseq
+        File? resfinder_read_argseq = run_ResFinder.resfinder_read_argseq
 
         # RGI
         String rgi_CARD_DB_version = run_RGI.rgi_CARD_DB_version
@@ -150,4 +151,6 @@ workflow amr_analysis   {
         File rgi_CARD_diamond_json_output = run_RGI.rgi_CARD_diamond_json_output
         File rgi_CARD_blast_json_output = run_RGI.rgi_CARD_blast_json_output
     }  
+
 }
+
