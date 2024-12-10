@@ -1,4 +1,4 @@
-FROM  debian:rc-buggy
+FROM debian:rc-buggy
 LABEL maintainer="Daniella Matute <dmatute@jcvi.org>" 
 LABEL base.image="debian:rc-buggy"
 LABEL software="hAMRonization"
