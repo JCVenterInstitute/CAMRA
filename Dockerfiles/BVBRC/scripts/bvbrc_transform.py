@@ -37,7 +37,10 @@ for i in annotation_genome['features']:
         features_dict[ID]['contig'] = features_dict[ID]['location'][0][0]
         features_dict[ID]['start'] = features_dict[ID]['location'][0][1]
         features_dict[ID]['orientation'] = features_dict[ID]['location'][0][2]
-        features_dict[ID]['end'] = features_dict[ID]['location'][0][3]
+        if features_dict[ID]['orientation'] == "+":
+            features_dict[ID]['end'] = int(features_dict[ID]['location'][0][3]) + int(features_dict[ID]['start'])
+        elif features_dict[ID]['orientation'] == "-":
+            features_dict[ID]['end'] =  int(features_dict[ID]['start']) - int(features_dict[ID]['location'][0][3]) 
         # FIX COLUMNS : Slit events so the amr annotation event can be found later
         event_count = 1 
         for j in features_dict[ID]['annotations']:
