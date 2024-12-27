@@ -102,6 +102,7 @@ task run_annotation_analysis {
             python3 /bin/bvbrc_jobs.py -cgal -a "~{contigs_file_local}" -u "~{username}" -sci "~{scientific_name}" -n "~{sample_name_no_space}" -tax "~{taxonomy_id}" --debug
         fi
 
+        #/bin/bvbrc_transform.py makes bvbrc_amr_annotation.tsv and bvbrc_predicted_resistance.tsv
         python3 /bin/bvbrc_transform.py bvbrc_cga_output/quality.json  bvbrc_cga_output/annotation.genome bvbrc_cga_output/genome_amr.json
     >>>
 
