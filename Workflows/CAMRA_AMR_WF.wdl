@@ -6,6 +6,7 @@ import "../Tasks/task_hamronization.wdl" as hamronize
 import "../Tasks/task_resfinder.wdl" as resfinder
 import "../Tasks/task_utilities.wdl" as utilities
 import "../Tasks/task_rgi.wdl" as rgi
+import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
 
 
 workflow amr_analysis   {
@@ -22,11 +23,16 @@ workflow amr_analysis   {
         File assembly
         File? read1 
         File? read2 
-        File blast_carbapen_query
+        File blast_query
         String sample_name
         String genus
         String species
         File? bvbrc_amr_file 
+
+        String? bvbrc_assembly_path
+        String BVBRC_username
+        String BVBRC_password
+        String? timestamp
     }
 
     # Task to combine genus and species
@@ -51,7 +57,7 @@ workflow amr_analysis   {
     call amrfinder.run_Query_Blastn {
         input:
             assembly = assembly,
-            query = blast_carbapen_query
+            query = blast_query
     }
     
     call abricate.run_Abricate{
@@ -69,6 +75,20 @@ workflow amr_analysis   {
         
     }
 
+    # BVBRC docker and build task to send assembly and conduct genome analysis & annotation
+    call bvbrc.run_annotation_analysis {
+        input:
+            username = BVBRC_username,
+            password = BVBRC_password,
+            bvbrc_assembly_path = bvbrc_assembly_path,
+            contigs_file_local = assembly,
+            sample_name = sample_name,
+            timestamp = timestamp,
+            scientific_name = run_taxajoin.organism,  # "Genus species" from MASH, Optional
+            taxonomy_id = 2
+    }
+
+
     call hamronize.run_hAMRonize {
             input:
                 abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
@@ -84,7 +104,7 @@ workflow amr_analysis   {
                 rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output,
                 rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output,
 
-                bvbrc_amr_file = bvbrc_amr_file,
+                bvbrc_amr_file = run_annotation_analysis.bvbrc_transformed_amrhits,
                 VIR_files = [
                     run_Abricate.abricate_vfdb_tsv_output, 
                     run_AMRfinderPlus.amrfinder_virulence_output
@@ -94,6 +114,12 @@ workflow amr_analysis   {
 
 
     output {
+        # BVBRC Annotation
+        File bvbrc_full_genome_report = run_annotation_analysis.bvbrc_full_genome_report
+        File bvbrc_genome_annotation = run_annotation_analysis.bvbrc_genome_annotation
+        File bvbrc_transformed_predictedresistance = run_annotation_analysis.bvbrc_transformed_predictedresistance
+        File bvbrc_transformed_amrhits = run_annotation_analysis.bvbrc_transformed_amrhits
+
         # Optional Output - blast against userinput query
         File blastn_output = run_Query_Blastn.blastn_output
 
