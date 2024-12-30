@@ -18,7 +18,7 @@ task run_genome_assembly {
     }
 
     runtime {
-        docker: 'danylmb/bvbrc:5.1'
+        docker: 'danylmb/bvbrc:5.2'
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
@@ -88,7 +88,7 @@ task run_annotation_analysis {
     }
 
     runtime {
-        docker: 'danylmb/bvbrc:5.1'
+        docker: 'danylmb/bvbrc:5.2'
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
