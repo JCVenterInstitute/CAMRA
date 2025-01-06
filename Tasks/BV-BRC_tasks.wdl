@@ -104,6 +104,19 @@ task run_annotation_analysis {
 
         #/bin/bvbrc_transform.py makes bvbrc_amr_annotation.tsv and bvbrc_predicted_resistance.tsv
         python3 /bin/bvbrc_transform.py bvbrc_cga_output/quality.json  bvbrc_cga_output/annotation.genome bvbrc_cga_output/genome_amr.json
+
+        # List of files to check
+        files=("bvbrc_amr_annotation.tsv" "bvbrc_predicted_resistance.tsv")
+        
+        # Loop through each file
+        for file in "${files[@]}"; do
+          if [[ -e "$file" ]]; then
+            echo "The file '$file' exists."
+          else
+            echo "The file '$file' does not exist. Creating it..."
+            touch "$file"
+          fi
+        done
     >>>
 
     output {
