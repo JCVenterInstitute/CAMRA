@@ -15,6 +15,9 @@ task run_Abricate {
     }
     runtime{
         docker: 'staphb/abricate:1.0.1-insaflu-220727'
+        cpu: 8  # Use 8 CPUs (system can handle 12)
+        memory: "16 GB"  # Use 16 GB of RAM (system can handle 19 GB)
+        disks: "40 GB"  # Allocate 40 GB of HDD space
     }
 
     command <<<

@@ -9,11 +9,9 @@ task run_ResFinder {
 
     runtime{
         docker: 'danylmb/resfinder:v4.5.0'
-        memory: "8 GB"
-        cpu: 4
-        disks: "local-disk " + 100 + " SSD"
-        disk: 100 + " GB"
-        maxRetries: 3
+        cpu: 8  # Use 8 CPUs (system can handle 12)
+        memory: "16 GB"  # Use 16 GB of RAM (system can handle 19 GB)
+        disks: "40 GB"  # Allocate 40 GB of HDD space
     }
 
     input {

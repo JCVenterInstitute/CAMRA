@@ -19,6 +19,9 @@ task run_genome_assembly {
 
     runtime {
         docker: 'danylmb/bvbrc:5.2'
+        cpu: 8  # Use 8 CPUs (system can handle 12)
+        memory: "16 GB"  # Use 16 GB of RAM (system can handle 19 GB)
+        disks: "40 GB"  # Allocate 40 GB of HDD space
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
@@ -89,6 +92,9 @@ task run_annotation_analysis {
 
     runtime {
         docker: 'danylmb/bvbrc:5.2'
+        cpu: 8  # Use 8 CPUs (system can handle 12)
+        memory: "16 GB"  # Use 16 GB of RAM (system can handle 19 GB)
+        disks: "40 GB"  # Allocate 40 GB of HDD space
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
