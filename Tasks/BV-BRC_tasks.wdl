@@ -1,6 +1,6 @@
 version 1.0
 # All taks relating to BV-BRC
-task run_genome_assembly {
+task run_BVBRC_genome_assembly {
     meta {
         author: "Andrew LaPointe"
         email: "andrewrlapointe@gmail.com"
@@ -68,7 +68,7 @@ task run_genome_assembly {
 }
 
 
-task run_annotation_analysis {
+task run_BVBRC_annotation_analysis {
     meta {
         author: "Andrew LaPointe"
         email: "andrewrlapointe@gmail.com"
@@ -102,20 +102,23 @@ task run_annotation_analysis {
             python3 /bin/bvbrc_jobs.py -cgal -a "~{contigs_file_local}" -u "~{username}" -sci "~{scientific_name}" -n "~{sample_name_no_space}" -tax "~{taxonomy_id}" --debug
         fi
 
-        #/bin/bvbrc_transform.py makes bvbrc_amr_annotation.tsv and bvbrc_predicted_resistance.tsv
-        python3 /bin/bvbrc_transform.py bvbrc_cga_output/quality.json  bvbrc_cga_output/annotation.genome bvbrc_cga_output/genome_amr.json
+        if [[ -f "bvbrc_cga_output/quality.json" && -f "bvbrc_cga_output/annotation.genome" && -f "bvbrc_cga_output/genome_amr.json" && -f "bvbrc_cga_output/annotation.feature_protein.fasta" ]]; then
+            #/bin/bvbrc_transform.py makes bvbrc_amr_annotation.tsv and bvbrc_predicted_resistance.tsv
+            python3 /bin/bvbrc_transform.py bvbrc_cga_output/quality.json  bvbrc_cga_output/annotation.genome bvbrc_cga_output/genome_amr.json
+        fi
+
+        gzip "bvbrc_cga_output/annotation.feature_protein.fasta"
 
         # List of files to check
         files=("bvbrc_amr_annotation.tsv" "bvbrc_predicted_resistance.tsv")
         
         # Loop through each file
         for file in "${files[@]}"; do
-          if [[ -e "$file" ]]; then
+            if [[ -e "$file" ]]; then
             echo "The file '$file' exists."
-          else
+        else
             echo "The file '$file' does not exist. Creating it..."
             touch "$file"
-          fi
         done
     >>>
 
@@ -124,7 +127,8 @@ task run_annotation_analysis {
         File bvbrc_genome_annotation = "bvbrc_cga_output/annotation.genome"
         File bvbrc_amr_annotation = "bvbrc_cga_output/genome_amr.json"
         File bvbrc_annotation_quality = "bvbrc_cga_output/quality.json"
-        File bvbrc_transformed_amrhits = "./bvbrc_amr_annotation.tsv"
-        File bvbrc_transformed_predictedresistance = "bvbrc_predicted_resistance.tsv"
+        File bvbrc_transformed_amrhits = ".bvbrc_cga_output/bvbrc_amr_annotation.tsv"
+        File bvbrc_transformed_predictedresistance = ".bvbrc_cga_output/bvbrc_predicted_resistance.tsv"
+        File bvbrc_feature_protein = ".bvbrc_cga_output/annotation.feature_protein.fasta.gz"
     }
 }
