@@ -1,0 +1,34 @@
+Unable to find image 'staphb/ncbi-amrfinderplus@sha256:45ca96cec979493a45e451921b2a63796184b732c16cf422ec4383177e12236b' locally
+docker.io/staphb/ncbi-amrfinderplus@sha256:45ca96cec979493a45e451921b2a63796184b732c16cf422ec4383177e12236b: Pulling from staphb/ncbi-amrfinderplus
+57c139bbda7e: Pulling fs layer
+309abe8ac479: Pulling fs layer
+9ae7d7dc496f: Pulling fs layer
+76c58009c1ab: Pulling fs layer
+9e9cc43ac7cd: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+76c58009c1ab: Waiting
+9e9cc43ac7cd: Waiting
+4f4fb700ef54: Waiting
+9ae7d7dc496f: Verifying Checksum
+9ae7d7dc496f: Download complete
+309abe8ac479: Verifying Checksum
+309abe8ac479: Download complete
+57c139bbda7e: Verifying Checksum
+57c139bbda7e: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+57c139bbda7e: Pull complete
+309abe8ac479: Pull complete
+9ae7d7dc496f: Pull complete
+9e9cc43ac7cd: Verifying Checksum
+9e9cc43ac7cd: Download complete
+76c58009c1ab: Verifying Checksum
+76c58009c1ab: Download complete
+76c58009c1ab: Pull complete
+9e9cc43ac7cd: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:45ca96cec979493a45e451921b2a63796184b732c16cf422ec4383177e12236b
+Status: Downloaded newer image for staphb/ncbi-amrfinderplus@sha256:45ca96cec979493a45e451921b2a63796184b732c16cf422ec4383177e12236b
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+BLAST options error: File /data/assembly.fasta does not exist
+BLAST Database error: No alias or index file found for nucleotide database [genome_db] in search path [/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution::]

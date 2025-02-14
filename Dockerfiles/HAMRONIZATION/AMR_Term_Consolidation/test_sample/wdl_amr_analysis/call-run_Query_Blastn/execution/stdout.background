@@ -1,0 +1,10 @@
+23542
+
+
+Building a new DB, current time: 01/08/2025 19:00:22
+New DB name:   /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/genome_db
+New DB title:  /data/assembly.fasta
+Sequence type: Nucleotide
+Keep MBits: T
+Maximum file size: 3000000000B
+3866ecc94aada839d6198152b42b0ce43463643fb55a094602f902e7a6dc3c49

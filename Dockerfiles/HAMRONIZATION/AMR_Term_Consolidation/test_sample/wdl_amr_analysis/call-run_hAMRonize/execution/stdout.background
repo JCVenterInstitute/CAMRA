@@ -1,0 +1,62 @@
+29607
+Wed Jan  8 19:21:57 UTC 2025
+hamronize 1.1.7
+##################################################
+START AMR HARMONIZATION 
+##################################################
+abricate
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/317533071/abricate_GCA_030128905_ncbi_hits.tsv = abricate
+    The DataFrame has rows.
+    Starting hamronization of abricate_GCA_030128905_ncbi_hits.tsv
+abricate
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/317533071/abricate_GCA_030128905_card_hits.tsv = abricate
+    The DataFrame has rows.
+    Starting hamronization of abricate_GCA_030128905_card_hits.tsv
+abricate
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/317533071/abricate_GCA_030128905_resfinder_hits.tsv = abricate
+    The DataFrame has rows.
+    Starting hamronization of abricate_GCA_030128905_resfinder_hits.tsv
+abricate
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/317533071/abricate_GCA_030128905_argannot_hits.tsv = abricate
+    The DataFrame has rows.
+    Starting hamronization of abricate_GCA_030128905_argannot_hits.tsv
+amrfinderplus
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/-1830734416/amrfinderplus_amr.tsv = amrfinderplus
+    The DataFrame has rows.
+    Starting hamronization of amrfinderplus_amr.tsv
+resfinder
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/2067131227/resfinder_asm_results_tab.txt = resfinder
+    The DataFrame has rows.
+    Starting hamronization of resfinder_asm_results_tab.txt
+rgi
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/1371105566/rgi_diamond_report.txt = rgi
+    The DataFrame has rows.
+    Starting hamronization of rgi_diamond_report.txt
+rgi
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/1371105566/rgi_blast_report.txt = rgi
+    The DataFrame has rows.
+    Starting hamronization of rgi_blast_report.txt
+bvbrc
+    /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_hAMRonize/inputs/-1114750378/bvbrc_amr_annotation.tsv = bvbrc
+    The DataFrame has rows.
+    Starting hamronization of bvbrc_amr_annotation.tsv
+    AMR Harmonisation DONE
+##################################################
+START VIRULENCE HARMONIZATION 
+##################################################
+abricate
+    No data available in the DataFrame or file does not exist.
+amrfinderplus
+    No data available in the DataFrame or file does not exist.
+The directory AMR_hAMRonization/ is empty. 
+##################################################
+START AMR TERM CONSOLIDATION 
+##################################################
+    The DataFrame has rows.
+PY file imported hamronize_amr_output.tsv
+PY cleaned
+PY make harmonization files
+>>>>> 0
+PY DONE
+    Consolidation DONE
+88e2e2454b1b849f7a9be2a8406a9c3af0400e7ddc044fe1365c64b68d121a1d

@@ -1,0 +1,3 @@
+#!/bin/bash
+'/bin/bash' '/Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_ResFinder/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_ResFinder/execution/rc &
+echo $!

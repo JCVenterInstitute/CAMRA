@@ -1,0 +1,177 @@
+Unable to find image 'staphb/abricate@sha256:83c17fdf467cdd32888fa4b83f0390170e98abc05b689525c731ef200090ebdb' locally
+docker.io/staphb/abricate@sha256:83c17fdf467cdd32888fa4b83f0390170e98abc05b689525c731ef200090ebdb: Pulling from staphb/abricate
+eaead16dc43b: Pulling fs layer
+b70f6d7c253d: Pulling fs layer
+9989383bd1bc: Pulling fs layer
+eaead16dc43b: Waiting
+b70f6d7c253d: Waiting
+79e1861a3424: Pulling fs layer
+9989383bd1bc: Waiting
+bc4670438c06: Pulling fs layer
+ebfbb1b1d71c: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+79e1861a3424: Waiting
+bc4670438c06: Waiting
+ebfbb1b1d71c: Waiting
+4f4fb700ef54: Waiting
+eaead16dc43b: Verifying Checksum
+eaead16dc43b: Download complete
+eaead16dc43b: Pull complete
+b70f6d7c253d: Verifying Checksum
+b70f6d7c253d: Download complete
+9989383bd1bc: Verifying Checksum
+9989383bd1bc: Download complete
+b70f6d7c253d: Pull complete
+9989383bd1bc: Pull complete
+79e1861a3424: Verifying Checksum
+79e1861a3424: Download complete
+bc4670438c06: Download complete
+79e1861a3424: Pull complete
+bc4670438c06: Pull complete
+ebfbb1b1d71c: Verifying Checksum
+ebfbb1b1d71c: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+ebfbb1b1d71c: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:83c17fdf467cdd32888fa4b83f0390170e98abc05b689525c731ef200090ebdb
+Status: Downloaded newer image for staphb/abricate@sha256:83c17fdf467cdd32888fa4b83f0390170e98abc05b689525c731ef200090ebdb
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Setting up 'ncbi' in '/abricate-1.0.1/db/ncbi'
+Downloading: https://ftp.ncbi.nlm.nih.gov/pathogen/Antimicrobial_resistance/AMRFinderPlus/database/latest/AMR_CDS
+HTTP Result: 404
+Destination: amr_cds.ffn
+Filesize:  bytes
+Downloading: https://ftp.ncbi.nlm.nih.gov/pathogen/Antimicrobial_resistance/AMRFinderPlus/database/latest/ReferenceGeneCatalog.txt
+HTTP Result: 200
+Destination: amr_cds.tsv
+Filesize: 1996813 bytes
+[amr_cds.tsv] Loaded 7383 records
+
+------------- EXCEPTION: Bio::Root::Exception -------------
+MSG: Could not read file 'amr_cds.ffn': No such file or directory
+STACK: Error::throw
+STACK: Bio::Root::Root::throw /usr/share/perl5/Bio/Root/Root.pm:449
+STACK: Bio::Root::IO::_initialize_io /usr/share/perl5/Bio/Root/IO.pm:272
+STACK: Bio::SeqIO::_initialize /usr/share/perl5/Bio/SeqIO.pm:508
+STACK: Bio::SeqIO::fasta::_initialize /usr/share/perl5/Bio/SeqIO/fasta.pm:88
+STACK: Bio::SeqIO::new /usr/share/perl5/Bio/SeqIO.pm:384
+STACK: Bio::SeqIO::new /usr/share/perl5/Bio/SeqIO.pm:430
+STACK: main::get_ncbi /abricate-1.0.1/bin/abricate-get_db:293
+STACK: /abricate-1.0.1/bin/abricate-get_db:60
+-----------------------------------------------------------
+Setting up 'card' in '/abricate-1.0.1/db/card'
+Downloading: https://card.mcmaster.ca/latest/data
+HTTP Result: 200
+Destination: card.tar.bz2
+Filesize: 4605784 bytes
+dedupe_seq: read 6048 / kept 6048
+Sorting sequences by ID
+save_fasta: /abricate-1.0.1/db/card/sequences
+save_fasta: wrote 6048 sequences
+Formatting BLASTN database: /abricate-1.0.1/db/card/sequences
+Done.
+Setting up 'resfinder' in '/abricate-1.0.1/db/resfinder'
+Nuking existing folder: resfinder_db
+Cloning https://bitbucket.org/genomicepidemiology/resfinder_db.git to resfinder_db
+get_resfinder: resfinder_db/phenotypes.txt 2589 genes
+load_fasta: resfinder_db/all.fsa
+load_fasta: read 3198 nucl sequences
+load_fasta: resfinder_db/aminoglycoside.fsa
+load_fasta: read 264 nucl sequences
+load_fasta: resfinder_db/beta-lactam.fsa
+load_fasta: read 2016 nucl sequences
+load_fasta: resfinder_db/colistin.fsa
+load_fasta: read 106 nucl sequences
+load_fasta: resfinder_db/fosfomycin.fsa
+load_fasta: read 40 nucl sequences
+load_fasta: resfinder_db/fusidicacid.fsa
+load_fasta: read 3 nucl sequences
+load_fasta: resfinder_db/glycopeptide.fsa
+load_fasta: read 46 nucl sequences
+load_fasta: resfinder_db/macrolide.fsa
+load_fasta: read 174 nucl sequences
+load_fasta: resfinder_db/misc.fsa
+load_fasta: read 2 nucl sequences
+load_fasta: resfinder_db/nitroimidazole.fsa
+load_fasta: read 14 nucl sequences
+load_fasta: resfinder_db/oxazolidinone.fsa
+load_fasta: read 22 nucl sequences
+load_fasta: resfinder_db/phenicol.fsa
+load_fasta: read 48 nucl sequences
+load_fasta: resfinder_db/pseudomonicacid.fsa
+load_fasta: read 3 nucl sequences
+load_fasta: resfinder_db/quinolone.fsa
+load_fasta: read 126 nucl sequences
+load_fasta: resfinder_db/rifampicin.fsa
+load_fasta: read 10 nucl sequences
+load_fasta: resfinder_db/sulphonamide.fsa
+load_fasta: read 54 nucl sequences
+load_fasta: resfinder_db/tetracycline.fsa
+load_fasta: read 161 nucl sequences
+load_fasta: resfinder_db/trimethoprim.fsa
+load_fasta: read 109 nucl sequences
+grdA_1 - revcom resolves problem, hooray!
+blaSPG-1_1 - revcom resolves problem, hooray!
+blaBIM-1_1 - revcom resolves problem, hooray!
+grdA_1 - revcom resolves problem, hooray!
+blaSPG-1_1 - revcom resolves problem, hooray!
+blaBIM-1_1 - revcom resolves problem, hooray!
+dedupe_seq: read 6396 / kept 3192
+Sorting sequences by ID
+save_fasta: /abricate-1.0.1/db/resfinder/sequences
+save_fasta: wrote 3192 sequences
+Formatting BLASTN database: /abricate-1.0.1/db/resfinder/sequences
+Done.
+Setting up 'vfdb' in '/abricate-1.0.1/db/vfdb'
+Downloading: http://www.mgc.ac.cn/VFs/Down/VFDB_setA_nt.fas.gz
+HTTP Result: 200
+Destination: vfdb.fa.gz
+Filesize: 1812160 bytes
+load_fasta: vfdb.fa
+load_fasta: read 4394 nucl sequences
+dedupe_seq: read 4394 / kept 4392
+Sorting sequences by ID
+save_fasta: /abricate-1.0.1/db/vfdb/sequences
+save_fasta: wrote 4392 sequences
+Formatting BLASTN database: /abricate-1.0.1/db/vfdb/sequences
+Done.
+Setting up 'argannot' in '/abricate-1.0.1/db/argannot'
+Downloading: https://www.mediterranee-infection.com/wp-content/uploads/2019/06/ARG_ANNOT_V5_Nt_JUNE2019.txt
+HTTP Result: 200
+Destination: arg-annot.fa
+Filesize: 2166228 bytes
+load_fasta: arg-annot.fa
+load_fasta: read 2249 nucl sequences
+dedupe_seq: read 2249 / kept 2223
+Sorting sequences by ID
+save_fasta: /abricate-1.0.1/db/argannot/sequences
+save_fasta: wrote 2223 sequences
+Formatting BLASTN database: /abricate-1.0.1/db/argannot/sequences
+Done.
+grep: input file 'DB_VERSION' is also the output
+Using nucl database ncbi:  5386 sequences -  2022-Nov-16
+Processing: /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Found 10 genes in /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Tip: you can use the --summary option to combine reports in a presence/absence matrix.
+Done.
+Using nucl database card:  6048 sequences -  2025-Jan-8
+Processing: /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Found 32 genes in /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Tip: found a bug in abricate? Post it at https://github.com/tseemann/abricate/issues.
+Done.
+Using nucl database resfinder:  3192 sequences -  2025-Jan-8
+Processing: /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Found 10 genes in /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Tip: abricate can also find virulence factors; use --list to see all supported databases.
+Done.
+Using nucl database vfdb:  4392 sequences -  2025-Jan-8
+Processing: /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Found 81 genes in /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Tip: have a suggestion for abricate? Tell me at https://github.com/tseemann/abricate/issues
+Done.
+Using nucl database argannot:  2223 sequences -  2025-Jan-8
+Processing: /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Found 12 genes in /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Abricate/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
+Tip: the --fofn option allows you to feed in a big list of files to run on.
+Done.

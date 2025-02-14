@@ -1,0 +1,62 @@
+Aminoglycoside
+Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
+aph(6)-Id	100.00	837/837	100.0	1..837	JAOCNF010000031.1 Klebsiella pneumoniae strain VG313 NODE_31_length_29234_cov_296.787598_pilon_pilon, whole genome shotgun sequence	5293..6129	Streptomycin	M28829
+aph(3'')-Ib	100.00	804/804	100.0	1..804	JAOCNF010000031.1 Klebsiella pneumoniae strain VG313 NODE_31_length_29234_cov_296.787598_pilon_pilon, whole genome shotgun sequence	4490..5293	Streptomycin	AF321551
+
+Beta-lactam
+Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
+blaSHV-11	99.77	861/861	100.0	1..861	JAOCNF010000001.1 Klebsiella pneumoniae strain VG313 NODE_1_length_1129239_cov_221.664558_pilon_pilon, whole genome shotgun sequence	276379..277239	Amoxicillin, Ampicillin, Cephalothin, Piperacillin, Ticarcillin	X98101
+blaSHV-67	99.77	861/861	100.0	1..861	JAOCNF010000001.1 Klebsiella pneumoniae strain VG313 NODE_1_length_1129239_cov_221.664558_pilon_pilon, whole genome shotgun sequence	276379..277239	Unknown Beta-lactam	DQ174307
+blaKPC-3	100.00	882/882	100.0	1..882	JAOCNF010000031.1 Klebsiella pneumoniae strain VG313 NODE_31_length_29234_cov_296.787598_pilon_pilon, whole genome shotgun sequence	16646..17527	Amoxicillin, Amoxicillin+Clavulanic acid, Ampicillin, Ampicillin+Clavulanic acid, Aztreonam, Cefepime, Cefotaxime, Cefoxitin, Ceftazidime, Ertapenem, Imipenem, Meropenem, Piperacillin, Piperacillin+Tazobactam, Ticarcillin, Ticarcillin+Clavulanic acid	HM769262
+blaTEM-1A	100.00	861/861	100.0	1..861	JAOCNF010000031.1 Klebsiella pneumoniae strain VG313 NODE_31_length_29234_cov_296.787598_pilon_pilon, whole genome shotgun sequence	6850..7710	Amoxicillin, Ampicillin, Cephalothin, Piperacillin, Ticarcillin	HM749966
+
+Colistin
+No hit found
+
+Fosfomycin
+Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
+fosA	98.79	413/420	98.33333333333333	1..413	JAOCNF010000020.1 Klebsiella pneumoniae strain VG313 NODE_20_length_95520_cov_264.852090_pilon_pilon, whole genome shotgun sequence	81095..81507	Fosfomycin	AFBO01000747
+
+Fusidic Acid
+No hit found
+
+MLS - Macrolide, Lincosamide and Streptogramin B
+No hit found
+
+Misc
+No hit found
+
+Nitroimidazole
+No hit found
+
+Oxazolidinone
+No hit found
+
+Phenicol
+No hit found
+
+Fluoroquinolone
+Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
+OqxB	98.54	3153/3153	100.0	1..3153	JAOCNF010000029.1 Klebsiella pneumoniae strain VG313 NODE_29_length_35678_cov_246.443471_pilon_pilon, whole genome shotgun sequence	31907..35059	Chloramphenicol, Nalidixic acid, Ciprofloxacin, Trimethoprim	EU370913
+OqxA	99.49	1176/1176	100.0	1..1176	JAOCNF010000029.1 Klebsiella pneumoniae strain VG313 NODE_29_length_35678_cov_246.443471_pilon_pilon, whole genome shotgun sequence	30708..31883	Chloramphenicol, Nalidixic acid, Ciprofloxacin, Trimethoprim	EU370913
+
+Rifampicin
+No hit found
+
+Sulphonamide
+Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
+sul2	100.00	816/816	100.0	1..816	JAOCNF010000031.1 Klebsiella pneumoniae strain VG313 NODE_31_length_29234_cov_296.787598_pilon_pilon, whole genome shotgun sequence	3614..4429	Sulfamethoxazole	AY034138
+
+Tetracycline
+No hit found
+
+Trimethoprim
+Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
+dfrA14	100.00	474/474	100.0	1..474	JAOCNF010000036.1 Klebsiella pneumoniae strain VG313 NODE_36_length_7801_cov_271.407820_pilon_pilon, whole genome shotgun sequence	1001..1474	Trimethoprim	KF921535
+
+Glycopeptide
+No hit found
+
+Pseudomonic Acid
+No hit found
+

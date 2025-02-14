@@ -1,0 +1,20 @@
+#!/bin/bash
+# make sure there is no preexisting Docker CID file
+rm -f /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/execution/docker_cid
+# run as in the original configuration without --rm flag (will remove later)
+docker run \
+  --cidfile /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/execution/docker_cid \
+  -i \
+   \
+  --entrypoint /bin/bash \
+  -v /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis:/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis:delegated \
+  danylmb/bvbrc@sha256:b74073ec5589fd3d6daf149e8cab191c8e37742804bfd538e48cc85908d1b28b /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/execution/script
+
+# get the return code (working even if the container was detached)
+rc=$(docker wait `cat /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/execution/docker_cid`)
+
+# remove the container after waiting
+docker rm `cat /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/execution/docker_cid`
+
+# return exit code
+exit $rc

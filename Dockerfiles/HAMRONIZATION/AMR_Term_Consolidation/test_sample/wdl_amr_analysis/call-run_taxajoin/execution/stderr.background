@@ -1,0 +1,9 @@
+Unable to find image 'debian@sha256:5f21ebd358442f40099c997a3f4db906a7b1bd872249e67559f55de654b55d3b' locally
+docker.io/library/debian@sha256:5f21ebd358442f40099c997a3f4db906a7b1bd872249e67559f55de654b55d3b: Pulling from library/debian
+c36481f3df40: Pulling fs layer
+c36481f3df40: Waiting
+c36481f3df40: Verifying Checksum
+c36481f3df40: Download complete
+c36481f3df40: Pull complete
+Digest: sha256:5f21ebd358442f40099c997a3f4db906a7b1bd872249e67559f55de654b55d3b
+Status: Downloaded newer image for debian@sha256:5f21ebd358442f40099c997a3f4db906a7b1bd872249e67559f55de654b55d3b

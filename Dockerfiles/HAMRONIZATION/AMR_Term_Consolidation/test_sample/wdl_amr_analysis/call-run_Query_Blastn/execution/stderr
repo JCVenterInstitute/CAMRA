@@ -1,0 +1,2 @@
+BLAST options error: File /data/assembly.fasta does not exist
+BLAST Database error: No alias or index file found for nucleotide database [genome_db] in search path [/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution::]

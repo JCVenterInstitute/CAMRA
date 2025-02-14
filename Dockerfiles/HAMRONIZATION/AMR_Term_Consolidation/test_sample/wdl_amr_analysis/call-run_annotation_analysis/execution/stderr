@@ -1,0 +1,322 @@
+2025-01-08 19:03:23 DEBUG Running command p3-mkdir /DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/1736363003_GCA_030128905/assembly
+2025-01-08 19:03:26 DEBUG Command ran with output:
+
+2025-01-08 19:03:26 DEBUG Running command p3-cp /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/1736363003_GCA_030128905/assembly
+2025-01-08 19:03:35 DEBUG Command ran with output:
+Copy /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_annotation_analysis/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna to ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/1736363003_GCA_030128905/assembly/GCA_030128905.1_ASM3012890v1_genomic.fna with type=contigs
+
+2025-01-08 19:03:35 DEBUG Running command p3-ls /DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/1736363003_GCA_030128905/assembly --one-column
+2025-01-08 19:03:36 DEBUG Command ran with output:
+GCA_030128905.1_ASM3012890v1_genomic.fna
+
+2025-01-08 19:03:36 DEBUG Running command p3-mkdir /DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA
+2025-01-08 19:03:37 DEBUG Command ran with output:
+
+2025-01-08 19:03:37 DEBUG Running command p3-submit-CGA -contigs ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/1736363003_GCA_030128905/assembly/GCA_030128905.1_ASM3012890v1_genomic.fna -scientific-name Organism is set as: Klebsiella pneumoniae -taxonomy-id 2 -code 11 -domain Bacteria /DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA GCA_030128905_output
+2025-01-08 19:03:45 DEBUG Command ran with output:
+Submitted analysis with id 17972497
+
+2025-01-08 19:03:45 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:03:45 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:03:55 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:03:56 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:04:06 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:04:06 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:04:16 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:04:17 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:04:27 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:04:28 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:04:38 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:04:38 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:04:48 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:04:49 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:04:59 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:04:59 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:05:09 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:05:10 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:05:20 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:05:20 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:05:30 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:05:30 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:05:40 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:05:41 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:05:51 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:05:52 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:06:02 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:06:03 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:06:13 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:06:13 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:06:23 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:06:24 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:06:34 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:06:34 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:06:44 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:06:44 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:06:54 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:06:55 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:07:05 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:07:06 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:07:16 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:07:17 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:07:27 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:07:28 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:07:38 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:07:38 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:07:48 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:07:49 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:07:59 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:08:00 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:08:10 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:08:11 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:08:21 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:08:21 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:08:31 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:08:32 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:08:42 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:08:42 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:08:52 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:08:52 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:09:02 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:09:03 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:09:13 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:09:14 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:09:24 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:09:24 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:09:34 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:09:35 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:09:45 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:09:45 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:09:55 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:09:56 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:10:06 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:10:07 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:10:17 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:10:17 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:10:27 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:10:28 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:10:38 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:10:39 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:10:49 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:10:49 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:10:59 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:11:00 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:11:10 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:11:10 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:11:20 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:11:22 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:11:32 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:11:32 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:11:42 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:11:43 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:11:53 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:11:53 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:12:03 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:12:03 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:12:13 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:12:14 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:12:24 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:12:24 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:12:34 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:12:35 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:12:45 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:12:45 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:12:55 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:12:55 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:13:05 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:13:06 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:13:16 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:13:16 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:13:26 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:13:27 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:13:37 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:13:38 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:13:48 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:13:49 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:13:59 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:14:00 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:14:10 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:14:11 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:14:21 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:14:21 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:14:31 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:14:32 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:14:42 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:14:42 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:14:52 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:14:53 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:15:03 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:15:04 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:15:14 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:15:15 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:15:25 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:15:25 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:15:35 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:15:36 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:15:46 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:15:47 DEBUG Command ran with output:
+17972497: in-progress
+
+2025-01-08 19:15:57 DEBUG Running command p3-job-status 17972497
+2025-01-08 19:15:57 DEBUG Command ran with output:
+17972497: completed
+
+2025-01-08 19:15:57 DEBUG Running Command: ['mkdir', 'bvbrc_cga_output']
+2025-01-08 19:15:57 DEBUG Running command mkdir bvbrc_cga_output
+2025-01-08 19:15:57 DEBUG Command ran with output:
+
+2025-01-08 19:15:57 DEBUG Running Command: ['p3-cp', 'ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/FullGenomeReport.html', 'bvbrc_cga_output']
+2025-01-08 19:15:57 DEBUG Running command p3-cp ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/FullGenomeReport.html bvbrc_cga_output
+2025-01-08 19:16:05 DEBUG Command ran with output:
+Copy ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/FullGenomeReport.html to bvbrc_cga_output/FullGenomeReport.html
+
+2025-01-08 19:16:05 DEBUG Running Command: ['p3-cp', 'ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/quality.json', 'bvbrc_cga_output']
+2025-01-08 19:16:05 DEBUG Running command p3-cp ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/quality.json bvbrc_cga_output
+2025-01-08 19:16:06 DEBUG Command ran with output:
+Copy ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/quality.json to bvbrc_cga_output/quality.json
+
+2025-01-08 19:16:06 DEBUG Running Command: ['p3-cp', 'ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/annotation.genome', 'bvbrc_cga_output']
+2025-01-08 19:16:06 DEBUG Running command p3-cp ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/annotation.genome bvbrc_cga_output
+2025-01-08 19:16:12 DEBUG Command ran with output:
+Copy ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/annotation.genome to bvbrc_cga_output/annotation.genome
+
+2025-01-08 19:16:12 DEBUG Running Command: ['p3-cp', 'ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/load_files/genome_amr.json', 'bvbrc_cga_output']
+2025-01-08 19:16:12 DEBUG Running command p3-cp ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/load_files/genome_amr.json bvbrc_cga_output
+2025-01-08 19:16:12 DEBUG Command ran with output:
+Copy ws:/DanyMB@bvbrc/home/CAMRA_WDL/2025-01-08/None_GCA_030128905/CGA/.GCA_030128905_output/.annotation/load_files/genome_amr.json to bvbrc_cga_output/genome_amr.json
+

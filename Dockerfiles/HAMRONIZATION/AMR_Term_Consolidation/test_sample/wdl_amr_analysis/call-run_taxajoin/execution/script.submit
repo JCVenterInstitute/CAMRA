@@ -1,0 +1,20 @@
+#!/bin/bash
+# make sure there is no preexisting Docker CID file
+rm -f /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin/execution/docker_cid
+# run as in the original configuration without --rm flag (will remove later)
+docker run \
+  --cidfile /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin/execution/docker_cid \
+  -i \
+   \
+  --entrypoint /bin/bash \
+  -v /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin:/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin:delegated \
+  debian@sha256:5f21ebd358442f40099c997a3f4db906a7b1bd872249e67559f55de654b55d3b /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin/execution/script
+
+# get the return code (working even if the container was detached)
+rc=$(docker wait `cat /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin/execution/docker_cid`)
+
+# remove the container after waiting
+docker rm `cat /Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Dockerfiles/HAMRONIZATION/benchmark_sample/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_taxajoin/execution/docker_cid`
+
+# return exit code
+exit $rc

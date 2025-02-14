@@ -1,0 +1,51 @@
+#!/bin/bash
+
+cd /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution
+tmpDir=$(mkdir -p "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/tmp.7d816c75" && echo "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/tmp.7d816c75")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution
+
+)
+out5b7c024b="${tmpDir}/out.$$" err5b7c024b="${tmpDir}/err.$$"
+mkfifo "$out5b7c024b" "$err5b7c024b"
+trap 'rm "$out5b7c024b" "$err5b7c024b"' EXIT
+touch '/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/stdout' '/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/stderr'
+tee '/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/stdout' < "$out5b7c024b" &
+tee '/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/stderr' < "$err5b7c024b" >&2 &
+(
+cd /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution
+
+
+# Unzips the assembly file if nessesary
+if [[ "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna" == *.fasta.gz || "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna" == *.fa.gz || "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna" == *.fna.gz ]]; then 
+    gunzip -c /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna > /data/assembly.fasta 
+elif [[ "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna" == *.fasta || "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna" == *.fa || "/cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna" == *.fna.gz ]]; then
+    mv /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna /data/assembly.fasta
+fi
+
+# makeblastdb sets up a structured, searchable version of your genome sequence so that BLAST can efficiently find and match your target genes.
+makeblastdb -in /data/assembly.fasta -dbtype nucl -out genome_db
+
+# BLASTn command that detects variations and closely related sequences effectively
+blastn -query  /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/inputs/654140935/nucleotide.fna -db genome_db -out results.out -outfmt 6 -evalue 1e-10 -reward 2 -penalty -3 -word_size 7 -max_target_seqs 10 -dust no
+
+# sort results.out by the bitscore
+sort -k 12,12nr -t$'\t' results.out -o blast_results.txt
+)  > "$out5b7c024b" 2> "$err5b7c024b"
+echo $? > /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution
+sync
+
+
+)
+mv /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/rc.tmp /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_Query_Blastn/execution/rc
