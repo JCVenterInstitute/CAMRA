@@ -4,7 +4,16 @@ import re
 import numpy as np
 import sys
 
+print("################################################################")
+print("# Transforming BVBRC files to pipe into hAMRonize")
+print("################################################################")
+
+def exit_program(error_msg:str):
+    print("ERROR: ", error_msg)
+    sys.exit(1)
+
 # READ FILES
+print("Reading & Checking Files")
 quality_json_file = sys.argv[1]
 genome_annotation_file = sys.argv[2]
 amr_json = sys.argv[3]
@@ -15,8 +24,17 @@ with open(genome_annotation_file, 'r') as file:
 with open(quality_json_file, 'r') as file:
     quality_json = json.load(file)
 
-# CREATE QUALITY DATAFRAME - THIS DATAFRAME CONTAINS THE LIST OF AMR WITH HIGH CONFIDENCE, BUT IT CONTAINS LITTLE ANNOTATION INFORMATION
-quality_json_df = pd.DataFrame(quality_json['amr_genes'], columns=['feature_id', 'gene_symbol', 'gene_definition', 'function'])
+quality_json_amr_genes_check_ = False
+
+if 'amr_genes' in quality_json:
+    # CREATE QUALITY DATAFRAME - THIS DATAFRAME CONTAINS THE LIST OF AMR WITH HIGH CONFIDENCE, BUT IT CONTAINS LITTLE ANNOTATION INFORMATION
+    quality_json_df = pd.DataFrame(quality_json['amr_genes'], columns=['feature_id', 'gene_symbol', 'gene_definition', 'function'])
+else:
+    error_msg = "'amr_genes' key is not found in the genome_amr.json"
+    exit_program(error_msg)
+
+print("... Done reading and checking. ")
+
 
 # CREATE FEATURE DATAFRAME - HAS ALL THE FEATURES AND DETAILS OF THE ANNOTATION EVENT, BUT NOT THE ANNOTATION TOOL
 # Make dataframe with AMR features
@@ -26,7 +44,9 @@ pattern_id = r'^[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}$'
 # feature number
 count = 0
 
-# Annotate through all the annoated features in annotation.genome
+print("")
+print("Transforming Data")
+# Annotate through all the annotated features in annotation.genome
 for i in annotation_genome['features']:
     ID = i['id']
     # If the annotated feature id is in the quality.json['feature_id'] column, then add it to the df
@@ -53,7 +73,7 @@ features_df = pd.DataFrame.from_dict(features_dict,orient='index')
 features_df = features_df.drop(['location','protein_translation'],axis=1)
 features_df = features_df.rename(columns={"id": "feature_id"})
 
-# CREATE ANNOTATION EVENT DATAFRAME - LIST OF ANNOTAITON TOOLS (AKA EVENTS), EXPLUDE NON IMPORTANT TOOLS LIKE PRODIGAL
+# CREATE ANNOTATION EVENT DATAFRAME - LIST OF ANNOTAITON TOOLS (AKA EVENTS), EXCLUDE NON IMPORTANT TOOLS LIKE PRODIGAL
 analysis_events_dict = {}
 for i in annotation_genome['analysis_events']:
     analysis_events_dict[i['id']]= i 
@@ -71,13 +91,12 @@ collect_events = list(set(collect_events))
 # remove nan
 collect_events = [x for x in collect_events if x == x]
 
-# Make a subset ataframe of the events that are associated with AMR hits. 
+# Make a subset dataframe of the events that are associated with AMR hits. 
 for i in collect_events:
     analysis_events = analysis_events_df.loc[collect_events]
 
 # Remove these rows that have unnessesary tools, we are left with list of tools that annotated the AMR
 remove_these_events = ['GenomeAnnotation::renumber_features', 'glimmer3','prodigal']
-# other_analysis_events = analysis_events[analysis_events['tool_name'].isin(remove_these_events)].unique().tolist()
 other_analysis_events = analysis_events[analysis_events['tool_name'].isin(remove_these_events)]
 # Collect all the column names that start with 'event_', there can be multiple. We need this information because we will merge them and decide what event annotated the AMR
 event_collection = []
@@ -120,6 +139,7 @@ features_df = features_df.drop(columns=event_collection)
 mapped = quality_json_df.merge(right=features_df, right_on='feature_id', left_on='feature_id',how='left')
 mapped = mapped.merge(right=analysis_events_df, right_on='id', left_on='merged_event',how='left')
 mapped.to_csv('./bvbrc_amr_annotation.tsv', sep='\t')
+
 
 # MAKE CSV OF ADABOOST PREDICTED RESISTANCE
 with open(amr_json, 'r') as file:
