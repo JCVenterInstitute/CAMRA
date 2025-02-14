@@ -76,7 +76,7 @@ workflow amr_analysis   {
     }
 
     # BVBRC docker and build task to send assembly and conduct genome analysis & annotation
-    call bvbrc.run_annotation_analysis {
+    call bvbrc.run_BVBRC_annotation_analysis {
         input:
             username = BVBRC_username,
             password = BVBRC_password,
@@ -91,6 +91,7 @@ workflow amr_analysis   {
 
     call hamronize.run_hAMRonize {
             input:
+                # AMR Output
                 abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
                 abricate_cardDB_tsv_output  = run_Abricate.abricate_cardDB_tsv_output, 
                 abricate_resfinderDB_tsv_output  = run_Abricate.abricate_resfinderDB_tsv_output, 
@@ -104,7 +105,10 @@ workflow amr_analysis   {
                 rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output,
                 rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output,
 
-                bvbrc_amr_file = run_annotation_analysis.bvbrc_transformed_amrhits,
+                bvbrc_amr_file = run_BVBRC_annotation_analysis.bvbrc_transformed_amrhits,
+
+                # Virulence Output
+
                 VIR_files = [
                     run_Abricate.abricate_vfdb_tsv_output, 
                     run_AMRfinderPlus.amrfinder_virulence_output
@@ -115,10 +119,11 @@ workflow amr_analysis   {
 
     output {
         # BVBRC Annotation
-        File bvbrc_full_genome_report = run_annotation_analysis.bvbrc_full_genome_report
-        File bvbrc_genome_annotation = run_annotation_analysis.bvbrc_genome_annotation
-        File bvbrc_transformed_predictedresistance = run_annotation_analysis.bvbrc_transformed_predictedresistance
-        File bvbrc_transformed_amrhits = run_annotation_analysis.bvbrc_transformed_amrhits
+        File bvbrc_full_genome_report = run_BVBRC_annotation_analysis.bvbrc_full_genome_report
+        File bvbrc_genome_annotation = run_BVBRC_annotation_analysis.bvbrc_genome_annotation
+        File bvbrc_transformed_predictedresistance = run_BVBRC_annotation_analysis.bvbrc_transformed_predictedresistance
+        File bvbrc_transformed_amrhits = run_BVBRC_annotation_analysis.bvbrc_transformed_amrhits
+        File bvbrc_feature_protein = run_BVBRC_annotation_analysis.bvbrc_feature_protein
 
         # Optional Output - blast against userinput query
         File blastn_output = run_Query_Blastn.blastn_output
