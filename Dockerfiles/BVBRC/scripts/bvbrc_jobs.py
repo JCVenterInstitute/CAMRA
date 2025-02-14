@@ -332,6 +332,7 @@ def bvbrc_annotation_analysis(
         ["p3-cp", CGA_OUTPUTS["ANNOTATION_GENOME"], "bvbrc_cga_output"],
         ["p3-cp", CGA_OUTPUTS["ANNOTATION_QUALITY"], "bvbrc_cga_output"],
         ["p3-cp", CGA_OUTPUTS["ANNOTATION_RESISTANCE"], "bvbrc_cga_output"],
+        ["p3-cp", CGA_OUTPUTS["ANNOTATION_PROTEIN"], "bvbrc_cga_output"],
     ]
 
     for command in output_commands:
@@ -538,6 +539,7 @@ CGA_OUTPUTS = {
     "ANNOTATION_GENOME": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/quality.json",
     "ANNOTATION_QUALITY": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/annotation.genome",
     "ANNOTATION_RESISTANCE": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/load_files/genome_amr.json",
+    "ANNOTATION_PROTEIN": f"ws:{cga_output_path}/.{args.sample_name}_output/.annotation/annotation.feature_protein.fasta",
 }
 
 ########## END CONSTANTS ##########
