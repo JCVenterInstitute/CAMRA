@@ -8,6 +8,8 @@ task run_hAMRonize {
     }
 
     input {
+
+        #AMR Output 
         File abricate_ncbiDB_tsv_output
         File abricate_cardDB_tsv_output
         File abricate_resfinderDB_tsv_output
@@ -22,6 +24,25 @@ task run_hAMRonize {
         File rgi_CARD_blast_tsv_output 
 
         File? bvbrc_amr_file
+
+        #Sequence Files
+
+        File abricate_ncbiDB_seq
+        File abricate_cardDB_seq
+        File abricate_resfinderDB_seq
+        File abricate_argannotDB_seq 
+
+        File amrfinder_amr_seq
+`
+        File resfider_asm_seq
+        File? resfinder_read_seq
+
+        File rgi_CARD_diamond_tsv_seq
+        File rgi_CARD_blast_tsv_seq 
+
+        File? bvbrc_amr_seq
+
+        # Virulence Output
 
         Array[File]+ VIR_files
     }
