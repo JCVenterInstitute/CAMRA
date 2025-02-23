@@ -50,10 +50,28 @@ def validate_file(filepath):
 
 def validate_blast_db(db_path):
     """Check if a BLAST database is valid."""
-    if not os.path.isfile(db_path + ".pin") and not os.path.isfile(db_path + ".nin"):
+    
+    logger.info(f"    Checking BLAST database: {db_path}")
+
+    # Ensure db_path is a valid string
+    if not isinstance(db_path, str) or not db_path:
+        logger.error("    Invalid database path provided.")
+        sys.exit(1)
+
+    # Expected BLAST database files based on the prefix
+    pin_file = db_path + ".pin"
+    nin_file = db_path + ".nin"
+
+    if not os.path.isfile(pin_file) and not os.path.isfile(nin_file):
         logger.error(f"    BLAST database files missing for: {db_path}")
         sys.exit(1)
 
+    # Check if BLAST+ tools are installed
+    if not shutil.which("blastdbcmd"):
+        logger.error("    BLAST tools not found. Ensure BLAST+ is installed and in PATH.")
+        sys.exit(1)
+
+    # Validate BLAST database
     try:
         result = subprocess.run(["blastdbcmd", "-db", db_path, "-info"], 
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -62,24 +80,49 @@ def validate_blast_db(db_path):
             sys.exit(1)
         else:
             logger.info(f"    Validated BLAST database: {db_path}")
-    except FileNotFoundError:
-        logger.error("    BLAST tools not found. Ensure BLAST+ is installed and in PATH.")
+    except Exception as e:
+        logger.error(f"    Unexpected error during BLAST validation: {e}")
         sys.exit(1)
+#     """Check if a BLAST database is valid."""
+#     logger.info(f"    BLAST database: {db_path}")
+#     logger.info(f"    BLAST database: {os.listdir(db_path)}")
 
-def parse_arguments():
-    """Parse command-line arguments for the AMR term consolidation script."""
-    parser = argparse.ArgumentParser(description="Process AMR term consolidation.")
+#     # if not os.path.isfile(db_path + ".pin") and not os.path.isfile(db_path + ".nin"):
+#     # if not os.path.isfile(os.path.join(db_path, db_path + ".pin")) and not os.path.isfile(os.path.join(db_path, db_path + ".nin")):
+#     if not os.path.isfile(os.path.join(db_path, "db.pin")) and not os.path.isfile(os.path.join(db_path, "db.nin")):
+    
+#         logger.info(f"    > enter if")
+#         logger.error(f"    BLAST database files missing for: {db_path}")
+#         sys.exit(1)
 
-    # Define expected arguments
-    parser.add_argument("hamronize_output_file", help="Path to the hamronize output file")
-    parser.add_argument("ontology_file", help="Path to the ontology file")
-    parser.add_argument("assembly_file", help="Path to the assembly FASTA file")
-    parser.add_argument("database_prot_homolog_file", help="Path to protein homolog BLAST database")
-    parser.add_argument("database_prot_variant_file", help="Path to protein variant BLAST database")
-    parser.add_argument("database_nucl_homolog_file", help="Path to nucleotide homolog BLAST database")
-    parser.add_argument("database_nucl_variant_file", help="Path to nucleotide variant BLAST database")
+#     try:
+#         logger.info(f"    > enter try")
+#         result = subprocess.run(["blastdbcmd", "-db", db_path, "-info"], 
+#                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+#         if result.returncode != 0:
+#             logger.error(f"    Invalid BLAST database: {db_path}\n{result.stderr}")
+#             sys.exit(1)
+#         else:
+#             logger.info(f"    Validated BLAST database: {db_path}")
+#     except FileNotFoundError:
+#         logger.info(f"    > enter except")
+#         logger.error("    BLAST tools not found. Ensure BLAST+ is installed and in PATH.")
+#         sys.exit(1)
 
-    return parser.parse_args()
+# def parse_arguments():
+#     """Parse command-line arguments for the AMR term consolidation script."""
+#     parser = argparse.ArgumentParser(description="Process AMR term consolidation.")
+
+#     # Define expected arguments
+#     parser.add_argument("hamronize_output_file", help="Path to the hamronize output file")
+#     parser.add_argument("ontology_file", help="Path to the ontology file")
+#     parser.add_argument("assembly_file", help="Path to the assembly FASTA file")
+#     parser.add_argument("database_prot_homolog_file", help="Path to protein homolog BLAST database")
+#     parser.add_argument("database_prot_variant_file", help="Path to protein variant BLAST database")
+#     parser.add_argument("database_nucl_homolog_file", help="Path to nucleotide homolog BLAST database")
+#     parser.add_argument("database_nucl_variant_file", help="Path to nucleotide variant BLAST database")
+
+#     return parser.parse_args()
 
 # Step 3 - Group Loci
 def group_genes (hamr_output_df):
