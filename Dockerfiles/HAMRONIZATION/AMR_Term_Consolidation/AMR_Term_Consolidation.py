@@ -66,7 +66,7 @@ if __name__ == "__main__":
     # LOGGING
     logger = logger_config.setup_logger()
     title = "AMR_Term_Consolidation started."
-    logger.info(f"\n{'*' * (len(title) + 4)}\n* {title} *\n{'*' * (len(title) + 4)}")
+    logger.info(f"\n{'*' * (len(title) + 8)}\n* {title} *\n{'*' * (len(title) + 8)}")
     ###########################################################################
 
     # PARSING ARGUMENTS
