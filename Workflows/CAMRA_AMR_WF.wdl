@@ -90,29 +90,30 @@ workflow amr_analysis   {
 
 
     call hamronize.run_hAMRonize {
-            input:
-                # AMR Output
-                abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
-                abricate_cardDB_tsv_output  = run_Abricate.abricate_cardDB_tsv_output, 
-                abricate_resfinderDB_tsv_output  = run_Abricate.abricate_resfinderDB_tsv_output, 
-                abricate_argannotDB_tsv_output  = run_Abricate.abricate_argannotDB_tsv_output, 
+        input:
+            assembly = assembly, 
+            # AMR Output
+            abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
+            abricate_cardDB_tsv_output  = run_Abricate.abricate_cardDB_tsv_output, 
+            abricate_resfinderDB_tsv_output  = run_Abricate.abricate_resfinderDB_tsv_output, 
+            abricate_argannotDB_tsv_output  = run_Abricate.abricate_argannotDB_tsv_output, 
 
-                amrfinder_amr_output = run_AMRfinderPlus.amrfinder_amr_output,
+            amrfinder_amr_output = run_AMRfinderPlus.amrfinder_amr_output,
 
-                resfider_asm_output = run_ResFinder.resfider_asm_output,
-                resfinder_read_output = run_ResFinder.resfinder_read_output,
+            resfider_asm_output = run_ResFinder.resfider_asm_output,
+            resfinder_read_output = run_ResFinder.resfinder_read_output,
 
-                rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output,
-                rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output,
+            rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output,
+            rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output,
 
-                bvbrc_amr_file = run_BVBRC_annotation_analysis.bvbrc_transformed_amrhits,
+            bvbrc_amr_file = run_BVBRC_annotation_analysis.bvbrc_transformed_amrhits,
 
-                # Virulence Output
+            # Virulence Output
 
-                VIR_files = [
-                    run_Abricate.abricate_vfdb_tsv_output, 
-                    run_AMRfinderPlus.amrfinder_virulence_output
-                ]
+            VIR_files = [
+                run_Abricate.abricate_vfdb_tsv_output, 
+                run_AMRfinderPlus.amrfinder_virulence_output 
+            ]
         }
     
 
@@ -123,7 +124,7 @@ workflow amr_analysis   {
         File bvbrc_genome_annotation = run_BVBRC_annotation_analysis.bvbrc_genome_annotation
         File bvbrc_transformed_predictedresistance = run_BVBRC_annotation_analysis.bvbrc_transformed_predictedresistance
         File bvbrc_transformed_amrhits = run_BVBRC_annotation_analysis.bvbrc_transformed_amrhits
-        File bvbrc_feature_protein = run_BVBRC_annotation_analysis.bvbrc_feature_protein
+        # File bvbrc_feature_protein = run_BVBRC_annotation_analysis.bvbrc_feature_protein
 
         # Optional Output - blast against userinput query
         File blastn_output = run_Query_Blastn.blastn_output
@@ -154,6 +155,9 @@ workflow amr_analysis   {
         String hAMRonization_date = run_hAMRonize.hAMRonization_date
         File? hAMRonization_amr_output = run_hAMRonize.hAMRonization_amr_output
         File? hAMRonization_vir_output = run_hAMRonize.hAMRonization_vir_output
+        File hAMRonization_HARMONIZED_TERMS = run_hAMRonize.hAMRonization_HARMONIZED_TERMS 
+        File hAMRonization_CONSOLIDATED_TERMS = run_hAMRonize.hAMRonization_CONSOLIDATED_TERMS
+
 
         # AMR Term Consolidation
         File? amrtermconsolidation_isna = run_hAMRonize.amrtermconsolidation_isna
