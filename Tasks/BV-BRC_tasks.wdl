@@ -115,10 +115,11 @@ task run_BVBRC_annotation_analysis {
         # Loop through each file
         for file in "${files[@]}"; do
             if [[ -e "$file" ]]; then
-            echo "The file '$file' exists."
-        else
-            echo "The file '$file' does not exist. Creating it..."
-            touch "$file"
+                echo "The file '$file' exists."
+            else
+                echo "The file '$file' does not exist. Creating it..."
+                touch "$file"
+            fi
         done
     >>>
 
@@ -127,8 +128,8 @@ task run_BVBRC_annotation_analysis {
         File bvbrc_genome_annotation = "bvbrc_cga_output/annotation.genome"
         File bvbrc_amr_annotation = "bvbrc_cga_output/genome_amr.json"
         File bvbrc_annotation_quality = "bvbrc_cga_output/quality.json"
-        File bvbrc_transformed_amrhits = ".bvbrc_cga_output/bvbrc_amr_annotation.tsv"
-        File bvbrc_transformed_predictedresistance = ".bvbrc_cga_output/bvbrc_predicted_resistance.tsv"
-        File bvbrc_feature_protein = ".bvbrc_cga_output/annotation.feature_protein.fasta.gz"
+        File bvbrc_transformed_amrhits = "bvbrc_amr_annotation.tsv"
+        File bvbrc_transformed_predictedresistance = "bvbrc_predicted_resistance.tsv"
+        # File bvbrc_feature_protein = "annotation.feature_protein.fasta.gz"
     }
 }
