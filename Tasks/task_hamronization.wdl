@@ -25,35 +25,32 @@ task run_hAMRonize {
 
         File? bvbrc_amr_file
 
-        #Sequence Files
-
-        File abricate_ncbiDB_seq
-        File abricate_cardDB_seq
-        File abricate_resfinderDB_seq
-        File abricate_argannotDB_seq 
-
-        File amrfinder_amr_seq
-`
-        File resfider_asm_seq
-        File? resfinder_read_seq
-
-        File rgi_CARD_diamond_tsv_seq
-        File rgi_CARD_blast_tsv_seq 
-
-        File? bvbrc_amr_seq
-
         # Virulence Output
 
         Array[File]+ VIR_files
+
+        # CARD DB
+        File CARD_aro_obo
+        File CARD_protein_homolog
+        File CARD_protein_variant
+        File CARD_nucleotide_homolog
+        File CARD_nucleotide_variant
+
+        # Assembly
+        File assembly
     }
     runtime{
-        docker: 'danylmb/hamronize:v1.1.4-build13'
+        docker: 'danylmb/hamronize:v1.1.4-build16'
+        continueOnReturnCode: [0, 1]
     }
 
     command <<<
 
         date | tee DATE
         hamronize --version | tee VERSION
+
+        echo "/WHERE AM I"
+        echo "$(pwd)"
 
         ##################################################
         # FUNCTIONS
@@ -148,6 +145,7 @@ task run_hAMRonize {
         # Check if there are any files in the directory
         if [ -n "$(ls -A AMR_hAMRonization/ 2>/dev/null)" ]; then
             # If the directory is not empty, run the hamronize command
+            echo "The directory AMR_hAMRonization/ is not empty. "
             hamronize summarize -o hamronize_amr_output.tsv -t tsv AMR_hAMRonization/* && echo "    AMR Harmonisation DONE"
         else
             # If the directory is empty, print a message
@@ -199,10 +197,60 @@ task run_hAMRonize {
         echo "##################################################"
         echo "START AMR TERM CONSOLIDATION "
         echo "##################################################"
+        # cd /data
+        mkdir AMR_Term_Consolidation
+        echo "/WHERE AM I"
+        echo "$(pwd)"
 
 
-        if check_dataframe_rows hamronize_amr_output.tsv; then # Check 
-            python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv && echo "    Consolidation DONE"
+        echo "/WHEREIS"
+        file_path=$(find /cromwell-executions/testing_consolidation/ -type f -name "hamronize_amr_output.tsv" 2>/dev/null)
+
+        echo "File path found: $file_path"
+
+        # Check if file exists and is not empty
+        if [[ -f "$file_path" && -s "$file_path" ]]; then
+            echo "File exists and is not empty. Entering if statement..."
+
+            # Open CARD tar files
+
+            mkdir -p CARD_DB
+
+            echo "/CONTENT"
+            echo "$(ls)"
+
+
+            tar -xvzf ~{CARD_protein_homolog} -C CARD_DB
+            tar -xvzf ~{CARD_protein_variant} -C CARD_DB
+            tar -xvzf ~{CARD_nucleotide_homolog} -C CARD_DB
+            tar -xvzf ~{CARD_nucleotide_variant} -C CARD_DB
+
+            protein_homolog=$(basename ~{CARD_protein_homolog} .tar.gz)
+            protein_variant=$(basename ~{CARD_protein_variant} .tar.gz)
+            nucleotide_homolog=$(basename ~{CARD_nucleotide_homolog} .tar.gz)
+            nucleotide_variant=$(basename ~{CARD_nucleotide_variant} .tar.gz)
+
+            echo "Extracted CARD tar files"
+            ls -lh CARD_DB
+
+            # python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv && echo "    Consolidation DONE"
+            python3 /opt/AMR_Term_Consolidation/AMR_Term_Consolidation.py \
+                "./hamronize_amr_output.tsv" \
+                ~{CARD_aro_obo} \
+                ~{assembly} \
+                "CARD_DB/$protein_homolog/$protein_homolog" \
+                "CARD_DB/$prot_variant/$prot_variant" \
+                "CARD_DB/$nucl_homolog/$nucl_homolog" \
+                "CARD_DB/$nucl_variant/$nucl_variant"
+                # "${protein_homolog}" \
+                # "${protein_variant}" \
+                # "${nucleotide_homolog}" \
+                # "${nucleotide_variant}"
+
+            echo "/CONTENT TRYING TO FIND TERM CONSOLIDATION OUTPUT FILES"          
+            echo "$(ls /data)"
+            file_path=$(find / -type f -name "term_consolidation.log" 2>/dev/null)
+            echo "File path found: $file_path"
         else
             echo "    No hamronize_amr_output.tsv"
             touch consolidation_isna.tsv consolidation_all.tsv consolidation_amr_over98identity.tsv consolidation_amr_allidentity.tsv
@@ -218,7 +266,15 @@ task run_hAMRonize {
         File? hAMRonization_amr_output = "hamronize_amr_output.tsv"
         File? hAMRonization_vir_output = "hamronize_vir_output.tsv"
 
+        File amrtermconsolidation_log = "term_consolidation.log"
+
+        File hAMRonization_HARMONIZED_TERMS = "HARMONIZED_TERMS.tsv"
+        File hAMRonization_CONSOLIDATED_TERMS = "CONSOLIDATED_TERMS.tsv"
+
+
         String amrtermconsolidation_version = "1.0.0"
+
+        
 
         File? amrtermconsolidation_isna = "consolidation_isna.tsv"
         File? amrtermconsolidation_all = "consolidation_all.tsv"
