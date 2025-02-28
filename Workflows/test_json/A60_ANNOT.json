@@ -1,9 +1,0 @@
-{
-  "annotation_analysis.BVBRC_username": "DanyMB",
-  "annotation_analysis.sample_name": "CCI60",
-  "annotation_analysis.local_assembly_path": "/Users/dmatute/Documents/CAMRA/code/GitHub/CAMRA/Workflows/cromwell-executions/genome_assembly/eabd0dc2-32ef-4454-b8d5-7163efb5b3ab/call-run_genome_assembly/execution/bvbrc_asm_output/CCI9_contigs.fasta.gz",
-  "annotation_analysis.scientific_name": "Klebsiella pneumoniae",
-  "annotation_analysis.plasmidfinder_DB": "/Users/dmatute/Documents/CAMRA/lib/CAMRA_GITHUB/plasmidfinder-db-2024feb23.tar.gz",
-  "annotation_analysis.BVBRC_password": "Luciana1996"
-}
-
