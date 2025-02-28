@@ -10,6 +10,8 @@ task run_RGI {
     # TODO Add metadata
     input {
         File assembly
+        Boolean ? diamond = false
+        Boolean ? blast = true
     }
     runtime {
         docker:"danylmb/rgi-card:rgi6.0.3-card3.3.0"
@@ -19,24 +21,28 @@ task run_RGI {
         rgi main --version | tee RGI_VERSION
         rgi database --version | tee CARD_DB_VERSION
         date | tee DATE
+        
+        if [ ~{blast} == true ]; then
+            rgi main \
+                -i ~{assembly} \
+                -o rgi_blast_report \
+                -t contig \
+                -a BLAST \
+                -d wgs \
+                --split_prodigal_jobs \
+                --clean 
+        fi
 
-        rgi main \
-            -i ~{assembly} \
-            -o rgi_blast_report \
-            -t contig \
-            -a BLAST \
-            -d wgs \
-            --split_prodigal_jobs \
-            --clean 
-
-        rgi main \
-            -i ~{assembly} \
-            -o rgi_diamond_report \
-            -t contig \
-            -a DIAMOND \
-            -d wgs \
-            --split_prodigal_jobs \
-            --clean
+        if [[ ~{diamond} == true || ~{blast} == false ]]; then
+            rgi main \
+                -i ~{assembly} \
+                -o rgi_diamond_report \
+                -t contig \
+                -a DIAMOND \
+                -d wgs \
+                --split_prodigal_jobs \
+                --clean
+        fi
 
     >>>
     output {
@@ -44,10 +50,10 @@ task run_RGI {
         String rgi_version = read_string("RGI_VERSION")
         String rgi_date = read_string("DATE")
 
-        File rgi_CARD_diamond_tsv_output = "rgi_diamond_report.txt"
-        File rgi_CARD_blast_tsv_output = "rgi_blast_report.txt"
-        File rgi_CARD_diamond_json_output = "rgi_diamond_report.json"
-        File rgi_CARD_blast_json_output = "rgi_blast_report.json"
+        File? rgi_CARD_diamond_tsv_output = "rgi_diamond_report.txt"
+        File? rgi_CARD_blast_tsv_output = "rgi_blast_report.txt"
+        File? rgi_CARD_diamond_json_output = "rgi_diamond_report.json"
+        File? rgi_CARD_blast_json_output = "rgi_blast_report.json"
     }
     
 
