@@ -1,6 +1,7 @@
 version 1.0
 
-import "../Tasks/task_rgi.wdl" as rgi
+import "../../Tasks/task_rgi.wdl" as rgi
+import "../../Tasks/task_blast.wdl" as blast
 
 workflow amr_analysis   {
     meta {
@@ -14,11 +15,20 @@ workflow amr_analysis   {
     }
     input {
         File assembly
+        String sample_name
+        File blast_subject
     }
 
     call rgi.run_RGI {
         input:
             assembly = assembly
+    }
+
+    call blast.tblastn {
+        input:
+            query = assembly,
+            samplename = sample_name,
+            subject = blast_subject
     }
 
     output {
@@ -28,10 +38,14 @@ workflow amr_analysis   {
         String rgi_version = run_RGI.rgi_version
         String rgi_date = run_RGI.rgi_date
 
-        File rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output
-        File rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output
-        File rgi_CARD_diamond_json_output = run_RGI.rgi_CARD_diamond_json_output
-        File rgi_CARD_blast_json_output = run_RGI.rgi_CARD_blast_json_output
+        File ? rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output
+        File ? rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output
+        File ? rgi_CARD_diamond_json_output = run_RGI.rgi_CARD_diamond_json_output
+        File ? rgi_CARD_blast_json_output = run_RGI.rgi_CARD_blast_json_output
+
+        File blast_results = tblastn.blast_results
+        String blast_genes = tblastn.blast_genes
+        String blast_version = tblastn.blast_version
     }  
 
 }
