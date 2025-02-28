@@ -2,6 +2,10 @@
 version 1.0
 
 task blastn {
+
+meta {
+    description: "Runs blastn."
+}
 input {
     String samplename
     File? query

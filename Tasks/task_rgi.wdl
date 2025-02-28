@@ -7,7 +7,7 @@ task run_RGI {
         repository:"https://github.com/arpcard/rgi.git"
         cite:"Alcock et al. 2023. CARD 2023: Expanded Curation, Support for Machine Learning, and Resistome Prediction at the Comprehensive Antibiotic Resistance Database. Nucleic Acids Research, 51, D690-D699."
     }
-    # TODO Add metadata
+
     input {
         File assembly
         Boolean ? diamond = false
