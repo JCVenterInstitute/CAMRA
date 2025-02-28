@@ -99,3 +99,13 @@ workflows:
       - main 
       - term_consolidation
 
+  - name: RGI-BLASTN
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/sub_wdl/rgi.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - RGI
+
