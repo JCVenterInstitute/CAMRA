@@ -1,9 +1,0 @@
-Running: amrfinder --plus --organism Klebsiella_pneumoniae --nucleotide /cromwell-executions/amr_analysis/5b7c024b-edf5-47b4-a458-23daa1bee1cd/call-run_AMRfinderPlus/inputs/-862410195/GCA_030128905.1_ASM3012890v1_genomic.fna
-Software directory: '/amrfinder/'
-Software version: 3.12.8
-Database directory: '/amrfinder/data/2024-01-31.1'
-Database version: 2024-01-31.1
-AMRFinder translated nucleotide and mutation search
-Running tblastn
-Making report
-AMRFinder took 11 seconds to complete

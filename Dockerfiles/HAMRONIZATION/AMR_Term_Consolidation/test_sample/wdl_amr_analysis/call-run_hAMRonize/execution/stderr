@@ -1,4 +1,0 @@
-/usr/local/lib/python3.12/dist-packages/hAMRonization-1.1.7-py3.12.egg/hAMRonization/summarize.py:736: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
-Written 9 reports with a combined 231 unique results to hamronize_amr_output.tsv
-/usr/bin/amr-term-consolidation.py:164: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
-  matches = find_matches(row[2], harmonized_gene_symb)

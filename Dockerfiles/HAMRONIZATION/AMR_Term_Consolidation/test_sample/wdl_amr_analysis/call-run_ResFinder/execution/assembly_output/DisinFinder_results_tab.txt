@@ -1,3 +1,0 @@
-Resistance gene	Identity	Alignment Length/Gene Length	Coverage	Position in reference	Contig	Position in contig	Phenotype	Accession no.
-OqxB	98.54	3153/3153	100.0	1..3153	JAOCNF010000029.1 Klebsiella pneumoniae strain VG313 NODE_29_length_35678_cov_246.443471_pilon_pilon, whole genome shotgun sequence	31907..35059	Benzylkonium Chloride, Cetylpyridinium Chloride	EU370913
-OqxA	99.49	1176/1176	100.0	1..1176	JAOCNF010000029.1 Klebsiella pneumoniae strain VG313 NODE_29_length_35678_cov_246.443471_pilon_pilon, whole genome shotgun sequence	30708..31883	Benzylkonium Chloride, Cetylpyridinium Chloride	EU370913
