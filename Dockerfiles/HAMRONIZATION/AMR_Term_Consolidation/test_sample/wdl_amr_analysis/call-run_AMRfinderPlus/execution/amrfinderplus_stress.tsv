@@ -1,6 +1,0 @@
-Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
-NA	JAOCNF010000018.1	58707	59606	+	fieF	CDF family cation-efflux transporter FieF	plus	STRESS	METAL	NA	NA	EXACTX	300	300	100.00	100.00	300	BAB89353.1	CDF family cation-efflux transporter FieF	NA	NA
-NA	JAOCNF010000031.1	22408	23703	+	ncrA	Metal Resistance	plus	STRESS	METAL	NICKEL	NICKEL	EXACTX	432	432	100.00	100.00	432	ABF61434.1	Metal Resistance	NA	NA
-NA	JAOCNF010000031.1	23812	24078	+	ncrB	nickel-sensing transcriptional repressor NcrB	plus	STRESS	METAL	NICKEL	NICKEL	EXACTX	89	89	100.00	100.00	89	ABF61435.1	nickel-sensing transcriptional repressor NcrB	NA	NA
-NA	JAOCNF010000031.1	24094	25221	+	ncrC	Ni(II)/Co(II) efflux transporter permease subunit NcrC	plus	STRESS	METAL	COPPER/NICKEL	COPPER/NICKEL	EXACTX	376	376	100.00	100.00	376	ADF64798.1	Ni(II)/Co(II) efflux transporter permease subunit NcrC	NA	NA
-NA	JAOCNF010000031.1	25386	25805	+	ncrY	nickel resistance OB fold protein NcrY	plus	STRESS	METAL	NICKEL	NICKEL	EXACTX	140	140	100.00	100.00	140	ABF61437.1	nickel resistance OB fold protein NcrY	NA	NA
