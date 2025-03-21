@@ -54,16 +54,16 @@ task run_BVBRC_genome_assembly {
     >>>
 
     output {
-        File asm_bandage_plot = "bvbrc_asm_output/~{sample_name_no_space}_assembly_graph.plot.svg"
-        File assembly_file = "bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta.gz"
-        String contigs_workspace_path = read_string("contigs_workspace_path.txt")
-        Int timestamp = read_int("timestamp.txt")
-        Int contig_fasta_file_size = read_int("contig_fasta_file_size.txt")
-        Float average_read_depth = read_float("average_read_depth.txt")
-        Int number_reads = read_int("num_reads.txt")
-        Float average_read_length = read_float("average_read_length.txt")
-        Int contigs_above_threshold = read_int("contigs_above_threshold.txt")
-        Int contigs_below_threshold = read_int("contigs_below_threshold.txt")
+        File bvbrc_asm_bandage_plot = "bvbrc_asm_output/~{sample_name_no_space}_assembly_graph.plot.svg"
+        File bvbrc_asm_file = "bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta.gz"
+        String bvbrc_asm_contigs_workspace_path = read_string("contigs_workspace_path.txt")
+        Int bvbrc_asm_timestamp = read_int("timestamp.txt")
+        Int bvbrc_asm_contig_fasta_file_size = read_int("contig_fasta_file_size.txt")
+        Float bvbrc_asm_average_read_depth = read_float("average_read_depth.txt")
+        Int bvbrc_asm_number_reads = read_int("num_reads.txt")
+        Float bvbrc_asm_average_read_length = read_float("average_read_length.txt")
+        Int bvbrc_asm_contigs_above_threshold = read_int("contigs_above_threshold.txt")
+        Int bvbrc_asm_contigs_below_threshold = read_int("contigs_below_threshold.txt")
     }
 }
 
@@ -124,12 +124,12 @@ task run_BVBRC_annotation_analysis {
     >>>
 
     output {
-        File bvbrc_full_genome_report = "bvbrc_cga_output/FullGenomeReport.html"
-        File bvbrc_genome_annotation = "bvbrc_cga_output/annotation.genome"
-        File bvbrc_amr_annotation = "bvbrc_cga_output/genome_amr.json"
-        File bvbrc_annotation_quality = "bvbrc_cga_output/quality.json"
-        File bvbrc_transformed_amrhits = "bvbrc_amr_annotation.tsv"
-        File bvbrc_transformed_predictedresistance = "bvbrc_predicted_resistance.tsv"
-        # File bvbrc_feature_protein = "annotation.feature_protein.fasta.gz"
+        File bvbrc_annot_full_genome_report = "bvbrc_cga_output/FullGenomeReport.html"
+        File bvbrc_annot_genome_annotation = "bvbrc_cga_output/annotation.genome"
+        File bvbrc_annot_amr_annotation = "bvbrc_cga_output/genome_amr.json"
+        File bvbrc_annot_quality = "bvbrc_cga_output/quality.json"
+        File bvbrc_annot_transformed_amrhits = "bvbrc_amr_annotation.tsv"
+        File bvbrc_annot_transformed_predictedresistance = "bvbrc_predicted_resistance.tsv"
+        File bvbrc_annot_feature_protein = "annotation.feature_protein.fasta.gz"
     }
 }
