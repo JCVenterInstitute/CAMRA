@@ -18,7 +18,7 @@ task run_BVBRC_genome_assembly {
     }
 
     runtime {
-        docker: 'danylmb/bvbrc:5.2'
+        docker: 'danylmb/bvbrc:5.3'
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
@@ -88,7 +88,7 @@ task run_BVBRC_annotation_analysis {
     }
 
     runtime {
-        docker: 'danylmb/bvbrc:5.2'
+        docker: 'danylmb/bvbrc:5.3'
     }
 
     String sample_name_no_space = sub(sample_name, " ", "_")
@@ -130,6 +130,6 @@ task run_BVBRC_annotation_analysis {
         File bvbrc_annot_quality = "bvbrc_cga_output/quality.json"
         File bvbrc_annot_transformed_amrhits = "bvbrc_amr_annotation.tsv"
         File bvbrc_annot_transformed_predictedresistance = "bvbrc_predicted_resistance.tsv"
-        File bvbrc_annot_feature_protein = "annotation.feature_protein.fasta.gz"
+        File bvbrc_annot_feature_protein = "bvbrc_cga_output/annotation.feature_protein.fasta.gz"
     }
 }
