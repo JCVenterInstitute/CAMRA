@@ -109,20 +109,20 @@ def validate_blast_db(db_path):
 #         logger.error("    BLAST tools not found. Ensure BLAST+ is installed and in PATH.")
 #         sys.exit(1)
 
-# def parse_arguments():
-#     """Parse command-line arguments for the AMR term consolidation script."""
-#     parser = argparse.ArgumentParser(description="Process AMR term consolidation.")
+def parse_arguments():
+    """Parse command-line arguments for the AMR term consolidation script."""
+    parser = argparse.ArgumentParser(description="Process AMR term consolidation.")
 
-#     # Define expected arguments
-#     parser.add_argument("hamronize_output_file", help="Path to the hamronize output file")
-#     parser.add_argument("ontology_file", help="Path to the ontology file")
-#     parser.add_argument("assembly_file", help="Path to the assembly FASTA file")
-#     parser.add_argument("database_prot_homolog_file", help="Path to protein homolog BLAST database")
-#     parser.add_argument("database_prot_variant_file", help="Path to protein variant BLAST database")
-#     parser.add_argument("database_nucl_homolog_file", help="Path to nucleotide homolog BLAST database")
-#     parser.add_argument("database_nucl_variant_file", help="Path to nucleotide variant BLAST database")
+    # Define expected arguments
+    parser.add_argument("hamronize_output_file", help="Path to the hamronize output file")
+    parser.add_argument("ontology_file", help="Path to the ontology file")
+    parser.add_argument("assembly_file", help="Path to the assembly FASTA file")
+    parser.add_argument("database_prot_homolog_file", help="Path to protein homolog BLAST database")
+    parser.add_argument("database_prot_variant_file", help="Path to protein variant BLAST database")
+    parser.add_argument("database_nucl_homolog_file", help="Path to nucleotide homolog BLAST database")
+    parser.add_argument("database_nucl_variant_file", help="Path to nucleotide variant BLAST database")
 
-#     return parser.parse_args()
+    return parser.parse_args()
 
 # Step 3 - Group Loci
 def group_genes (hamr_output_df):
