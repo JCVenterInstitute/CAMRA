@@ -203,13 +203,13 @@ task run_hAMRonize {
         echo "$(pwd)"
 
 
-        echo "/WHEREIS"
-        file_path=$(find /cromwell-executions/testing_consolidation/ -type f -name "hamronize_amr_output.tsv" 2>/dev/null)
+        # echo "/WHEREIS"
+        # file_path=$(find /cromwell-executions/testing_consolidation/ -type f -name "hamronize_amr_output.tsv" 2>/dev/null)
 
-        echo "File path found: $file_path"
+        # echo "File path found: $file_path"
 
         # Check if file exists and is not empty
-        if [[ -f "$file_path" && -s "$file_path" ]]; then
+        if [[ -f "hamronize_amr_output.tsv" && -s "hamronize_amr_output.tsv" ]]; then
             echo "File exists and is not empty. Entering if statement..."
 
             # Open CARD tar files
