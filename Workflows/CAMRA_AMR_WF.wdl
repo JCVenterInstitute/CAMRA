@@ -23,7 +23,7 @@ workflow amr_analysis   {
         File assembly
         File? read1 
         File? read2 
-        File blast_query
+        File? blast_query
         String sample_name
         String genus
         String species
@@ -32,7 +32,7 @@ workflow amr_analysis   {
         String? bvbrc_assembly_path
         String BVBRC_username
         String BVBRC_password
-        String? timestamp
+        String? bvbrc_timestamp
     }
 
     # Task to combine genus and species
@@ -54,10 +54,12 @@ workflow amr_analysis   {
             assembly = assembly
     }
 
-    call amrfinder.run_Query_Blastn {
-        input:
-            assembly = assembly,
-            query = blast_query
+    if (defined(blast_query)){
+        call amrfinder.run_Query_Blastn {
+            input:
+                assembly = assembly,
+                query = blast_query
+        }
     }
     
     call abricate.run_Abricate{
@@ -83,7 +85,7 @@ workflow amr_analysis   {
             bvbrc_assembly_path = bvbrc_assembly_path,
             contigs_file_local = assembly,
             sample_name = sample_name,
-            timestamp = timestamp,
+            timestamp = bvbrc_timestamp,
             scientific_name = run_taxajoin.organism,  # "Genus species" from MASH, Optional
             taxonomy_id = 2
     }
@@ -130,7 +132,7 @@ workflow amr_analysis   {
         File bvbrc_annot_feature_protein                    = run_BVBRC_annotation_analysis.bvbrc_annot_feature_protein
 
         # Optional Output - blast against userinput query
-        File blastn_output = run_Query_Blastn.blastn_output
+        File? blastn_output = run_Query_Blastn.blastn_output
 
         # AMR finder
         File amrfinder_all_output = run_AMRfinderPlus.amrfinder_all_output
