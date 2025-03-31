@@ -33,7 +33,7 @@ def main(hamronize_output, ontology_file, assembly_file, db_paths):
 
     # Step 4: Generate metadata on tools and databases
     metadata.generate_metadata(hamr_output_df)
-
+    print("#### db_paths", db_paths)
     # Step 5: Match AMR hits to CARD DB
     hamr_output_df = card_matching.match_to_card(
         hamr_output_df, 
@@ -71,15 +71,24 @@ if __name__ == "__main__":
 
     # PARSING ARGUMENTS
     args = utilities.parse_arguments()
+    # logger.info(f"> Arguments parsed: {args}")
+    ###########################################################################
 
     # Store arguments in variables
     hamronize_file = args.hamronize_output_file
+    logger.info(f"  > Hamronize file: {hamronize_file}")
     ontology_file = args.ontology_file
+    logger.info(f"  > Ontology file: {ontology_file}")
     assembly_file = args.assembly_file
+    logger.info(f"  > Assembly file: {assembly_file}")
     database_prot_homolog_file = args.database_prot_homolog_file
+    logger.info(f"  > Database protein homolog file: {database_prot_homolog_file}")
     database_prot_variant_file = args.database_prot_variant_file
+    logger.info(f"  > Database protein variant file: {database_prot_variant_file}")
     database_nucl_homolog_file = args.database_nucl_homolog_file
+    logger.info(f"  > Database nucleotide homolog file: {database_nucl_homolog_file}")
     database_nucl_variant_file = args.database_nucl_variant_file
+    logger.info(f"  > Database nucleotide variant file: {database_nucl_variant_file}")
 
     db_paths = {
     "prot_homolog": database_prot_homolog_file,
@@ -87,20 +96,24 @@ if __name__ == "__main__":
     "nucl_homolog": database_nucl_homolog_file,
     "nucl_variant": database_nucl_variant_file,
     }
+
+    # logger.info(f"  > Database paths: {db_paths}")
     ###########################################################################
 
     # VALIDATE INPUT FILES
+    logger.info(f"  > Validating input files...")
     utilities.validate_file(args.hamronize_output_file)
     utilities.validate_file(args.ontology_file)
     utilities.validate_file(args.assembly_file)
-    logger.info(f"> Input files validated: {args.hamronize_output_file}, {args.ontology_file}, {args.assembly_file}")
+    # logger.info(f"> Input files validated: {args.hamronize_output_file}, {args.ontology_file}, {args.assembly_file}")
 
     for db_name, db_path in db_paths.items():
-        utilities.validate_blast_db(db_path)
+        utilities.validate_blast_db(db_path, db_name)
     ###########################################################################
 
     # RUN MAIN FUNCTION
     try:
+        logger.info(f"  > Running main function...")
         hamronized_terms_df , consolidated_terms_df = main(
             hamronize_file, 
             ontology_file, 
