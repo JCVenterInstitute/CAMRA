@@ -13,7 +13,6 @@ task run_ResFinder {
         cpu: 4
         disks: "local-disk " + 100 + " SSD"
         disk: 100 + " GB"
-        maxRetries: 3
     }
 
     input {
