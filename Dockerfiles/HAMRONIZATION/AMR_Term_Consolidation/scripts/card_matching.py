@@ -55,17 +55,18 @@ def match_to_card(hamr_output_df, graph, name_to_id, synonym_to_id, id_to_name, 
 
         # Define BLAST parameters
         blast_tasks = [
-            ("./intermediary/missing_matches_protein.fasta", "blastp", db_paths["prot_homolog"], "card_blastp_homolog"),
-            ("./intermediary/missing_matches_protein.fasta", "blastp", db_paths["prot_variant"], "card_blastp_variant"),
-            ("./intermediary/missing_matches_nucleotide.fasta", "blastx", db_paths["prot_homolog"], "card_blastx_homolog"),
-            ("./intermediary/missing_matches_nucleotide.fasta", "blastx", db_paths["prot_variant"], "card_blastx_variant"),
-            ("./intermediary/missing_matches_nucleotide.fasta", "blastn", db_paths["nucl_homolog"], "card_blastn_homolog"),
-            ("./intermediary/missing_matches_nucleotide.fasta", "blastn", db_paths["nucl_variant"], "card_blastn_variant"),
+            ("./intermediary/missing_matches_protein.fasta", "blastp", "prot_homolog", "card_blastp_homolog"),
+            ("./intermediary/missing_matches_protein.fasta", "blastp", "prot_variant", "card_blastp_variant"),
+            ("./intermediary/missing_matches_nucleotide.fasta", "blastx", "prot_homolog", "card_blastx_homolog"),
+            ("./intermediary/missing_matches_nucleotide.fasta", "blastx", "prot_variant", "card_blastx_variant"),
+            ("./intermediary/missing_matches_nucleotide.fasta", "blastn", "nucl_homolog", "card_blastn_homolog"),
+            ("./intermediary/missing_matches_nucleotide.fasta", "blastn", "nucl_variant", "card_blastn_variant"),
         ]
 
         logger.info(f"BLASTING MISSING HITS ----------------------------------------------------------------------------------------------------------\n")
         # Run BLAST for each task and update dataframe
         for fasta_file, blast_type, db_path, match_type in blast_tasks:
+            print("####BLAST_TASKS", fasta_file, blast_type, db_path, match_type)
             try:
                 blast_results = blast_missing_hits(fasta_file, db_path, match_type, blast_type)
                 hamr_output_df = utilities.update_df(hamr_output_df, blast_results, match_type)
