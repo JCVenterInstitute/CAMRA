@@ -86,7 +86,6 @@ task run_hAMRonize {
         file_paths=()
 
         # Mandatory files
-        # file_paths+=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output})
         file_paths+=( ~{abricate_cardDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output})
 
         # Conditionally add optional files if they are defined
