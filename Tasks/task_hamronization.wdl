@@ -20,8 +20,8 @@ task run_hAMRonize {
         File resfider_asm_output
         File? resfinder_read_output
 
-        File rgi_CARD_diamond_tsv_output
-        File rgi_CARD_blast_tsv_output 
+        File? rgi_CARD_diamond_tsv_output
+        File? rgi_CARD_blast_tsv_output 
 
         File? bvbrc_amr_file
 
@@ -82,19 +82,29 @@ task run_hAMRonize {
         echo "##################################################"
         mkdir AMR_hAMRonization
 
-        #Create Array of file paths
-        if ~{! defined(bvbrc_amr_file)} && ~{! defined(resfinder_read_output)}; then 
-            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output})
-        elif ~{! defined(bvbrc_amr_file)} && ~{defined(resfinder_read_output)}; then
-            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output} ~{resfinder_read_output})
-        elif ~{defined(bvbrc_amr_file)} && ~{! defined(resfinder_read_output)}; then
-            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output} ~{bvbrc_amr_file})
-        elif ~{defined(bvbrc_amr_file)} && ~{defined(resfinder_read_output)}; then
-            file_paths=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output} ~{rgi_CARD_diamond_tsv_output} ~{rgi_CARD_blast_tsv_output} ~{resfinder_read_output} ~{bvbrc_amr_file})
-        else
-            echo "Inputfile Error"
-            exit 1
-        fi 
+        # Initialize an empty array
+        file_paths=()
+
+        # Mandatory files
+        file_paths+=(~{abricate_ncbiDB_tsv_output} ~{abricate_cardDB_tsv_output} ~{abricate_resfinderDB_tsv_output} ~{abricate_argannotDB_tsv_output} ~{amrfinder_amr_output} ~{resfider_asm_output})
+
+        # Conditionally add optional files if they are defined
+        if ~{defined(bvbrc_amr_file)}; then
+            file_paths+=(~{bvbrc_amr_file})
+        fi
+
+        if ~{defined(resfinder_read_output)}; then
+            file_paths+=(~{resfinder_read_output})
+        fi
+
+        if ~{defined(rgi_CARD_blast_tsv_output)}; then
+            file_paths+=(~{rgi_CARD_blast_tsv_output})
+        fi
+
+        if ~{defined(rgi_CARD_diamond_tsv_output)}; then
+            file_paths+=(~{rgi_CARD_diamond_tsv_output})
+        fi
+
 
         # Iterate thought all available AMR files and standarize them.
         for amr_file in ${file_paths[@]}; do
