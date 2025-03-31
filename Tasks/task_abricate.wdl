@@ -23,9 +23,9 @@ task run_Abricate {
         echo $(abricate --version 2>&1) | sed 's/abricate //' | tee VERSION
 
         #Updating the databases
-        abricate-get_db --db ncbi --force
+        # abricate-get_db --db ncbi --force
         abricate-get_db --db card --force
-        abricate-get_db --db resfinder --force
+        # abricate-get_db --db resfinder --force
         #abricate-get_db --db megares --force #can not update
         abricate-get_db --db vfdb --force
         abricate-get_db --db argannot --force
@@ -52,7 +52,8 @@ task run_Abricate {
         }
 
         # Run abricate for each database
-        databases=("ncbi" "card" "resfinder" "vfdb" "argannot")
+        # databases=("ncbi" "card" "resfinder" "vfdb" "argannot") we dont want to run all of them as it produces redundant output
+        databases=("card" "vfdb" "argannot")
         for db in "${databases[@]}"; do
             run_abricate "$db"
         done
@@ -63,9 +64,9 @@ task run_Abricate {
         String abricate_version = read_string("VERSION")
         String abricate_date = read_string("DATE")
 
-        File abricate_ncbiDB_tsv_output = "abricate_~{sample_name}_ncbi_hits.tsv"
+        # File abricate_ncbiDB_tsv_output = "abricate_~{sample_name}_ncbi_hits.tsv"
         File abricate_cardDB_tsv_output = "abricate_~{sample_name}_card_hits.tsv"
-        File abricate_resfinderDB_tsv_output = "abricate_~{sample_name}_resfinder_hits.tsv"
+        # File abricate_resfinderDB_tsv_output = "abricate_~{sample_name}_resfinder_hits.tsv"
         File abricate_vfdb_tsv_output = "abricate_~{sample_name}_vfdb_hits.tsv"
         File abricate_argannotDB_tsv_output = "abricate_~{sample_name}_argannot_hits.tsv"
 

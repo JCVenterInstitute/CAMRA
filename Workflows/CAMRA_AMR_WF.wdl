@@ -95,9 +95,9 @@ workflow amr_analysis   {
         input:
             assembly = assembly, 
             # AMR Output
-            abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
+            # abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
             abricate_cardDB_tsv_output  = run_Abricate.abricate_cardDB_tsv_output, 
-            abricate_resfinderDB_tsv_output  = run_Abricate.abricate_resfinderDB_tsv_output, 
+            # abricate_resfinderDB_tsv_output  = run_Abricate.abricate_resfinderDB_tsv_output, 
             abricate_argannotDB_tsv_output  = run_Abricate.abricate_argannotDB_tsv_output, 
 
             amrfinder_amr_output = run_AMRfinderPlus.amrfinder_amr_output,
@@ -145,9 +145,9 @@ workflow amr_analysis   {
         String amrfinder_date = run_AMRfinderPlus.amrfinder_date
 
         # Abricate 
-        File abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output
+        # File abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output
         File abricate_cardDB_tsv_output = run_Abricate.abricate_cardDB_tsv_output
-        File abricate_resfinderDB_tsv_output = run_Abricate.abricate_resfinderDB_tsv_output
+        # File abricate_resfinderDB_tsv_output = run_Abricate.abricate_resfinderDB_tsv_output
         File abricate_vfdb_tsv_output = run_Abricate.abricate_vfdb_tsv_output 
         File abricate_argannotDB_tsv_output = run_Abricate.abricate_argannotDB_tsv_output
 
