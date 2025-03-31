@@ -47,42 +47,87 @@ def validate_file(filepath):
     if not os.path.isfile(filepath):
         logger.error(f"    Missing file: {filepath}")
         sys.exit(1)
+    else:
+        logger.info(f"    Found file: {filepath}")
 
-def validate_blast_db(db_path):
+def validate_blast_db(db_path, db_name):
+    def is_fasta_empty(fasta_file):
+        """Check if a FASTA file is empty or contains no valid sequences."""
+        try:
+            with open(fasta_file, 'r') as f:
+                for line in f:
+                    if line.startswith('>'):
+                        return False  # Found a sequence header, so not empty
+        except FileNotFoundError:
+            print(f"Error: File '{fasta_file}' not found.")
+            logger.error(f"    BLAST database is not found {db_path}")
+            sys.exit(1)
+        
+        return True  # No valid sequences found
+
+    def run_makeblastdb(fasta_file, db_name):
+        """Run makeblastdb on the given FASTA file."""
+        if 'nucl' in db_name:
+            db_type = 'nucl'
+        elif 'prot' in db_name:
+            db_type = 'prot'
+        cmd = [
+            'makeblastdb',
+            '-in', fasta_file,
+            '-dbtype', db_type,
+            '-out', db_name
+        ]
+        try:
+            subprocess.run(cmd, check=True)
+            logger.info(f"    BLAST database created successfuly: {db_name}")
+            print(f"BLAST database created successfully: {db_name}")
+        except subprocess.CalledProcessError as e:
+            print(f"Error running makeblastdb: {e}")
+            sys.exit(1)
+
+    logger.info(f"    Checking BLAST database: {db_name} - {db_path}")
+
+    if is_fasta_empty(db_path):
+        print("FASTA file is empty or contains no valid sequences. Exiting.")
+        logger.error(f"    BLAST database is empty: {db_path}")
+        sys.exit(1)
+    
+    logger.info(f"    BLAST database is not empty: {db_path}")
+    run_makeblastdb(db_path,db_name)
     """Check if a BLAST database is valid."""
     
-    logger.info(f"    Checking BLAST database: {db_path}")
+    
 
-    # Ensure db_path is a valid string
-    if not isinstance(db_path, str) or not db_path:
-        logger.error("    Invalid database path provided.")
-        sys.exit(1)
+    # # Ensure db_path is a valid string
+    # if not isinstance(db_path, str) or not db_path:
+    #     logger.error("    Invalid database path provided.")
+    #     sys.exit(1)
 
-    # Expected BLAST database files based on the prefix
-    pin_file = db_path + ".pin"
-    nin_file = db_path + ".nin"
+    # # Expected BLAST database files based on the prefix
+    # pin_file = db_path + ".pin" 
+    # nin_file = db_path + ".nin"
 
-    if not os.path.isfile(pin_file) and not os.path.isfile(nin_file):
-        logger.error(f"    BLAST database files missing for: {db_path}")
-        sys.exit(1)
+    # if not os.path.isfile(pin_file) and not os.path.isfile(nin_file):
+    #     logger.error(f"    BLAST database files missing for: {db_path}")
+    #     sys.exit(1)
 
-    # Check if BLAST+ tools are installed
-    if not shutil.which("blastdbcmd"):
-        logger.error("    BLAST tools not found. Ensure BLAST+ is installed and in PATH.")
-        sys.exit(1)
+    # # Check if BLAST+ tools are installed
+    # if not shutil.which("blastdbcmd"):
+    #     logger.error("    BLAST tools not found. Ensure BLAST+ is installed and in PATH.")
+    #     sys.exit(1)
 
-    # Validate BLAST database
-    try:
-        result = subprocess.run(["blastdbcmd", "-db", db_path, "-info"], 
-                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if result.returncode != 0:
-            logger.error(f"    Invalid BLAST database: {db_path}\n{result.stderr}")
-            sys.exit(1)
-        else:
-            logger.info(f"    Validated BLAST database: {db_path}")
-    except Exception as e:
-        logger.error(f"    Unexpected error during BLAST validation: {e}")
-        sys.exit(1)
+    # # Validate BLAST database
+    # try:
+    #     result = subprocess.run(["blastdbcmd", "-db", db_path, "-info"], 
+    #                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    #     if result.returncode != 0:
+    #         logger.error(f"    Invalid BLAST database: {db_path}\n{result.stderr}")
+    #         sys.exit(1)
+    #     else:
+    #         logger.info(f"    Validated BLAST database: {db_path}")
+    # except Exception as e:
+    #     logger.error(f"    Unexpected error during BLAST validation: {e}")
+    #     sys.exit(1)
 #     """Check if a BLAST database is valid."""
 #     logger.info(f"    BLAST database: {db_path}")
 #     logger.info(f"    BLAST database: {os.listdir(db_path)}")
