@@ -44,8 +44,10 @@ task run_ResFinder {
             fi
         }
 
+        unzip_and_move "~{assembly}" "./assembly.fasta"
+
         # Make directories that will store the resfinder run wiht the assembly file and the read file 
-        mkdir assembly_output read_output 
+        mkdir assembly_output
 
         case "~{organism}" in
             *"Acinetobacter"*"baumannii"*)
