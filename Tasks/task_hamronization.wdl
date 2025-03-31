@@ -40,7 +40,7 @@ task run_hAMRonize {
         File assembly
     }
     runtime{
-        docker: 'danylmb/hamronize:v1.1.4-build16'
+        docker: 'danylmb/hamronize:v1.1.4-build17'
         continueOnReturnCode: [0, 1]
     }
 
@@ -199,62 +199,29 @@ task run_hAMRonize {
         echo "##################################################"
         # cd /data
         mkdir AMR_Term_Consolidation
-        echo "/WHERE AM I"
-        echo "$(pwd)"
-
-
-        # echo "/WHEREIS"
-        # file_path=$(find /cromwell-executions/testing_consolidation/ -type f -name "hamronize_amr_output.tsv" 2>/dev/null)
-
-        # echo "File path found: $file_path"
 
         # Check if file exists and is not empty
         if [[ -f "hamronize_amr_output.tsv" && -s "hamronize_amr_output.tsv" ]]; then
-            echo "File exists and is not empty. Entering if statement..."
-
-            # Open CARD tar files
-
-            mkdir -p CARD_DB
-
-            echo "/CONTENT"
-            echo "$(ls)"
-
-
-            tar -xvzf ~{CARD_protein_homolog} -C CARD_DB
-            tar -xvzf ~{CARD_protein_variant} -C CARD_DB
-            tar -xvzf ~{CARD_nucleotide_homolog} -C CARD_DB
-            tar -xvzf ~{CARD_nucleotide_variant} -C CARD_DB
-
-            protein_homolog=$(basename ~{CARD_protein_homolog} .tar.gz)
-            protein_variant=$(basename ~{CARD_protein_variant} .tar.gz)
-            nucleotide_homolog=$(basename ~{CARD_nucleotide_homolog} .tar.gz)
-            nucleotide_variant=$(basename ~{CARD_nucleotide_variant} .tar.gz)
-
-            echo "Extracted CARD tar files"
-            ls -lh CARD_DB
-
-            # python3 /usr/bin/amr-term-consolidation.py hamronize_amr_output.tsv && echo "    Consolidation DONE"
+            if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz ]]; then 
+                gunzip -c ~{assembly} > assembly.fasta 
+            elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa ]]; then
+                mv ~{assembly} assembly.fasta
+            fi
+        
             python3 /opt/AMR_Term_Consolidation/AMR_Term_Consolidation.py \
                 "./hamronize_amr_output.tsv" \
                 ~{CARD_aro_obo} \
-                ~{assembly} \
-                "CARD_DB/$protein_homolog/$protein_homolog" \
-                "CARD_DB/$prot_variant/$prot_variant" \
-                "CARD_DB/$nucl_homolog/$nucl_homolog" \
-                "CARD_DB/$nucl_variant/$nucl_variant"
-                # "${protein_homolog}" \
-                # "${protein_variant}" \
-                # "${nucleotide_homolog}" \
-                # "${nucleotide_variant}"
-
-            echo "/CONTENT TRYING TO FIND TERM CONSOLIDATION OUTPUT FILES"          
-            echo "$(ls /data)"
-            file_path=$(find / -type f -name "term_consolidation.log" 2>/dev/null)
-            echo "File path found: $file_path"
+                assembly.fasta \
+                ~{CARD_protein_homolog} \
+                ~{CARD_protein_variant} \
+                ~{CARD_nucleotide_homolog} \
+                ~{CARD_nucleotide_variant}
         else
             echo "    No hamronize_amr_output.tsv"
             touch consolidation_isna.tsv consolidation_all.tsv consolidation_amr_over98identity.tsv consolidation_amr_allidentity.tsv
         fi
+
+        rm *.ntf *.nto *.ndb *.nhr *.nin *.njs *.not *.nsq *.pdb *.phr *.pin *.pjs *.pot *.psq *.ptf *.pto assembly.fasta
 
     >>>
 
