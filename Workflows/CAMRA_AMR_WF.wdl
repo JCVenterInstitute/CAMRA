@@ -21,8 +21,8 @@ workflow amr_analysis   {
     }
     input {
         File assembly
-        File? read1 
-        File? read2 
+        # File? read1 
+        # File? read2 
         File? blast_query
         String sample_name
         String genus
@@ -71,8 +71,6 @@ workflow amr_analysis   {
     call resfinder.run_ResFinder{
         input:
             assembly = assembly,
-            read1 = read1,
-            read2 = read2,
             organism = run_taxajoin.organism
         
     }
@@ -103,7 +101,6 @@ workflow amr_analysis   {
             amrfinder_amr_output = run_AMRfinderPlus.amrfinder_amr_output,
 
             resfider_asm_output = run_ResFinder.resfider_asm_output,
-            resfinder_read_output = run_ResFinder.resfinder_read_output,
 
             rgi_CARD_diamond_tsv_output = run_RGI.rgi_CARD_diamond_tsv_output,
             rgi_CARD_blast_tsv_output = run_RGI.rgi_CARD_blast_tsv_output,
@@ -175,11 +172,9 @@ workflow amr_analysis   {
         String resfinder_kma_version = run_ResFinder.resfinder_kma_version
         String resfinder_db_version = run_ResFinder.resfinder_db_version
         File resfider_asm_output = run_ResFinder.resfider_asm_output
-        File? resfinder_read_output = run_ResFinder.resfinder_read_output
         File resfinder_asm_hits = run_ResFinder.resfinder_asm_hits
-        File? resfinder_read_hits = run_ResFinder.resfinder_read_hits
         File resfinder_asm_argseq = run_ResFinder.resfinder_asm_argseq
-        File? resfinder_read_argseq = run_ResFinder.resfinder_read_argseq
+
 
         # RGI
         String rgi_CARD_DB_version = run_RGI.rgi_CARD_DB_version
