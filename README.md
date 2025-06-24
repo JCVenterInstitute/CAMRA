@@ -61,6 +61,23 @@ To run this workflow you need an active BV-BRC account.
 
 ### AMR Analysis
 
+Anti-microbial Resistance genes are identified in each assembly using multiple AMR programs along with the associated databases using docker images for each.
+The results, despite the production of different output file formats, are harmonized with hAMRonize, an open source code that eases the downstream bioinformatic analysis of results. 
+
+AMR Terms are consolidated and harmonized for each AMR Gene. 
+RGI matching is prioritized in the reporting, but in instances where genes are exclusively identified by another AMR, it is used.
+
+
+Tools used include:
+
+- [amrfinder](https://hub.docker.com/r/ncbi/amr)
+- [abricate](https://hub.docker.com/r/staphb/abricate)
+- [resfinder](https://bitbucket.org/genomicepidemiology/resfinder/src/4.5.0/)
+- [rgi](https://github.com/arpcard/rgi.git)
+- [bvbrc](https://hub.docker.com/repository/docker/andrewrlapointe/bvbrc/general)
+- [hamronization](https://hub.docker.com/r/finlaymaguire/hamronization)
+
+
 ### Quality Control
 
 Tools used include:
