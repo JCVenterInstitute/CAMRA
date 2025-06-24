@@ -65,7 +65,7 @@ Anti-microbial Resistance genes are identified in each assembly using multiple A
 The results, despite the production of different output file formats, are harmonized with hAMRonize, an open source code that eases the downstream bioinformatic analysis of results. 
 
 AMR Terms are consolidated and harmonized for each AMR Gene. 
-RGI matching is prioritized in the reporting, but in instances where genes are exclusively identified by another AMR, it is used.
+RGI matching is prioritized in the reporting, but in instances where genes are only identified by another AMR, it will be used.
 
 
 Tools used include:
