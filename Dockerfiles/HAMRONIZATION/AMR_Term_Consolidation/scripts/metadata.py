@@ -36,13 +36,16 @@ def create_matching_hit_matix (df: pd.DataFrame) -> pd.DataFrame:
 
     # Make Heatmap
     # Split pairs into separate columns for clarity (optional)
-    pair_counts_df[['tool_db_1', 'tool_db_2']] = pd.DataFrame(pair_counts_df['pair'].tolist(), index=pair_counts_df.index)
-    pair_counts_df.drop(columns='pair', inplace=True)
+    if len(pair_counts_df) > 0:
+        pair_counts_df[['tool_db_1', 'tool_db_2']] = pd.DataFrame(pair_counts_df['pair'].tolist(), index=pair_counts_df.index)
+        pair_counts_df.drop(columns='pair', inplace=True)
     
     # Reshape into a matrix format (pivot)
-    matrix_df = pair_counts_df.pivot(index='tool_db_1', columns='tool_db_2', values='count').fillna(0)
-    return matrix_df  
-
+        matrix_df = pair_counts_df.pivot(index='tool_db_1', columns='tool_db_2', values='count').fillna(0)
+        return matrix_df  
+    else:
+        return pair_counts_df  
+        
 def find_frequencies (df: pd.DataFrame) -> pd.DataFrame:   
     
     '''
