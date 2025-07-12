@@ -40,7 +40,7 @@ task run_hAMRonize {
         File assembly
     }
     runtime{
-        docker: 'danylmb/hamronize:v1.1.4-build17'
+        docker: 'thclarke/harmonization'
         continueOnReturnCode: [0, 1]
     }
 
