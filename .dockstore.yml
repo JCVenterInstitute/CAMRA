@@ -109,3 +109,12 @@ workflows:
     branches:
       - RGI
 
+  - name: CAMRA-NIGERIA_AMR_Detection-WDL
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_WF_NIGERIA.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
