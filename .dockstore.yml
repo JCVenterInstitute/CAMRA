@@ -119,7 +119,7 @@ workflows:
     branches:
       - main
  
- - name: CAMRA-CAMRA-BV-BRC-AMR-WDL
+  - name: CAMRA-CAMRA-BV-BRC-AMR-WDL
     subclass: WDL
     primaryDescriptorPath: /Workflows/CAMRA-BV-BRC-AMR.wdl
     readMePath: /README.md
