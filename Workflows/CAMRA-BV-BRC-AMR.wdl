@@ -27,7 +27,6 @@ workflow amr_analysis   {
         String BVBRC_password
         String? bvbrc_timestamp
     }
-a
 
      #BVBRC docker and build task to send assembly and conduct genome analysis & annotation
     call bvbrc.run_BVBRC_annotation_analysis {
