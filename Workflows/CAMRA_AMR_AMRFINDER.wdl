@@ -15,6 +15,7 @@ workflow amr_analysis   {
     input {
         File assembly
          String sample_name
+      String organism
        }
 
     # Task to combine genus and species
