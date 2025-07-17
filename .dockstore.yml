@@ -169,3 +169,13 @@ workflows:
     branches:
       - main
 
+  - name: CAMRA-AMR-HARMONIZATION
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_HARMONIZATION_WF.wd
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
+
