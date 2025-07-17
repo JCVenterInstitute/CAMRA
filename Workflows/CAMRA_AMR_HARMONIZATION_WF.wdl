@@ -22,7 +22,7 @@ workflow amr_analysis   {
         String organism
         File amrfinder_amr_output
         File resfider_asm_output
-        File rgi_CARD_diamond_tsv_output
+        File? rgi_CARD_diamond_tsv_output
         File rgi_CARD_blast_tsv_output
         File abricate_cardDB_tsv_output
         File abricate_argannotDB_tsv_output
@@ -43,8 +43,6 @@ workflow amr_analysis   {
             amrfinder_amr_output = amrfinder_amr_output,
 
             resfider_asm_output = resfider_asm_output,
-
-            rgi_CARD_diamond_tsv_output = rgi_CARD_diamond_tsv_output,
             rgi_CARD_blast_tsv_output = rgi_CARD_blast_tsv_output,
 
             # Virulence Output
