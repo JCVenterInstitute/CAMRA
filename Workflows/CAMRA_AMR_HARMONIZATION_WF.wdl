@@ -20,7 +20,7 @@ workflow amr_analysis   {
         File? blast_query
         String sample_name
         String organism
-        File mrfinder_amr_output
+        File amrfinder_amr_output
         File resfider_asm_output
         File rgi_CARD_diamond_tsv_output
         File rgi_CARD_blast_tsv_output
@@ -28,12 +28,7 @@ workflow amr_analysis   {
         File abricate_argannotDB_tsv_output
         File abricate_vfdb_tsv_output
         File amrfinder_virulence_output
-
-        String? bvbrc_assembly_path
-        String BVBRC_username
-        String BVBRC_password
-        String? bvbrc_timestamp
-    }
+   }
 
     # Task to combine genus and species
 
@@ -50,13 +45,13 @@ workflow amr_analysis   {
             resfider_asm_output = resfider_asm_output,
 
             rgi_CARD_diamond_tsv_output = rgi_CARD_diamond_tsv_output,
-            rgi_CARD_blast_tsv_output = gi_CARD_blast_tsv_output,
+            rgi_CARD_blast_tsv_output = rgi_CARD_blast_tsv_output,
 
             # Virulence Output
 
             VIR_files = [
-                run_Abricate.abricate_vfdb_tsv_output,
-                run_AMRfinderPlus.amrfinder_virulence_output
+                abricate_vfdb_tsv_output,
+                amrfinder_virulence_output
             ]
         }
 
