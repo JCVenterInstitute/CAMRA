@@ -128,3 +128,44 @@ workflows:
       - orcid: 0009-0008-5199-2990 #Daniella Matute
     branches:
       - main
+
+  - name: CAMRA-AMR-ABRICATE
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_ABRICATE.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
+      
+  - name: CAMRA-AMR-AMRFINDER
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_AMRFINDER.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
+ 
+  - name: CAMRA-AMR-RESFINDER
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_RESFINDER.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
+
+  - name: CAMRA-AMR-RGI
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_AMR_RGI.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
+
