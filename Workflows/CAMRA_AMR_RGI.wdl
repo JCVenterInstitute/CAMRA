@@ -23,7 +23,7 @@ workflow amr_analysis   {
         File assembly
         String sample_name
         String organism
-
+   }
 
     call rgi.run_RGI {
         input:
