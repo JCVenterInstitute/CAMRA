@@ -129,7 +129,7 @@ def matching_to_card(row, graph, name_to_id, synonym_to_id, id_to_name):
     # 2. Match gene_symbol to name
     if row['gene_symbol'].lower() in name_to_id and not match_found:
         row["card_match_name"] = row['gene_symbol']
-        row["card_match_id"] = name_to_id[row['gene_symbol']]
+        row["card_match_id"] = name_to_id[row['gene_symbol'].lower()]
         row["card_match_type"] = 'gene_symbol'
         match_found = True
         
@@ -143,7 +143,7 @@ def matching_to_card(row, graph, name_to_id, synonym_to_id, id_to_name):
     # 4. Match gene_symbol to name
     if row['gene_name'].lower() in name_to_id and not match_found:
         row["card_match_name"] = row['gene_name']
-        row["card_match_id"] = name_to_id[row['gene_name']]
+        row["card_match_id"] = name_to_id[row['gene_name'].lower()]
         row["card_match_type"] = 'gene_name'
         match_found = True
 
