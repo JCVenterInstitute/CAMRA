@@ -46,18 +46,20 @@ def main(hamronize_output, ontology_file, assembly_file, db_paths):
         )
     
     matched_df = utilities.relevant_information(hamr_output_df)
-
-    consolidated_terms_df =  term_consolidation.term_consolidation(matched_df, graph)
-    # TODO term consolidation.
+    if matched_df is not None:
+        consolidated_terms_df =  term_consolidation.term_consolidation(matched_df, graph)
+        # TODO term consolidation.
     
     # logger.info(
     #     f"... Success of CLAST\n {metadata.match_metadata(hamr_output_df,'card_match_type')}\n {hamr_output_df['card_match_type'].isna().sum()} np.nan AMR hits will be matched via BLASTp."
     # )
     
-    logger.info(
-        f"... Success of CLAST\n {metadata.match_metadata(matched_df,'card_match_type')}\n {matched_df['card_match_type'].isna().sum()} np.nan AMR hits will be matched via BLASTp."
-    )
-
+        if 'card_match_type' in matched_df:
+            logger.info(
+                f"... Success of CLAST\n {metadata.match_metadata(matched_df,'card_match_type')}\n {matched_df['card_match_type'].isna().sum()} np.nan AMR hits will be matched via BLASTp."
+            )
+    else:
+        consolidated_terms_df = None
     logger.info("> Matching completed.")
     return matched_df, consolidated_terms_df  #hamr_output_df
 
@@ -122,11 +124,15 @@ if __name__ == "__main__":
             )
         
         logger.info(f"PROCESSING COMPLETED SUCCESSFULLY ----------------------------------------------------------------------------------------------\n")
-        logger.info(hamronized_terms_df.shape)
-        logger.info(consolidated_terms_df)
-        # Save the final dataframe as a TSV file
-        hamronized_terms_df.to_csv("HARMONIZED_TERMS.tsv", sep="\t", index=False)
-        consolidated_terms_df.to_csv("CONSOLIDATED_TERMS.tsv", sep="\t", index=False)
+        if harmaonized_terms is not None:
+            logger.info(hamronized_terms_df.shape)
+            logger.info(consolidated_terms_df)
+            # Save the final dataframe as a TSV file
+            hamronized_terms_df.to_csv("HARMONIZED_TERMS.tsv", sep="\t", index=False)
+            consolidated_terms_df.to_csv("CONSOLIDATED_TERMS.tsv", sep="\t", index=False)
+        else:
+            open("HARMONIZED_TERMS.tsv", 'a').close()
+            open("CONSOLIDATED_TERMS.tsv", 'a').close()
         logger.info(f"Processed data saved.")
         
     except Exception as e:
