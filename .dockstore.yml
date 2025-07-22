@@ -179,3 +179,12 @@ workflows:
     branches:
       - main
 
+  - name: CAMRA-MAKE_ORGANISM
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_Make_Organism.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
