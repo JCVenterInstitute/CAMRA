@@ -138,10 +138,17 @@ class loci_group:
         most_common_gene, _ = gene_counts.most_common(1)[0]
 
         if db_name == "AMR tool":
-            match_hit, card_count, most_common_index = self.find_card_match_from_amr(most_common_gene)
+            tmp = self.find_card_match_from_amr(most_common_gene)
+            if tmp is not None:
+                match_hit, card_count, most_common_index = tmp
+            else:
+                match_hit = None
         else:
-            match_hit, card_count, most_common_index = self.find_card_match_from_card(most_common_gene)
-        
+            tmp = self.find_card_match_from_card(most_common_gene)
+            if tmp is not None:
+                match_hit, card_count, most_common_index = tmp
+            else:
+                match_hit = None
         if match_hit is None:
             print(f"Warning: No match found for {most_common_gene}. Returning None.")
             self.final_gene_info = None
@@ -256,17 +263,17 @@ def term_consolidation (input_df, graph):
     # input_df.head()
 
     loci_groups_dict = {}  # Dictionary to store LociGroup objects
-
-    # Iterate each row in the dataframe 
-    for _, row in input_df.iterrows():
-        loci_id = row["loci_groups"]  # Loci group number
+    if input_dif is not None:
+        # Iterate each row in the dataframe 
+        for _, row in input_df.iterrows():
+            loci_id = row["loci_groups"]  # Loci group number
         
-        # If the loci doesnt exsist in the dictionary, create it 
-        if loci_id not in loci_groups_dict:
-            loci_groups_dict[loci_id] = loci_group(loci_id)
+            # If the loci doesnt exsist in the dictionary, create it 
+            if loci_id not in loci_groups_dict:
+                loci_groups_dict[loci_id] = loci_group(loci_id)
 
-        # Add the Amr hit to its respective loci in the dictionary
-        hit = AMR_hit(
+            # Add the Amr hit to its respective loci in the dictionary
+            hit = AMR_hit(
                     amr_tool_db = row["permutations"],
                     amr_gene_symbol = row["gene_symbol"],
                     amr_stop = row["input_gene_stop"],
@@ -277,9 +284,9 @@ def term_consolidation (input_df, graph):
                     match_name = row["card_match_name"],
                     match_ref_accession = row["card_match_id"],
                     match_pident = row["pident"],
-        )
+            )
 
-        loci_groups_dict[loci_id].add_hit(hit)
+            loci_groups_dict[loci_id].add_hit(hit)
 
     for i in loci_groups_dict:
         loci_groups_dict[i].determine_final_ref_accession(graph)
