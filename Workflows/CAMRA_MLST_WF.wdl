@@ -2,7 +2,7 @@ version 1.0
 
 import "../Tasks/task_mlst.wdl" as mlst
 
-Workflow get_mlst {
+workflow get_mlst {
     meta {
         author: "Daniella Matute"
         email: "dmatute@jcvi.org"
