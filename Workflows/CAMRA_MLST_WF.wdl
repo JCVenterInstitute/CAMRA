@@ -41,7 +41,7 @@ Workflow assembly_qc {
     } 
 
 
-    output{
+    output {
 
         #MLST
         String? tsMLST_version = run_MLST.tsMLST_version
