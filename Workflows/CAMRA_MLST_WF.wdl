@@ -17,7 +17,7 @@ Workflow assembly_qc {
         pubmlst_DB      :   "Optional pubmlst_DB for mlst mapping"
     }
 
-    input{
+    input {
         String sample_name
         File read1
         File read2
