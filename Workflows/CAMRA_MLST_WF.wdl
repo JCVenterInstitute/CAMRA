@@ -2,7 +2,7 @@ version 1.0
 
 import "../Tasks/task_mlst.wdl" as mlst
 
-Workflow assembly_qc {
+Workflow get_mlst {
     meta {
         author: "Daniella Matute"
         email: "dmatute@jcvi.org"
