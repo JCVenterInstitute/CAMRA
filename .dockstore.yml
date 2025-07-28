@@ -189,7 +189,7 @@ workflows:
     branches:
       - main
  
- - name: CAMRA-GET-MLST
+  - name: CAMRA-GET-MLST
     subclass: WDL
     primaryDescriptorPath: /Workflows/CAMRA_MLST_WF.wdl
     readMePath: /README.md
