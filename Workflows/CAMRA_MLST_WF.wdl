@@ -11,16 +11,12 @@ Workflow get_mlst {
 
     parameter_meta {
         sample_name     :   "Name of sample isolate"
-        read1           :   "Raw read 1 fastq.gz or fastq file"
-        read2           :   "Raw read 2 fastq.gz or fastq file"
         assembly        :   "Assembly in fasta or fasta.gz format"
         pubmlst_DB      :   "Optional pubmlst_DB for mlst mapping"
     }
 
     input {
         String sample_name
-        File read1
-        File read2
         File assembly
         File pubmlst_DB = "None"
     }
