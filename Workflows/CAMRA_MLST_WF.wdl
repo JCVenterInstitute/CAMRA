@@ -18,24 +18,19 @@ Workflow get_mlst {
     input {
         String sample_name
         File assembly
-        File pubmlst_DB = "None"
+        File? pubmlst_DB    
     }
     
-    if ( "~{pubmlst_DB}" == "None") {
-        call mlst.run_MLST {
-            input:
-                assembly = assembly
-        }
+    call mlst.run_MLST if !defined(pubmlst_DB) {
+        input:
+            assembly = assembly
     }
-    
-    if ( "~{pubmlst_DB}" != "None" ) {
-        call mlst.run_MLST_pubmlst_DB {
-            input: 
-                assembly = assembly,
-                pubmlst_DB = pubmlst_DB
-        }
-    } 
 
+    call mlst.run_MLST_pubmlst_DB if defined(pubmlst_DB) {
+        input:
+            assembly = assembly,
+            pubmlst_DB = pubmlst_DB
+    }
 
     output {
 
