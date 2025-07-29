@@ -198,3 +198,23 @@ workflows:
       - orcid: 0009-0008-5199-2990 #Daniella Matute
     branches:
       - main
+
+  - name: CAMRA-PANGENOME
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_RUN_PANGENOME.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
+
+  - name: CAMRA-PANBLAST
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_PAN_BLAST.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
