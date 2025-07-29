@@ -1,9 +1,5 @@
 version 1.0
 
-#import "../Tasks/task_pangenome.wdl" as pangenome
-
-
-
 task makeFastaFiles {
   input {
     Array[File] gb_files
