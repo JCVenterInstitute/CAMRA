@@ -32,6 +32,7 @@ workflow amr_analysis   {
         String BVBRC_username
         String BVBRC_password
         String? bvbrc_timestamp
+        Int gb_req
     }
 
     # Task to combine genus and species
@@ -87,6 +88,7 @@ workflow amr_analysis   {
     call hamronize.run_hAMRonize {
         input:
             assembly = assembly,
+            gb_req = gb_req.
             # AMR Output
             # abricate_ncbiDB_tsv_output = run_Abricate.abricate_ncbiDB_tsv_output,
             abricate_cardDB_tsv_output  = run_Abricate.abricate_cardDB_tsv_output,
