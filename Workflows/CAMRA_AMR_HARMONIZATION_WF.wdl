@@ -18,6 +18,7 @@ workflow amr_analysis   {
         # File? read1
         # File? read2
         File? blast_query
+        Integer gb_req
         String sample_name
         String organism
         File amrfinder_amr_output
@@ -44,7 +45,7 @@ workflow amr_analysis   {
 
             resfider_asm_output = resfider_asm_output,
             rgi_CARD_blast_tsv_output = rgi_CARD_blast_tsv_output,
-
+            gb_req = gb_req,
             # Virulence Output
 
             VIR_files = [
