@@ -18,7 +18,7 @@ workflow amr_analysis   {
         # File? read1
         # File? read2
         File? blast_query
-        Integer gb_req
+        Int gb_req
         String sample_name
         String organism
         File amrfinder_amr_output
