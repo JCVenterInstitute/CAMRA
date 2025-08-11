@@ -38,7 +38,7 @@ task run_hAMRonize {
 
         # Assembly
         File assembly
-        Integer gb_req
+        Int gb_req
     }
     runtime{
         docker: 'thclarke/harmonization'
