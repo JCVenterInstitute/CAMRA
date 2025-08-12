@@ -42,7 +42,6 @@ task run_hAMRonize {
     }
     runtime{
         docker: 'thclarke/harmonization'
-        memory: "~{gb_req} GB"   # Request 4 GB of memory
         continueOnReturnCode: [0, 1]
     }
 
