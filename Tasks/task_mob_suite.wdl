@@ -2,9 +2,9 @@ version 1.0
 
 task run_mob_suite {
     meta {
-        description: ""
+        description: "Find Plasmids using mob suite"
         version: "1.0"
-        dockerhub: ""
+        dockerhub: "bessonov/mob_suite:3.0.3"
     }
 
     input {
@@ -16,10 +16,13 @@ task run_mob_suite {
     }
 
     command <<<
-        echo TODO
+        mob_recon -i {assembly} -o ./mob/
+        mob_typer -i {assembly} -o ./mob/Typing.out 
     >>>
 
     output {
-        String mob_out = "TODO"
+        File mob_contig_out = "mob/contig_report.txt"
+        File mob_plasmid_out = "mob/mobtyper_results.txt"
+        File mob_typer_out = "mob/Typing.out"
     }
 }
