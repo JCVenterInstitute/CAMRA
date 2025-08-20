@@ -219,7 +219,7 @@ workflows:
     branches:
       - main
       
-- name: CAMRA-MOB-SUITE
+  - name: CAMRA-MOB-SUITE
     subclass: WDL
     primaryDescriptorPath: /Workflows/CAMRA_MOB_SUITE.wdl
     readMePath: /README.md
