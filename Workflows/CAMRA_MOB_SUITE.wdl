@@ -28,6 +28,6 @@ workflow run_mob_suite   {
     output {
         File mob_contig_out = run_mob_suite.mob_contig_out
         File mob_typer_out = run_mob_suite.mob_typer_out
-        File mob_typing_out = run_mob_suite.mob_typing_out
-        }
+        File mob_plasmid_out = run_mob_suite.mob_plasmid_out
+    }
 }
