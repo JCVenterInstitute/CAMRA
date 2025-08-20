@@ -16,8 +16,8 @@ task run_mob_suite {
     }
 
     command <<<
-        mob_recon -i {assembly} -o ./mob/
-        mob_typer -i {assembly} -o ./mob/Typing.out 
+        mob_recon -i ~{assembly} -o ./mob/
+        mob_typer -i ~{assembly} -o ./mob/Typing.out 
     >>>
 
     output {
