@@ -22,13 +22,12 @@ workflow run_mob_suite   {
 
     call mob_suite.run_mooSuite {
         input:
-            assembly = assembly,
-            organism = organism
+            assembly = assembly
     }
     
     output {
         File mob_contig_out = run_mooSuite.mob_contig_out
         File mob_typer_out = run_mooSuite.mob_typer_out
-        File mob_typing_out = run_mooSuite;mob_typing_out
+        File mob_typing_out = run_mooSuite.mob_typing_out
         }
 }
