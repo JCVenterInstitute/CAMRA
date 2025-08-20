@@ -16,8 +16,14 @@ task run_mob_suite {
     }
 
     command <<<
-        mob_recon -i ~{assembly} -o ./mob/
-        mob_typer -i ~{assembly} -o ./mob/Typing.out 
+        if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz ]]; then 
+            gunzip -c ~{assembly} > assembly.fasta 
+        elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa ]]; then
+            mv ~{assembly}  assembly.fasta
+        fi
+
+        mob_recon -i assembly.fasta -o ./mob/
+        mob_typer -i assembly.fasta -o ./mob/Typing.out 
     >>>
 
     output {
