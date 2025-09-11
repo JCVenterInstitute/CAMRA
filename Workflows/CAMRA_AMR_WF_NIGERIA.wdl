@@ -72,17 +72,17 @@ workflow amr_analysis   {
     }
 
      #BVBRC docker and build task to send assembly and conduct genome analysis & annotation
-    call bvbrc.run_BVBRC_annotation_analysis {
-        input:
-            username = BVBRC_username,
-            password = BVBRC_password,
-            bvbrc_assembly_path = bvbrc_assembly_path,
-            contigs_file_local = assembly,
-            sample_name = sample_name,
-            timestamp = bvbrc_timestamp,
-            scientific_name = organism,  # "Genus species" from MASH, Optional
-            taxonomy_id = 2
-    }
+    #call bvbrc.run_BVBRC_annotation_analysis {
+    #    input:
+    #        username = BVBRC_username,
+    #        password = BVBRC_password,
+    #        bvbrc_assembly_path = bvbrc_assembly_path,
+    #        contigs_file_local = assembly,
+    #        sample_name = sample_name,
+    #        timestamp = bvbrc_timestamp,
+    #        scientific_name = organism,  # "Genus species" from MASH, Optional
+    #        taxonomy_id = 2
+    #}
 
 
     call hamronize.run_hAMRonize {
