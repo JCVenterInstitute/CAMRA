@@ -29,6 +29,7 @@ workflow amr_analysis   {
         File abricate_argannotDB_tsv_output
         File abricate_vfdb_tsv_output
         File amrfinder_virulence_output
+        File bvbrc_amr_file
    }
 
     # Task to combine genus and species
@@ -45,7 +46,9 @@ workflow amr_analysis   {
 
             resfider_asm_output = resfider_asm_output,
             rgi_CARD_blast_tsv_output = rgi_CARD_blast_tsv_output,
+            rgi_CARD_diamond_tsv_output = rgi_CARD_diamond_tsv_output
             gb_req = gb_req,
+            bvbrc_amr_file = bvbrc_amr_file,
             # Virulence Output
 
             VIR_files = [
