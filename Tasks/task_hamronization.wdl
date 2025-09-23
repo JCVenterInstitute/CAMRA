@@ -5,6 +5,7 @@ task run_hAMRonize {
     description: "Combine the outputs of disparate antimicrobial resistance gene detection tools into a single unified format."
     gitrepository: "https://github.com/pha4ge/hAMRonization"
     docker:"https://hub.docker.com/r/finlaymaguire/hamronization"
+    memory:"~{gb_req} GB"
     }
 
     input {
