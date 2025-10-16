@@ -10,7 +10,7 @@ task run_taxajoin {
     }
     command <<<
         species_length=$(echo -n "~{species}" | wc -c)
-        if [ "$species_length" -gt 3 ]; then
+        if [ "$species_length" -gt 2 ]; then
             # Concatenate "genus" and "species"
             organism="~{genus} ~{species}"
             echo "$organism"
