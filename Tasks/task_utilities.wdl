@@ -13,7 +13,7 @@ task run_taxajoin {
         if [ "$species_length" -gt 3 ]; then
             # Concatenate "genus" and "species"
             organism="~{genus} ~{species}"
-            echo "Organism is set as: $organism"
+            echo "$organism"
         else
             organism="~{genus}"
             echo "Species probably invalid: ~{species}. Organism is set as: $organism"
