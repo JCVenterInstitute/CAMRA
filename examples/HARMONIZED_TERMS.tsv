@@ -1,0 +1,165 @@
+loci_groups	permutations	gene_symbol	sequence_identity	reference_accession	card_match_type	card_match_name	card_match_id	pident	input_gene_start	input_gene_stop	input_sequence_id
+0	('abricate', 'argannot')	(AGly)aadA1-pm	99.49	JQ690540:7968-8798	card_blastx_homolog	Detection_Model:Protein	ARO:3004089	100.0	1	778	NZ_JBMAZT010000086.1
+1	('abricate', 'argannot')	(AGly)sat-2A	100.0	X51546:518-1042	card_blastp_homolog	Detection_Model:Protein	ARO:3002895	100.0	69	593	NZ_JBMAZT010000041.1
+2	('abricate', 'argannot')	(AGly)strA	99.88	AB366441:22458-23261	card_blastp_homolog	Detection_Model:Protein	ARO:3002639	100.0	2243	3046	NZ_JBMAZT010000046.1
+3	('abricate', 'argannot')	(AGly)strB	100.0	FJ474091:264-1100	card_blastp_homolog	Detection_Model:Protein	ARO:3002660	100.0	3046	3882	NZ_JBMAZT010000046.1
+4	('abricate', 'argannot')	(Bla)AmpC1_Ecoli	98.16	FN649414:2765051-2766355					85554	86858	NZ_JBMAZT010000005.1
+5	('abricate', 'argannot')	(Bla)AmpC2_Ecoli	97.62	CP002970:332756-333889	card_blastp_homolog	Detection_Model:Protein	ARO:3006878	100.0	4639	5772	NZ_JBMAZT010000011.1
+6	('abricate', 'argannot')	(Bla)Penicillin_Binding_Protein_Ecoli	99.42	CP002291:664439-666340					81018	82919	NZ_JBMAZT010000013.1
+7	('abricate', 'argannot')	(Bla)ampH_Ecoli	99.4	AP012030:395554-396711					128962	130119	NZ_JBMAZT010000015.1
+8	('abricate', 'argannot')	(Bla)blaOXA-1	99.88	JQ682867:1-831	card_blastp_homolog	Detection_Model:Protein	ARO:3001396	100.0	11972	12802	NZ_JBMAZT010000045.1
+9	('abricate', 'argannot')	(Bla)blaTEM-105	99.88	AF516720:215-1075	card_blastp_homolog	Detection_Model:Protein	ARO:3000873	100.0	7114	7974	NZ_JBMAZT010000023.1
+10	('abricate', 'argannot')	(Flq)qepA	99.55	AB263754:7052-8587	card_blastp_homolog	Detection_Model:Protein	ARO:3004103	100.0	7147	8688	NZ_JBMAZT010000045.1
+11	('abricate', 'argannot')	(Phe)catA1	99.7	V00622:244-903	card_blastp_homolog	Detection_Model:Protein	ARO:3002683	100.0	224	883	NZ_JBMAZT010000045.1
+12	('abricate', 'argannot')	(Sul)sul2	100.0	EU360945:1617-2432	card_blastp_homolog	Detection_Model:Protein	ARO:3000412	100.0	1367	2182	NZ_JBMAZT010000046.1
+13	('abricate', 'argannot')	(Tet)tetA	100.0	JX424423:94438-95712	card_blastp_homolog	Detection_Model:Protein	ARO:3000165	100.0	5143	6389	NZ_JBMAZT010000046.1
+14	('abricate', 'argannot')	(Tet)tetR	100.0	HF545434:53576-54226					4462	5112	NZ_JBMAZT010000046.1
+15	('abricate', 'argannot')	(Tmt)dfrA1	100.0	JQ794607:474	card_blastn_homolog	Detection_Model:Protein	ARO:3002854	100.0	688	1161	NZ_JBMAZT010000041.1
+2	('abricate', 'card')	APH(3'')-Ib	99.75	AF313472.2:15593-16397	gene_symbol(SYNONYM)	APH(3'')-Ib	ARO:3002639		2243	3046	NZ_JBMAZT010000046.1
+3	('abricate', 'card')	APH(6)-Id	99.88	AF024602.1:3155-3992	gene_symbol(SYNONYM)	APH(6)-Id	ARO:3002660		3046	3882	NZ_JBMAZT010000046.1
+16	('abricate', 'card')	AcrE	98.88	U00096.1:3413863-3415021	gene_symbol(SYNONYM)	AcrE	ARO:3000499		8524	9681	NZ_JBMAZT010000004.1
+17	('abricate', 'card')	AcrF	99.03	U00096.1:3415032-3418137	gene_symbol(SYNONYM)	AcrF	ARO:3000502		5408	8512	NZ_JBMAZT010000004.1
+18	('abricate', 'card')	AcrS	99.4	U00096.1:3413465-3412802	gene_symbol(SYNONYM)	AcrS	ARO:3000656		10080	10742	NZ_JBMAZT010000004.1
+19	('abricate', 'card')	CRP	99.21	AP009048.1:4154296-4153663	gene_symbol(SYNONYM)	CRP	ARO:3000518		15001	15633	NZ_JBMAZT010000003.1
+5	('abricate', 'card')	EC-18	99.82	NG_049083.1:100-1234	gene_symbol(SYNONYM)	EC-18	ARO:3006878		4639	5772	NZ_JBMAZT010000011.1
+20	('abricate', 'card')	Escherichia_coli_acrA	99.58	U00096.3:485619-484425	card_blastp_homolog	Detection_Model:Protein	ARO:3004043	100.0	37534	38727	NZ_JBMAZT010000015.1
+21	('abricate', 'card')	Escherichia_coli_mdfA	97.57	JQ394987.1:0-1233	card_blastp_homolog	Detection_Model:Protein	ARO:3001328	100.0	25994	27226	NZ_JBMAZT010000007.1
+22	('abricate', 'card')	H-NS	99.28	BA000007.3:1738104-1737690	gene_symbol(SYNONYM)	H-NS	ARO:3000676		67286	67699	NZ_JBMAZT010000006.1
+8	('abricate', 'card')	OXA-1	99.88	JN420336.1:2230-1399	gene_symbol(SYNONYM)	OXA-1	ARO:3001396		11972	12802	NZ_JBMAZT010000045.1
+23	('abricate', 'card')	OmpA	83.75	FO834906.1:2175099-2173974	gene_symbol(SYNONYM)	OmpA	ARO:3005044		172303	173392	NZ_JBMAZT010000007.1
+24	('abricate', 'card')	PmrF	99.38	U00096.1:2367070-2368039	gene_symbol(SYNONYM)	PmrF	ARO:3003578		76810	77778	NZ_JBMAZT010000002.1
+10	('abricate', 'card')	QepA2	99.55	EU847537.1:1671-3207	gene_symbol(SYNONYM)	QepA2	ARO:3004103		7147	8688	NZ_JBMAZT010000045.1
+1	('abricate', 'card')	SAT-2	100.0	AB211124.1:0-525	gene_symbol(SYNONYM)	SAT-2	ARO:3002895		69	593	NZ_JBMAZT010000041.1
+9	('abricate', 'card')	TEM-1	99.88	AL513383.1:161910-162771	gene_symbol(SYNONYM)	TEM-1	ARO:3000873		7114	7974	NZ_JBMAZT010000023.1
+25	('abricate', 'card')	TolC	98.39	FJ768952.1:0-1488	gene_symbol(SYNONYM)	TolC	ARO:3000237		241259	242746	NZ_JBMAZT010000004.1
+26	('abricate', 'card')	YojI	98.17	U00096.3:2308615-2306971	gene_symbol(SYNONYM)	YojI	ARO:3003952		124797	126440	NZ_JBMAZT010000002.1
+0	('abricate', 'card')	aadA	99.36	AF550679.1:81768-80976	gene_symbol(SYNONYM)	aadA	ARO:3002601		1	778	NZ_JBMAZT010000086.1
+27	('abricate', 'card')	acrB	99.21	U00096.3:484403-481253	gene_symbol(SYNONYM)	acrB	ARO:3000216		38750	41899	NZ_JBMAZT010000015.1
+28	('abricate', 'card')	acrD	98.81	AP009048.1:2586250-2589364	gene_symbol(SYNONYM)	acrD	ARO:3000491		117957	121070	NZ_JBMAZT010000005.1
+29	('abricate', 'card')	bacA	98.9	U00096.3:3204131-3203309	gene_symbol(SYNONYM)	bacA	ARO:3002986		218081	218900	NZ_JBMAZT010000004.1
+11	('abricate', 'card')	catA1	99.7	V00622.1:243-903	gene_symbol(SYNONYM)	catA1	ARO:3002683		224	883	NZ_JBMAZT010000045.1
+30	('abricate', 'card')	cpxA	98.69	BA000007.3:4905062-4903688	gene_symbol(SYNONYM)	cpxA	ARO:3000830		60861	62234	NZ_JBMAZT010000021.1
+15	('abricate', 'card')	dfrA1	99.79	KJ541681.1:19526-20000	gene_symbol(SYNONYM)	dfrA1	ARO:3002854		688	1161	NZ_JBMAZT010000041.1
+31	('abricate', 'card')	emrA	98.21	AP009048.1:2810082-2811255	gene_symbol(SYNONYM)	emrA	ARO:3000027		24046	25218	NZ_JBMAZT010000001.1
+32	('abricate', 'card')	emrB	98.51	U00096.1:2812615-2814154	gene_symbol(SYNONYM)	emrB	ARO:3000074		25235	26773	NZ_JBMAZT010000001.1
+33	('abricate', 'card')	emrK	99.72	D78168.1:536-1592	gene_symbol(SYNONYM)	emrK	ARO:3000206		26080	27135	NZ_JBMAZT010000005.1
+34	('abricate', 'card')	emrR	100.0	U00096.3:2810769-2811300	gene_symbol(SYNONYM)	emrR	ARO:3000516		23389	23919	NZ_JBMAZT010000001.1
+35	('abricate', 'card')	emrY	98.83	D78168.1:1591-3130	gene_symbol(SYNONYM)	emrY	ARO:3000254		24542	26080	NZ_JBMAZT010000005.1
+36	('abricate', 'card')	eptA	99.39	AP009048.1:4340268-4338624	gene_symbol(SYNONYM)	eptA	ARO:3003576		115066	116709	NZ_JBMAZT010000012.1
+37	('abricate', 'card')	evgA	99.02	BA000007.3:3212025-3212640	gene_symbol(SYNONYM)	evgA	ARO:3000832		27658	28272	NZ_JBMAZT010000005.1
+38	('abricate', 'card')	evgS	99.44	U00096.1:2484373-2487967	gene_symbol(SYNONYM)	evgS	ARO:3000833		28277	31870	NZ_JBMAZT010000005.1
+39	('abricate', 'card')	gadW	94.24	CP015085.1:2552440-2551711	gene_symbol(SYNONYM)	gadW	ARO:3003838		222450	223178	NZ_JBMAZT010000003.1
+40	('abricate', 'card')	gadX	97.94	AP009048.1:3974604-3975429	gene_symbol(SYNONYM)	gadX	ARO:3000508		223546	224370	NZ_JBMAZT010000003.1
+41	('abricate', 'card')	kdpE	97.18	U00096.3:721733-721055	gene_symbol(SYNONYM)	kdpE	ARO:3003841		134709	135381	NZ_JBMAZT010000013.1
+42	('abricate', 'card')	leuO	97.99	LR730402.1:740042-740987	gene_symbol(SYNONYM)	leuO	ARO:3003843		80531	81475	NZ_JBMAZT010000009.1
+43	('abricate', 'card')	marA	99.48	AP009048.1:1621287-1621671	gene_symbol(SYNONYM)	marA	ARO:3000263		20815	21198	NZ_JBMAZT010000016.1
+44	('abricate', 'card')	mdtA	98.16	U00096.1:2154015-2155263	gene_symbol(SYNONYM)	mdtA	ARO:3000792		275920	277167	NZ_JBMAZT010000002.1
+45	('abricate', 'card')	mdtB	97.95	U00096.1:2155262-2158385	gene_symbol(SYNONYM)	mdtB	ARO:3000793		272798	275920	NZ_JBMAZT010000002.1
+46	('abricate', 'card')	mdtC	98.08	U00096.1:2158385-2161463	gene_symbol(SYNONYM)	mdtC	ARO:3000794		269720	272797	NZ_JBMAZT010000002.1
+47	('abricate', 'card')	mdtE	99.74	AP009048.1:3981183-3980025	gene_symbol(SYNONYM)	mdtE	ARO:3000795		217792	218949	NZ_JBMAZT010000003.1
+48	('abricate', 'card')	mdtF	98.52	U00096.1:3660413-3663527	gene_symbol(SYNONYM)	mdtF	ARO:3000796		218974	222087	NZ_JBMAZT010000003.1
+49	('abricate', 'card')	mdtG	98.94	CP000800.1:1192954-1191727	gene_symbol(SYNONYM)	mdtG	ARO:3001329		228969	230195	NZ_JBMAZT010000006.1
+50	('abricate', 'card')	mdtH	98.51	U00096.1:1125326-1124117	gene_symbol(SYNONYM)	mdtH	ARO:3001216		219130	220338	NZ_JBMAZT010000006.1
+51	('abricate', 'card')	mdtM	97.08	U00096.3:4568519-4567286	gene_symbol(SYNONYM)	mdtM	ARO:3001214		60165	61397	NZ_JBMAZT010000020.1
+52	('abricate', 'card')	mdtN	98.06	AP009048.1:4307588-4306556	gene_symbol(SYNONYM)	mdtN	ARO:3003548		91378	92409	NZ_JBMAZT010000012.1
+53	('abricate', 'card')	mdtO	98.2	AP009048.1:4306557-4304505	gene_symbol(SYNONYM)	mdtO	ARO:3003549		89327	91378	NZ_JBMAZT010000012.1
+54	('abricate', 'card')	mdtP	98.16	AP009048.1:4304509-4303042	gene_symbol(SYNONYM)	mdtP	ARO:3003550		87864	89330	NZ_JBMAZT010000012.1
+55	('abricate', 'card')	msbA	99.26	U00096.3:966620-968369	gene_symbol(SYNONYM)	msbA	ARO:3003950		119746	121494	NZ_JBMAZT010000007.1
+12	('abricate', 'card')	sul2	100.0	AY055428.1:21084-20268	gene_symbol	sul2	ARO:3000412		1367	2182	NZ_JBMAZT010000046.1
+13	('abricate', 'card')	tet(A)	100.0	AF534183.1:2970-4245	gene_symbol(SYNONYM)	tet(A)	ARO:3000165		5143	6417	NZ_JBMAZT010000046.1
+0	('NCBI Reference Gene Database', 'amrfinderplus')	aadA1	100.0	WP_001206315.1	card_blastp_homolog	Detection_Model:Protein	ARO:3004089	100.0	2	775	NZ_JBMAZT010000086.1
+17	('NCBI Reference Gene Database', 'amrfinderplus')	acrF	99.61	AAC76298.1	gene_symbol(SYNONYM)	acrF	ARO:3000502		5411	8512	NZ_JBMAZT010000004.1
+2	('NCBI Reference Gene Database', 'amrfinderplus')	aph(3'')-Ib	100.0	WP_001082319.1	gene_symbol(SYNONYM)	aph(3'')-Ib	ARO:3002639		2243	3043	NZ_JBMAZT010000046.1
+3	('NCBI Reference Gene Database', 'amrfinderplus')	aph(6)-Id	100.0	WP_000480968.1	gene_symbol(SYNONYM)	aph(6)-Id	ARO:3002660		3046	3879	NZ_JBMAZT010000046.1
+5	('NCBI Reference Gene Database', 'amrfinderplus')	blaEC	99.73	WP_063860256.1	card_blastp_homolog	Detection_Model:Protein	ARO:3006878	100.0	4642	5772	NZ_JBMAZT010000011.1
+8	('NCBI Reference Gene Database', 'amrfinderplus')	blaOXA	99.64	WP_001334766.1	card_blastp_homolog	Detection_Model:Protein	ARO:3001396	100.0	11972	12799	NZ_JBMAZT010000045.1
+9	('NCBI Reference Gene Database', 'amrfinderplus')	blaTEM-1	100.0	WP_000027057.1	card_blastp_homolog	Detection_Model:Protein	ARO:3000873	100.0	7114	7971	NZ_JBMAZT010000023.1
+11	('NCBI Reference Gene Database', 'amrfinderplus')	catA1	99.54	WP_000412211.1	gene_symbol(SYNONYM)	catA1	ARO:3002683		224	880	NZ_JBMAZT010000045.1
+15	('NCBI Reference Gene Database', 'amrfinderplus')	dfrA1	100.0	WP_000777554.1	gene_symbol(SYNONYM)	dfrA1	ARO:3002854		691	1161	NZ_JBMAZT010000041.1
+56	('NCBI Reference Gene Database', 'amrfinderplus')	glpT	99.78	WP_000948731.1	card_blastp_variant	Detection_Model:Protein	ARO:3003889	100.0	88417	89772	NZ_JBMAZT010000002.1
+57	('NCBI Reference Gene Database', 'amrfinderplus')	gyrA	98.97	WP_001281243.1	card_blastp_variant	Detection_Model:Protein	ARO:3003294	100.0	101208	103832	NZ_JBMAZT010000002.1
+57	('NCBI Reference Gene Database', 'amrfinderplus')	gyrA	98.97	WP_001281243.1	card_blastp_variant	Detection_Model:Protein	ARO:3003294	100.0	101208	103832	NZ_JBMAZT010000002.1
+51	('NCBI Reference Gene Database', 'amrfinderplus')	mdtM	97.8	AAC77293.1	gene_symbol(SYNONYM)	mdtM	ARO:3001214		60165	61391	NZ_JBMAZT010000020.1
+58	('NCBI Reference Gene Database', 'amrfinderplus')	parC	99.87	WP_001281881.1	card_blastx_variant	Detection_Model:Protein	ARO:3003308	100.0	252652	254907	NZ_JBMAZT010000004.1
+59	('NCBI Reference Gene Database', 'amrfinderplus')	pmrB	99.45	WP_001300761.1	gene_symbol(SYNONYM)	pmrB	ARO:3003583		113303	114391	NZ_JBMAZT010000012.1
+10	('NCBI Reference Gene Database', 'amrfinderplus')	qepA8	100.0	WP_109638756.1	card_blastp_homolog	Detection_Model:Protein	ARO:3004103	100.0	7147	8685	NZ_JBMAZT010000045.1
+1	('NCBI Reference Gene Database', 'amrfinderplus')	sat2	100.0	WP_000704156.1	card_blastp_homolog	Detection_Model:Protein	ARO:3002895	100.0	72	593	NZ_JBMAZT010000041.1
+12	('NCBI Reference Gene Database', 'amrfinderplus')	sul2	100.0	WP_001043260.1	gene_symbol	sul2	ARO:3000412		1367	2179	NZ_JBMAZT010000046.1
+60	('NCBI Reference Gene Database', 'amrfinderplus')	tet(A)	100.0	WP_000804063.1	gene_symbol(SYNONYM)	tet(A)	ARO:3000165		5218	6414	NZ_JBMAZT010000046.1
+0	('resfinder', 'resfinder')	aadA1	100.0	JQ480156	card_blastx_homolog	Detection_Model:Protein	ARO:3004089	100.0	1	778	NZ_JBMAZT010000086.1
+2	('resfinder', 'resfinder')	aph(3'')-Ib	100.0	AF321551	gene_symbol(SYNONYM)	aph(3'')-Ib	ARO:3002639		2243	3046	NZ_JBMAZT010000046.1
+3	('resfinder', 'resfinder')	aph(6)-Id	100.0	M28829	gene_symbol(SYNONYM)	aph(6)-Id	ARO:3002660		3046	3882	NZ_JBMAZT010000046.1
+8	('resfinder', 'resfinder')	blaOXA-1	99.88	HQ170510	card_blastp_homolog	Detection_Model:Protein	ARO:3001396	100.0	11972	12802	NZ_JBMAZT010000045.1
+9	('resfinder', 'resfinder')	blaTEM-1B	100.0	AY458016	card_blastp_homolog	Detection_Model:Protein	ARO:3000873	100.0	7114	7974	NZ_JBMAZT010000023.1
+11	('resfinder', 'resfinder')	catA1	99.7	V00622	gene_symbol(SYNONYM)	catA1	ARO:3002683		224	883	NZ_JBMAZT010000045.1
+15	('resfinder', 'resfinder')	dfrA1	100.0	X00926	gene_symbol(SYNONYM)	dfrA1	ARO:3002854		688	1161	NZ_JBMAZT010000041.1
+10	('resfinder', 'resfinder')	qepA1	99.55	AB263754	gene_symbol(SYNONYM)	qepA1	ARO:3000448		7147	8688	NZ_JBMAZT010000045.1
+10	('resfinder', 'resfinder')	qepA2	99.55	EU847537	gene_symbol(SYNONYM)	qepA2	ARO:3004103		7147	8688	NZ_JBMAZT010000045.1
+10	('resfinder', 'resfinder')	qepA4	99.55	KX580704	gene_symbol(SYNONYM)	qepA4	ARO:3004379		7147	8688	NZ_JBMAZT010000045.1
+12	('resfinder', 'resfinder')	sul2	100.0	AY034138	gene_symbol	sul2	ARO:3000412		1367	2182	NZ_JBMAZT010000046.1
+13	('resfinder', 'resfinder')	tet(A)	100.0	AF534183	gene_symbol(SYNONYM)	tet(A)	ARO:3000165		5143	6417	NZ_JBMAZT010000046.1
+0	('CARD', 'rgi_blast')	ANT(3'')-IIa	99.61	3004089	reference_accession	ANT(3'')-IIa	ARO:3004089		2	778	NZ_JBMAZT010000086.1
+2	('CARD', 'rgi_blast')	APH(3'')-Ib	99.63	3002639	reference_accession	APH(3'')-Ib	ARO:3002639		2243	3046	NZ_JBMAZT010000046.1
+3	('CARD', 'rgi_blast')	APH(6)-Id	99.64	3002660	reference_accession	APH(6)-Id	ARO:3002660		3046	3882	NZ_JBMAZT010000046.1
+16	('CARD', 'rgi_blast')	AcrE	100.0	3000499	reference_accession	AcrE	ARO:3000499		8524	9681	NZ_JBMAZT010000004.1
+17	('CARD', 'rgi_blast')	AcrF	99.61	3000502	reference_accession	AcrF	ARO:3000502		5408	8512	NZ_JBMAZT010000004.1
+18	('CARD', 'rgi_blast')	AcrS	99.55	3000656	reference_accession	AcrS	ARO:3000656		10080	10742	NZ_JBMAZT010000004.1
+61	('CARD', 'rgi_blast')	ArnT	63.88	3005053	reference_accession	ArnT	ARO:3005053		72289	73941	NZ_JBMAZT010000002.1
+19	('CARD', 'rgi_blast')	CRP	99.52	3000518	reference_accession	CRP	ARO:3000518		15001	15633	NZ_JBMAZT010000003.1
+5	('CARD', 'rgi_blast')	EC-18	99.73	3006878	reference_accession	EC-18	ARO:3006878		4639	5772	NZ_JBMAZT010000011.1
+62	('CARD', 'rgi_blast')	Escherichia coli AcrAB-TolC with AcrR mutation conferring resistance to ciprofloxacin, tetracycline, and ceftazidime	99.53	3003807	reference_accession	Escherichia coli AcrAB-TolC with AcrR mutation conferring resistance to ciprofloxacin, tetracycline, and ceftazidime	ARO:3003807		36745	37392	NZ_JBMAZT010000015.1
+63	('CARD', 'rgi_blast')	Escherichia coli AcrAB-TolC with MarR mutations conferring resistance to ciprofloxacin and tetracycline	98.61	3003378	reference_accession	Escherichia coli AcrAB-TolC with MarR mutations conferring resistance to ciprofloxacin and tetracycline	ARO:3003378		21218	21652	NZ_JBMAZT010000016.1
+56	('CARD', 'rgi_blast')	Escherichia coli GlpT with mutation conferring resistance to fosfomycin	99.78	3003889	reference_accession	Escherichia coli GlpT with mutation conferring resistance to fosfomycin	ARO:3003889		88417	89775	NZ_JBMAZT010000002.1
+20	('CARD', 'rgi_blast')	Escherichia coli acrA	100.0	3004043	reference_accession	Escherichia coli acrA	ARO:3004043		37534	38727	NZ_JBMAZT010000015.1
+57	('CARD', 'rgi_blast')	Escherichia coli gyrA conferring resistance to fluoroquinolones	99.77	3003294	reference_accession	Escherichia coli gyrA conferring resistance to fluoroquinolones	ARO:3003294		101208	103835	NZ_JBMAZT010000002.1
+21	('CARD', 'rgi_blast')	Escherichia coli mdfA	96.83	3001328	reference_accession	Escherichia coli mdfA	ARO:3001328		25994	27226	NZ_JBMAZT010000007.1
+58	('CARD', 'rgi_blast')	Escherichia coli parC conferring resistance to fluoroquinolones	99.87	3003308	reference_accession	Escherichia coli parC conferring resistance to fluoroquinolones	ARO:3003308		252652	254910	NZ_JBMAZT010000004.1
+64	('CARD', 'rgi_blast')	Escherichia coli soxR with mutation conferring antibiotic resistance	100.0	3003381	reference_accession	Escherichia coli soxR with mutation conferring antibiotic resistance	ARO:3003381		66334	66798	NZ_JBMAZT010000012.1
+65	('CARD', 'rgi_blast')	Escherichia coli soxS with mutation conferring antibiotic resistance	100.0	3003511	reference_accession	Escherichia coli soxS with mutation conferring antibiotic resistance	ARO:3003511		65925	66248	NZ_JBMAZT010000012.1
+22	('CARD', 'rgi_blast')	H-NS	100.0	3000676	reference_accession	H-NS	ARO:3000676		67286	67699	NZ_JBMAZT010000006.1
+66	('CARD', 'rgi_blast')	Haemophilus influenzae PBP3 conferring resistance to beta-lactam antibiotics	53.11	3004446	reference_accession	Haemophilus influenzae PBP3 conferring resistance to beta-lactam antibiotics	ARO:3004446		87576	89342	NZ_JBMAZT010000009.1
+67	('CARD', 'rgi_blast')	Klebsiella pneumoniae KpnE	82.2	3004580	reference_accession	Klebsiella pneumoniae KpnE	ARO:3004580		142593	142958	NZ_JBMAZT010000010.1
+68	('CARD', 'rgi_blast')	Klebsiella pneumoniae KpnF	84.4	3004583	reference_accession	Klebsiella pneumoniae KpnF	ARO:3004583		142945	143274	NZ_JBMAZT010000010.1
+8	('CARD', 'rgi_blast')	OXA-1	99.64	3001396	reference_accession	OXA-1	ARO:3001396		11972	12802	NZ_JBMAZT010000045.1
+24	('CARD', 'rgi_blast')	PmrF	100.0	3003578	reference_accession	PmrF	ARO:3003578		76810	77778	NZ_JBMAZT010000002.1
+10	('CARD', 'rgi_blast')	QepA4	99.42	3004379	reference_accession	QepA4	ARO:3004379		7147	8688	NZ_JBMAZT010000045.1
+1	('CARD', 'rgi_blast')	SAT-2	100.0	3002895	reference_accession	SAT-2	ARO:3002895		69	593	NZ_JBMAZT010000041.1
+9	('CARD', 'rgi_blast')	TEM-1	100.0	3000873	reference_accession	TEM-1	ARO:3000873		7114	7974	NZ_JBMAZT010000023.1
+25	('CARD', 'rgi_blast')	TolC	100.0	3000237	reference_accession	TolC	ARO:3000237		241259	242747	NZ_JBMAZT010000004.1
+26	('CARD', 'rgi_blast')	YojI	99.63	3003952	reference_accession	YojI	ARO:3003952		124797	126440	NZ_JBMAZT010000002.1
+27	('CARD', 'rgi_blast')	acrB	100.0	3000216	reference_accession	acrB	ARO:3000216		38750	41899	NZ_JBMAZT010000015.1
+28	('CARD', 'rgi_blast')	acrD	99.81	3000491	reference_accession	acrD	ARO:3000491		117957	121070	NZ_JBMAZT010000005.1
+29	('CARD', 'rgi_blast')	bacA	99.63	3002986	reference_accession	bacA	ARO:3002986		218081	218902	NZ_JBMAZT010000004.1
+69	('CARD', 'rgi_blast')	baeR	99.58	3000828	reference_accession	baeR	ARO:3000828		266185	266907	NZ_JBMAZT010000002.1
+70	('CARD', 'rgi_blast')	baeS	100.0	3000829	reference_accession	baeS	ARO:3000829		266904	268307	NZ_JBMAZT010000002.1
+11	('CARD', 'rgi_blast')	catI	99.54	3002683	reference_accession	catA1	ARO:3002683		224	883	NZ_JBMAZT010000045.1
+30	('CARD', 'rgi_blast')	cpxA	100.0	3000830	reference_accession	cpxA	ARO:3000830		60861	62234	NZ_JBMAZT010000021.1
+15	('CARD', 'rgi_blast')	dfrA1	99.36	3002854	reference_accession	dfrA1	ARO:3002854		688	1161	NZ_JBMAZT010000041.1
+31	('CARD', 'rgi_blast')	emrA	99.74	3000027	reference_accession	emrA	ARO:3000027		24046	25218	NZ_JBMAZT010000001.1
+32	('CARD', 'rgi_blast')	emrB	100.0	3000074	reference_accession	emrB	ARO:3000074		25235	26773	NZ_JBMAZT010000001.1
+33	('CARD', 'rgi_blast')	emrK	100.0	3000206	reference_accession	emrK	ARO:3000206		26080	27135	NZ_JBMAZT010000005.1
+34	('CARD', 'rgi_blast')	emrR	100.0	3000516	reference_accession	emrR	ARO:3000516		23389	23919	NZ_JBMAZT010000001.1
+35	('CARD', 'rgi_blast')	emrY	99.8	3000254	reference_accession	emrY	ARO:3000254		24542	26080	NZ_JBMAZT010000005.1
+36	('CARD', 'rgi_blast')	eptA	99.63	3003576	reference_accession	eptA	ARO:3003576		115066	116709	NZ_JBMAZT010000012.1
+37	('CARD', 'rgi_blast')	evgA	100.0	3000832	reference_accession	evgA	ARO:3000832		27658	28272	NZ_JBMAZT010000005.1
+38	('CARD', 'rgi_blast')	evgS	99.33	3000833	reference_accession	evgS	ARO:3000833		28277	31870	NZ_JBMAZT010000005.1
+40	('CARD', 'rgi_blast')	gadX	98.54	3000508	reference_accession	gadX	ARO:3000508		223546	224370	NZ_JBMAZT010000003.1
+41	('CARD', 'rgi_blast')	kdpE	99.11	3003841	reference_accession	kdpE	ARO:3003841		134704	135381	NZ_JBMAZT010000013.1
+42	('CARD', 'rgi_blast')	leuO	98.73	3003843	reference_accession	leuO	ARO:3003843		80531	81475	NZ_JBMAZT010000009.1
+43	('CARD', 'rgi_blast')	marA	100.0	3000263	reference_accession	marA	ARO:3000263		20815	21198	NZ_JBMAZT010000016.1
+44	('CARD', 'rgi_blast')	mdtA	99.52	3000792	reference_accession	mdtA	ARO:3000792		275920	277167	NZ_JBMAZT010000002.1
+45	('CARD', 'rgi_blast')	mdtB	99.52	3000793	reference_accession	mdtB	ARO:3000793		272798	275920	NZ_JBMAZT010000002.1
+46	('CARD', 'rgi_blast')	mdtC	99.71	3000794	reference_accession	mdtC	ARO:3000794		269720	272797	NZ_JBMAZT010000002.1
+47	('CARD', 'rgi_blast')	mdtE	100.0	3000795	reference_accession	mdtE	ARO:3000795		217792	218949	NZ_JBMAZT010000003.1
+48	('CARD', 'rgi_blast')	mdtF	99.81	3000796	reference_accession	mdtF	ARO:3000796		218974	222087	NZ_JBMAZT010000003.1
+49	('CARD', 'rgi_blast')	mdtG	100.0	3001329	reference_accession	mdtG	ARO:3001329		228969	230195	NZ_JBMAZT010000006.1
+50	('CARD', 'rgi_blast')	mdtH	99.75	3001216	reference_accession	mdtH	ARO:3001216		219130	220338	NZ_JBMAZT010000006.1
+51	('CARD', 'rgi_blast')	mdtM	97.56	3001214	reference_accession	mdtM	ARO:3001214		60165	61397	NZ_JBMAZT010000020.1
+52	('CARD', 'rgi_blast')	mdtN	99.71	3003548	reference_accession	mdtN	ARO:3003548		91378	92409	NZ_JBMAZT010000012.1
+53	('CARD', 'rgi_blast')	mdtO	98.54	3003549	reference_accession	mdtO	ARO:3003549		89327	91378	NZ_JBMAZT010000012.1
+54	('CARD', 'rgi_blast')	mdtP	97.95	3003550	reference_accession	mdtP	ARO:3003550		87864	89330	NZ_JBMAZT010000012.1
+55	('CARD', 'rgi_blast')	msbA	100.0	3003950	reference_accession	msbA	ARO:3003950		119746	121494	NZ_JBMAZT010000007.1
+71	('CARD', 'rgi_blast')	rsmA	85.25	3005069	reference_accession	rsmA	ARO:3005069		31580	31765	NZ_JBMAZT010000001.1
+12	('CARD', 'rgi_blast')	sul2	100.0	3000412	reference_accession	sul2	ARO:3000412		1367	2182	NZ_JBMAZT010000046.1
+60	('CARD', 'rgi_blast')	tet(A)	99.75	3000165	reference_accession	tet(A)	ARO:3000165		5218	6417	NZ_JBMAZT010000046.1
+72	('CARD', 'rgi_blast')	vanG	39.5	3002909	reference_accession	vanG	ARO:3002909		124326	125420	NZ_JBMAZT010000015.1
