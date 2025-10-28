@@ -1,0 +1,4 @@
+Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+NA	NZ_JBMAZT010000009.1	15266	16681	-	espX1	type III secretion system effector EspX1	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	472	473	99.79	91.95	472	ADD54679.1	type III secretion system effector EspX1	NA	NA
+NA	NZ_JBMAZT010000017.1	80490	84731	-	fdeC	inverse autotransporter adhesin FdeC	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	1414	1416	99.93	92.37	1415	ABE05822.1	inverse autotransporter adhesin FdeC	NA	NA
+NA	NZ_JBMAZT010000041.1	3688	4257	+	lpfA-O113	long polar fimbria major subunit LpfA-O113	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	190	190	100.00	100.00	190	AAT76975.1	long polar fimbria major subunit LpfA-O113	NA	NA
