@@ -1,13 +1,13 @@
-{"amr_analysis.assembly":"/Users/tclarke/Downloads/GCF_048590205.1_ASM4859020v1_genomic.fasta.gz",
-"amr_analysis.BVBRC_username":"thclarke1",
-"amr_analysis.run_hAMRonize.CARD_aro_obo":"/Users/tclarke/Documents/AMR_Test/card-ontology/aro.obo",
+{"amr_analysis.assembly":DIR/"GCF_048590205.1_ASM4859020v1_genomic.fasta.gz",
+"amr_analysis.BVBRC_username":"USERNAME",
+"amr_analysis.run_hAMRonize.CARD_aro_obo":"DIR/aro.obo",
 "amr_analysis.sample_name":"SAMN45204645",
-"amr_analysis.BVBRC_password":"W1n9n9i@",
+"amr_analysis.BVBRC_password":"PASSWORD",
 "amr_analysis.gb_req":10,
 "amr_analysis.organism":"Escherichia coli",
-"amr_analysis.run_hAMRonize.CARD_nucleotide_variant":"/Users/tclarke/Documents/AMR_Test/card-prevalence/nucleotide_fasta_protein_variant_model_variants.fasta",
-"amr_analysis.run_hAMRonize.CARD_protein_variant":"/Users/tclarke/Documents/AMR_Test/card-prevalence/protein_fasta_protein_variant_model_variants.fasta",
-"amr_analysis.run_hAMRonize.CARD_nucleotide_homolog":"/Users/tclarke/Documents/AMR_Test/card-prevalence/nucleotide_fasta_protein_homolog_model_variants.fasta",
-"amr_analysis.run_hAMRonize.CARD_protein_homolog":"/Users/tclarke/Documents/AMR_Test/card-prevalence/protein_fasta_protein_homolog_model_variants.fasta"
+"amr_analysis.run_hAMRonize.CARD_nucleotide_variant":"DIR/card-prevalence/nucleotide_fasta_protein_variant_model_variants.fasta",
+"amr_analysis.run_hAMRonize.CARD_protein_variant":"DIR/protein_fasta_protein_variant_model_variants.fasta",
+"amr_analysis.run_hAMRonize.CARD_nucleotide_homolog":"DIR/nucleotide_fasta_protein_homolog_model_variants.fasta",
+"amr_analysis.run_hAMRonize.CARD_protein_homolog":"DIR//protein_fasta_protein_homolog_model_variants.fasta"
 }
 
