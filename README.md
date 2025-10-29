@@ -47,9 +47,9 @@ The repository includes:
 - Dockerfiles for JCVI-produced and 3rd party bioinformatic tools
 - Workflows in the Workflow Description Language (WDL) tailored for Terra, a cloud-native research platform. These can also be tested using Cromwell
 - Example hAMRonization runs including:
-   - (walk-throughs)[https://github.com/JCVenterInstitute/CAMRA/wiki/AMR-Analysis]
-   - (input files)[https://github.com/JCVenterInstitute/CAMRA/tree/tclarke/examples/examples/Initial]
-   - (output files)[https://github.com/JCVenterInstitute/CAMRA/tree/tclarke/examples/examples/Output]
+   - [walk-throughs](https://github.com/JCVenterInstitute/CAMRA/wiki/AMR-Analysis)
+   - [input files](https://github.com/JCVenterInstitute/CAMRA/tree/tclarke/examples/examples/Initial)
+   - [output files](https://github.com/JCVenterInstitute/CAMRA/tree/tclarke/examples/examples/Output)
 
 ## Links
 
