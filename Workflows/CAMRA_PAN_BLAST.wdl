@@ -10,7 +10,7 @@ task makeFastaFiles {
      mkdir ./fasta_dir/
 
      for fl in ~{sep = " " gb_files}; do
-		echo $fl
+        echo $fl
         cp $fl ./
         #echo "./"$(basename $fl) >> genomes.list
         echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ print $1"\t"dir"/"$0; }' >> genomes.list
