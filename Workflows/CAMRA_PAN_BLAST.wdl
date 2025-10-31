@@ -15,7 +15,7 @@ task makeFastaFiles {
         #echo "./"$(basename $fl) >> genomes.list
         echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ print $1"\t"dir"/"$0; }' >> genomes.list
      done
-     
+     echo "Start\n"
      /pangenome/bin/core_hmm_checker_prep.pl -g genomes.list  -o ./
      cd pep
      for f in *pep; do
@@ -25,6 +25,7 @@ task makeFastaFiles {
             mv $f ../
         fi
      done
+     echo "END\n"
      cd ..
      makeblastdb -in all_sequences.fasta -dbtype ~{db_type} -out blast_db
      find "$(pwd -P)" -type f -name "blast_db*" > blast_list.txt
