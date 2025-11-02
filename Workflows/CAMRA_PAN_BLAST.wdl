@@ -10,7 +10,7 @@ task makeFastaFiles {
      mkdir ./fasta_dir/
      mkdir ./pep/
      mkdir ./nucl/
-     cat $gb_files
+     echo $gb_files
      #for amr_file in ${file_paths[@]}; do
      for fl in ~{sep = " " gb_files}; do
         echo $fl
