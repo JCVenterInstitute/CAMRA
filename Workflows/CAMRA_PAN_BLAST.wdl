@@ -8,7 +8,8 @@ task makeFastaFiles {
   command <<<
      mkdir ./gb_dir/
      mkdir ./fasta_dir/
-
+     mkdir ./pep/
+     mkdir ./nucl/
      for fl in ~{sep = " " gb_files}; do
         echo $fl
         cp $fl ./
