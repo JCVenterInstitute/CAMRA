@@ -23,6 +23,7 @@ task makeFastaFiles {
      cd pep
      for f in *pep; do
         echo $f
+        chmod +r $f
         if $f != "genome.pep"; then
             cat $f >> ../all_sequences.fasta
             mv $f ../
