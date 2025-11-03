@@ -14,10 +14,11 @@ task makeFastaFiles {
      #for amr_file in ${file_paths[@]}; do
      for fl in ~{sep = ' ' gb_files}; do
         echo $fl
-        cp $fl ./
+        #cp $fl ./
         #echo "./"$(basename $fl) >> genomes.list
-        echo $(pwd)
+        #echo $(pwd)
         echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ print $1"\t"dir"/"$0; }' >> genomes.list
+        echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ echo $1"\t"dir"/"$0; }'
      done
      echo "Start\n"
      /pangenome/bin/core_hmm_checker_prep.pl -g genomes.list  -o ./
@@ -40,6 +41,7 @@ task makeFastaFiles {
   output {
         Array[File] blast_files = glob("blast_db*")
         String blast_db_prefix = "blast_db"
+		File genomes.list
         Array[File] input_fastas = glob("*pep")
   }
 
