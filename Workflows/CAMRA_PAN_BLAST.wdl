@@ -41,7 +41,7 @@ task makeFastaFiles {
   output {
         Array[File] blast_files = glob("blast_db*")
         String blast_db_prefix = "blast_db"
-		File genomes.list
+		File genomes.list = "genomes.list"
         Array[File] input_fastas = glob("*pep")
   }
 
