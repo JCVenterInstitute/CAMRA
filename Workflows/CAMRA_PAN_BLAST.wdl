@@ -10,9 +10,9 @@ task makeFastaFiles {
      mkdir ./fasta_dir/
      mkdir ./pep/
      mkdir ./nucl/
-     echo ~{sep = " " gb_files}
+     echo ~{sep = ' ' gb_files}
      #for amr_file in ${file_paths[@]}; do
-     for fl in ~{sep = " " gb_files}; do
+     for fl in ~{sep = ' ' gb_files}; do
         echo $fl
         cp $fl ./
         #echo "./"$(basename $fl) >> genomes.list
