@@ -6,6 +6,7 @@ task makeFastaFiles {
     String db_type
   }
   command <<<
+     cd /tmp/
      mkdir ./gb_dir/
      mkdir ./fasta_dir/
      mkdir ./pep/
@@ -15,7 +16,7 @@ task makeFastaFiles {
      for fl in ~{sep = ' ' gb_files}; do
         echo $fl
         #cp $fl ./
-        #echo "./"$(basename $fl) >> genomes.list
+        echo "./"$(basename $fl) >> genomes.list
         #echo $(pwd)
         echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ print $1"\t"dir"/"$0; }' >> genomes.list
         echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ echo $1"\t"dir"/"$0; }'
