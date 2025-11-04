@@ -15,7 +15,7 @@ task makeFastaFiles {
      #for amr_file in ${file_paths[@]}; do
      for fl in ~{sep = ' ' gb_files}; do
         echo $fl
-        #cp $fl ./
+        cp $fl ./
         echo "./"$(basename $fl) >> genomes.list
         #echo $(pwd)
         echo $(basename $fl) | awk -F'\.' -v dir="$(pwd)" '{ print $1"\t"dir"/"$0; }' >> genomes.list
