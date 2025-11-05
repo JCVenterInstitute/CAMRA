@@ -135,4 +135,8 @@ workflow make_blast   {
 
     }
 
+    output {
+     File blast_output = "combined.blast"
+   }
+
 }
