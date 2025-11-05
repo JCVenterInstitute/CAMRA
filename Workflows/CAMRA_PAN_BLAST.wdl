@@ -6,7 +6,6 @@ task makeFastaFiles {
     String db_type
   }
   command <<<
-     cd /tmp/
      mkdir ./gb_dir/
      mkdir ./fasta_dir/
      mkdir ./pep/
@@ -23,11 +22,12 @@ task makeFastaFiles {
      done
      echo "Start\n"
      /pangenome/bin/core_hmm_checker_prep.pl -g genomes.list  -o ./
+     touch all_sequences.fasta
      cd pep
      for f in *pep; do
         echo $f
         chmod +rw $f
-        if $f != "genome.pep"; then
+        if [ $f != "genomes.pep" ]; then
             cat "$f" >> ../all_sequences.fasta
             mv $f ../
         fi
