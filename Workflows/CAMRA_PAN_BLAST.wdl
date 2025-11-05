@@ -136,7 +136,7 @@ workflow make_blast   {
     }
 
     output {
-     File blast_output = "combined.blast"
+     File combined_blast_output = makeCombinedBlast.blast_output
    }
 
 }
