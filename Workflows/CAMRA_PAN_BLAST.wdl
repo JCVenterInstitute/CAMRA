@@ -83,6 +83,7 @@ task RunBlast {
 task makeCombinedBlast {
   input {
     Array[File]  blast_output
+    int hdd_size = 10
   }
 
   command <<<
@@ -95,6 +96,7 @@ task makeCombinedBlast {
 
   runtime {
     docker: "thclarke/pangenomepipeline:latest"
+    disks: "local-disk ~{ hdd_size } HDD"  # Request 4 GB of memory
   }
 }
 
