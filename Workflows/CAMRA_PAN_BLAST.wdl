@@ -83,7 +83,7 @@ task RunBlast {
 task makeCombinedBlast {
   input {
     Array[File]  blast_output
-    int hdd_size = 10
+    Int hdd_size = 10
   }
 
   command <<<
