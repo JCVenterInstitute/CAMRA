@@ -31,7 +31,7 @@ workflow genome_assembly {
             read2 = read2,
             sample_name = sample_name,
             username = BVBRC_user,
-            password = BVBRC_password,
+            password = BVBRC_password
     }
 
     output {
