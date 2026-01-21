@@ -1,6 +1,6 @@
 version 1.0
 
-import "../Tasks/BV-BRC_tasks.wdl" as bvbrc
+import "../Tasks//task_bvbrc.wdl" as bvbrc
 
 workflow genome_assembly {
     meta {
