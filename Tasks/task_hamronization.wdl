@@ -214,9 +214,9 @@ task run_hAMRonize {
 
         # Check if file exists and is not empty
         if [[ -f "hamronize_amr_output.tsv" && -s "hamronize_amr_output.tsv" ]]; then
-            if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz ]]; then 
+            if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz || "~{assembly}" == *.fna.gz ]]; then 
                 gunzip -c ~{assembly} > assembly.fasta 
-            elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa ]]; then
+            elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa || "~{assembly}" == *.fna ]]; then
                 mv ~{assembly} assembly.fasta
             fi
         
