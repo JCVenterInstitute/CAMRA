@@ -35,7 +35,7 @@ task run_BVBRC_genome_assembly {
         contigs_above_threshold=$(grep -oP '(?<=Number of Contigs Above Threshold: ).*' bvbrc_asm_output/output_path.txt)
         contigs_below_threshold=$(grep -oP '(?<=Number of Contigs Below Threshold: ).*' bvbrc_asm_output/output_path.txt)
         average_read_length=$(grep -oP '(?<=Average Read Length: ).*' bvbrc_asm_output/output_path.txt)
-        contig_fasta_file_size=$(grep -oP '(?<=Contig.fasta File Size: ).*' bvbrc_asm_output/output_path.txt)
+        #contig_fasta_file_size=$(grep -oP '(?<=Contig.fasta File Size: ).*' bvbrc_asm_output/output_path.txt)
 
         # Save the variables to separate output files
         echo "$contigs_workspace_path" > contigs_workspace_path.txt
@@ -45,7 +45,7 @@ task run_BVBRC_genome_assembly {
         echo "$contigs_above_threshold" > contigs_above_threshold.txt
         echo "$contigs_below_threshold" > contigs_below_threshold.txt
         echo "$average_read_length" > average_read_length.txt
-        echo "$contig_fasta_file_size" > contig_fasta_file_size.txt
+        #echo "$contig_fasta_file_size" > contig_fasta_file_size.txt
         
         gzip bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta
 
@@ -58,7 +58,7 @@ task run_BVBRC_genome_assembly {
         File    bvbrc_asm_file                      = "bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta.gz"
         String  bvbrc_asm_contigs_workspace_path    = read_string("contigs_workspace_path.txt")
         Int     bvbrc_asm_timestamp                 = read_int("timestamp.txt")
-        Int     bvbrc_asm_contig_fasta_file_size    = read_int("contig_fasta_file_size.txt")
+        #Int     bvbrc_asm_contig_fasta_file_size    = read_int("contig_fasta_file_size.txt")
         Float   bvbrc_asm_average_read_depth        = read_float("average_read_depth.txt")
         Int     bvbrc_asm_number_reads              = read_int("num_reads.txt")
         Float   bvbrc_asm_average_read_length       = read_float("average_read_length.txt")
