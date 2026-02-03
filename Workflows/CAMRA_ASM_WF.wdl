@@ -37,7 +37,7 @@ workflow genome_assembly {
     output {
         File assembly_file = run_BVBRC_genome_assembly.bvbrc_asm_file
         File asm_bandage_plot = run_BVBRC_genome_assembly.bvbrc_asm_bandage_plot
-        String contigs_workspace_path = run_BVBRC_genome_assembly.bvbrc_asm_contigs_workspace_path
+        #String contigs_workspace_path = run_BVBRC_genome_assembly.bvbrc_asm_contigs_workspace_path
         #Int contig_fasta_file_size = run_BVBRC_genome_assembly.bvbrc_asm_contig_fasta_file_size
         Int number_reads = run_BVBRC_genome_assembly.bvbrc_asm_number_reads
         Int timestamp = run_BVBRC_genome_assembly.bvbrc_asm_timestamp
