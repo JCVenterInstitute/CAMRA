@@ -54,7 +54,7 @@ task run_BVBRC_genome_assembly {
     >>>
 
     output {
-        File    bvbrc_asm_bandage_plot              = "bvbrc_asm_output/~{sample_name_no_space}_assembly_graph.plot.svg"
+        #File    bvbrc_asm_bandage_plot              = "bvbrc_asm_output/~{sample_name_no_space}_assembly_graph.plot.svg"
         File    bvbrc_asm_file                      = "bvbrc_asm_output/~{sample_name_no_space}_contigs.fasta.gz"
         String  bvbrc_asm_contigs_workspace_path    = read_string("contigs_workspace_path.txt")
         Int     bvbrc_asm_timestamp                 = read_int("timestamp.txt")
