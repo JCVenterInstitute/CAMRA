@@ -133,3 +133,64 @@ task run_BVBRC_annotation_analysis {
         File bvbrc_annot_feature_protein                    = "bvbrc_cga_output/annotation.feature_protein.fasta.gz"
     }
 }
+
+task run_BVBRC_get_AMR_results {
+    meta {
+        author: "Thomas Clarke"
+        email: "toby.h.clarke@gmail.com"
+        description: "Task for running the BV-BRC complete genome analysis tool."
+        version: "1.2"
+    }
+
+    input {
+        String username
+        String password
+        String sample_name
+        String date
+        String? timestamp
+    }
+
+    runtime {
+        docker: 'danylmb/bvbrc:5.3'
+    }
+
+    String sample_name_no_space = sub(sample_name, " ", "_")
+
+    # output path could be changed to be relative to the contigs file location to reduce the number of inputs
+    command <<<
+        python3 /bin/bvbrc_login.py "~{username}" "~{password}"
+        mkdir bvbrc_cga_output
+        /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/annotation.genome ./bvbrc_cga_output/
+        /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/quality.json  ./bvbrc_cga_output/
+        /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/load_files/genome_amr.json./bvbrc_cga_output/
+        
+        if [[ -f "bvbrc_cga_output/quality.json" && -f "bvbrc_cga_output/annotation.genome" && -f "bvbrc_cga_output/genome_amr.json" && -f "bvbrc_cga_output/annotation.feature_protein.fasta" ]]; then
+            #/bin/bvbrc_transform.py makes bvbrc_amr_annotation.tsv and bvbrc_predicted_resistance.tsv
+            python3 /bin/bvbrc_transform.py bvbrc_cga_output/quality.json  bvbrc_cga_output/annotation.genome bvbrc_cga_output/genome_amr.json
+        fi
+
+        gzip "bvbrc_cga_output/annotation.feature_protein.fasta"
+
+        # List of files to check
+        files=("bvbrc_amr_annotation.tsv" "bvbrc_predicted_resistance.tsv")
+        
+        # Loop through each file
+        for file in "${files[@]}"; do
+            if [[ -e "$file" ]]; then
+                echo "The file '$file' exists."
+            else
+                echo "The file '$file' does not exist. Creating it..."
+                touch "$file"
+            fi
+        done
+    >>>
+
+    output {
+        File bvbrc_annot_genome_annotation                  = "bvbrc_cga_output/annotation.genome"
+        File bvbrc_annot_amr_annotation                     = "bvbrc_cga_output/genome_amr.json"
+        File bvbrc_annot_quality                            = "bvbrc_cga_output/quality.json"
+        File bvbrc_annot_transformed_amrhits                = "bvbrc_amr_annotation.tsv"
+        File bvbrc_annot_transformed_predictedresistance    = "bvbrc_predicted_resistance.tsv"
+    }
+}
+
