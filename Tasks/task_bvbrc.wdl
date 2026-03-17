@@ -162,7 +162,7 @@ task run_BVBRC_get_AMR_results {
         mkdir bvbrc_cga_output
         /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/annotation.genome ./bvbrc_cga_output/
         /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/quality.json  ./bvbrc_cga_output/
-        /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/load_files/genome_amr.json./bvbrc_cga_output/
+        /bin/p3-cp ws:/"~{username}"\@bvbrc/home/CAMRA_WDL/"~{date}"/None_{~sample_name_no_space}/CGA/.{~sample_name_no_space}_output/.annotation/load_files/genome_amr.json ./bvbrc_cga_output/
         
         if [[ -f "bvbrc_cga_output/quality.json" && -f "bvbrc_cga_output/annotation.genome" && -f "bvbrc_cga_output/genome_amr.json" && -f "bvbrc_cga_output/annotation.feature_protein.fasta" ]]; then
             #/bin/bvbrc_transform.py makes bvbrc_amr_annotation.tsv and bvbrc_predicted_resistance.tsv
