@@ -74,7 +74,8 @@ workflow amr_analysis_no_assembly   {
         String date
     }
     call bvbrc.run_BVBRC_get_AMR_results {
-         username = BVBRC_username,
+        input: 
+            username = BVBRC_username,
             password = BVBRC_password,
             date = date,
             sample_name = sample_name
