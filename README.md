@@ -31,12 +31,15 @@ The pipeline was designed to:
 - Be modular. Users can decide to run entire pipeline or only sections of the pipeline, such as the AMR worflow/section.
 - Permit scientist with minimal computational skills the ability to process their bacterial isolates. 
 
+## Usage Instructions
+More detailed instructions can be found on the [wiki](https://github.com/wiki/JCVenterInstitute/CAMRA/wiki), including running on TERRA and locally.
+
 ## Prerequisites
 ### Terra.bio Run
 To run on [Terra.bio](https://app.terra.bio/#) requires both user account and an active project, both with can be setup according to the steps [HERE]
 ### Local Run 
 - uses [Docker](https://www.docker.com/products/docker-desktop/) as a container for the different AMR programs
-- can use [Cromwell](https://github.com/broadinstitute/cromwell/releases/tag/91)  from the Broad Institute to run terra commands
+- can use [Cromwell](https://github.com/broadinstitute/cromwell/releases/tag/91)  from the Broad Institute to run terra commands locally
 
 Description using exemplar data are shown [HERE]
 
