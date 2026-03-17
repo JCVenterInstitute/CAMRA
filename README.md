@@ -32,7 +32,7 @@ The pipeline was designed to:
 - Permit scientist with minimal computational skills the ability to process their bacterial isolates. 
 
 ## Usage Instructions
-More detailed instructions can be found on the [wiki](https://github.com/wiki/JCVenterInstitute/CAMRA/wiki), including running on TERRA and locally.
+More detailed instructions can be found on the [wiki](https://github.com/JCVenterInstitute/CAMRA/wiki), including running on TERRA and locally.
 
 ## Prerequisites
 ### Terra.bio Run
