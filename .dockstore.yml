@@ -238,3 +238,13 @@ workflows:
       - orcid: 0009-0008-5199-2990 #Daniella Matute
     branches:
       - main
+ 
+  - name: CAMRA-GEOMAPPER
+    subclass: WDL
+    primaryDescriptorPath: /Workflows/CAMRA_GEOMAPPER.wdl
+    readMePath: /README.md
+    latestTagAsDefault: True
+    authors:
+      - orcid: 0009-0008-5199-2990 #Daniella Matute
+    branches:
+      - main
