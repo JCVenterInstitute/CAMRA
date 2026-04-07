@@ -11,7 +11,7 @@ task makeGeomapperFile {
     
   }
   command <<<
-    perl /opt/make_geomapper_file.pl -f ~{Hamonization} -o geomapper.tsv -c ~{Card_data} -s ~{id} -t ~{tax}  -d ~{date} -n ~{geo}
+    perl /opt/make_geomapper_file.pl -f ~{Hamonization} -o geomapper.tsv -c ~{Card_data} -s ~{id} -t ~{tax}  -d ~{date} -n "~{geo}"
   >>>
 
   output {
