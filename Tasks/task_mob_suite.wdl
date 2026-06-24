@@ -8,7 +8,7 @@ task run_mob_suite {
     }
 
     input {
-        File assembly,
+        File assembly
         String SampleID
     }
 
