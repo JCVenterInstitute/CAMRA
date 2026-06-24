@@ -13,7 +13,7 @@ workflow run_mob_suite   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        File assembly,
+        File assembly
         String SampleID
     }
 
