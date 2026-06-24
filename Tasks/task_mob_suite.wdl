@@ -8,7 +8,8 @@ task run_mob_suite {
     }
 
     input {
-        File assembly
+        File assembly,
+        String SampleID
     }
 
     runtime {
@@ -17,12 +18,12 @@ task run_mob_suite {
 
     command <<<
         if [[ "~{assembly}" == *.fasta.gz || "~{assembly}" == *.fa.gz ]]; then 
-            gunzip -c ~{assembly} > assembly.fasta 
+            gunzip -c ~{assembly} > ~{SampleID}.fasta 
         elif [[ "~{assembly}" == *.fasta || "~{assembly}" == *.fa ]]; then
-            mv ~{assembly}  assembly.fasta
+            mv ~{assembly}  ~{SampleID}.fasta
         fi
 
-        mob_recon -i assembly.fasta -o ./mob/
+        mob_recon -i ~{SampleID}.fasta -o ./mob/
         if [ ! -f "./mob/mobtyper_results.txt" ]; then
              touch ./mob/mobtyper_results.txt
         fi
