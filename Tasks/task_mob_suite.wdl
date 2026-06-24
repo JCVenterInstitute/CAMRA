@@ -27,7 +27,7 @@ task run_mob_suite {
         if [ ! -f "./mob/mobtyper_results.txt" ]; then
              touch ./mob/mobtyper_results.txt
         fi
-        mob_typer -i assembly.fasta -o ./mob/Typing.out 
+        mob_typer -i ~{SampleID}.fasta -o ./mob/Typing.out 
     >>>
 
     output {
