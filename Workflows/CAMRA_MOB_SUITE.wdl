@@ -13,7 +13,8 @@ workflow run_mob_suite   {
         description: "Analysis of genome, AMR focused."
     }
     input {
-        File assembly
+        File assembly,
+        String SampleID
     }
 
     # Task to combine genus and species
@@ -22,7 +23,8 @@ workflow run_mob_suite   {
 
     call mob_suite.run_mob_suite {
         input:
-            assembly = assembly
+            assembly = assembly,
+            SampleID = SampleID
     }
     
     output {
